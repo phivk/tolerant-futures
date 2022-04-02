@@ -3,6 +3,7 @@
     <h1>{{ title }}</h1>
     <!-- <SpectrumGame :turns="playTurns" :next-path="nextPath" /> -->
     <!-- <DragAndDrop></DragAndDrop> -->
+    <DropZone class="w-100 h-25"> drop zone </DropZone>
     <DraggableItem></DraggableItem>
     <TheFooter></TheFooter>
   </div>

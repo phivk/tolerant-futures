@@ -78,4 +78,8 @@ export default {
   padding: 5px;
   position: absolute;
 }
+.can-drop {
+  color: #000;
+  background-color: #4e4;
+}
 </style>
