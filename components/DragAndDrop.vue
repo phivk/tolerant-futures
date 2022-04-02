@@ -11,9 +11,9 @@
         class="drag-el w5 h4 ba flex justify-center items-center br3 absolute pointer"
         :class="isDragging ? 'rotate' : ''"
         draggable="true"
+        :style="styleObject"
         @dragstart="startDrag"
         @dragend="endDrag"
-        :style="styleObject"
       >
         Test Div
       </div>
@@ -38,14 +38,17 @@ export default {
       return this.items.filter((item) => item.list === list)
     },
     startDrag(event) {
+      /* eslint-disable */
       console.log('event', event)
       this.isDragging = true
     },
     endDrag(event) {
+      /* eslint-disable */
       console.log('event', event)
       this.isDragging = false
     },
     onDrop(event) {
+      /* eslint-disable */
       console.log('event', event)
       this.setPosition(event.layerX, event.layerY)
     },
