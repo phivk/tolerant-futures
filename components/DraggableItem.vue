@@ -1,7 +1,6 @@
 <template>
   <div ref="myDraggable" class="draggable">
-    X: {{ parseInt(screenX) }} <br />
-    Y: {{ parseInt(screenY) }}
+    <slot></slot>
   </div>
 </template>
 
@@ -71,15 +70,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .draggable {
-  width: 100px;
-  height: 100px;
-  background-color: teal;
-  color: #fff;
-  padding: 5px;
   position: absolute;
 }
 .can-drop {
-  color: #000;
-  background-color: #4e4;
+  border: solid 4px blue;
+}
+.dropped {
+  border: solid 4px green;
 }
 </style>
