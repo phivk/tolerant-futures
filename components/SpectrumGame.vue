@@ -1,16 +1,21 @@
 <template>
-  <section class="w-100 h-100 relative flex flex-column items-center">
+  <section
+    class="w-100 h-100 relative flex flex-column justify-between items-center"
+  >
     <DropZone class="w-100 h-25 flex justify-between items-center">
       <span class="dib f1">{{ turns[turnIndex].spectrum[0] }}</span>
       <span class="dib f1">{{ turns[turnIndex].spectrum[1] }}</span>
     </DropZone>
-    <DraggableItem class="bottom-0">
+    <DraggableItem class="bottom-2" @set-value="onSetValue" ref="draggableItem">
       <CardItem>{{ turns[turnIndex].object }}</CardItem>
     </DraggableItem>
-    <div>
-      <button v-if="hasNextTurn" @click="incrementTurnIndex">Next Turn</button>
-      <button v-else @click="onNextChapterClick">Next Chapter</button>
-    </div>
+    <TheFooter>
+      <div>current turn's value: {{ turnValue }}</div>
+      <button v-if="turnValue !== null && hasNextTurn" @click="onNextTurn">
+        Next Turn
+      </button>
+      <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
+    </TheFooter>
   </section>
 </template>
 
@@ -31,6 +36,7 @@ export default {
   data() {
     return {
       turnIndex: 0,
+      turnValue: null,
     }
   },
   computed: {
@@ -39,15 +45,22 @@ export default {
     },
   },
   methods: {
-    incrementTurnIndex() {
+    onNextTurn() {
+      // reset card position
+      this.$refs.draggableItem.resetPosition()
+
+      // increment turnIndex
       if (this.hasNextTurn) {
         this.turnIndex++
       }
     },
-    onNextChapterClick() {
+    onNextChapter() {
       this.$router.push({
         path: this.nextPath,
       })
+    },
+    onSetValue(value) {
+      this.turnValue = value
     },
   },
 }

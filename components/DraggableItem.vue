@@ -4,7 +4,7 @@
     <span>{{ parseInt(screenX) }}</span>
     ,
     <span>{{ parseInt(screenY) }}</span>
-    <span v-if="value">: {{ value.toFixed(2) }}</span>
+    <span v-if="value !== null">: {{ value.toFixed(2) }}</span>
   </div>
 </template>
 
@@ -61,9 +61,8 @@ export default {
       target.setAttribute('data-y', y)
     },
     onDragEnd(event) {
-      const target = event.target
       // update the state
-      const boundingClientRect = target.getBoundingClientRect()
+      const boundingClientRect = event.target.getBoundingClientRect()
       this.screenX = boundingClientRect.left
       this.screenY = boundingClientRect.top
 
@@ -74,7 +73,26 @@ export default {
         const value = this.screenX / (dropzoneWidth - cardWidth)
         event.target.setAttribute('data-value', value.toFixed(2))
         this.value = value
+        this.$emit('set-value', value)
+      } else {
+        this.value = null
+        this.$emit('set-value', null)
       }
+    },
+    resetPosition() {
+      const myDraggable = this.$refs.myDraggable
+
+      // translate the element
+      myDraggable.style.webkitTransform = myDraggable.style.transform =
+        'translate(' + 0 + 'px, ' + 0 + 'px)'
+
+      // update the posiion attributes
+      myDraggable.setAttribute('data-x', 0)
+      myDraggable.setAttribute('data-y', 0)
+
+      // update the state
+      this.screenX = 0
+      this.screenY = 0
     },
   },
 }

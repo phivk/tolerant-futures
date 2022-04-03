@@ -7,7 +7,6 @@
     <DraggableItem>
       <CardItem>Boudica</CardItem>
     </DraggableItem> -->
-    <TheFooter></TheFooter>
   </div>
 </template>
 
