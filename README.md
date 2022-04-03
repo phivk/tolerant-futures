@@ -9,12 +9,18 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 
+# serve with hot reload at [IP address]:3000 for testing on devices on local network
+$ yarn dev:host
+
 # build for production and launch server
 $ yarn build
 $ yarn start
 
 # generate static project
 $ yarn generate
+
+# fix linting warnings and errors where possible
+$ yarn lintfix
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
