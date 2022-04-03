@@ -6,7 +6,7 @@
       <span class="dib f1">{{ turns[turnIndex].spectrum[0] }}</span>
       <span class="dib f1">{{ turns[turnIndex].spectrum[1] }}</span>
     </DropZone>
-    <DraggableItem class="bottom-2" @set-value="onSetValue" ref="draggableItem">
+    <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
       <CardItem>{{ turns[turnIndex].object }}</CardItem>
     </DraggableItem>
     <TheFooter>
