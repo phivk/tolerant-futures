@@ -1,6 +1,10 @@
 <template>
   <div ref="myDraggable" class="draggable">
     <slot></slot>
+    <span>{{ parseInt(screenX) }}</span>
+    ,
+    <span>{{ parseInt(screenY) }}</span>
+    <span v-if="value">: {{ value.toFixed(2) }}</span>
   </div>
 </template>
 
@@ -13,6 +17,7 @@ export default {
     return {
       screenX: 0,
       screenY: 0,
+      value: null,
     }
   },
   mounted() {
@@ -31,7 +36,7 @@ export default {
           elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
         },
         // enable autoScroll
-        autoScroll: true,
+        autoScroll: false,
 
         // call this function on every dragmove event
         onmove: this.dragMoveListener,
@@ -57,11 +62,19 @@ export default {
     },
     onDragEnd(event) {
       const target = event.target
-      /* eslint-disable-next-line */
-      console.log(target)
       // update the state
-      this.screenX = target.getBoundingClientRect().left
-      this.screenY = target.getBoundingClientRect().top
+      const boundingClientRect = target.getBoundingClientRect()
+      this.screenX = boundingClientRect.left
+      this.screenY = boundingClientRect.top
+
+      if (event.relatedTarget) {
+        // dropped on dropzone!
+        const dropzoneWidth = interact.getElementRect(event.relatedTarget).width
+        const cardWidth = boundingClientRect.width
+        const value = this.screenX / (dropzoneWidth - cardWidth)
+        event.target.setAttribute('data-value', value.toFixed(2))
+        this.value = value
+      }
     },
   },
 }

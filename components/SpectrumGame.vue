@@ -1,13 +1,13 @@
 <template>
-  <section class="w-100 pa3 flex flex-column items-center">
-    <div class="w-100 flex justify-between mv6">
+  <section class="w-100 h-100 relative flex flex-column items-center">
+    <DropZone class="w-100 h-25 flex justify-between items-center">
       <span class="dib f1">{{ turns[turnIndex].spectrum[0] }}</span>
       <span class="dib f1">{{ turns[turnIndex].spectrum[1] }}</span>
-    </div>
-    <CardItem>
-      {{ turns[turnIndex].object }}
-    </CardItem>
-    <div class="mt6">
+    </DropZone>
+    <DraggableItem class="bottom-0">
+      <CardItem>{{ turns[turnIndex].object }}</CardItem>
+    </DraggableItem>
+    <div>
       <button v-if="hasNextTurn" @click="incrementTurnIndex">Next Turn</button>
       <button v-else @click="onNextChapterClick">Next Chapter</button>
     </div>

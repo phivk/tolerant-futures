@@ -38,18 +38,17 @@ export default {
           // feedback the possibility of a drop
           dropzoneElement.classList.add('drop-target')
           draggableElement.classList.add('can-drop')
-          // draggableElement.textContent = 'Dragged in'
         },
         ondragleave(event) {
           // remove the drop feedback style
           event.target.classList.remove('drop-target')
+          event.target.classList.remove('drop-received')
           event.relatedTarget.classList.remove('can-drop')
           event.relatedTarget.classList.remove('dropped')
-          // event.relatedTarget.textContent = 'Dragged out'
         },
         ondrop(event) {
+          event.target.classList.add('drop-received')
           event.relatedTarget.classList.add('dropped')
-          // event.relatedTarget.textContent = 'Dropped'
         },
         ondropdeactivate(event) {
           // remove active dropzone feedback
@@ -94,16 +93,18 @@ export default {
   border-radius: 4px;
   margin: 10px auto 30px;
   padding: 10px;
-  width: 80%;
   transition: background-color 0.3s;
 }
 .drop-active {
   border-color: #aaa;
 }
-
 .drop-target {
   background-color: #29e;
-  border-color: #fff;
+  border-color: blue;
+  border-style: solid;
+}
+.drop-received {
+  border-color: green;
   border-style: solid;
 }
 </style>
