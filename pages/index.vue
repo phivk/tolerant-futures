@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-column justify-between items-center tc vh-100">
     <h1>{{ title }}</h1>
-    <div class="pointer blue" @click="onLandingDrag">{{ slotValue }}</div>
-    <CardItem>{{ cardValue }}</CardItem>
+    <LandingGame :next-path="nextPath"></LandingGame>
     <TheFooter>
       Empathy Spectrum is a result of the Tolerant Futures research project.
       <NuxtLink to="/research">Read more</NuxtLink>
@@ -15,8 +14,7 @@ export default {
   data() {
     return {
       title: 'Empathy Spectrum',
-      slotValue: 'New',
-      cardValue: 'Beginning',
+      nextPath: '/tutorial',
     }
   },
   methods: {
