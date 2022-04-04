@@ -2,7 +2,7 @@
   <section
     class="w-100 h-100 relative flex flex-column justify-between items-center"
   >
-    <DropZone class="w-25 h-25 flex justify-center items-center">
+    <DropZone class="w-25 min-w5 h-25 flex justify-center items-center">
       Drop
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
@@ -43,3 +43,8 @@ export default {
   },
 }
 </script>
+<style>
+.min-w5 {
+  min-width: 16rem;
+}
+</style>
