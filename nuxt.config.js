@@ -46,6 +46,8 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
+      name: 'Tolerant Futures',
+      description: 'Test your binary thinking across the past and the present',
       lang: 'en',
     },
   },
