@@ -1,5 +1,6 @@
 {
   "name": "tolerant-futures",
+  "description": "a playful experience to test your binary thinking across the past and the present",
   "version": "1.0.0",
   "private": true,
   "scripts": {
