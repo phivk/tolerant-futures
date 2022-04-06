@@ -49,6 +49,7 @@ export default {
       name: 'Tolerant Futures',
       description: 'Test your binary thinking across the past and the present',
       lang: 'en',
+      display: 'fullscreen',
     },
   },
 
