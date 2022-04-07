@@ -5,6 +5,6 @@
 body {
   touch-action: none;
   user-select: none;
-  background-color: purple;
+  background-color: indigo;
 }
 </style>
