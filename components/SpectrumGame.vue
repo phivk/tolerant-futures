@@ -1,7 +1,9 @@
 <template>
-  <section
-    class="w-100 h-100 relative flex flex-column justify-between items-center"
-  >
+  <GameContainer>
+    <div class="w-100 flex justify-between ph3">
+      <ChapterProgression/>
+      <ExitGameButton/>
+    </div>
     <DropZone class="w-100 h-25 flex justify-between items-center">
       <span class="dib f1">{{ turns[turnIndex].spectrum[0] }}</span>
       <span class="dib f1">{{ turns[turnIndex].spectrum[1] }}</span>
@@ -16,7 +18,7 @@
       </button>
       <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
     </TheFooter>
-  </section>
+  </GameContainer>
 </template>
 
 <script>
@@ -66,8 +68,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-  section {
-    background-color: $theblue;
-  }
-</style>
