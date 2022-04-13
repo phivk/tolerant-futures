@@ -23,17 +23,22 @@
     "tachyons": "^4.12.0",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^5.72.0"
+    "vue-template-compiler": "^2.6.14"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "@nuxtjs/eslint-config": "^9.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
+    "@nuxtjs/style-resources": "^1.2.1",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
+    "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-vue": "^8.6.0",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "sass": "^1.50.0",
+    "sass-loader": "^10.2.1",
+    "typescript": "^4.6.3",
+    "webpack": "^4.46.0"
   }
 }

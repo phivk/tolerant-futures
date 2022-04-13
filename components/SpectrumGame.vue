@@ -65,3 +65,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+  section {
+    background-color: $theblue;
+  }
+</style>
