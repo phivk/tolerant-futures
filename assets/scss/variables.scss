@@ -1,3 +1,23 @@
+/* components */
+$drop-zone-height: 400px;
+
+/* font sizes */
+
+$f1: 3rem; 
+$f2: 2.25rem; 
+$f3: 1.5rem; 
+$f4: 1.25rem; 
+$f5: 1rem;
+$f6: .875rem; 
+$f7: .75rem; 
+
+/* z-index */
+$z-1: 1;
+$z-2: 2;
+$z-3: 3;
+$z-4: 4;
+$z-5: 5;
+
 /* borders */
 $border-width-1: 1px;
 $obrder-width-2: 2px;
@@ -8,6 +28,7 @@ $border-radius-3: 20px;
 /* blur */
 $blur-1: 10px;
 $blur-2: 30px;
+$blur-3: 50px;
 
 /* padding & margin offsets */
 $offset-1: 4px;
@@ -18,18 +39,19 @@ $offset-5: 64px;
 $offset-6: 80px;
 $offset-7: 144px;
 
-/* solid colors */
+
+
+/* colors */
+$white-color: #fff;
 $background-color: #3C1B9A;
 $signal-color: #8968E7;
-$action-color-1: #fff;
 $action-color-2: #3C1B9A;
-
-/* outline colors */
 $button-outline: #fff;
 
 /* spectrum gradient colors
-	c1a is gradient 1 color on the left end of the gradient
-	c1b is gradient 1 color on the right end of the gradient
+	- color vars used to style background gradients of the spectra	
+	c1a is gradient 1 color of the left extreme of the gradient
+	c1b is gradient 1 color of the right extreme of the gradient
 	spectrum gradient classes are generated in gradients.scss
 */
 

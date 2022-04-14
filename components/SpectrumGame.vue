@@ -4,9 +4,9 @@
       <ChapterProgression/>
       <ExitGameButton/>
     </div>
-    <DropZone class="w-100 h-25 flex justify-between items-center">
-      <span class="dib f1 headline_font">{{ turns[turnIndex].spectrum[0] }}</span>
-      <span class="dib f1 headline_font">{{ turns[turnIndex].spectrum[1] }}</span>
+    <DropZone spectrum-start-name=turns[turnIndex].spectrum[0]>
+      <DropZoneNameItem>{{ turns[turnIndex].spectrum[0] }}</DropZoneNameItem>
+      <DropZoneNameItem>{{ turns[turnIndex].spectrum[1] }}</DropZoneNameItem>
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
       <CardItem>{{ turns[turnIndex].object }}</CardItem>

@@ -8,7 +8,8 @@
 	    $pair: nth($color-pairs, $i);
 
 	    .gradient-#{$i} {
-	    	background: linear-gradient($pair)
+	    	filter: blur(variables.$blur-3);
+	    	background: linear-gradient(90deg, $pair);
 	    }
 	}	
 }
