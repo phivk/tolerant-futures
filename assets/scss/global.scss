@@ -1,4 +1,5 @@
-@import '~assets/scss/font-families.scss';
+@use 'font-families';
+@use 'gradients';
 
 // custom fonts
 .headline_font {

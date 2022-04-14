@@ -1,0 +1,17 @@
+@use 'variables';
+
+// create atomic linear-gradient background classes
+
+@mixin create-gradient-classes($color-pairs) {
+
+	@for $i from 1 through length($color-pairs) {
+	    $pair: nth($color-pairs, $i);
+
+	    .gradient-#{$i} {
+	    	background: linear-gradient($pair)
+	    }
+	}	
+}
+
+// gradient classes are loaded to global.scss file
+@include create-gradient-classes(variables.$color-pairs)

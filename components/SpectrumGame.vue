@@ -6,7 +6,7 @@
     </div>
     <DropZone class="w-100 h-25 flex justify-between items-center">
       <span class="dib f1 headline_font">{{ turns[turnIndex].spectrum[0] }}</span>
-      <span class="dib f1">{{ turns[turnIndex].spectrum[1] }}</span>
+      <span class="dib f1 headline_font">{{ turns[turnIndex].spectrum[1] }}</span>
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
       <CardItem>{{ turns[turnIndex].object }}</CardItem>

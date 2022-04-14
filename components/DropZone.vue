@@ -1,5 +1,5 @@
 <template>
-  <div ref="myDropZone" class="dropzone bg-light-blue">
+  <div ref="myDropZone" class="dropzone gradient-1">
     <slot></slot>
   </div>
 </template>
@@ -88,7 +88,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .dropzone {
-  background-color: #bfe4ff;
   border: dashed 4px transparent;
   border-radius: 4px;
   margin: 10px auto 30px;
