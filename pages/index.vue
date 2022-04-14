@@ -28,6 +28,5 @@ export default {
 </script>
 
 <style lang="scss">
-    @import '~assets/scss/font-families.scss';
     @import '~assets/scss/global.scss';
 </style>
