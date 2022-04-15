@@ -1,13 +1,13 @@
 <template>
   <GameContainer>
     <div class="w-100 flex justify-between ph3">
-      <ChapterProgression/>
-      <ExitGameButton/>
+      <ChapterProgression />
+      <ExitGameButton />
     </div>
     <DropZone>
       <DropZoneNameItem>{{ turns[turnIndex].spectrum[0] }}</DropZoneNameItem>
       <DropZoneNameItem>{{ turns[turnIndex].spectrum[1] }}</DropZoneNameItem>
-      <DropZoneBackgroundItem gradient-style="gradient-1"/>
+      <DropZoneBackgroundItem class="gradient-1" />
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
       <CardItem>{{ turns[turnIndex].object }}</CardItem>
@@ -68,4 +68,3 @@ export default {
   },
 }
 </script>
-
