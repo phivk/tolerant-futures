@@ -1,23 +1,27 @@
 <template>
   <GameContainer>
     <div class="w-100 flex justify-between ph3">
-      <ChapterProgressionList/>
-      <ExitGameButton/>
+      <ChapterProgressionList />
+      <ExitGameButton />
     </div>
     <DropZone>
       <DropZoneName>{{ turns[turnIndex].spectrum[0] }}</DropZoneName>
       <DropZoneName>{{ turns[turnIndex].spectrum[1] }}</DropZoneName>
-      <DropZoneBackground gradient-style="gradient-1"/>
+      <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
-      <CardItem :is-present-card="false">{{ turns[turnIndex].object }}</CardItem>
+      <CardItem :is-present-card="false">{{
+        turns[turnIndex].object
+      }}</CardItem>
     </DraggableItem>
     <TheFooter>
       <div>current turn's value: {{ turnValue }}</div>
       <button v-if="turnValue !== null && hasNextTurn" @click="onNextTurn">
         Next Turn
       </button>
-      <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
+      <NuxtLink v-if="!hasNextTurn" class="bg-white purple" :to="nextPath">
+        Next Chapter
+      </NuxtLink>
     </TheFooter>
   </GameContainer>
 </template>
@@ -68,4 +72,3 @@ export default {
   },
 }
 </script>
-

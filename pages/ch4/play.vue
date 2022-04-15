@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-column justify-between items-center tc vh-100">
+  <div class="flex flex-column justify-around items-center tc vh-100">
     <h1>{{ title }}</h1>
     <section>
       <div>Playing the Future Game...</div>
-      <NuxtLink to="/">Back to start</NuxtLink>
+      <NuxtLink class="bg-white purple" :to="nextPath">
+        {{ nextButtonText }}
+      </NuxtLink>
     </section>
     <TheFooter> </TheFooter>
   </div>
@@ -14,6 +16,7 @@ export default {
   data() {
     return {
       title: 'Future',
+      nextButtonText: 'Back to start',
       nextPath: '/',
     }
   },
