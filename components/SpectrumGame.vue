@@ -19,6 +19,7 @@
       </button>
       <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
     </TheFooter>
+    <SubtitlePlayer />
   </GameContainer>
 </template>
 
