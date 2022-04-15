@@ -1,8 +1,7 @@
-import chapterRoutes from '~/config/chapter-routes'
+import chapters from '~/config/chapters'
 
-export const getNextRouteName = (currentRouteName) => {
-  const index = chapterRoutes.indexOf(currentRouteName)
-  return index >= 0 && index < chapterRoutes.length - 1
-    ? chapterRoutes[index + 1]
+export const getNextChapterRoute = (curChapterIndex) => {
+  return curChapterIndex >= 0 && curChapterIndex < chapters.length - 1
+    ? chapters[curChapterIndex + 1].route
     : null
 }

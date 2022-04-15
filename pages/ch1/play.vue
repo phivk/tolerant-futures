@@ -21,7 +21,7 @@ export default {
           spectrum: ['small', 'big'],
         },
       ],
-      nextPath: '/play',
+      nextPath: '/ch2',
     }
   },
 }

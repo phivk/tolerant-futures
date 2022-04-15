@@ -24,7 +24,7 @@ export default {
           spectrum: ['Generous', 'Greedy'],
         },
       ],
-      nextPath: '/future',
+      nextPath: '/ch4',
     }
   },
 }

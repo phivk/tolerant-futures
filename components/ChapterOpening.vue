@@ -5,7 +5,9 @@
     <h1>{{ title }}</h1>
     <p>{{ paragraph }}</p>
 
-    <NuxtLink class="bg-white purple" :to="nextPath">{{ buttonText }}</NuxtLink>
+    <NuxtLink class="bg-white purple" :to="nextPath" :append="nextPathAppend">{{
+      buttonText
+    }}</NuxtLink>
   </section>
 </template>
 
@@ -29,8 +31,13 @@ export default {
     },
     nextPath: {
       type: String,
-      required: true,
-      default: null,
+      required: false,
+      default: 'play',
+    },
+    nextPathAppend: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
   },
 }

@@ -23,13 +23,13 @@ export default {
           spectrum: ['Generous', 'Greedy'],
         },
       ],
-      nextPath: '/future',
+      nextPath: '/ch3',
     }
   },
 }
 </script>
 
 <style lang="scss">
-    @import '~assets/scss/font-families.scss';
-    @import '~assets/scss/global.scss';
+@import '~assets/scss/font-families.scss';
+@import '~assets/scss/global.scss';
 </style>
