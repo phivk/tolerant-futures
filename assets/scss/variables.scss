@@ -7,7 +7,6 @@ $chapter-progression-item-width: 30px;
 $drop-zone-height: 400px;
 $exit-game-button-width: 50px;
 
-
 /* font families */
 $headline_font: 'headline_font', sans_serif;
 $text_font: 'text_font', serif;
@@ -40,6 +39,10 @@ $blur-1: 10px;
 $blur-2: 30px;
 $blur-3: 50px;
 
+/* shadow effects */
+$draggable-item-shadow-effect-passive: drop-shadow(0 6px 3px rgb(0, 0, 0, 0.5));
+$draggable-item-shadow-effect-active: drop-shadow(0 6px 15px rgb(0, 0, 0, 0.5));
+
 /* padding & margin offsets */
 $offset-1: 4px;
 $offset-2: 8px;
@@ -61,7 +64,7 @@ $action-color: #3C1B9A;
 $button-outline-color: $white-color;
 
 /* spectrum gradient colors
-	are color vars used in background gradients of the spectra	
+	are hand picked color vars used in background gradients of the spectra	
 	c-1-a is gradient 1 color of the left extreme of the gradient
 	c-1-b is gradient 1 color of the right extreme of the gradient
 	spectrum gradient css classes are generated in gradients.scss and exposed in global.scss

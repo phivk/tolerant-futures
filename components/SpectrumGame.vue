@@ -10,7 +10,7 @@
       <DropZoneBackground gradient-style="gradient-1"/>
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
-      <CardItem :is-present-card="false">{{ turns[turnIndex].object }}</CardItem>
+      <CardItem :is-present-card="true">{{ turns[turnIndex].object }}</CardItem>
     </DraggableItem>
     <TheFooter>
       <div>current turn's value: {{ turnValue }}</div>

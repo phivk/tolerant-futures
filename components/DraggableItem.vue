@@ -102,12 +102,31 @@ export default {
 <style scoped lang="scss">
 .draggable {
   position: absolute;
+  /* TO DO: remove this filter attr once below to do is implemented */
+  filter: $draggable-item-shadow-effect-passive;
   z-index: $z-5;
+
+  /* TO DO: add active class to this component while it's being dragged */
+  &.active {
+    filter: $draggable-item-shadow-effect-passive;
+
+  }
+  /* TO DO: add passive class to this component when not dragged */
+  &.passive {
+    filter: $draggable-item-shadow-effect-active;
+  }
+
+  &.can-drop {
+    border: solid 4px blue;
+  }
+
+  &.dropped {
+    border: solid 4px green;
+  }  
 }
-.can-drop {
-  border: solid 4px blue;
-}
-.dropped {
-  border: solid 4px green;
-}
+
+// .dragged {
+
+// }
+
 </style>
