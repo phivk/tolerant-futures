@@ -1,7 +1,6 @@
 <template>
   <div ref="myDropZone" class="dropzone">
-    <slot></slot>
-    <div class="gradient-background gradient-1"></div>        
+    <slot></slot>      
   </div>
 </template>
 
@@ -101,14 +100,6 @@ export default {
   height: $drop-zone-height;
   width: 100%;
   z-index: $z-1;
-
-  .gradient-background {
-    z-index: $z-1;
-    position: absolute;
-    left: -7%;
-    width: 110%;
-    height: 100%;
-  }
 }
 .drop-active {
   border-color: #aaa;

@@ -4,9 +4,10 @@
       <ChapterProgression/>
       <ExitGameButton/>
     </div>
-    <DropZone spectrum-start-name=turns[turnIndex].spectrum[0]>
+    <DropZone>
       <DropZoneNameItem>{{ turns[turnIndex].spectrum[0] }}</DropZoneNameItem>
       <DropZoneNameItem>{{ turns[turnIndex].spectrum[1] }}</DropZoneNameItem>
+      <DropZoneBackgroundItem gradient-style="gradient-1"/>
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
       <CardItem>{{ turns[turnIndex].object }}</CardItem>
