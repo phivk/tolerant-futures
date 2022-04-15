@@ -1,11 +1,9 @@
 <template>
-  <div class="flex flex-column justify-between items-center tc vh-100">
+  <div class="flex flex-column justify-around items-center tc vh-100">
     <h1>{{ title }}</h1>
-    <LandingGame :next-path="nextPath"></LandingGame>
-    <TheFooter>
-      Empathy Spectrum is a result of the Tolerant Futures research project.
-      <NuxtLink to="/research">Read more</NuxtLink>
-    </TheFooter>
+    <NuxtLink class="bg-white purple" :to="nextPath">
+      {{ nextButtonText }}
+    </NuxtLink>
   </div>
 </template>
 
@@ -13,16 +11,10 @@
 export default {
   data() {
     return {
-      title: 'Empathy Spectrum',
-      nextPath: '/tutorial',
+      title: 'Tolerant Futures',
+      nextButtonText: 'Begin experience',
+      nextPath: '/ch1',
     }
-  },
-  methods: {
-    onLandingDrag() {
-      this.$router.push({
-        path: '/tutorial',
-      })
-    },
   },
 }
 </script>
