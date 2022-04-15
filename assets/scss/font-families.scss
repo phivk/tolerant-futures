@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'text_font';
+    src: url('@/static/fonts/ptserif-regular-webfont.eot');
+    src: url('@/static/fonts/ptserif-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    	 url('@/static/fonts/ptserif-regular-webfont.ttf') format('truetype'),
+         url('@/static/fonts/ptserif-regular-webfont.woff2') format('woff2'),
+         url('@/static/fonts/ptserif-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'headline_font';
+    src: url('@/static/fonts/Millimetre-Regular_web.eot');
+    src: url('@/static/fonts/Millimetre-Regular_web.eot?#iefix') format('embedded-opentype'),
+    	 url('@/static/fonts/Millimetre-Regular_web.ttf') format('truetype'),
+         url('@/static/fonts/Millimetre-Regular_web.woff2') format('woff2'),
+         url('@/static/fonts/Millimetre-Regular_web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
