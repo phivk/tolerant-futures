@@ -1,5 +1,5 @@
 <template>
-	<button class="pa2"><img src="@/static/svg/exit_game_icon.svg"/></button>
+	<button class="exit-game-button"><img src="@/static/svg/exit_game_icon.svg"/></button>
 </template>
 
 <script>
@@ -7,14 +7,14 @@ export default {}
 </script>
 
 <style scoped lang="scss">
- button {
-  width: 30px;
-  height: 30px;
- // padding: $offset-2;
-  border-radius: $border-radius-2;
-  border-width: $border-width-1;
-  border-color: $button-outline;
-  background-color: $action-color-2;
+ .exit-game-button {
+	width: $exit-game-button-width;
+	height: $exit-game-button-width;
+	padding: $offset-2;
+	border-radius: $border-radius-2;
+	border-width: $border-width-1;
+	border-color: $button-outline-color;
+	background-color: $action-color;
  }
 </style>
 

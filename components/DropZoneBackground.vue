@@ -1,21 +1,15 @@
 <template>
-	<span :class="style"></span>
+	<span class="drop-zone-background" :class="gradientStyle"></span>
 </template>
 
 <script>
-	/* all gradientStyle classes passed to this component are generated in ~/assets/scss/gradients.scss */
-
-	export default {
+	export default {		
 		props: {
+			/* all gradientStyle classes passed to this component are generated in ~/assets/scss/gradients.scss */
 			gradientStyle: {
 				type: String,
 				required: true,
 				defaul: null
-			}
-		},
-		data() {
-			return {
-				style: "drop-zone-background" + " " + this.gradientStyle,
 			}
 		}
 	}

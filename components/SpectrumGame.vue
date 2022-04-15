@@ -1,16 +1,16 @@
 <template>
   <GameContainer>
     <div class="w-100 flex justify-between ph3">
-      <ChapterProgression/>
+      <ChapterProgressionList/>
       <ExitGameButton/>
     </div>
     <DropZone>
-      <DropZoneNameItem>{{ turns[turnIndex].spectrum[0] }}</DropZoneNameItem>
-      <DropZoneNameItem>{{ turns[turnIndex].spectrum[1] }}</DropZoneNameItem>
-      <DropZoneBackgroundItem gradient-style="gradient-1"/>
+      <DropZoneName>{{ turns[turnIndex].spectrum[0] }}</DropZoneName>
+      <DropZoneName>{{ turns[turnIndex].spectrum[1] }}</DropZoneName>
+      <DropZoneBackground gradient-style="gradient-1"/>
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
-      <CardItem>{{ turns[turnIndex].object }}</CardItem>
+      <CardItem :is-present-card="false">{{ turns[turnIndex].object }}</CardItem>
     </DraggableItem>
     <TheFooter>
       <div>current turn's value: {{ turnValue }}</div>

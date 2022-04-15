@@ -1,15 +1,25 @@
-/* components */
+/* widths & heights */
+$card-item-width: 300px;
+$card-item-height: 180px;
+$card-item-inner-width: calc($card-item-width * 0.9);
+$card-item-inner-height: calc(($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px);
+$chapter-progression-item-width: 30px;
 $drop-zone-height: 400px;
+$exit-game-button-width: 50px;
+
+
+/* font families */
+$headline_font: 'headline_font', sans_serif;
+$text_font: 'text_font', serif;
 
 /* font sizes */
-
-$f1: 3rem; 
-$f2: 2.25rem; 
-$f3: 1.5rem; 
-$f4: 1.25rem; 
-$f5: 1rem;
-$f6: .875rem; 
-$f7: .75rem; 
+$f-1: 3rem; 
+$f-2: 2.25rem; 
+$f-3: 1.5rem; 
+$f-4: 1.25rem; 
+$f-5: 1rem;
+$f-6: .875rem; 
+$f-7: .75rem; 
 
 /* z-index */
 $z-1: 1;
@@ -20,7 +30,7 @@ $z-5: 5;
 
 /* borders */
 $border-width-1: 1px;
-$obrder-width-2: 2px;
+$border-width-2: 2px;
 $border-radius-1: 10px;
 $border-radius-2: 20px;
 $border-radius-3: 20px;
@@ -40,32 +50,35 @@ $offset-6: 80px;
 $offset-7: 144px;
 
 /* colors */
+$black-color: #000;
 $white-color: #fff;
+$present-card-item-color: #F2F2F2;
+$past-card-item-color: #333131;
+$card-item-outline-color: #909090;
 $background-color: #3C1B9A;
 $signal-color: #8968E7;
-$action-color-2: #3C1B9A;
-$button-outline: #fff;
+$action-color: #3C1B9A;
+$button-outline-color: $white-color;
 
 /* spectrum gradient colors
-	- color vars used to style background gradients of the spectra	
-	c1a is gradient 1 color of the left extreme of the gradient
-	c1b is gradient 1 color of the right extreme of the gradient
-	spectrum gradient classes are generated in gradients.scss
+	are color vars used in background gradients of the spectra	
+	c-1-a is gradient 1 color of the left extreme of the gradient
+	c-1-b is gradient 1 color of the right extreme of the gradient
+	spectrum gradient css classes are generated in gradients.scss and exposed in global.scss
 */
-
 // yellow blue
-$c1a: #FFED49;
-$c1b: #70A0FD;
+$c-1-a: #FFED49;
+$c-1-b: #70A0FD;
 
 // green orange
-$c2a: #8AEFB3;
-$c2b: #FF922E;
+$c-2-a: #8AEFB3;
+$c-2-b: #FF922E;
 
 // pink blue
-$c3a: #F37DE7;
-$c3b: #76A0F3;
+$c-3-a: #F37DE7;
+$c-3-b: #76A0F3;
 
 // make a list
-$color-pairs: (($c1a, $c1b),
-			   ($c2a, $c2b),
-			   ($c3a, $c3b));
+$spectra-color-pairs: (($c-1-a, $c-1-b),
+			   			($c-2-a, $c-2-b),
+			   			($c-3-a, $c-3-b));

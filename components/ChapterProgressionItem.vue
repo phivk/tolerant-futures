@@ -1,5 +1,5 @@
 <template>
-  <li> </li>
+  <li class="chapter-progression-item"> </li>
 </template>
 
 <script>
@@ -7,9 +7,9 @@ export default {}
 </script>
 
 <style scoped lang="scss">
-	li {
-		width: 30px;
-		height: 30px;
+	.chapter-progression-item {
+		width: $chapter-progression-item-width;
+		height: $chapter-progression-item-width;
     background-color: $signal-color; 
     border-radius: $border-radius-1;
     filter: blur($blur-1);
