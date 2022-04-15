@@ -2,7 +2,9 @@
   <footer class="w-100 pa3">
     <slot></slot>
     <div v-if="shouldShowBack" class="ma3">
-      <a href="" @click.prevent="onBackClick">Go Back</a>
+      <a class="bg-white purple" href="" @click.prevent="onBackClick"
+        >Go Back</a
+      >
     </div>
   </footer>
 </template>
