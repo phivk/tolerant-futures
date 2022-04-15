@@ -1,5 +1,5 @@
 <template>
-  <GameContainer>
+  <GameContainer class="white">
     <div class="w-100 flex justify-between ph3">
       <ChapterProgressionList />
       <ExitGameButton />
@@ -15,10 +15,11 @@
       }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <div>current turn's value: {{ turnValue }}</div>
-      <button v-if="turnValue !== null && hasNextTurn" @click="onNextTurn">
-        Next Turn
-      </button>
+      <p>{{ turns[turnIndex].caption }}</p>
+      <div v-if="turnValue !== null && hasNextTurn">
+        <p>current turn's value: {{ turnValue }}</p>
+        <button @click="onNextTurn">Next Turn</button>
+      </div>
       <NuxtLink v-if="!hasNextTurn" class="bg-white purple" :to="nextPath">
         Next Chapter
       </NuxtLink>
