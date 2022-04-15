@@ -3,6 +3,8 @@
 </template>
 
 <script>
+	/* all gradientStyle classes passed to this component are generated in ~/assets/scss/gradients.scss */
+
 	export default {
 		props: {
 			gradientStyle: {
