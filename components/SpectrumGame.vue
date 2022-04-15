@@ -1,13 +1,16 @@
 <template>
-  <section
-    class="w-100 h-100 relative flex flex-column justify-between items-center"
-  >
-    <DropZone class="w-100 h-25 flex justify-between items-center">
-      <span class="dib f1">{{ turns[turnIndex].spectrum[0] }}</span>
-      <span class="dib f1">{{ turns[turnIndex].spectrum[1] }}</span>
+  <GameContainer>
+    <div class="w-100 flex justify-between ph3">
+      <ChapterProgressionList/>
+      <ExitGameButton/>
+    </div>
+    <DropZone>
+      <DropZoneName>{{ turns[turnIndex].spectrum[0] }}</DropZoneName>
+      <DropZoneName>{{ turns[turnIndex].spectrum[1] }}</DropZoneName>
+      <DropZoneBackground gradient-style="gradient-1"/>
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
-      <CardItem>{{ turns[turnIndex].object }}</CardItem>
+      <CardItem :is-present-card="false">{{ turns[turnIndex].object }}</CardItem>
     </DraggableItem>
     <TheFooter>
       <div>current turn's value: {{ turnValue }}</div>
@@ -16,7 +19,7 @@
       </button>
       <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
     </TheFooter>
-  </section>
+  </GameContainer>
 </template>
 
 <script>
@@ -65,3 +68,4 @@ export default {
   },
 }
 </script>
+
