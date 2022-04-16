@@ -5,17 +5,15 @@
       <ExitGameButton />
     </div>
     <DropZone>
-      <DropZoneName>{{ turns[turnIndex].spectrum[0] }}</DropZoneName>
-      <DropZoneName>{{ turns[turnIndex].spectrum[1] }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum[0] }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum[1] }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
-      <CardItem :is-present-card="false">{{
-        turns[turnIndex].object
-      }}</CardItem>
+      <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <p>{{ turns[turnIndex].caption }}</p>
+      <p>{{ currentTurn.caption }}</p>
       <div v-if="turnValue !== null && hasNextTurn">
         <p>current turn's value: {{ turnValue }}</p>
         <button @click="onNextTurn">Next Turn</button>
@@ -45,15 +43,23 @@ export default {
     return {
       turnIndex: 0,
       turnValue: null,
+      turnData: [],
     }
   },
   computed: {
     hasNextTurn() {
       return this.turnIndex < this.turns.length - 1
     },
+    currentTurn() {
+      return this.turns[this.turnIndex]
+    },
   },
   methods: {
     onNextTurn() {
+      // store input
+      this.currentTurn.value = this.turnValue
+      this.turnData.push(this.currentTurn)
+
       // reset card position
       this.$refs.draggableItem.resetPosition()
 
