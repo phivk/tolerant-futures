@@ -29,8 +29,15 @@ export default {
             "Great, thanks! How about Hadrian's Wall, a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the emperor Hadrian? Where would you place it?",
         },
       ],
+      inputs: [],
       nextPath: '/ch3',
     }
+  },
+  async mounted() {
+    const { data: inputs } = await this.$supabase
+      .from('spectrumInput')
+      .select('*')
+    this.inputs = inputs
   },
 }
 </script>
