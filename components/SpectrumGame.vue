@@ -18,7 +18,11 @@
         <p>current turn's value: {{ turnValue }}</p>
         <button @click="onNextTurn">Next Turn</button>
       </div>
-      <NuxtLink v-if="!hasNextTurn" class="bg-white purple" :to="nextPath">
+      <NuxtLink
+        v-if="!hasNextTurn && turnValue !== null"
+        class="bg-white purple"
+        :to="nextPath"
+      >
         Next Chapter
       </NuxtLink>
     </TheFooter>
@@ -60,7 +64,8 @@ export default {
       this.currentTurn.value = this.turnValue
       this.turnData.push(this.currentTurn)
 
-      // reset card position
+      // reset for next turn
+      this.turnValue = null
       this.$refs.draggableItem.resetPosition()
 
       // increment turnIndex
