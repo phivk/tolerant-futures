@@ -1,36 +1,25 @@
 <template>
   <div class="flex flex-column justify-between items-center tc vh-100">
-    <SpectrumGame :turns="playTurns" :next-path="nextPath" />
+    <SpectrumGame :turns="turns" :next-path="nextPath" />
   </div>
 </template>
 
 <script>
+import turnsPast from '~/data/turns-ch2.json'
 export default {
   data() {
     return {
       title: 'Play',
-      playTurns: [
-        {
-          object: 'Boudica',
-          spectrum: ['Submissive', 'Dominant'],
-          caption:
-            'Boudica was a queen of the British Iceni tribe who led an uprising against the conquering forces of the Roman Empire in AD 60 or 61. On the spectrum above, where would you place her?',
-        },
-        {
-          object: 'Roman Empire',
-          spectrum: ['Proud', 'Modest'],
-          caption:
-            'Got it! The Roman Empire was the post-Republican period of ancient Rome. If the Roman Empire would take a place on the spectrum above, where would that be?',
-        },
-        {
-          object: "Hadrian's Wall",
-          spectrum: ['Generous', 'Greedy'],
-          caption:
-            "Great, thanks! How about Hadrian's Wall, a former defensive fortification of the Roman province of Britannia, begun in AD 122 in the reign of the emperor Hadrian? Where would you place it?",
-        },
-      ],
+      inputs: [],
+      turns: turnsPast,
       nextPath: '/ch3',
     }
+  },
+  async mounted() {
+    const { data: inputs } = await this.$supabase
+      .from('spectrumInput')
+      .select('*')
+    this.inputs = inputs
   },
 }
 </script>
