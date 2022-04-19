@@ -1,6 +1,7 @@
 <template>
   <div class="subtitle-player"> 
     Subtitle player
+    hellooo
   </div>
 </template>
 

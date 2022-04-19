@@ -11,6 +11,7 @@ export default {}
 
 <style scoped lang="scss">
  section {
+  overflow: hidden;
   background-color: $background-color;
  }
 </style>

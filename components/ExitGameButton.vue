@@ -8,10 +8,11 @@ export default {}
 
 <style scoped lang="scss">
  .exit-game-button {
+ 	box-sizing: border-box;
 	width: $exit-game-button-width;
 	height: $exit-game-button-width;
 	padding: $offset-2;
-	border-radius: $border-radius-2;
+	border-radius: $border-radius-1;
 	border-width: $border-width-1;
 	border-color: $button-outline-color;
 	background-color: $action-color;

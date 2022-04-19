@@ -105,7 +105,7 @@ export default {
   border-color: #aaa;
 }
 .drop-target {
-  background-color: #29e;
+ // background-color: #29e;
   border-color: blue;
   border-style: solid;
 }

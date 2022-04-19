@@ -3,13 +3,13 @@ $card-item-width: 300px;
 $card-item-height: 180px;
 $card-item-inner-width: calc($card-item-width * 0.9);
 $card-item-inner-height: calc(($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px);
-$chapter-progression-item-width: 30px;
 $drop-zone-height: 400px;
-$exit-game-button-width: 50px;
+$exit-game-button-width: 40px;
+$chapter-progression-item-width: 30px;
 
 /* font families */
-$headline_font: 'headline_font', sans_serif;
-$text_font: 'text_font', serif;
+$headline-font: 'headline_font', sans_serif;
+$text-font: 'text_font', serif;
 
 /* font sizes */
 $f-1: 3rem; 
@@ -32,7 +32,7 @@ $border-width-1: 1px;
 $border-width-2: 2px;
 $border-radius-1: 10px;
 $border-radius-2: 20px;
-$border-radius-3: 20px;
+$border-radius-3: 100px;
 
 /* blur */
 $blur-1: 10px;

@@ -12,6 +12,7 @@
 
 <style scoped lang="scss">
 	.chapter-progression-list {
+		margin: 0;
 		display: flex;
 	}
 </style>

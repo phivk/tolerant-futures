@@ -1,6 +1,6 @@
 <template>
   <GameContainer>
-    <div class="w-100 flex justify-between ph3">
+    <div class="w-100 flex justify-between ph3 pt3">
       <ChapterProgressionList/>
       <ExitGameButton/>
     </div>
@@ -14,9 +14,14 @@
     </DraggableItem>
     <TheFooter>
       <div>current turn's value: {{ turnValue }}</div>
-      <button v-if="turnValue !== null && hasNextTurn" @click="onNextTurn">
+      <MainButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
         Next Turn
-      </button>
+      </MainButton>
+
+
+      <SecondaryButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
+        Skip
+      </SecondaryButton>      
       <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
     </TheFooter>
     <SubtitlePlayer />
