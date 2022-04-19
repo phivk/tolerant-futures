@@ -3,7 +3,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+	methods: {
+		handleClick() {
+	      this.$emit("buttonClicked", {});
+	  	}
+	}
+}
 </script>
 
 <style scoped lang="scss">
@@ -15,7 +21,10 @@ export default {}
 	border-radius: $border-radius-1;
 	border-width: $border-width-1;
 	border-color: $button-outline-color;
+	border-style: solid;
 	background-color: $action-color;
+	outline: 0;
+	filter: $secondary-button-shadow-effect;
  }
 </style>
 

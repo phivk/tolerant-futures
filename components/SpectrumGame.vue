@@ -2,7 +2,7 @@
   <GameContainer>
     <div class="w-100 flex justify-between ph3 pt3">
       <ChapterProgressionList/>
-      <ExitGameButton/>
+      <ExitGameButton @buttonClicked="null"/>
     </div>
     <DropZone>
       <DropZoneName>{{ turns[turnIndex].spectrum[0] }}</DropZoneName>
