@@ -27,8 +27,8 @@
       >
         Next Chapter
       </NuxtLink>
+      <SubtitlePlayer/>
     </TheFooter>
-    <SubtitlePlayer/>
   </GameContainer>
 </template>
 
