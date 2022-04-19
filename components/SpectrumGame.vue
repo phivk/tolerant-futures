@@ -2,24 +2,33 @@
   <GameContainer>
     <div class="w-100 flex justify-between ph3 pt3">
       <ChapterProgressionList/>
-      <ExitGameButton @buttonClicked="null"/>
+      <ExitGameButton/>
     </div>
     <DropZone>
-      <DropZoneName>{{ turns[turnIndex].spectrum[0] }}</DropZoneName>
-      <DropZoneName>{{ turns[turnIndex].spectrum[1] }}</DropZoneName>
-      <DropZoneBackground gradient-style="gradient-1"/>
+      <DropZoneName>{{ currentTurn.spectrum[0] }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum[1] }}</DropZoneName>
+      <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
-      <CardItem :is-present-card="true">{{ turns[turnIndex].object }}</CardItem>
+      <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <div>current turn's value: {{ turnValue }}</div>
-      <MainButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
-        Next Turn
-      </MainButton>      
-      <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
+      <p>{{ currentTurn.caption }}</p>
+      <div v-if="turnValue !== null && hasNextTurn">
+        <p>current turn's value: {{ turnValue }}</p>
+        <MainButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
+          Next Turn
+        </MainButton>         
+      </div>
+      <NuxtLink
+        v-if="!hasNextTurn && turnValue !== null"
+        class="bg-white purple"
+        :to="nextPath"
+      >
+        Next Chapter
+      </NuxtLink>
     </TheFooter>
-    <SubtitlePlayer />
+    <SubtitlePlayer/>
   </GameContainer>
 </template>
 
@@ -41,16 +50,25 @@ export default {
     return {
       turnIndex: 0,
       turnValue: null,
+      turnData: [],
     }
   },
   computed: {
     hasNextTurn() {
       return this.turnIndex < this.turns.length - 1
     },
+    currentTurn() {
+      return this.turns[this.turnIndex]
+    },
   },
   methods: {
     onNextTurn() {
-      // reset card position
+      // store input
+      this.currentTurn.value = this.turnValue
+      this.turnData.push(this.currentTurn)
+
+      // reset for next turn
+      this.turnValue = null
       this.$refs.draggableItem.resetPosition()
 
       // increment turnIndex
@@ -69,4 +87,3 @@ export default {
   },
 }
 </script>
-
