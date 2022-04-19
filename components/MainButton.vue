@@ -22,6 +22,7 @@ export default {
 	background-color: $white-color;
 	border: none;
 	outline:none;
+	filter: $main-button-shadow-effect;
  }
 </style>
 
