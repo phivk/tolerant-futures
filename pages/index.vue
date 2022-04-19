@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-column justify-around items-center tc vh-100">
+  <div class="landing-page flex flex-column justify-around items-center tc vh-100">
     <h1>{{ title }}</h1>
     <NuxtLink class="bg-white purple" :to="nextPath">
       {{ nextButtonText }}
@@ -18,3 +18,10 @@ export default {
   },
 }
 </script>
+
+<style>
+  .landing-page {
+    background-image: url('@/static/image/landing_page_background.jpg');
+    object-fit: cover;
+  } 
+</style>
