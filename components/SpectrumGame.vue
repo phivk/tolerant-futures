@@ -16,12 +16,7 @@
       <div>current turn's value: {{ turnValue }}</div>
       <MainButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
         Next Turn
-      </MainButton>
-
-
-      <SecondaryButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
-        Skip
-      </SecondaryButton>      
+      </MainButton>      
       <button v-if="!hasNextTurn" @click="onNextChapter">Next Chapter</button>
     </TheFooter>
     <SubtitlePlayer />
