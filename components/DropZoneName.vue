@@ -1,5 +1,5 @@
 <template>
-	<span class="drop-zone-name"><slot></slot></span>
+  <span class="drop-zone-name"><slot></slot></span>
 </template>
 
 <script>
@@ -14,5 +14,3 @@ export default {}
  	color: $background-color;
  }
 </style>
-
-

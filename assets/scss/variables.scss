@@ -2,24 +2,25 @@
 $card-item-width: 300px;
 $card-item-height: 180px;
 $card-item-inner-width: calc($card-item-width * 0.9);
-$card-item-inner-height: calc(($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px);
-$chapter-progression-item-width: 30px;
+$card-item-inner-height: calc(
+  ($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px
+);
 $drop-zone-height: 400px;
-$exit-game-button-width: 50px;
-
+$exit-game-button-width: 40px;
+$chapter-progression-item-width: 30px;
 
 /* font families */
 $headline-font: 'headline_font', sans_serif;
 $text-font: 'text_font', serif;
 
 /* font sizes */
-$f-1: 3rem; 
-$f-2: 2.25rem; 
-$f-3: 1.5rem; 
-$f-4: 1.25rem; 
+$f-1: 3rem;
+$f-2: 2.25rem;
+$f-3: 1.5rem;
+$f-4: 1.25rem;
 $f-5: 1rem;
-$f-6: .875rem; 
-$f-7: .75rem; 
+$f-6: 0.875rem;
+$f-7: 0.75rem;
 
 /* z-index */
 $z-1: 1;
@@ -33,12 +34,18 @@ $border-width-1: 1px;
 $border-width-2: 2px;
 $border-radius-1: 10px;
 $border-radius-2: 20px;
-$border-radius-3: 20px;
+$border-radius-3: 100px;
 
 /* blur */
 $blur-1: 10px;
 $blur-2: 30px;
 $blur-3: 50px;
+
+/* shadow effects */
+$draggable-item-shadow-effect-passive: drop-shadow(0 6px 3px rgb(0, 0, 0, 0.5));
+$draggable-item-shadow-effect-active: drop-shadow(0 6px 15px rgb(0, 0, 0, 0.5));
+$main-button-shadow-effect: drop-shadow(0 8px 7px rgb(0, 0, 0, 0.4));
+$secondary-button-shadow-effect: drop-shadow(0 6px 6px rgb(0, 0, 0, 0.4));
 
 /* padding & margin offsets */
 $offset-1: 4px;
@@ -52,33 +59,31 @@ $offset-7: 144px;
 /* colors */
 $black-color: #000;
 $white-color: #fff;
-$present-card-item-color: #F2F2F2;
+$present-card-item-color: #f2f2f2;
 $past-card-item-color: #333131;
 $card-item-outline-color: #909090;
-$background-color: #3C1B9A;
-$signal-color: #8968E7;
-$action-color: #3C1B9A;
+$background-color: #3c1b9a;
+$signal-color: #8968e7;
+$action-color: #3c1b9a;
 $button-outline-color: $white-color;
 
 /* spectrum gradient colors
-	are color vars used in background gradients of the spectra	
+	are hand picked color vars used in background gradients of the spectra	
 	c-1-a is gradient 1 color of the left extreme of the gradient
 	c-1-b is gradient 1 color of the right extreme of the gradient
 	spectrum gradient css classes are generated in gradients.scss and exposed in global.scss
 */
 // yellow blue
-$c-1-a: #FFED49;
-$c-1-b: #70A0FD;
+$c-1-a: #ffed49;
+$c-1-b: #70a0fd;
 
 // green orange
-$c-2-a: #8AEFB3;
-$c-2-b: #FF922E;
+$c-2-a: #8aefb3;
+$c-2-b: #ff922e;
 
 // pink blue
-$c-3-a: #F37DE7;
-$c-3-b: #76A0F3;
+$c-3-a: #f37de7;
+$c-3-b: #76a0f3;
 
 // make a list
-$spectra-color-pairs: (($c-1-a, $c-1-b),
-			   			($c-2-a, $c-2-b),
-			   			($c-3-a, $c-3-b));
+$spectra-color-pairs: (($c-1-a, $c-1-b), ($c-2-a, $c-2-b), ($c-3-a, $c-3-b));
