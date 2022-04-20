@@ -1,9 +1,12 @@
 <template>
-  <div class="landing-page flex flex-column justify-around items-center tc vh-100">
+  <div class="landing-page vh-100">
+    <div>
     <h1>{{ title }}</h1>
+    <p> </p>
     <NuxtLink class="bg-white purple" :to="nextPath">
       {{ nextButtonText }}
     </NuxtLink>
+    </div>
   </div>
 </template>
 
