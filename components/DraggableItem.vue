@@ -103,11 +103,19 @@ export default {
 .draggable {
   position: absolute;
   z-index: $z-5;
-}
-.can-drop {
-  border: solid 4px blue;
-}
-.dropped {
-  border: solid 4px green;
+  filter: $draggable-item-shadow-effect-passive;
+
+  /* TO DO: add dragged class to this component while it's being dragged */
+  &.dragged {
+    filter: $draggable-item-shadow-effect-passive;
+  }
+
+  &.can-drop {
+    border: solid 4px blue;
+  }
+
+  &.dropped {
+    border: solid 4px green;
+  }
 }
 </style>

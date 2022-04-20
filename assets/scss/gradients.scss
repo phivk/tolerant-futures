@@ -1,17 +1,16 @@
 @use 'variables';
 
-// create atomic linear-gradient background classes 
+// create atomic linear-gradient background classes
 
 @mixin create-gradient-background-classes($color-pairs) {
+  @for $i from 1 through length($color-pairs) {
+    $pair: nth($color-pairs, $i);
 
-	@for $i from 1 through length($color-pairs) {
-	    $pair: nth($color-pairs, $i);
-
-	    .gradient-#{$i} {
-	    	background: linear-gradient(90deg, $pair);
-	    }
-	}	
+    .gradient-#{$i} {
+      background: linear-gradient(90deg, $pair);
+    }
+  }
 }
 
 // gradient classes are loaded to global.scss file
-@include create-gradient-background-classes(variables.$spectra-color-pairs)
+@include create-gradient-background-classes(variables.$spectra-color-pairs);

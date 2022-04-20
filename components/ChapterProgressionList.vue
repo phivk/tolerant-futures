@@ -1,19 +1,18 @@
 <template>
   <ul class="chapter-progression-list">
-  	<ChapterProgressionItem/>
-  	<ChapterProgressionItem/>
-  	<ChapterProgressionItem/>  	
+    <ChapterProgressionItem />
+    <ChapterProgressionItem />
+    <ChapterProgressionItem />
   </ul>
 </template>
 
 <script>
-	export default {}
+export default {}
 </script>
 
 <style scoped lang="scss">
-	.chapter-progression-list {
-		display: flex;
-	}
+.chapter-progression-list {
+  margin: 0;
+  display: flex;
+}
 </style>
-
-
