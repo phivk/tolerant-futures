@@ -1,6 +1,6 @@
 <template>
   <div ref="myDropZone" class="dropzone">
-    <slot></slot>      
+    <slot></slot>
   </div>
 </template>
 
@@ -87,7 +87,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 .dropzone {
   margin: 10px auto 30px;
   padding: 10px;
@@ -105,7 +104,7 @@ export default {
   border-color: #aaa;
 }
 .drop-target {
- // background-color: #29e;
+  // background-color: #29e;
   border-color: blue;
   border-style: solid;
 }

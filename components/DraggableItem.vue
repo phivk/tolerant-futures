@@ -109,16 +109,13 @@ export default {
   &.dragged {
     filter: $draggable-item-shadow-effect-passive;
   }
- 
+
   &.can-drop {
     border: solid 4px blue;
   }
 
   &.dropped {
     border: solid 4px green;
-  }  
+  }
 }
-
-
-
 </style>

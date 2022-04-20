@@ -1,8 +1,8 @@
 <template>
   <GameContainer>
     <div class="w-100 flex justify-between ph3 pt3">
-      <ChapterProgressionList/>
-      <ExitGameButton/>
+      <ChapterProgressionList />
+      <ExitGameButton />
     </div>
     <DropZone>
       <DropZoneName>{{ currentTurn.spectrum[0] }}</DropZoneName>
@@ -16,9 +16,13 @@
       <p>{{ currentTurn.caption }}</p>
       <div v-if="turnValue !== null && hasNextTurn">
         <p>current turn's value: {{ turnValue }}</p>
-        <MainButton v-if="turnValue !== null && hasNextTurn" button-text="Hello" @buttonClicked="onNextTurn">
+        <MainButton
+          v-if="turnValue !== null && hasNextTurn"
+          button-text="Hello"
+          @buttonClicked="onNextTurn"
+        >
           Next Turn
-        </MainButton>         
+        </MainButton>
       </div>
       <NuxtLink
         v-if="!hasNextTurn && turnValue !== null"
@@ -28,7 +32,7 @@
         Next Chapter
       </NuxtLink>
     </TheFooter>
-    <SubtitlePlayer/>
+    <SubtitlePlayer />
   </GameContainer>
 </template>
 

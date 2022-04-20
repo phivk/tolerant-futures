@@ -1,7 +1,8 @@
 <template>
   <section
-    class="w-100 h-100 relative flex flex-column justify-between items-center">
-  <slot> </slot>
+    class="w-100 h-100 relative flex flex-column justify-between items-center"
+  >
+    <slot> </slot>
   </section>
 </template>
 
@@ -10,10 +11,8 @@ export default {}
 </script>
 
 <style scoped lang="scss">
- section {
+section {
   overflow: hidden;
   background-color: $background-color;
- }
+}
 </style>
-
-
