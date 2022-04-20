@@ -1,5 +1,5 @@
 <template>
-  <button class="exit-game-button">
+  <button class="button-exit-game">
     <img src="@/static/svg/exit_game_icon.svg" />
   </button>
 </template>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.exit-game-button {
+.button-exit-game {
   box-sizing: border-box;
   width: $exit-game-button-width;
   height: $exit-game-button-width;

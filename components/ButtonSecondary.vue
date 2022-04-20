@@ -1,5 +1,5 @@
 <template>
-  <button class="secondary-button" @click="handleClick"><slot></slot></button>
+  <button class="button-secondary" @click="handleClick"><slot></slot></button>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.secondary-button {
+.button-secondary {
   font-family: $headline-font;
   font-size: $f-4;
   box-sizing: border-box;
