@@ -10,9 +10,9 @@ export default {
   data() {
     return {
       title: 'Play',
-      inputs: [],
       turns: turnsPast,
       nextPath: '/ch3',
+      inputs: [],
     }
   },
   async mounted() {
