@@ -20,5 +20,8 @@ export default {
       nextPath: '/',
     }
   },
+  mounted() {
+    this.$store.commit('setCurrentChapter', 'ch4')
+  },
 }
 </script>
