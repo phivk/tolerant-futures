@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import turnsPast from '~/data/turns-ch2.json'
+import { getRandomTurns } from '~/util/game.js'
 export default {
   data() {
     return {
       title: 'Play',
-      turns: turnsPast,
+      turns: getRandomTurns(3),
       nextPath: '/ch3',
       inputs: [],
     }
