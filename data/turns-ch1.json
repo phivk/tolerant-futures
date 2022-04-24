@@ -1,17 +1,20 @@
 [
   {
     "object": "You",
-    "spectrum": ["Left handed", "Right handed"],
+    "spectrum_left": "Left handed",
+    "spectrum_right": "Right handed",
     "caption": "Are you more left handed, right handed, or somewhere in between? Go ahead and place yourself on the spectrum."
   },
   {
     "object": "You",
-    "spectrum": ["Young", "Old"],
+    "spectrum_left": "Young",
+    "spectrum_right": "Old",
     "caption": "Well done! Now, on the spectrum between Young and Old, where would you place yourself?"
   },
   {
-    "object": "You",
-    "spectrum": ["Near", "Far"],
+    "object": "Your home",
+    "spectrum_left": "Near",
+    "spectrum_right": "Far",
     "caption": "Neat! Let's now reflect on where is home for you right now. At this moment, you Near or Far from home?"
   }
 ]

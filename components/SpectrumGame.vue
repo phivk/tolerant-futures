@@ -5,8 +5,8 @@
       <ButtonExitGame />
     </div>
     <DropZone>
-      <DropZoneName>{{ currentTurn.spectrum[0] }}</DropZoneName>
-      <DropZoneName>{{ currentTurn.spectrum[1] }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum_left }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
@@ -95,8 +95,8 @@ export default {
         .insert([
           {
             object: currentTurn.object,
-            spectrum_left: currentTurn.spectrum[0],
-            spectrum_right: currentTurn.spectrum[1],
+            spectrum_left: currentTurn.spectrum_left,
+            spectrum_right: currentTurn.spectrum_right,
             value: currentTurn.value,
           },
         ])
