@@ -20,6 +20,8 @@ export default {
       .from('spectrumInput')
       .select('*')
     this.inputs = inputs
+
+    this.$store.commit('setCurrentChapter', 'ch2')
   },
 }
 </script>

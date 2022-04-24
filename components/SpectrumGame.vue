@@ -98,6 +98,8 @@ export default {
             spectrum_left: currentTurn.spectrum_left,
             spectrum_right: currentTurn.spectrum_right,
             value: currentTurn.value,
+            chapter: this.$store.state.currentChapter,
+            user: this.$store.state.user,
           },
         ])
         .single()
