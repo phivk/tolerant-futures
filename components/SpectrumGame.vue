@@ -14,12 +14,12 @@
     </DraggableItem>
     <TheFooter>
       <div v-if="turnValue !== null && hasNextTurn">
-        <p>current turn's value: {{ turnValue }}</p>
         <ButtonPrimary
           v-if="turnValue !== null && hasNextTurn"
           @buttonClicked="onNextTurn">
           Next Turn
         </ButtonPrimary>
+        <p>current turn's value: {{ turnValue }}</p>        
       </div>
       <NuxtLink
         v-if="!hasNextTurn && turnValue !== null"
