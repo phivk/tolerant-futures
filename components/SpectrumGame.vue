@@ -33,7 +33,7 @@
         Next Chapter
       </NuxtLink>
     </TheFooter>
-    <SubtitlePlayer />
+    <SubtitlePlayer/>
   </GameContainer>
 </template>
 
