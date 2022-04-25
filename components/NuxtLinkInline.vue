@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class="link-inline" :to="nextPath">
+  <NuxtLink class="link-inline" :to="nextPath" :append="nextPathAppend">
     <slot></slot>
   </NuxtLink>
 </template>
@@ -12,7 +12,12 @@ export default {
       required: true,
       default: null,
     },
-  }
+  },
+  nextPathAppend: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },     
 }
 </script>
 

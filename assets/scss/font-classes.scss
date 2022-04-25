@@ -1,8 +1,13 @@
 @use 'variables';
 
-
 h1 {
 	font-family: variables.$headline-font;
 	font-size: variables.$f-1;
+	color: variables.$black-color;
+}
+
+p {
+	font-family: variables.$text-font;
+	font-size: variables.$f-4;
 	color: variables.$black-color;
 }

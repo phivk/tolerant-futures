@@ -59,11 +59,6 @@ export default {
       h1, p {
         display: block;
       }
-
-      p {
-        font-family: $text-font;
-        font-size: $f-5;
-      }
     }
   } 
 </style>
