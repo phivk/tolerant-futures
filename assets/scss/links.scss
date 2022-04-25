@@ -1,0 +1,26 @@
+@use 'variables';
+
+
+.link-primary {
+  width: 100%;
+  max-width: variables.$main-button-max-width;
+  font-family: variables.$headline-font;
+  font-size: variables.$f-2;
+  text-align: center;
+  box-sizing: border-box;
+  padding: variables.$offset-3;
+  border-radius: variables.$border-radius-1;
+  background-color: variables.$white-color;
+  border: none;
+  outline: none;
+  filter: variables.$main-button-shadow-effect;
+  text-decoration: none;
+  color: variables.$black-color;
+}
+
+.link-inline {
+  font-family: variables.$text-font;
+  font-size: variables.$f-4;
+  display: inline;
+  color: variables.$black-color;
+}

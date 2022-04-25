@@ -5,15 +5,15 @@
         <h1>{{ title }}</h1>
         <p class="pv3">{{ projectDescription }}</p>
       </div>
-      <NuxtLinkPrimary class="ma3" :next-path="nextLinkPath">
+      <NuxtLink class="ma3 link-primary" :to="nextLinkPath">
         {{ nextLinkText }}
-      </NuxtLinkPrimary>
+      </NuxtLink>
 
       <p class="pv3">
         {{ aboutProjectDescription }}
-        <NuxtLinkInline :next-path="aboutProjectPath">
+        <NuxtLink class="link-inline" :to="aboutProjectPath">
           {{ aboutProjectLinkText }}
-        </NuxtLinkInline>
+        </NuxtLink>
       </p>
     </div>
   </div>

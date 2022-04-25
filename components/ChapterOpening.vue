@@ -3,9 +3,9 @@
     <div class="wrapper">
       <h1>{{ title }}</h1>
       <p class="pt2 pb4">{{ paragraph }}</p>
-      <NuxtLinkPrimary :next-path="nextPath" :next-path-append="nextPathAppend">
+      <NuxtLink class="link-primary" :to="nextPath" :append="nextPathAppend">
         {{ buttonText }}
-      </NuxtLinkPrimary>
+      </NuxtLink>
     </div>
   </section>
 </template>
