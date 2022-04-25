@@ -1,20 +1,25 @@
 <template>
-  <button class="button-primary" @click="handleClick"><slot></slot></button>
+  <NuxtLink class="link-primary" :to="nextPath">
+    <slot></slot>
+  </NuxtLink>
 </template>
 
 <script>
-export default {
-  methods: {
-    handleClick() {
-      this.$emit('buttonClicked', {})
+export default { 
+  props: {
+    nextPath: {
+      type: String,
+      required: true,
+      default: null,
     },
-  },
+  }
 }
 </script>
 
 <style scoped lang="scss">
-.button-primary {
-  max-width: $main-button-max-width;
+.link-primary {
+  width: 100%;
+  max-width: $main-button-max-width;  
   font-family: $headline-font;
   font-size: $f-2;
   text-align: center;
@@ -25,6 +30,7 @@ export default {
   border: none;
   outline: none;
   filter: $main-button-shadow-effect;
+  text-decoration: none;
   color: $black-color;
 }
 </style>
