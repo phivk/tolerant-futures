@@ -1,20 +1,13 @@
 <template>
-  <div class="landing-page">
+  <div class="informed-consent-page">
     <div class="wrapper">
       <div>
         <h1>{{ title }}</h1>
-        <p class="pv3">{{ projectDescription }}</p>
+        <p class="pv3">{{ informedConsentText }}</p>
       </div>
       <NuxtLink class="ma3 link-primary" :to="nextLinkPath">
         {{ nextLinkText }}
       </NuxtLink>
-
-      <p class="pv3">
-        {{ aboutProjectDescription }}
-        <NuxtLink class="link-inline" :to="aboutProjectPath">
-          {{ aboutProjectLinkText }}
-        </NuxtLink>
-      </p>
     </div>
   </div>
 </template>
@@ -23,23 +16,21 @@
 export default {
   data() {
     return {
-      title: 'Tolerant Futures',
-      nextLinkText: 'Begin experience',
-      nextLinkPath: '/consent',
-      projectDescription:
+      title: 'Informed Consent',
+      nextLinkText: 'I accept',
+      nextLinkPath: '/ch1',
+      informedConsentText:
         'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.',
-      aboutProjectPath: '/about',
-      aboutProjectLinkText: 'read more',
-      aboutProjectDescription:
-        'This project is a result of tolerant futures project.',
     }
   },
 }
 </script>
 
 <style scoped lang="scss">
-div.landing-page {
-  display: block;
+div.informed-consent-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: $offset-4;
   width: 100%;
   height: 100vh;
@@ -47,8 +38,8 @@ div.landing-page {
   background-image: url('@/static/image/landing_page_background.jpg');
 
   .wrapper {
-    width: 25%;
-    min-width: 300px;
+    width: 50%;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,6 +52,11 @@ div.landing-page {
     h1,
     p {
       display: block;
+    }
+
+    p {
+      font-family: $text-font;
+      font-size: $f-5;
     }
   }
 }

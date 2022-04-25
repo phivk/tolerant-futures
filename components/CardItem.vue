@@ -28,7 +28,7 @@ export default {
   border-style: solid;
   border-color: $card-item-outline-color;
   border-width: $border-width-2;
-  font-family: $headline_font;
+  font-family: $headline-font;
   font-size: $f-2;
 
   &.present-card {

@@ -1,13 +1,12 @@
 <template>
-  <section
-    class="w-100 h-100 relative flex flex-column justify-between items-center white"
-  >
-    <h1>{{ title }}</h1>
-    <p>{{ paragraph }}</p>
-
-    <NuxtLink class="bg-white purple" :to="nextPath" :append="nextPathAppend">{{
-      buttonText
-    }}</NuxtLink>
+  <section class="chapter-opening">
+    <div class="wrapper">
+      <h1>{{ title }}</h1>
+      <p class="pt2 pb4">{{ paragraph }}</p>
+      <NuxtLink class="link-primary" :to="nextPath" :append="nextPathAppend">
+        {{ buttonText }}
+      </NuxtLink>
+    </div>
   </section>
 </template>
 
@@ -42,3 +41,32 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+.chapter-opening {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: flex-column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url('@/static/image/chapter_intro_background.jpg');
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1,
+    p {
+      color: $white-color;
+      text-align: center;
+    }
+
+    p {
+      filter: $caption-shadow-effect;
+    }
+  }
+}
+</style>
