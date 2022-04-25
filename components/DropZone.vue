@@ -91,11 +91,12 @@ export default {
   margin: 10px auto 30px;
   padding: 10px;
   transition: background-color 0.3s;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
   height: $drop-zone-height;
   width: 100%;
   z-index: $z-1;
