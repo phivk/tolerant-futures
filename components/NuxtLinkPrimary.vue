@@ -5,26 +5,26 @@
 </template>
 
 <script>
-export default { 
+export default {
   props: {
     nextPath: {
       type: String,
       required: true,
-      default: null
+      default: null,
     },
     nextPathAppend: {
       type: Boolean,
       required: false,
-      default: true
-    },    
-  }
+      default: true,
+    },
+  },
 }
 </script>
 
 <style scoped lang="scss">
 .link-primary {
   width: 100%;
-  max-width: $main-button-max-width;  
+  max-width: $main-button-max-width;
   font-family: $headline-font;
   font-size: $f-2;
   text-align: center;

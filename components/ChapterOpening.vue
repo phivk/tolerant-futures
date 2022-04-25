@@ -3,9 +3,9 @@
     <div class="wrapper">
       <h1>{{ title }}</h1>
       <p class="pt2 pb4">{{ paragraph }}</p>
-      <NuxtLinkPrimary :nextPath="nextPath" :nextPathAppend="nextPathAppend">
+      <NuxtLinkPrimary :next-path="nextPath" :next-path-append="nextPathAppend">
         {{ buttonText }}
-      </NuxtLinkPrimary> 
+      </NuxtLinkPrimary>
     </div>
   </section>
 </template>
@@ -43,31 +43,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.chapter-opening {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: flex-column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url('@/static/image/chapter_intro_background.jpg');
 
-  .chapter-opening {
-    width: 100%;
-    height: 100vh;
+  .wrapper {
     display: flex;
-    flex-direction: flex-column;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background-size: cover;      
-    background-image: url('@/static/image/chapter_intro_background.jpg');
 
+    h1,
+    p {
+      color: $white-color;
+      text-align: center;
+    }
 
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      h1, p {
-        color: $white-color;
-        text-align: center;
-      }
-
-      p {
-        filter: $caption-shadow-effect;
-      } 
+    p {
+      filter: $caption-shadow-effect;
     }
   }
+}
 </style>

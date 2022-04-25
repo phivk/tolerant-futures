@@ -17,19 +17,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-	.card-item {
-		position: relative;		
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: $card-item-width;
-		height: $card-item-height;		
-		border-radius: $border-radius-1;
-		border-style: solid;
-		border-color: $card-item-outline-color;
-		border-width: $border-width-2;
-		font-family: $headline-font;
-		font-size: $f-2;
+.card-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $card-item-width;
+  height: $card-item-height;
+  border-radius: $border-radius-1;
+  border-style: solid;
+  border-color: $card-item-outline-color;
+  border-width: $border-width-2;
+  font-family: $headline-font;
+  font-size: $f-2;
 
   &.present-card {
     color: $black-color;
