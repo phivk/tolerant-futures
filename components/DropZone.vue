@@ -93,7 +93,7 @@ export default {
   transition: background-color 0.3s;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   display: flex;
   justify-content: space-between;
   align-items: center;

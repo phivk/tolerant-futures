@@ -9,7 +9,7 @@
       <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
-    <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
+    <DraggableItem ref="draggableItem" @set-value="onSetValue">
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>

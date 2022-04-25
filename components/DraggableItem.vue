@@ -104,6 +104,9 @@ export default {
   position: absolute;
   z-index: $z-5;
   filter: $draggable-item-shadow-effect-passive;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8%;
 
   /* TO DO: add dragged class to this component while it's being dragged */
   &.dragged {
