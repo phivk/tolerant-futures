@@ -15,7 +15,7 @@
     <TheFooter>
       <div class="mb4"
 v-if="turnValue !== null && hasNextTurn">
-        <ButtonPrimary
+        <ButtonPrimary 
           v-if="turnValue !== null && hasNextTurn"
           @buttonClicked="onNextTurn">
           Next Turn
