@@ -17,9 +17,7 @@
         <p>current turn's value: {{ turnValue }}</p>
         <ButtonPrimary
           v-if="turnValue !== null && hasNextTurn"
-          button-text="Hello"
-          @buttonClicked="onNextTurn"
-        >
+          @buttonClicked="onNextTurn">
           Next Turn
         </ButtonPrimary>
       </div>
