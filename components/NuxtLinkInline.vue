@@ -12,12 +12,12 @@ export default {
       required: true,
       default: null,
     },
-  },
   nextPathAppend: {
     type: Boolean,
     required: false,
     default: true,
-  },     
+  },    
+}
 }
 </script>
 

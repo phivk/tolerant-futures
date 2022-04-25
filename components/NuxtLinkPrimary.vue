@@ -10,12 +10,12 @@ export default {
     nextPath: {
       type: String,
       required: true,
-      default: null,
+      default: null
     },
     nextPathAppend: {
       type: Boolean,
       required: false,
-      default: true,
+      default: true
     },    
   }
 }
