@@ -5,7 +5,7 @@
         <h1>{{ title }}</h1>
         <p class="pv3">{{ informedConsentText }}</p>
       </div>
-      <NuxtLink class="ma3 link-inline" :to="nextLinkPath">
+      <NuxtLink class="ma3 link-primary" :to="nextLinkPath">
         {{ nextLinkText }}
       </NuxtLink>
     </div>
