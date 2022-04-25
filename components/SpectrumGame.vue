@@ -13,7 +13,6 @@
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <p>{{ currentTurn.caption }}</p>
       <div v-if="turnValue !== null && hasNextTurn">
         <p>current turn's value: {{ turnValue }}</p>
         <ButtonPrimary
@@ -32,8 +31,8 @@
       >
         Next Chapter
       </NuxtLink>
+      <SubtitlePlayer>{{ currentTurn.caption }}</SubtitlePlayer>
     </TheFooter>
-    <SubtitlePlayer />
   </GameContainer>
 </template>
 

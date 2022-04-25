@@ -1,5 +1,9 @@
 <template>
-  <div class="subtitle-player">Subtitle player hellooo</div>
+  <div class="subtitle-player">
+    <p>
+      <slot></slot>
+    </p>
+  </div>
 </template>
 
 <script>
@@ -10,6 +14,11 @@ export default {}
 .subtitle-player {
   width: 100%;
   height: 50px;
-  background-color: white;
+
+  p {
+    color: $white-color;
+    filter: $caption-shadow-effect;
+  }
+
 }
 </style>

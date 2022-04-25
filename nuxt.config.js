@@ -35,7 +35,7 @@ export default {
   css: ['tachyons/css/tachyons.css', '~assets/scss/global.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/supabase.client.js'],
+  //plugins: ['@/plugins/supabase.client.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
