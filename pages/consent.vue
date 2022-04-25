@@ -1,5 +1,5 @@
 <template>
-  <div class="landing-page">
+  <div class="informed-consent-page">
     <div class="wrapper">
       <div>
         <h1>{{ title }}</h1>
@@ -8,13 +8,6 @@
       <NuxtLinkPrimary class="ma3" :next-path="nextLinkPath">
         {{ nextLinkText }}
       </NuxtLinkPrimary>
-
-      <p class="pv3">
-        {{aboutProjectDescription}}
-        <NuxtLinkInline :next-path="aboutProjectPath">
-          {{ aboutProjectLinkText }}
-        </NuxtLinkInline>
-      </p>
     </div>
   </div>
 </template>
@@ -23,9 +16,9 @@
 export default {
   data() {
     return {
-      title: 'Tolerant Futures',
+      title: 'Informed Consent',
       nextLinkText: 'Begin experience',
-      nextLinkPath: '/consent',      
+      nextLinkPath: '/ch1',      
       projectDescription: 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.',
       aboutProjectPath: '/about',
       aboutProjectLinkText: 'read more',
@@ -36,7 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  div.landing-page {
+  div.informed-consent-page {
       display: block;
       padding: $offset-4;
       width: 100%;
