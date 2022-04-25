@@ -1442,10 +1442,10 @@
   dependencies:
     cross-fetch "^3.1.5"
 
-"@supabase/gotrue-js@^1.22.12":
-  version "1.22.12"
-  resolved "https://registry.yarnpkg.com/@supabase/gotrue-js/-/gotrue-js-1.22.12.tgz#78caaef13ef9bdacfcbabceb803ac79de52c6ad3"
-  integrity sha512-/baPkNiumE2B+OLSpvZquDsTqnOTAsG/07GBq5rXU8/e0rSyjljAFf8gnawGPezjlDGTFr2fjRYs0BYMz4LD/A==
+"@supabase/gotrue-js@^1.22.13":
+  version "1.22.13"
+  resolved "https://registry.yarnpkg.com/@supabase/gotrue-js/-/gotrue-js-1.22.13.tgz#4b680b40e34f2ea37f4d227ae0147d60dd6288fa"
+  integrity sha512-Ylus1KWkLRo6Hy9wLzzE4jAr+Fkt8Bi8a1YnX9aWIXPl/R8PxMb4fL928UAEm9fuyFZ1Z1F+BTTK2RM6NLReUQ==
   dependencies:
     cross-fetch "^3.0.6"
 
@@ -1456,10 +1456,10 @@
   dependencies:
     cross-fetch "^3.0.6"
 
-"@supabase/realtime-js@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-1.7.0.tgz#d1d0913c345f02e1f18c8a1d0dd231033d302f29"
-  integrity sha512-6wYcF7qCcVrKrLmlCxmcvSa+3yPhPp8FSPqWdT4uDp4sbUnY5tW5KcOuXc1JN3gGQwTlVUErblr9yFyreHxkDg==
+"@supabase/realtime-js@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-1.7.1.tgz#57c96494a60b40e6bb57f18826a51f1d34f9a2bf"
+  integrity sha512-ovp9UXzi3ibA/AOyL4CXW7hjbrR+ZQoxbJZ8rfZTSMpqYhT8Jl8/sLUozMobIzSV6gsZYuHR3QnzJmemzvBQhg==
   dependencies:
     "@types/phoenix" "^1.5.4"
     websocket "^1.0.34"
@@ -1471,15 +1471,15 @@
   dependencies:
     cross-fetch "^3.1.0"
 
-"@supabase/supabase-js@^1.34.0":
-  version "1.34.0"
-  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.34.0.tgz#915b278b5df8ea70daeb0068ccaf68684faf66d1"
-  integrity sha512-AFQFpm4/ppJJ9Oi7NPu6kg6SFlpIwhX5+3RZTZ963bjdiPfOjvmOPirBL0t+AbJ51Lf1aEIGZ0A1heSFD4Zf1w==
+"@supabase/supabase-js@^1.35.1":
+  version "1.35.1"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-1.35.1.tgz#8a82e6dbc904560bf1eb3cf47fc118ffb6822efc"
+  integrity sha512-w/pdDHxJx60OAB21mU9Zy/dUvWYE3MS7tSXzAITnpXM903TxbKSpsB+ZQcGy0W7FfP1E7CXOnPeprmxfUdnY2A==
   dependencies:
     "@supabase/functions-js" "^1.3.3"
-    "@supabase/gotrue-js" "^1.22.12"
+    "@supabase/gotrue-js" "^1.22.13"
     "@supabase/postgrest-js" "^0.37.2"
-    "@supabase/realtime-js" "^1.7.0"
+    "@supabase/realtime-js" "^1.7.1"
     "@supabase/storage-js" "^1.7.0"
 
 "@types/eslint-scope@^3.7.3":
@@ -3074,10 +3074,10 @@ core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.22.0:
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.22.0.tgz#b52007870c5e091517352e833b77f0b2d2b259f3"
-  integrity sha512-8h9jBweRjMiY+ORO7bdWSeWfHhLPO7whobj7Z2Bl0IDo00C228EdGgH7FE4jGumbEjzcFfkfW8bXgdkEDhnwHQ==
+core-js@^3.22.2:
+  version "3.22.2"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.22.2.tgz#3ea0a245b0895fa39d1faa15fe75d91ade504a01"
+  integrity sha512-Z5I2vzDnEIqO2YhELVMFcL1An2CIsFe9Q7byZhs8c/QxummxZlAHw33TUHbIte987LkisOgL0LwQ1P9D6VISnA==
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -7817,10 +7817,10 @@ sass-resources-loader@^2.2.4:
     glob "^7.1.6"
     loader-utils "^2.0.0"
 
-sass@^1.50.0:
-  version "1.50.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.50.0.tgz#3e407e2ebc53b12f1e35ce45efb226ea6063c7c8"
-  integrity sha512-cLsD6MEZ5URXHStxApajEh7gW189kkjn4Rc8DQweMyF+o5HF5nfEz8QYLMlPsTOD88DknatTmBWkOcw5/LnJLQ==
+sass@^1.50.1:
+  version "1.50.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.50.1.tgz#e9b078a1748863013c4712d2466ce8ca4e4ed292"
+  integrity sha512-noTnY41KnlW2A9P8sdwESpDmo+KBNkukI1i8+hOK3footBUcohNHtdOJbckp46XO95nuvcHDDZ+4tmOnpK3hjw==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -8942,6 +8942,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"

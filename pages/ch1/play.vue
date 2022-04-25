@@ -16,5 +16,9 @@ export default {
       nextPath: '/ch2',
     }
   },
+  mounted() {
+    this.$store.commit('setUser')
+    this.$store.commit('setCurrentChapter', 'ch1')
+  },
 }
 </script>

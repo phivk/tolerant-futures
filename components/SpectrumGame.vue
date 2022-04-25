@@ -5,8 +5,8 @@
       <ButtonExitGame />
     </div>
     <DropZone>
-      <DropZoneName>{{ currentTurn.spectrum[0] }}</DropZoneName>
-      <DropZoneName>{{ currentTurn.spectrum[1] }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum_left }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
@@ -28,6 +28,7 @@
         v-if="!hasNextTurn && turnValue !== null"
         class="bg-white purple"
         :to="nextPath"
+        @click.native="onNextChapter"
       >
         Next Chapter
       </NuxtLink>
@@ -69,7 +70,7 @@ export default {
     onNextTurn() {
       // store input
       this.currentTurn.value = this.turnValue
-      this.turnData.push(this.currentTurn)
+      this.submitInput(this.currentTurn)
 
       // reset for next turn
       this.turnValue = null
@@ -81,12 +82,27 @@ export default {
       }
     },
     onNextChapter() {
-      this.$router.push({
-        path: this.nextPath,
-      })
+      // store input
+      this.currentTurn.value = this.turnValue
+      this.submitInput(this.currentTurn)
     },
     onSetValue(value) {
       this.turnValue = value
+    },
+    async submitInput(currentTurn) {
+      await this.$supabase
+        .from('spectrumInput')
+        .insert([
+          {
+            object: currentTurn.object,
+            spectrum_left: currentTurn.spectrum_left,
+            spectrum_right: currentTurn.spectrum_right,
+            value: currentTurn.value,
+            chapter: this.$store.state.currentChapter,
+            user: this.$store.state.user,
+          },
+        ])
+        .single()
     },
   },
 }
