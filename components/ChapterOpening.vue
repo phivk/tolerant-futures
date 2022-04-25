@@ -43,6 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
   .chapter-opening {
     width: 100%;
     height: 100vh;
@@ -62,7 +63,11 @@ export default {
       h1, p {
         color: $white-color;
         text-align: center;
-      }      
+      }
+
+      p {
+        filter: $caption-shadow-effect;
+      } 
     }
   }
 </style>
