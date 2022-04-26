@@ -9,8 +9,7 @@
       <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
-    <div class="flex flex-column items-center static">
-      <DraggableItem ref="draggableItem" @set-value="onSetValue">
+      <DraggableItem ref="draggableItem" @set-value="onSetValue" style="bottom: 10%">
         <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
       </DraggableItem>
       <TheFooter>
@@ -33,7 +32,6 @@
         </NuxtLink>
         <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
       </TheFooter>
-    </div>
   </GameContainer>
 </template>
 

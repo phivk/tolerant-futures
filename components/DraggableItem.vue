@@ -101,7 +101,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .draggable {
-  //position: absolute;
+  position: absolute;
   z-index: $z-5;
   filter: $draggable-item-shadow-effect-passive;
 
