@@ -1,6 +1,6 @@
 <template>
   <GameContainer>
-    <div class="w-100 flex self-start justify-between ph3 pt3">
+    <div class="w-100 flex justify-between ph3 pt3">
       <ChapterProgressionList />
       <ButtonExitGame />
     </div>
