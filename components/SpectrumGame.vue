@@ -9,29 +9,33 @@
       <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
-      <DraggableItem ref="draggableItem" @set-value="onSetValue" style="bottom: 10%">
-        <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
-      </DraggableItem>
-      <TheFooter>
-        <div class="mb4"
-  v-if="turnValue !== null && hasNextTurn">
-          <ButtonPrimary 
-            v-if="turnValue !== null && hasNextTurn"
-            @buttonClicked="onNextTurn">
-            Next Turn
-          </ButtonPrimary>
-          <p>current turn's value: {{ turnValue }}</p>        
-        </div>
-        <NuxtLink
-          v-if="!hasNextTurn && turnValue !== null"
-          class="link-primary mb5"
-          :to="nextPath"
-          @click.native="onNextChapter"
+    <DraggableItem
+      ref="draggableItem"
+      style="bottom: 10%"
+      @set-value="onSetValue"
+    >
+      <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
+    </DraggableItem>
+    <TheFooter>
+      <div v-if="turnValue !== null && hasNextTurn" class="mb4">
+        <ButtonPrimary
+          v-if="turnValue !== null && hasNextTurn"
+          @buttonClicked="onNextTurn"
         >
-          Next Chapter
-        </NuxtLink>
-        <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
-      </TheFooter>
+          Next Turn
+        </ButtonPrimary>
+        <p>current turn's value: {{ turnValue }}</p>
+      </div>
+      <NuxtLink
+        v-if="!hasNextTurn && turnValue !== null"
+        class="link-primary mb5"
+        :to="nextPath"
+        @click.native="onNextChapter"
+      >
+        Next Chapter
+      </NuxtLink>
+      <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
+    </TheFooter>
   </GameContainer>
 </template>
 

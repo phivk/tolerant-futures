@@ -19,6 +19,5 @@ export default {}
     color: $white-color;
     filter: $caption-shadow-effect;
   }
-
 }
 </style>

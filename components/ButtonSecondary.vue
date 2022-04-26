@@ -28,7 +28,7 @@ export default {
   filter: $secondary-button-shadow-effect;
 
   &:hover {
-  	cursor: pointer;
-  }  
+    cursor: pointer;
+  }
 }
 </style>

@@ -3,5 +3,3 @@
     <slot></slot>
   </footer>
 </template>
-
-

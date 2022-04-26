@@ -28,7 +28,7 @@ export default {
   color: $black-color;
 
   &:hover {
-  	cursor: pointer;
+    cursor: pointer;
   }
 }
 </style>
