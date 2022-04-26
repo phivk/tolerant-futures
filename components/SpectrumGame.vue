@@ -24,7 +24,7 @@
         </div>
         <NuxtLink
           v-if="!hasNextTurn && turnValue !== null"
-          class="link-primary mb4"
+          class="link-primary mb5"
           :to="nextPath"
           @click.native="onNextChapter"
         >
