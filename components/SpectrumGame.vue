@@ -16,17 +16,20 @@
     >
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
+    <ModalPlayerFeedback v-if="turnValue !== null && isTurnConfirmed" class="spectrum-game-feedback-modal"/>
+
     <TheFooter>
 
       <ButtonPrimary
         class="mb4"
         v-if="turnValue !== null && !isTurnConfirmed"
-        @buttonClicked="onNextTurn"
+        @buttonClicked="onConfirmTurn"
       >
         Confirm
       </ButtonPrimary>
 
-      <div v-if="turnValue !== null && hasNextTurn && isTurnConfirmed" class="mb4">
+
+<!--       <div v-if="turnValue !== null && hasNextTurn && isTurnConfirmed" class="mb4">
         <ButtonPrimary
           v-if="turnValue !== null && hasNextTurn"
           @buttonClicked="onNextTurn"
@@ -34,7 +37,9 @@
           Next Turn
         </ButtonPrimary>
         <p>current turn's value: {{ turnValue }}</p>
-      </div>
+      </div> -->
+
+
       <NuxtLink
         v-if="!hasNextTurn && turnValue !== null"
         class="link-primary mb5"
@@ -98,6 +103,9 @@ export default {
       this.currentTurn.value = this.turnValue
       this.submitInput(this.currentTurn)
     },
+    onConfirmTurn() {
+      this.isTurnConfirmed = true
+    },
     onSetValue(value) {
       this.turnValue = value
     },
@@ -128,5 +136,11 @@ export default {
 
 .spectrum-game-draggable {
   bottom: 10%;
+}
+
+.spectrum-game-feedback-modal {
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%,-50%);
 }
 </style>
