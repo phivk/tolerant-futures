@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-100 vh-100 relative"
+    class="w-100 vh-100 relative flex flex-column justify-between items-center relative"
   >
     <slot> </slot>
   </section>

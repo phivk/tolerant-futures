@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-100 absolute bottom-0">
+  <footer class="w-100">
     <slot></slot>
   </footer>
 </template>

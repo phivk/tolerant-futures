@@ -1,6 +1,6 @@
 <template>
   <GameContainer>
-    <div class="w-100 flex justify-between ph3 pt3">
+    <div class="w-100 flex self-start justify-between ph3 pt3">
       <ChapterProgressionList />
       <ButtonExitGame />
     </div>
@@ -9,29 +9,31 @@
       <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
-    <DraggableItem ref="draggableItem" @set-value="onSetValue">
-      <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
-    </DraggableItem>
-    <TheFooter>
-      <div class="mb4"
-v-if="turnValue !== null && hasNextTurn">
-        <ButtonPrimary 
-          v-if="turnValue !== null && hasNextTurn"
-          @buttonClicked="onNextTurn">
-          Next Turn
-        </ButtonPrimary>
-        <p>current turn's value: {{ turnValue }}</p>        
-      </div>
-      <NuxtLink
-        v-if="!hasNextTurn && turnValue !== null"
-        class="bg-white purple"
-        :to="nextPath"
-        @click.native="onNextChapter"
-      >
-        Next Chapter
-      </NuxtLink>
-      <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
-    </TheFooter>
+    <div class="flex flex-column items-center static">
+      <DraggableItem ref="draggableItem" @set-value="onSetValue">
+        <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
+      </DraggableItem>
+      <TheFooter>
+        <div class="mb4"
+  v-if="turnValue !== null && hasNextTurn">
+          <ButtonPrimary 
+            v-if="turnValue !== null && hasNextTurn"
+            @buttonClicked="onNextTurn">
+            Next Turn
+          </ButtonPrimary>
+          <p>current turn's value: {{ turnValue }}</p>        
+        </div>
+        <NuxtLink
+          v-if="!hasNextTurn && turnValue !== null"
+          class="link-primary mb4"
+          :to="nextPath"
+          @click.native="onNextChapter"
+        >
+          Next Chapter
+        </NuxtLink>
+        <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
+      </TheFooter>
+    </div>
   </GameContainer>
 </template>
 
