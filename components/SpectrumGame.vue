@@ -4,14 +4,14 @@
       <ChapterProgressionList />
       <ButtonExitGame />
     </div>
-    <DropZone>
+    <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrum_left }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem
       ref="draggableItem"
-      style="bottom: 10%"
+      class="spectrum-game-draggable"
       @set-value="onSetValue"
     >
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
@@ -109,3 +109,14 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+.spectrum-game-dropzone {
+  top: 50%;
+  transform: translateY(-60%);
+}
+
+.spectrum-game-draggable {
+  bottom: 10%;
+}
+</style>
