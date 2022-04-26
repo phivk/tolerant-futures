@@ -17,7 +17,16 @@
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <div v-if="turnValue !== null && hasNextTurn" class="mb4">
+
+      <ButtonPrimary
+        class="mb4"
+        v-if="turnValue !== null && !isTurnConfirmed"
+        @buttonClicked="onNextTurn"
+      >
+        Confirm
+      </ButtonPrimary>
+
+      <div v-if="turnValue !== null && hasNextTurn && isTurnConfirmed" class="mb4">
         <ButtonPrimary
           v-if="turnValue !== null && hasNextTurn"
           @buttonClicked="onNextTurn"
@@ -55,6 +64,7 @@ export default {
   },
   data() {
     return {
+      isTurnConfirmed: false,
       turnIndex: 0,
       turnValue: null,
       turnData: [],
