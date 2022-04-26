@@ -58,6 +58,10 @@ div.landing-page {
     padding: $offset-4;
     text-align: center;
 
+    .link-primary {
+      width: 100%;
+    }
+
     h1,
     p {
       display: block;
