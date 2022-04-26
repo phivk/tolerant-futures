@@ -24,7 +24,6 @@
         >
           Next Turn
         </ButtonPrimary>
-        <p>current turn's value: {{ turnValue }}</p>
       </div>
       <NuxtLink
         v-if="!hasNextTurn && turnValue !== null"
