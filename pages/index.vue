@@ -5,7 +5,7 @@
         <h1>{{ title }}</h1>
         <p class="pv3">{{ projectDescription }}</p>
       </div>
-      <NuxtLink class="ma3 link-primary" :to="nextLinkPath">
+      <NuxtLink class="link-primary ma3 w-100" :to="nextLinkPath">
         {{ nextLinkText }}
       </NuxtLink>
 
@@ -57,10 +57,6 @@ div.landing-page {
     border-radius: $border-radius-2;
     padding: $offset-4;
     text-align: center;
-
-    .link-primary {
-      width: 100%;
-    }
 
     h1,
     p {
