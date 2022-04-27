@@ -17,22 +17,19 @@
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <div v-if="turnValue !== null && hasNextTurn" class="mb4">
-        <ButtonPrimary
-          v-if="turnValue !== null && hasNextTurn"
-          @buttonClicked="onNextTurn"
-        >
+      <div v-if="turnValue !== null" class="mb4">
+        <ButtonPrimary v-if="hasNextTurn" @buttonClicked="onNextTurn">
           Next Turn
         </ButtonPrimary>
+        <NuxtLink
+          v-else
+          class="link-primary mb5"
+          :to="nextPath"
+          @click.native="onNextChapter"
+        >
+          Next Chapter
+        </NuxtLink>
       </div>
-      <NuxtLink
-        v-if="!hasNextTurn && turnValue !== null"
-        class="link-primary mb5"
-        :to="nextPath"
-        @click.native="onNextChapter"
-      >
-        Next Chapter
-      </NuxtLink>
       <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
     </TheFooter>
   </GameContainer>
