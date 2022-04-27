@@ -4,21 +4,22 @@
       <ChapterProgressionList />
       <ButtonExitGame />
     </div>
-    <DropZone>
+    <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrum_left }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
-    <DraggableItem ref="draggableItem" class="bottom-2" @set-value="onSetValue">
+    <DraggableItem
+      ref="draggableItem"
+      class="spectrum-game-draggable"
+      @set-value="onSetValue"
+    >
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
     <TheFooter>
-      <p>{{ currentTurn.caption }}</p>
-      <div v-if="turnValue !== null && hasNextTurn">
-        <p>current turn's value: {{ turnValue }}</p>
+      <div v-if="turnValue !== null && hasNextTurn" class="mb4">
         <ButtonPrimary
           v-if="turnValue !== null && hasNextTurn"
-          button-text="Hello"
           @buttonClicked="onNextTurn"
         >
           Next Turn
@@ -26,14 +27,14 @@
       </div>
       <NuxtLink
         v-if="!hasNextTurn && turnValue !== null"
-        class="bg-white purple"
+        class="link-primary mb5"
         :to="nextPath"
         @click.native="onNextChapter"
       >
         Next Chapter
       </NuxtLink>
+      <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
     </TheFooter>
-    <SubtitlePlayer />
   </GameContainer>
 </template>
 
@@ -107,3 +108,14 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+.spectrum-game-dropzone {
+  top: 50%;
+  transform: translateY(-60%);
+}
+
+.spectrum-game-draggable {
+  bottom: 10%;
+}
+</style>

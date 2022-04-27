@@ -26,5 +26,9 @@ export default {
   outline: none;
   border-style: solid;
   filter: $secondary-button-shadow-effect;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
