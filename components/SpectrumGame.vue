@@ -72,7 +72,6 @@ export default {
       turnValueConfirmed: false,
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
-      turnData: [],
       showPresent: false,
     }
   },

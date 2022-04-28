@@ -10,11 +10,6 @@ export const getRandomConceptPast = () => {
   return getRandomFromArray(concepts).past
 }
 
-export const getRandomConceptPresent = () => {
-  const conceptsPresent = getRandomFromArray(concepts).present
-  return getRandomFromArray(conceptsPresent)
-}
-
 export const getRandomConceptPair = () => {
   const concept = getRandomFromArray(concepts)
   const conceptPresent = getRandomFromArray(concept.present)
