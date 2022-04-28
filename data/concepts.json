@@ -55,7 +55,7 @@
     "present": [
       {
         "name": "Great Wall of China",
-        "caption": "Great Wall Caption about of China"
+        "caption": "Caption about Great Wall of China"
       },
       {
         "name": "Berlin Wall",
@@ -63,11 +63,11 @@
       },
       {
         "name": "Anglo-Scottish border",
-        "caption": "Anglo-Caption about Scottish border"
+        "caption": "Caption about Anglo-Scottish border"
       },
       {
         "name": "US-Mexican border",
-        "caption": "US-Caption about Mexican border"
+        "caption": "Caption about US-Mexican border"
       }
     ]
   },
@@ -83,7 +83,7 @@
       },
       {
         "name": "Jean-Claude Juncker",
-        "caption": "Jean-Caption about Claude Juncker"
+        "caption": "Caption about Jean-Claude Juncker"
       },
       {
         "name": "Donald Trump",
@@ -103,11 +103,11 @@
     "present": [
       {
         "name": "End of the Third Reich",
-        "caption": "End of the Caption about Third Reich"
+        "caption": "Caption about End of the Third Reich"
       },
       {
         "name": "End of the British Empire",
-        "caption": "End of the Caption about British Empire"
+        "caption": "Caption about End of the British Empire"
       },
       {
         "name": "Scottish independence",
