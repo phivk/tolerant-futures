@@ -5,8 +5,8 @@
       <ButtonExitGame />
     </div>
     <DropZone class="spectrum-game-dropzone">
-      <DropZoneName>{{ currentTurn.spectrum_left }}</DropZoneName>
-      <DropZoneName>{{ currentTurn.spectrum_right }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
+      <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem
@@ -16,21 +16,37 @@
     >
       <CardItem>{{ currentTurn.concept }}</CardItem>
     </DraggableItem>
+    <DraggableItem
+      v-show="showPresent"
+      ref="draggableItemPresent"
+      class="spectrum-game-draggable"
+      @set-value="onSetValuePresent"
+    >
+      <CardItem is-present-card>
+        {{ currentTurn.conceptPresent }}
+      </CardItem>
+    </DraggableItem>
     <TheFooter>
-      <div v-if="turnValue !== null" class="mb4">
-        <ButtonPrimary v-if="hasNextTurn" @buttonClicked="onNextTurn">
-          Next Turn
-        </ButtonPrimary>
-        <NuxtLink
-          v-else
-          class="link-primary mb5"
-          :to="nextPath"
-          @click.native="onNextChapter"
+      <div class="mb4">
+        <ButtonPrimary
+          v-if="hasTurnValueToConfirm"
+          @buttonClicked="onTurnConfirm"
         >
-          Next Chapter
-        </NuxtLink>
+          Confirm
+        </ButtonPrimary>
+        <ButtonPrimary
+          v-if="hasTurnValuePresentToConfirm"
+          @buttonClicked="onTurnPresentConfirm"
+        >
+          Confirm
+        </ButtonPrimary>
       </div>
-      <SubtitlePlayer class="mb3">{{ currentTurn.caption }}</SubtitlePlayer>
+      <SubtitlePlayer v-show="!showPresent" class="mb3">
+        {{ currentTurn.caption }}
+      </SubtitlePlayer>
+      <SubtitlePlayer v-show="showPresent" class="mb3">
+        {{ currentTurn.captionPresent }}
+      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -53,7 +69,11 @@ export default {
     return {
       turnIndex: 0,
       turnValue: null,
+      turnValueConfirmed: false,
+      turnValuePresent: null,
+      turnValuePresentConfirmed: false,
       turnData: [],
+      showPresent: false,
     }
   },
   computed: {
@@ -63,39 +83,75 @@ export default {
     currentTurn() {
       return this.turns[this.turnIndex]
     },
+    hasPresent() {
+      return Object.prototype.hasOwnProperty.call(
+        this.currentTurn,
+        'conceptPresent'
+      )
+    },
+    hasTurnValueToConfirm() {
+      return this.turnValue !== null && !this.turnValueConfirmed
+    },
+    hasTurnValuePresentToConfirm() {
+      return this.turnValuePresent !== null && !this.turnValuePresentConfirmed
+    },
   },
   methods: {
-    onNextTurn() {
-      // store input
-      this.currentTurn.value = this.turnValue
-      this.submitInput(this.currentTurn)
-
-      // reset for next turn
-      this.turnValue = null
-      this.$refs.draggableItem.resetPosition()
-
-      // increment turnIndex
-      if (this.hasNextTurn) {
-        this.turnIndex++
+    onTurnConfirm() {
+      this.turnValueConfirmed = true
+      if (this.hasPresent) {
+        this.showPresent = true
+      } else {
+        this.endTurn()
       }
     },
-    onNextChapter() {
+    onTurnPresentConfirm() {
+      this.turnValuePresentConfirmed = true
+      this.endTurn()
+    },
+    endTurn() {
       // store input
       this.currentTurn.value = this.turnValue
+      this.currentTurn.valuePresent = this.turnValuePresent
       this.submitInput(this.currentTurn)
+
+      // advance game
+      if (this.hasNextTurn) {
+        // reset for next turn
+        this.reset()
+        // next turn
+        this.turnIndex++
+      } else {
+        // next chapter
+        this.$router.push(this.nextPath)
+      }
+    },
+    reset() {
+      this.turnValue = null
+      this.turnValuePresent = null
+      this.turnValueConfirmed = false
+      this.turnValuePresentConfirmed = false
+      this.$refs.draggableItem.resetPosition()
+      this.$refs.draggableItemPresent.resetPosition()
+      this.showPresent = false
     },
     onSetValue(value) {
       this.turnValue = value
+    },
+    onSetValuePresent(value) {
+      this.turnValuePresent = value
     },
     async submitInput(currentTurn) {
       await this.$supabase
         .from('spectrumInput')
         .insert([
           {
-            object: currentTurn.object,
-            spectrum_left: currentTurn.spectrum_left,
-            spectrum_right: currentTurn.spectrum_right,
+            concept: currentTurn.concept,
+            conceptPresent: currentTurn.conceptPresent,
             value: currentTurn.value,
+            valuePresent: currentTurn.valuePresent,
+            spectrumLeft: currentTurn.spectrumLeft,
+            spectrumRight: currentTurn.spectrumRight,
             chapter: this.$store.state.currentChapter,
             user: this.$store.state.user,
           },
