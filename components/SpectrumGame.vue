@@ -14,7 +14,7 @@
       class="spectrum-game-draggable"
       @set-value="onSetValue"
     >
-      <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
+      <CardItem>{{ currentTurn.concept }}</CardItem>
     </DraggableItem>
     <TheFooter>
       <div v-if="turnValue !== null" class="mb4">
