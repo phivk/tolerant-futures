@@ -34,8 +34,8 @@
         "caption": "Research shows that Roman Empire is often associated with British Empire"
       },
       {
-        "name": "Third Reich",
-        "caption": "Research shows that Roman Empire is often associated with Third Reich"
+        "name": "Nazi Germany",
+        "caption": "Research shows that Roman Empire is often associated with Nazi Germany"
       },
       {
         "name": "USSR",
@@ -102,8 +102,8 @@
     },
     "present": [
       {
-        "name": "End of the Third Reich",
-        "caption": "Research shows that Fall of the Roman Empire is often associated with End of the Third Reich"
+        "name": "End of the Nazi Germany",
+        "caption": "Research shows that Fall of the Roman Empire is often associated with End of the Nazi Germany"
       },
       {
         "name": "End of the British Empire",
