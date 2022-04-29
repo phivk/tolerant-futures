@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import { getRandomTurns } from '~/util/game.js'
+import { getRandomPairTurns } from '~/util/game.js'
 export default {
   data() {
     return {
       title: 'Play',
-      turns: getRandomTurns(3),
+      turns: getRandomPairTurns(3),
       nextPath: '/ch3',
       inputs: [],
     }
