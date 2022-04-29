@@ -1,5 +1,5 @@
 <template>
-  <GameContainer>
+  <GameContainer v-if="currentTurn">
     <div class="w-100 flex justify-between ph3 pt3">
       <ChapterProgressionList />
       <ButtonExitGame />
@@ -57,7 +57,7 @@ export default {
     turns: {
       type: Array,
       required: true,
-      default: null,
+      default: () => [],
     },
     nextPath: {
       type: String,

@@ -10,12 +10,23 @@ export const getRandomConceptPast = () => {
   return getRandomFromArray(concepts).past
 }
 
-export const getRandomConceptPair = () => {
+export const getRandomConceptPastPresent = () => {
   const concept = getRandomFromArray(concepts)
   const conceptPresent = getRandomFromArray(concept.present)
   return {
     past: concept.past,
     present: conceptPresent,
+  }
+}
+
+export const getRandomConceptSelfOther = (pastInputs) => {
+  const input = getRandomFromArray(pastInputs)
+  const concept = concepts.find(
+    (concept) => concept.past.name === input.concept
+  )
+  return {
+    self: concept.past,
+    other: input,
   }
 }
 
@@ -30,8 +41,8 @@ export const getRandomTurn = () => {
   }
 }
 
-export const getRandomPairTurn = () => {
-  const conceptPair = getRandomConceptPair()
+export const getRandomTurnPastPresent = () => {
+  const conceptPair = getRandomConceptPastPresent()
   const spectrum = getRandomSpectrum()
   return {
     concept: conceptPair.past.name,
@@ -43,14 +54,33 @@ export const getRandomPairTurn = () => {
   }
 }
 
+export const getRandomTurnSelfOther = (pastInputs) => {
+  const conceptPair = getRandomConceptSelfOther(pastInputs)
+
+  return {
+    concept: conceptPair.self.name,
+    caption: conceptPair.self.caption,
+    conceptOther: conceptPair.other.concept,
+    captionOther: `Where do you think the other visitor placed ${conceptPair.other.concept} on this spectrum?`,
+    spectrumLeft: conceptPair.other.spectrumLeft,
+    spectrumRight: conceptPair.other.spectrumRight,
+  }
+}
+
 export const getRandomTurns = (n) => {
   return Array(n)
     .fill(0)
     .map((i) => getRandomTurn())
 }
 
-export const getRandomPairTurns = (n) => {
+export const getRandomTurnsPastPresent = (n) => {
   return Array(n)
     .fill(0)
-    .map((i) => getRandomPairTurn())
+    .map((i) => getRandomTurnPastPresent())
+}
+
+export const getRandomTurnsSelfOther = (pastInputs, n) => {
+  return Array(n)
+    .fill(0)
+    .map((i) => getRandomTurnSelfOther(pastInputs))
 }
