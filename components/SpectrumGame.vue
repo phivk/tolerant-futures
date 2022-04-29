@@ -16,7 +16,7 @@
     >
       <CardItem :is-present-card="false">{{ currentTurn.object }}</CardItem>
     </DraggableItem>
-    <ModalPlayerFeedback v-if="turnValue !== null && isTurnConfirmed" class="spectrum-game-feedback-modal"/>
+    <ModalPlayerFeedback v-if="turnValue !== null && isTurnConfirmed" class="spectrum-game-feedback-modal" input-placeholder-text="I placed the card here because..."/>
 
     <TheFooter>
 
