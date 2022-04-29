@@ -7,19 +7,19 @@
     "present": [
       {
         "name": "Elizabeth I",
-        "caption": "Caption about Elizabeth I"
+        "caption": "Research shows that Boudica is often associated with Elizabeth I. Where would you place it on the spectrum?"
       },
       {
         "name": "The suffragettes",
-        "caption": "Caption about The suffragettes"
+        "caption": "Research shows that Boudica is often associated with The suffragettes. Where would you place it on the spectrum?"
       },
       {
         "name": "Margareth Thatcher",
-        "caption": "Caption about Margareth Thatcher"
+        "caption": "Research shows that Boudica is often associated with Margareth Thatcher. Where would you place it on the spectrum?"
       },
       {
         "name": "Theresa May",
-        "caption": "Caption about Theresa May"
+        "caption": "Research shows that Boudica is often associated with Theresa May. Where would you place it on the spectrum?"
       }
     ]
   },
@@ -31,19 +31,19 @@
     "present": [
       {
         "name": "British Empire",
-        "caption": "Caption about British Empire"
+        "caption": "Research shows that Roman Empire is often associated with British Empire. Where would you place it on the spectrum?"
       },
       {
-        "name": "Third Reich",
-        "caption": "Caption about Third Reich"
+        "name": "Nazi Germany",
+        "caption": "Research shows that Roman Empire is often associated with Nazi Germany. Where would you place it on the spectrum?"
       },
       {
         "name": "USSR",
-        "caption": "Caption about USSR"
+        "caption": "Research shows that Roman Empire is often associated with USSR. Where would you place it on the spectrum?"
       },
       {
         "name": "European Union",
-        "caption": "Caption about European Union"
+        "caption": "Research shows that Roman Empire is often associated with European Union. Where would you place it on the spectrum?"
       }
     ]
   },
@@ -55,19 +55,19 @@
     "present": [
       {
         "name": "Great Wall of China",
-        "caption": "Great Wall Caption about of China"
+        "caption": "Research shows that Hadrian's Wall is often associated with Great Wall of China. Where would you place it on the spectrum?"
       },
       {
         "name": "Berlin Wall",
-        "caption": "Caption about Berlin Wall"
+        "caption": "Research shows that Hadrian's Wall is often associated with Berlin Wall. Where would you place it on the spectrum?"
       },
       {
         "name": "Anglo-Scottish border",
-        "caption": "Anglo-Caption about Scottish border"
+        "caption": "Research shows that Hadrian's Wall is often associated with Anglo-Scottish border. Where would you place it on the spectrum?"
       },
       {
         "name": "US-Mexican border",
-        "caption": "US-Caption about Mexican border"
+        "caption": "Research shows that Hadrian's Wall is often associated with US-Mexican border. Where would you place it on the spectrum?"
       }
     ]
   },
@@ -79,43 +79,43 @@
     "present": [
       {
         "name": "Napoleon",
-        "caption": "Caption about Napoleon"
+        "caption": "Research shows that Julius Caesar is often associated with Napoleon. Where would you place it on the spectrum?"
       },
       {
         "name": "Jean-Claude Juncker",
-        "caption": "Jean-Caption about Claude Juncker"
+        "caption": "Research shows that Julius Caesar is often associated with Jean-Claude Juncker. Where would you place it on the spectrum?"
       },
       {
         "name": "Donald Trump",
-        "caption": "Caption about Donald Trump"
+        "caption": "Research shows that Julius Caesar is often associated with Donald Trump. Where would you place it on the spectrum?"
       },
       {
         "name": "Vladimir Putin",
-        "caption": "Caption about Vladimir Putin"
+        "caption": "Research shows that Julius Caesar is often associated with Vladimir Putin. Where would you place it on the spectrum?"
       }
     ]
   },
   {
     "past": {
       "name": "Fall of the Roman Empire",
-      "caption": "The fall of the Roman Empirewas the loss of central political control in the Western Roman Empire, a process in which the Empire failed to enforce its rule, and its vast territory was divided into several successor polities."
+      "caption": "The fall of the Roman Empire was the loss of central political control in the Western Roman Empire, a process in which the Empire failed to enforce its rule, and its vast territory was divided into several successor polities."
     },
     "present": [
       {
-        "name": "End of the Third Reich",
-        "caption": "End of the Caption about Third Reich"
+        "name": "End of the Nazi Germany",
+        "caption": "Research shows that Fall of the Roman Empire is often associated with End of the Nazi Germany. Where would you place it on the spectrum?"
       },
       {
         "name": "End of the British Empire",
-        "caption": "End of the Caption about British Empire"
+        "caption": "Research shows that Fall of the Roman Empire is often associated with End of the British Empire. Where would you place it on the spectrum?"
       },
       {
         "name": "Scottish independence",
-        "caption": "Caption about Scottish independence"
+        "caption": "Research shows that Fall of the Roman Empire is often associated with Scottish independence. Where would you place it on the spectrum?"
       },
       {
         "name": "Brexit",
-        "caption": "Caption about Brexit"
+        "caption": "Research shows that Fall of the Roman Empire is often associated with Brexit. Where would you place it on the spectrum?"
       }
     ]
   }

@@ -9,8 +9,7 @@ export default {
   props: {
     isPresentCard: {
       type: Boolean,
-      required: true,
-      default: true,
+      default: false,
     },
   },
 }
