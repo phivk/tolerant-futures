@@ -29,11 +29,9 @@ export default {
   },
   computed: {
     isInputInvalid() {
-      return this.inputText === this.inputPlaceholderText
+      return this.inputText === this.inputPlaceholderText || !this.inputText
     }
   }
-
-
 }
 </script>
 
