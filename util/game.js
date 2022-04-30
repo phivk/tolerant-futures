@@ -19,8 +19,8 @@ export const getRandomConceptPastPresent = () => {
   }
 }
 
-export const getRandomConceptSelfOther = (pastInputs) => {
-  const input = getRandomFromArray(pastInputs)
+export const getRandomConceptSelfOther = (priorInputs) => {
+  const input = getRandomFromArray(priorInputs)
   const concept = concepts.find(
     (concept) => concept.past.name === input.concept
   )
@@ -54,8 +54,8 @@ export const getRandomTurnPastPresent = () => {
   }
 }
 
-export const getRandomTurnSelfOther = (pastInputs) => {
-  const conceptPair = getRandomConceptSelfOther(pastInputs)
+export const getRandomTurnSelfOther = (priorInputs) => {
+  const conceptPair = getRandomConceptSelfOther(priorInputs)
 
   return {
     concept: conceptPair.self.name,
@@ -80,8 +80,8 @@ export const getRandomTurnsPastPresent = (n) => {
     .map((i) => getRandomTurnPastPresent())
 }
 
-export const getRandomTurnsSelfOther = (pastInputs, n) => {
+export const getRandomTurnsSelfOther = (priorInputs, n) => {
   return Array(n)
     .fill(0)
-    .map((i) => getRandomTurnSelfOther(pastInputs))
+    .map((i) => getRandomTurnSelfOther(priorInputs))
 }

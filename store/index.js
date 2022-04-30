@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 export const state = () => ({
   user: null,
   currentChapter: null,
+  priorInputs: null,
 })
 
 export const mutations = {
@@ -11,5 +12,8 @@ export const mutations = {
   },
   setCurrentChapter(state, chapter) {
     state.currentChapter = chapter
+  },
+  setPriorInputs(state, priorInputs) {
+    state.priorInputs = priorInputs
   },
 }

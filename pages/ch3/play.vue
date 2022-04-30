@@ -17,15 +17,13 @@ export default {
       nextPath: '/ch4',
     }
   },
-  async mounted() {
-    this.$store.commit('setCurrentChapter', 'ch3')
-
-    const { data: pastInputs } = await this.$supabase
-      .from('spectrumInput')
-      .select('*')
-      .eq('chapter', 'ch2')
-
-    this.turns = getRandomTurnsSelfOther(pastInputs, 3)
+  created() {
+    if (this.$store.state.priorInputs) {
+      this.turns = getRandomTurnsSelfOther(this.$store.state.priorInputs, 3)
+    } else {
+      // navigate back to index page to fetch priorInputs
+      this.$router.push('/ch3')
+    }
   },
 }
 </script>
