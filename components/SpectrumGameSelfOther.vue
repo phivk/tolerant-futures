@@ -128,7 +128,9 @@ export default {
     },
     captionOtherGuessConfirmed() {
       return `${
-        this.valueOtherDiff > this.diffThreshold ? 'Not bad!' : 'Well done!'
+        Math.abs(this.valueOtherDiff) > this.diffThreshold
+          ? 'Not bad!'
+          : 'Well done!'
       } This is where the other visitor placed ${this.currentTurn.concept}`
     },
   },
