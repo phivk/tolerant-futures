@@ -28,7 +28,6 @@
     </DraggableItem>
     <CardItem
       v-show="showOtherTrue"
-      ref="cardItemOtherTrue"
       is-present-card
       class="o-70 z-5"
       :style="otherTrueStyle"
@@ -49,12 +48,24 @@
         >
           Confirm
         </ButtonPrimary>
+        <ButtonPrimary v-if="showOtherTrue" @buttonClicked="endTurn">
+          Next turn
+        </ButtonPrimary>
       </div>
       <SubtitlePlayer v-show="!showOtherGuess" class="mb3">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
-      <SubtitlePlayer v-show="showOtherGuess" class="mb3">
+      <SubtitlePlayer
+        v-show="showOtherGuess && !turnValueOtherConfirmed"
+        class="mb3"
+      >
         {{ currentTurn.captionOther }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="showOtherGuess && turnValueOtherConfirmed"
+        class="mb3"
+      >
+        {{ captionOtherGuessConfirmed }}
       </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
@@ -82,10 +93,10 @@ export default {
       turnValueOther: null,
       turnValueOtherConfirmed: false,
       showOtherGuess: false,
-      showOtherTrue: true,
+      showOtherTrue: false,
       cardWidth: 300,
-      testValue: 0,
       dropzoneWidth: 0,
+      diffThreshold: 0.25,
     }
   },
   computed: {
@@ -118,6 +129,11 @@ export default {
         transform: `translateX(${cardTranslation}px)`,
       }
     },
+    captionOtherGuessConfirmed() {
+      return `${
+        this.turnValueDiff > this.diffThreshold ? 'Not bad!' : 'Well done!'
+      } this is where the other visitor placed ${this.currentTurn.concept}`
+    },
   },
   mounted() {
     this.dropzoneWidth = this.$refs.theDropZone.$el.clientWidth
@@ -134,7 +150,6 @@ export default {
     onTurnOtherConfirm() {
       this.turnValueOtherConfirmed = true
       this.showOtherTrue = true
-      this.endTurn()
     },
     endTurn() {
       // store input
@@ -161,6 +176,7 @@ export default {
       this.$refs.draggableItem.resetPosition()
       this.$refs.draggableItemOther.resetPosition()
       this.showOtherGuess = false
+      this.showOtherTrue = false
     },
     onSetValue(value) {
       this.turnValue = value
