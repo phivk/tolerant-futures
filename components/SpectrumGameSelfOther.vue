@@ -106,12 +106,6 @@ export default {
     currentTurn() {
       return this.turns[this.turnIndex]
     },
-    hasOther() {
-      return Object.prototype.hasOwnProperty.call(
-        this.currentTurn,
-        'conceptOther'
-      )
-    },
     hasTurnValueToConfirm() {
       return this.turnValue !== null && !this.turnValueConfirmed
     },
@@ -141,11 +135,7 @@ export default {
   methods: {
     onTurnConfirm() {
       this.turnValueConfirmed = true
-      if (this.hasOther) {
-        this.showOtherGuess = true
-      } else {
-        this.endTurn()
-      }
+      this.showOtherGuess = true
     },
     onTurnOtherConfirm() {
       this.turnValueOtherConfirmed = true
