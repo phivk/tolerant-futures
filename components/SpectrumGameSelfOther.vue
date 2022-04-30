@@ -10,14 +10,14 @@
       <DropZoneBackground gradient-style="gradient-1" />
     </DropZone>
     <DraggableItem
-      ref="draggableItem"
+      ref="draggableItemSelf"
       class="spectrum-game-draggable"
-      @set-value="onSetValue"
+      @set-value="onSetValueSelf"
     >
       <CardItem>{{ currentTurn.concept }}</CardItem>
     </DraggableItem>
     <DraggableItem
-      v-show="showOtherGuess"
+      v-show="turnValueSelfConfirmed"
       ref="draggableItemOther"
       class="spectrum-game-draggable-other"
       @set-value="onSetValueOther"
@@ -27,42 +27,45 @@
       </CardItem>
     </DraggableItem>
     <CardItem
-      v-show="showOtherTrue"
+      v-show="turnValueOtherGuessConfirmed"
       is-present-card
       class="o-70 z-5"
-      :style="otherTrueStyle"
+      :style="otherTrueTranslateStyle"
     >
       {{ currentTurn.conceptOther }}
     </CardItem>
     <TheFooter>
       <div class="mb4">
         <ButtonPrimary
-          v-if="hasTurnValueToConfirm"
-          @buttonClicked="onTurnConfirm"
+          v-if="hasTurnValueSelfToConfirm"
+          @buttonClicked="onTurnSelfConfirm"
         >
-          Confirm
+          Confirm your choice
         </ButtonPrimary>
         <ButtonPrimary
-          v-if="hasTurnValueOtherToConfirm"
+          v-if="hasTurnValueOtherGuessToConfirm"
           @buttonClicked="onTurnOtherConfirm"
         >
-          Confirm
+          Confirm your guess
         </ButtonPrimary>
-        <ButtonPrimary v-if="showOtherTrue" @buttonClicked="endTurn">
+        <ButtonPrimary
+          v-if="turnValueOtherGuessConfirmed"
+          @buttonClicked="endTurn"
+        >
           Next turn
         </ButtonPrimary>
       </div>
-      <SubtitlePlayer v-show="!showOtherGuess" class="mb3">
+      <SubtitlePlayer v-show="!turnValueSelfConfirmed" class="mb3">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
       <SubtitlePlayer
-        v-show="showOtherGuess && !turnValueOtherConfirmed"
+        v-show="turnValueSelfConfirmed && !turnValueOtherGuessConfirmed"
         class="mb3"
       >
         {{ currentTurn.captionOther }}
       </SubtitlePlayer>
       <SubtitlePlayer
-        v-show="showOtherGuess && turnValueOtherConfirmed"
+        v-show="turnValueSelfConfirmed && turnValueOtherGuessConfirmed"
         class="mb3"
       >
         {{ captionOtherGuessConfirmed }}
@@ -88,12 +91,10 @@ export default {
   data() {
     return {
       turnIndex: 0,
-      turnValue: null,
-      turnValueConfirmed: false,
-      turnValueOther: null,
-      turnValueOtherConfirmed: false,
-      showOtherGuess: false,
-      showOtherTrue: false,
+      turnValueSelf: null,
+      turnValueSelfConfirmed: false,
+      turnValueOtherGuess: null,
+      turnValueOtherGuessConfirmed: false,
       cardWidth: 300,
       dropzoneWidth: 0,
       diffThreshold: 0.25,
@@ -106,16 +107,18 @@ export default {
     currentTurn() {
       return this.turns[this.turnIndex]
     },
-    hasTurnValueToConfirm() {
-      return this.turnValue !== null && !this.turnValueConfirmed
+    hasTurnValueSelfToConfirm() {
+      return this.turnValueSelf !== null && !this.turnValueSelfConfirmed
     },
-    hasTurnValueOtherToConfirm() {
-      return this.turnValueOther !== null && !this.turnValueOtherConfirmed
+    hasTurnValueOtherGuessToConfirm() {
+      return (
+        this.turnValueOtherGuess !== null && !this.turnValueOtherGuessConfirmed
+      )
     },
-    turnValueDiff() {
-      return this.turnValueOther - this.currentTurn.valueOther
+    valueOtherDiff() {
+      return this.turnValueOtherGuess - this.currentTurn.valueOther
     },
-    otherTrueStyle() {
+    otherTrueTranslateStyle() {
       const valueOtherMapped = this.currentTurn.valueOther - 0.5
       const cardTranslation =
         valueOtherMapped * (this.dropzoneWidth - this.cardWidth)
@@ -125,7 +128,7 @@ export default {
     },
     captionOtherGuessConfirmed() {
       return `${
-        this.turnValueDiff > this.diffThreshold ? 'Not bad!' : 'Well done!'
+        this.valueOtherDiff > this.diffThreshold ? 'Not bad!' : 'Well done!'
       } This is where the other visitor placed ${this.currentTurn.concept}`
     },
   },
@@ -133,19 +136,15 @@ export default {
     this.dropzoneWidth = this.$refs.theDropZone.$el.clientWidth
   },
   methods: {
-    onTurnConfirm() {
-      this.turnValueConfirmed = true
-      this.showOtherGuess = true
+    onTurnSelfConfirm() {
+      this.turnValueSelfConfirmed = true
     },
     onTurnOtherConfirm() {
-      this.turnValueOtherConfirmed = true
-      this.showOtherTrue = true
+      this.turnValueOtherGuessConfirmed = true
     },
     endTurn() {
       // store input
-      this.currentTurn.value = this.turnValue
-      this.currentTurn.valueOther = this.turnValueOther
-      // this.submitInput(this.currentTurn)
+      this.submitInput()
 
       // advance game
       if (this.hasNextTurn) {
@@ -159,33 +158,32 @@ export default {
       }
     },
     reset() {
-      this.turnValue = null
-      this.turnValueOther = null
-      this.turnValueConfirmed = false
-      this.turnValueOtherConfirmed = false
-      this.$refs.draggableItem.resetPosition()
+      this.turnValueSelf = null
+      this.turnValueSelfConfirmed = false
+      this.turnValueOtherGuess = null
+      this.turnValueOtherGuessConfirmed = false
+      this.$refs.draggableItemSelf.resetPosition()
       this.$refs.draggableItemOther.resetPosition()
-      this.showOtherGuess = false
-      this.showOtherTrue = false
     },
-    onSetValue(value) {
-      this.turnValue = value
+    onSetValueSelf(value) {
+      this.turnValueSelf = value
     },
     onSetValueOther(value) {
-      this.turnValueOther = value
+      this.turnValueOtherGuess = value
     },
-    async submitInput(currentTurn) {
+    async submitInput() {
       await this.$supabase
-        .from('spectrumInput')
+        .from('turnSelfOther')
         .insert([
           {
-            concept: currentTurn.concept,
-            conceptOther: currentTurn.conceptOther,
-            value: currentTurn.value,
-            valueOther: currentTurn.valueOther,
-            spectrumLeft: currentTurn.spectrumLeft,
-            spectrumRight: currentTurn.spectrumRight,
-            chapter: this.$store.state.currentChapter,
+            concept: this.currentTurn.concept,
+            spectrumLeft: this.currentTurn.spectrumLeft,
+            spectrumRight: this.currentTurn.spectrumRight,
+            valueSelf: this.turnValueSelf,
+            valueOtherGuess: this.turnValueOtherGuess,
+            valueOtherTrue: this.currentTurn.valueOther,
+            valueOtherDiff: this.valueOtherDiff,
+            turnIndex: this.turnIndex,
             user: this.$store.state.user,
           },
         ])
