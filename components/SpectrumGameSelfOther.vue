@@ -126,7 +126,7 @@ export default {
     captionOtherGuessConfirmed() {
       return `${
         this.turnValueDiff > this.diffThreshold ? 'Not bad!' : 'Well done!'
-      } this is where the other visitor placed ${this.currentTurn.concept}`
+      } This is where the other visitor placed ${this.currentTurn.concept}`
     },
   },
   mounted() {
