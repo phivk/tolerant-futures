@@ -52,7 +52,7 @@
           v-if="turnValueOtherGuessConfirmed"
           @buttonClicked="endTurn"
         >
-          Next turn
+          {{ hasNextTurn ? 'Next turn' : 'Next Chapter' }}
         </ButtonPrimary>
       </div>
       <SubtitlePlayer v-show="!turnValueSelfConfirmed" class="mb3">
