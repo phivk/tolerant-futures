@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { getRandomTurnsSelfOther } from '~/util/game.js'
 export default {
   data() {
     return {
@@ -18,10 +17,10 @@ export default {
     }
   },
   created() {
-    if (this.$store.state.priorInputs) {
-      this.turns = getRandomTurnsSelfOther(this.$store.state.priorInputs, 3)
+    if (this.$store.state.turnsSelfOther) {
+      this.turns = this.$store.state.turnsSelfOther
     } else {
-      // navigate back to index page to fetch priorInputs
+      // navigate back to index page to fetch priorInputs and generate turns
       this.$router.push('/ch3')
     }
   },

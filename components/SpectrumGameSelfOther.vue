@@ -175,7 +175,7 @@ export default {
     },
     async submitInput() {
       await this.$supabase
-        .from('turnSelfOther')
+        .from('inputSelfOther')
         .insert([
           {
             concept: this.currentTurn.concept,
