@@ -45,6 +45,11 @@ export default {
       this.resetInputText()
     },
   },
+  watch: {
+    inputPlaceholderText(newValue) {
+      this.inputText = newValue
+    },
+  },
 }
 </script>
 
