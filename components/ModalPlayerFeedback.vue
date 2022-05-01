@@ -62,18 +62,42 @@ div {
       outline: none;
       resize: none;
       width: 100%;
-      height: 400px;
+      height: $modal-player-feedback-textarea-height;
       appearance: none; 
       -moz-appearance: none; 
       -webkit-appearance: none; 
       border: none;
-      border-bottom: 1px solid $black-color;      
+      //border-bottom: $border-width-1 solid $black-color;      
       color: $white-color;
       font-family: $text-font;
       font-size: $f-2;
       &:focus {
         outline: none;
       }
+    }
+
+    input[type=submit] {
+        max-width: $main-button-max-width;
+        font-family: $headline-font;
+        font-size: $f-2;
+        text-align: center;
+        box-sizing: border-box;
+        padding: $offset-3;
+        border-radius: $border-radius-1;
+        background-color: $white-color;
+        border: none;
+        outline: none;
+        filter: $main-button-shadow-effect;
+        color: $black-color;
+
+        &:disabled {
+          color: $button-disabled-text-color;
+          background-color: $button-disabled-background-color;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
     }
   }
 

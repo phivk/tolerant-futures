@@ -26,7 +26,7 @@
         {{ currentTurn.conceptPresent }}
       </CardItem>
     </DraggableItem>
-    <ModalPlayerFeedback v-if="turnValue !== null && isTurnConfirmed" class="spectrum-game-feedback-modal" input-placeholder-text="I placed the card here because..."/>
+    <ModalPlayerFeedback v-show="turnValuePresentConfirmed" class="spectrum-game-feedback-modal" input-placeholder-text="I placed the card here because..."/>
 
     <TheFooter>
       <div class="mb4">
@@ -69,7 +69,6 @@ export default {
   },
   data() {
     return {
-      isTurnConfirmed: false,
       turnIndex: 0,
       turnValue: null,
       turnValueConfirmed: false,
@@ -109,7 +108,7 @@ export default {
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
-      this.endTurn()
+     // this.endTurn()
     },
     endTurn() {
       // store input
@@ -136,9 +135,6 @@ export default {
       this.$refs.draggableItem.resetPosition()
       this.$refs.draggableItemPresent.resetPosition()
       this.showPresent = false
-    },
-    onConfirmTurn() {
-      this.isTurnConfirmed = true
     },
     onSetValue(value) {
       this.turnValue = value
