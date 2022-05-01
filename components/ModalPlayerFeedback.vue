@@ -5,7 +5,7 @@
       <input type="submit" value="submit" @click="onSubmitFeedback" :disabled="isInputInvalid">
     </form>
       <p> Finish the sentence above or continue...</p>
-      <ButtonSecondary @handleClick="onSkipFeedback"> Skip </ButtonSecondary>
+      <ButtonSecondary @buttonClicked="onSkipFeedback"> Skip </ButtonSecondary>
   </div>
 </template>
 
@@ -26,10 +26,10 @@ export default {
   methods: {
     onSubmitFeedback(e) {
       e.preventDefault();
-      console.log("submitting");
+      this.$emit("feedbackSubmitted", this.inputText)
     },
     onSkipFeedback() {
-      console.log("skip feedback");
+      this.$emit("feedbackSkipped")      
     }
   },
   computed: {
