@@ -95,10 +95,14 @@ div {
         color: $black-color;
 
         &:disabled {
-          color: $button-disabled-text-color;
-          border: 2px solid $button-disabled-text-color;;
+          color: $button-disabled-color;
+          border: 2px solid $button-disabled-color;
           background: none;
           filter: none;
+
+          &:hover{
+            cursor: not-allowed;
+          }
         }
 
         &:hover {

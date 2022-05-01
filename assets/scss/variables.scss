@@ -11,7 +11,7 @@ $chapter-progression-item-width: 30px;
 $main-button-max-width: 400px;
 $modal-player-feedback-width: 60%;
 $modal-player-feedback-height: 50%;
-$modal-player-feedback-textarea-height: 85%;
+$modal-player-feedback-textarea-height: 80%;
 
 /* font families */
 $headline-font: 'headline_font', sans_serif;
@@ -73,8 +73,7 @@ $background-color: #3c1b9a;
 $signal-color: #8968e7;
 $action-color: #3c1b9a;
 $button-outline-color: $white-color;
-$button-disabled-background-color: #ababab;
-$button-disabled-text-color: #808080;
+$button-disabled-color: #575757;
 
 /* spectrum gradient colors
 	are hand picked color vars used in background gradients of the spectra	
