@@ -125,7 +125,7 @@ div {
     color: $white-color;
     filter: $caption-shadow-effect;
   }
-  button[type='button'] {
+  button {
     margin-top: $offset-3;
   }
 }
