@@ -94,6 +94,7 @@ export default {
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
+      feedback: null,
     }
   },
   computed: {
@@ -137,15 +138,13 @@ export default {
     onFeedbackSkipped() {
       this.endTurn()
     },
-    onFeedbackSubmitted(e) {
-      // const feedbackData = e;
+    onFeedbackSubmitted(feedbackText) {
+      this.feedback = feedbackText
       this.endTurn()
     },
 
     endTurn() {
       // store input
-      this.currentTurn.value = this.turnValue
-      this.currentTurn.valuePresent = this.turnValuePresent
       this.submitInput(this.currentTurn)
 
       // advance game
@@ -167,6 +166,7 @@ export default {
       this.$refs.draggableItem.resetPosition()
       this.$refs.draggableItemPresent.resetPosition()
       this.showPresent = false
+      this.feedback = null
     },
     onSetValue(value) {
       this.turnValue = value
@@ -174,17 +174,18 @@ export default {
     onSetValuePresent(value) {
       this.turnValuePresent = value
     },
-    async submitInput(currentTurn) {
+    async submitInput() {
       await this.$supabase
         .from('spectrumInput')
         .insert([
           {
-            concept: currentTurn.concept,
-            conceptPresent: currentTurn.conceptPresent,
-            value: currentTurn.value,
-            valuePresent: currentTurn.valuePresent,
-            spectrumLeft: currentTurn.spectrumLeft,
-            spectrumRight: currentTurn.spectrumRight,
+            concept: this.currentTurn.concept,
+            conceptPresent: this.currentTurn.conceptPresent,
+            value: this.turnValue,
+            valuePresent: this.turnValuePresent,
+            feedback: this.feedback,
+            spectrumLeft: this.currentTurn.spectrumLeft,
+            spectrumRight: this.currentTurn.spectrumRight,
             chapter: this.$store.state.currentChapter,
             user: this.$store.state.user,
           },
