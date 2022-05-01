@@ -2,8 +2,10 @@
   <div>
     <form>
       <textarea v-model="inputText"/>
-      <input type="submit" value="submit" @click="onSubmit" :disabled="isInputInvalid">
+      <input type="submit" value="submit" @click="onSubmitFeedback" :disabled="isInputInvalid">
     </form>
+      <p> Finish the sentence above or continue...</p>
+      <ButtonSecondary @handleClick="onSkipFeedback"> Skip </ButtonSecondary>
   </div>
 </template>
 
@@ -22,9 +24,12 @@ export default {
     }
   }, 
   methods: {
-    onSubmit(e) {
+    onSubmitFeedback(e) {
       e.preventDefault();
       console.log("submitting");
+    },
+    onSkipFeedback() {
+      console.log("skip feedback");
     }
   },
   computed: {
@@ -38,24 +43,24 @@ export default {
 <style scoped lang="scss">
 
 div {
-  width: $modal-player-feedback-width;
-  height: $modal-player-feedback-height;
   position: absolute;
   z-index: $z-5;
-  border-radius: $border-radius-2;
-  padding: $offset-3;  
-  border: $border-width-3 solid rgba(255,255,255, .4);
-  background-color: rgba(255, 255, 255, .4);
-  @supports ((-webkit-backdrop-filter: blur($blur-1)) or (backdrop-filter: blur($blur-1))) {
-    background-color: rgba(255, 255, 255, .3);
-    -webkit-backdrop-filter: blur($blur-1);
-    backdrop-filter: blur($blur-1);
-    border: $border-width-3 solid rgba(255,255,255, .4);
-  }
+  width: $modal-player-feedback-width;
+  height: $modal-player-feedback-height;
 
   form {
     width: 100%;
     height: 100%;
+    border-radius: $border-radius-2;
+    padding: $offset-3;  
+    border: $border-width-3 solid rgba(255,255,255, .4);
+    background-color: rgba(255, 255, 255, .8);
+    @supports ((-webkit-backdrop-filter: blur($blur-1)) or (backdrop-filter: blur($blur-1))) {
+      background-color: rgba(255, 255, 255, .3);
+      -webkit-backdrop-filter: blur($blur-1);
+      backdrop-filter: blur($blur-1);
+      border: $border-width-3 solid rgba(255,255,255, .4);
+    }
 
     textarea {
       background: none;
@@ -68,7 +73,7 @@ div {
       -webkit-appearance: none; 
       border: none;
       //border-bottom: $border-width-1 solid $black-color;      
-      color: $white-color;
+      color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
       &:focus {
@@ -99,6 +104,15 @@ div {
           cursor: pointer;
         }
     }
+  }
+  p {
+    margin-top: $offset-3;
+    color: $white-color;
+    filter: $caption-shadow-effect;
+  }
+
+  button[type=button] {
+    margin-top: $offset-3;
   }
 
 
