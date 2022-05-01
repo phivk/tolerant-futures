@@ -5,22 +5,16 @@
 </template>
 
 <script>
-import { getRandomPairTurns } from '~/util/game.js'
+import { getRandomTurnsPastPresent } from '~/util/game.js'
 export default {
   data() {
     return {
-      title: 'Play',
-      turns: getRandomPairTurns(3),
+      turns: getRandomTurnsPastPresent(3),
       nextPath: '/ch3',
       inputs: [],
     }
   },
-  async mounted() {
-    const { data: inputs } = await this.$supabase
-      .from('spectrumInput')
-      .select('*')
-    this.inputs = inputs
-
+  mounted() {
     this.$store.commit('setCurrentChapter', 'ch2')
   },
 }

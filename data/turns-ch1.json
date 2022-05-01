@@ -3,18 +3,24 @@
     "concept": "You",
     "spectrumLeft": "Left handed",
     "spectrumRight": "Right handed",
-    "caption": "Are you more left handed, right handed, or somewhere in between? Go ahead and place yourself on the spectrum."
+    "caption": "Let's start simple. Are you left handed, right handed, or somewhere in between? Go ahead and place yourself on the spectrum."
   },
   {
     "concept": "You",
     "spectrumLeft": "Young",
     "spectrumRight": "Old",
-    "caption": "Well done! Now, on the spectrum between Young and Old, where would you place yourself?"
+    "caption": "Thank you! Now, on the spectrum between Young and Old, where would you place yourself?"
   },
   {
     "concept": "Your home",
     "spectrumLeft": "Near",
     "spectrumRight": "Far",
     "caption": "Neat! Let's now reflect on where is home for you right now. At this moment, are you Near or Far from home?"
+  },
+  {
+    "concept": "Your relationship to time",
+    "spectrumLeft": "Past oriented",
+    "spectrumRight": "Future oriented",
+    "caption": "Thanks! And how would you describe your relationship to time. Are you more past oriented or future oriented?"
   }
 ]

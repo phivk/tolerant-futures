@@ -102,7 +102,7 @@ export default {
 <style scoped lang="scss">
 .draggable {
   position: absolute;
-  z-index: $z-5;
+  z-index: $z-3;
   filter: $draggable-item-shadow-effect-passive;
 
   /* TO DO: add dragged class to this component while it's being dragged */

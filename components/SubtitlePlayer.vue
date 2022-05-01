@@ -1,6 +1,6 @@
 <template>
   <div class="subtitle-player">
-    <p>
+    <p class="center mw8">
       <slot></slot>
     </p>
   </div>

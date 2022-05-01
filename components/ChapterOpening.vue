@@ -2,7 +2,7 @@
   <section class="chapter-opening">
     <div class="wrapper">
       <h1>{{ title }}</h1>
-      <p class="pt2 pb4">{{ paragraph }}</p>
+      <p class="pt2 pb4 measure-wide">{{ paragraph }}</p>
       <NuxtLink class="link-primary" :to="nextPath" :append="nextPathAppend">
         {{ buttonText }}
       </NuxtLink>
