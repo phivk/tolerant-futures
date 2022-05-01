@@ -26,7 +26,13 @@
         {{ currentTurn.conceptPresent }}
       </CardItem>
     </DraggableItem>
-    <ModalPlayerFeedback v-show="requirePlayerFeedback &&turnValuePresentConfirmed" @feedbackSubmitted="onFeedbackSubmitted" @feedbackSkipped="onFeedbackSkipped" class="spectrum-game-feedback-modal" input-placeholder-text="I placed the card here because..."/>
+    <ModalPlayerFeedback
+      v-show="requirePlayerFeedback && turnValuePresentConfirmed"
+      class="spectrum-game-feedback-modal"
+      input-placeholder-text="I placed the card here because..."
+      @feedbackSubmitted="onFeedbackSubmitted"
+      @feedbackSkipped="onFeedbackSkipped"
+    />
 
     <TheFooter>
       <div class="mb4">
@@ -69,7 +75,7 @@ export default {
     requirePlayerFeedback: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   data() {
     return {
@@ -112,7 +118,7 @@ export default {
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
-      if(!this.requirePlayerFeedback) {
+      if (!this.requirePlayerFeedback) {
         this.endTurn()
       }
     },
@@ -190,6 +196,6 @@ export default {
 .spectrum-game-feedback-modal {
   left: 50%;
   top: 50%;
-  transform:translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 </style>
