@@ -31,6 +31,11 @@ export default {
       return this.inputText === this.inputPlaceholderText || !this.inputText
     },
   },
+  watch: {
+    inputPlaceholderText(newValue) {
+      this.inputText = newValue
+    },
+  },
   methods: {
     resetInputText() {
       this.inputText = this.inputPlaceholderText
@@ -43,11 +48,6 @@ export default {
     onSkipFeedback() {
       this.$emit('feedbackSkipped')
       this.resetInputText()
-    },
-  },
-  watch: {
-    inputPlaceholderText(newValue) {
-      this.inputText = newValue
     },
   },
 }
