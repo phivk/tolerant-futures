@@ -1,6 +1,10 @@
 <template>
   <div ref="myDraggable" class="draggable">
     <slot></slot>
+    <span>{{ parseInt(screenX) }}</span>
+    ,
+    <span>{{ parseInt(screenY) }}</span>
+    <span v-if="value !== null">: {{ value.toFixed(2) }}</span>
   </div>
 </template>
 
