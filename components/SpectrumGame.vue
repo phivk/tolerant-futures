@@ -29,7 +29,7 @@
     <ModalPlayerFeedback
       v-show="requirePlayerFeedback && turnValuePresentConfirmed"
       class="spectrum-game-feedback-modal"
-      input-placeholder-text="I placed the card here because..."
+      :input-placeholder-text="feedbackInputPlaceholderText"
       @feedbackSubmitted="onFeedbackSubmitted"
       @feedbackSkipped="onFeedbackSkipped"
     />
@@ -114,6 +114,9 @@ export default {
     },
     hasTurnValuePresentToConfirm() {
       return this.turnValuePresent !== null && !this.turnValuePresentConfirmed
+    },
+    feedbackInputPlaceholderText() {
+      return `I placed ${this.currentTurn.conceptPresent} here because ...`
     },
   },
   methods: {
