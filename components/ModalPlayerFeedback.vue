@@ -27,7 +27,7 @@ export default {
       this.inputText = this.inputPlaceholderText;
     },
     onSubmitFeedback(e) {
-      e.preventDefault();
+      e.preventDefault()
       this.$emit("feedbackSubmitted", this.inputText)
       this.resetInputText()
     },
