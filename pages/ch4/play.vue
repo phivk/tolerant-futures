@@ -3,8 +3,8 @@
   <ChapterOpening
     :title="title"
     :paragraph="paragraph"
-    :buttonText="nextButtonText"
-    :nextPath="nextPath"
+    :button-text="nextButtonText"
+    :next-path="nextPath"
   />
 </template>
 

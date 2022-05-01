@@ -26,6 +26,14 @@
         {{ currentTurn.conceptPresent }}
       </CardItem>
     </DraggableItem>
+    <ModalPlayerFeedback
+      v-show="requirePlayerFeedback && turnValuePresentConfirmed"
+      class="spectrum-game-feedback-modal"
+      :input-placeholder-text="feedbackInputPlaceholderText"
+      @feedbackSubmitted="onFeedbackSubmitted"
+      @feedbackSkipped="onFeedbackSkipped"
+    />
+
     <TheFooter>
       <div class="mb4">
         <ButtonPrimary
@@ -44,8 +52,17 @@
       <SubtitlePlayer v-show="!showPresent" class="mb3">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
-      <SubtitlePlayer v-show="showPresent" class="mb3">
+      <SubtitlePlayer
+        v-show="showPresent && !turnValuePresentConfirmed"
+        class="mb3"
+      >
         {{ currentTurn.captionPresent }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="requirePlayerFeedback && turnValuePresentConfirmed"
+        class="mb3"
+      >
+        Please finish the sentence above
       </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
@@ -63,6 +80,10 @@ export default {
       type: String,
       required: true,
       default: null,
+    },
+    requirePlayerFeedback: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -94,6 +115,9 @@ export default {
     hasTurnValuePresentToConfirm() {
       return this.turnValuePresent !== null && !this.turnValuePresentConfirmed
     },
+    feedbackInputPlaceholderText() {
+      return `I placed ${this.currentTurn.conceptPresent} here because ...`
+    },
   },
   methods: {
     onTurnConfirm() {
@@ -106,8 +130,18 @@ export default {
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
+      if (!this.requirePlayerFeedback) {
+        this.endTurn()
+      }
+    },
+    onFeedbackSkipped() {
       this.endTurn()
     },
+    onFeedbackSubmitted(e) {
+      // const feedbackData = e;
+      this.endTurn()
+    },
+
     endTurn() {
       // store input
       this.currentTurn.value = this.turnValue
@@ -169,5 +203,11 @@ export default {
 
 .spectrum-game-draggable {
   bottom: 10%;
+}
+
+.spectrum-game-feedback-modal {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
