@@ -1,21 +1,20 @@
 <template>
-  <div class="flex flex-column justify-around items-center tc vh-100">
-    <h1>{{ title }}</h1>
-    <section>
-      <div>Playing the Future Game...</div>
-      <NuxtLink class="bg-white purple" :to="nextPath">
-        {{ nextButtonText }}
-      </NuxtLink>
-    </section>
-    <TheFooter> </TheFooter>
-  </div>
+  <!-- TODO: this will need to look different, not like a ChapterOpening -->
+  <ChapterOpening
+    :title="title"
+    :paragraph="paragraph"
+    :buttonText="nextButtonText"
+    :nextPath="nextPath"
+  />
 </template>
 
 <script>
 export default {
   data() {
     return {
-      title: 'Future',
+      title: 'The Future',
+      paragraph:
+        "As part of this installation, you'll find a set of physical cards. We invite you to pick one and take it with you. What meaning do you attach to this card? And how would someone else see it? Feel free to use this card as a keepsake or a conversation starter whenever the moment is right.",
       nextButtonText: 'Back to start',
       nextPath: '/',
     }
