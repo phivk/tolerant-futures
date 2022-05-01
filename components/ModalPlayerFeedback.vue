@@ -72,7 +72,6 @@ div {
       -moz-appearance: none; 
       -webkit-appearance: none; 
       border: none;
-      //border-bottom: $border-width-1 solid $black-color;      
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
@@ -97,7 +96,9 @@ div {
 
         &:disabled {
           color: $button-disabled-text-color;
-          background-color: $button-disabled-background-color;
+          border: 2px solid $button-disabled-text-color;;
+          background: none;
+          filter: none;
         }
 
         &:hover {
@@ -114,7 +115,5 @@ div {
   button[type=button] {
     margin-top: $offset-3;
   }
-
-
 }
 </style>
