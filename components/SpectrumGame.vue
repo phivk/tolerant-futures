@@ -52,8 +52,17 @@
       <SubtitlePlayer v-show="!showPresent" class="mb3">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
-      <SubtitlePlayer v-show="showPresent" class="mb3">
+      <SubtitlePlayer
+        v-show="showPresent && !turnValuePresentConfirmed"
+        class="mb3"
+      >
         {{ currentTurn.captionPresent }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="requirePlayerFeedback && turnValuePresentConfirmed"
+        class="mb3"
+      >
+        Please finish the sentence above
       </SubtitlePlayer>
     </TheFooter>
   </GameContainer>

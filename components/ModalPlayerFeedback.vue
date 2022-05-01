@@ -9,7 +9,6 @@
         @click="onSubmitFeedback"
       />
     </form>
-    <p>Finish the sentence above or continue...</p>
     <ButtonSecondary @buttonClicked="onSkipFeedback"> Skip </ButtonSecondary>
   </div>
 </template>
