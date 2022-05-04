@@ -4,7 +4,6 @@
       <ChapterProgressionList />
       <ButtonExitGame />
     </div>
-    <p class="z-999">{{ stateIndex }}</p>
     <DropZone ref="theDropZone" class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
