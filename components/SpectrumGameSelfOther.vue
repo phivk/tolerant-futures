@@ -317,6 +317,7 @@ export default {
             valueOtherGuess: this.turnValueOtherGuess,
             valueOtherTrue: this.currentTurn.valueOther,
             valueOtherDiff: this.valueOtherDiff,
+            feedback: this.feedback,
             turnIndex: this.turnIndex,
             user: this.$store.state.user,
           },
