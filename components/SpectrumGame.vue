@@ -142,7 +142,6 @@ export default {
       this.feedback = feedbackText
       this.endTurn()
     },
-
     endTurn() {
       // store input
       this.submitInput(this.currentTurn)
