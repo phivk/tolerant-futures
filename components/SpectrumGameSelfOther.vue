@@ -40,16 +40,12 @@
       {{ currentTurn.conceptOther }}
     </CardItem>
     <!-- feedbackOther -->
-    <!-- TODO: change or replace ModalPlayerFeedback to hold hidden text that gets revealed on self feedbackSubmitted  -->
-    <ModalPlayerFeedback
-      v-show="currentState.elementsVisible.feedbackModalOtherHint"
-      class="spectrum-game-feedback-other-hint"
-      input-placeholder-text="Hint: Provide your feedback to see theirs."
-    />
-    <ModalPlayerFeedback
+    <ModalTextRevealer
       v-show="currentState.elementsVisible.feedbackModalOther"
       class="spectrum-game-feedback-other"
-      input-placeholder-text="TODO: insert other visitor's reasoning here"
+      text="other visitor's reasoning here"
+      hint="provide your input to see theirs"
+      :isHidden="feedback === null"
     />
     <!-- feedbackSelf -->
     <ModalPlayerFeedback
@@ -58,6 +54,12 @@
       :input-placeholder-text="feedbackInputPlaceholderText"
       @feedbackSubmitted="onFeedbackSubmitted"
       @feedbackSkipped="onFeedbackSkipped"
+    />
+    <ModalTextRevealer
+      v-show="currentState.elementsVisible.feedbackModalSelfText"
+      class="spectrum-game-feedback-modal"
+      :text="feedback"
+      :isHidden="false"
     />
     <TheFooter>
       <div class="mb4">
@@ -173,7 +175,7 @@ export default {
             otherGuessCard: true,
             otherTrueCard: true,
             feedbackModalSelf: true,
-            feedbackModalOtherHint: true,
+            feedbackModalOther: true,
           },
         },
         {
@@ -188,7 +190,7 @@ export default {
             selfCard: true,
             otherGuessCard: true,
             otherTrueCard: true,
-            feedbackModalSelf: true,
+            feedbackModalSelfText: true,
             feedbackModalOther: true,
           },
         },
@@ -337,12 +339,10 @@ export default {
   top: 5%;
 }
 .spectrum-game-feedback-modal {
-  /* TODO: improve these temp placeholder styles */
   left: 50%;
   top: 60%;
   transform: translate(-50%, -50%);
 }
-.spectrum-game-feedback-other-hint,
 .spectrum-game-feedback-other {
   /* TODO: improve these temp placeholder styles */
   left: 50%;
