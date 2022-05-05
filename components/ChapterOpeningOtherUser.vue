@@ -90,7 +90,7 @@ export default {
     align-items: center;
 
     .profile-container {
-      height: 600px;
+      height: $ch3-other-user-profile-container-height;
       width: 100%;
       display: flex;
       flex-direction: column;
