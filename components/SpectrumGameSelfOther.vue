@@ -44,7 +44,7 @@
       class="spectrum-game-feedback-other"
       text="other visitor's reasoning here"
       hint="provide your input to see theirs"
-      :isHidden="feedback === null"
+      :is-hidden="feedback === null"
     />
     <!-- feedbackSelf -->
     <ModalPlayerFeedback
@@ -58,7 +58,7 @@
       v-show="currentState.elementsVisible.feedbackModalSelfText"
       class="spectrum-game-feedback-modal"
       :text="feedback"
-      :isHidden="false"
+      :is-hidden="false"
     />
     <TheFooter>
       <div class="mb4">
