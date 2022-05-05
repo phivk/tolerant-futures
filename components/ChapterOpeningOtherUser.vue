@@ -3,18 +3,19 @@
     <div class="wrapper">
       <h1>{{ title }}</h1>
       <p class="pt2 pb4 measure-wide">{{ paragraph }}</p>
-      <div class="other_profile_container">
-        <img src='~/static/image/the_other.png' v-show="!revealOtherConfirmed">
-         <div class="holder" v-show="revealOtherConfirmed">
-            <OtherUserSpectrumBackground gradientStyle="gradient-1"/>
-            <OtherUserSpectrumBackground gradientStyle="gradient-2"/>
-            <OtherUserSpectrumBackground gradientStyle="gradient-3"/>    
-          </div>
+      <div class="profile-container">
+        <img v-show="!revealOtherConfirmed" src='~/static/image/the_other.png' >
+
+        <ul v-show="revealOtherConfirmed" class="spectra-container">
+        <OtherUserSpectrum v-for="input in otherUserProfile" :key="input.id" gradient-style="gradient-1" :other-user-position="input.value" class="other-user-spectrum">
+                <OtherUserSpectrumName>{{ input.spectrumLeft }}</OtherUserSpectrumName>
+                <OtherUserSpectrumName>{{ input.spectrumRight }}</OtherUserSpectrumName>
+          </OtherUserSpectrum>
+        </ul>
       </div>
       <ButtonPrimary v-show="!revealOtherConfirmed" @buttonClicked="onRevealOtherConfirm">
         Reveal the Other
       </ButtonPrimary>
-
       <NuxtLink v-show="revealOtherConfirmed" class="link-primary" :to="nextPath" :append="nextPathAppend">
         {{ buttonText }}
       </NuxtLink>
@@ -72,6 +73,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .chapter-opening {
   width: 100%;
   height: 100vh;
@@ -87,11 +89,25 @@ export default {
     flex-direction: column;
     align-items: center;
 
-    .other_profile_container {
+    .profile-container {
       height: 600px;
       width: 100%;
-      .holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .spectra-container {
         width: 100%;
+        list-style: none;
+
+        .other-user-spectrum {
+          margin-bottom: $offset-4;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
       }
     }
 
