@@ -14,7 +14,7 @@
         </ul>
       </div>
       <ButtonPrimary v-show="!revealOtherConfirmed" @buttonClicked="onRevealOtherConfirm">
-        Reveal the Other
+        {{ revealButtonText }}
       </ButtonPrimary>
       <NuxtLink v-show="revealOtherConfirmed" class="link-primary" :to="nextPath" :append="nextPathAppend">
         {{ buttonText }}
@@ -41,6 +41,11 @@ export default {
       required: false,
       default: 'Continue',
     },
+    revealButtonText: {
+      type: String,
+      required: false,
+      default: 'Reveal the Other',
+    }
     nextPath: {
       type: String,
       required: false,

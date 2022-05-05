@@ -38,7 +38,7 @@ export default {
 li {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: $ch3-other-user-spectrum-height;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,8 +51,8 @@ li {
 
     .other-user-circle {
       position: absolute;
-      width: 100px;
-      height: 100px;
+      width: $ch3-other-user-spectrum-height;
+      height: $ch3-other-user-spectrum-height;
       border-radius: 100%;
       background-color: $white-color;
       top: -50%;
