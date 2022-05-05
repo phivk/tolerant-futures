@@ -4,19 +4,40 @@
       <h1>{{ title }}</h1>
       <p class="pt2 pb4 measure-wide">{{ paragraph }}</p>
       <div class="profile-container">
-        <img v-show="!revealOtherConfirmed" src='~/static/image/the_other.png' >
+        <img
+          v-show="!revealOtherConfirmed"
+          src="~/static/image/the_other.png"
+        />
 
         <ul v-show="revealOtherConfirmed" class="spectra-container">
-        <OtherUserSpectrum v-for="input in otherUserProfile" :key="input.id" gradient-style="gradient-1" :other-user-position="input.value" class="other-user-spectrum">
-                <OtherUserSpectrumName>{{ input.spectrumLeft }}</OtherUserSpectrumName>
-                <OtherUserSpectrumName>{{ input.spectrumRight }}</OtherUserSpectrumName>
+          <OtherUserSpectrum
+            v-for="input in otherUserProfile"
+            :key="input.id"
+            gradient-style="gradient-1"
+            :other-user-position="input.value"
+            class="other-user-spectrum"
+          >
+            <OtherUserSpectrumName>{{
+              input.spectrumLeft
+            }}</OtherUserSpectrumName>
+            <OtherUserSpectrumName>{{
+              input.spectrumRight
+            }}</OtherUserSpectrumName>
           </OtherUserSpectrum>
         </ul>
       </div>
-      <ButtonPrimary v-show="!revealOtherConfirmed" @buttonClicked="onRevealOtherConfirm">
+      <ButtonPrimary
+        v-show="!revealOtherConfirmed"
+        @buttonClicked="onRevealOtherConfirm"
+      >
         {{ revealButtonText }}
       </ButtonPrimary>
-      <NuxtLink v-show="revealOtherConfirmed" class="link-primary" :to="nextPath" :append="nextPathAppend">
+      <NuxtLink
+        v-show="revealOtherConfirmed"
+        class="link-primary"
+        :to="nextPath"
+        :append="nextPathAppend"
+      >
         {{ buttonText }}
       </NuxtLink>
     </div>
@@ -45,7 +66,7 @@ export default {
       type: String,
       required: false,
       default: 'Reveal the Other',
-    }
+    },
     nextPath: {
       type: String,
       required: false,
@@ -60,10 +81,10 @@ export default {
       type: Array,
       required: true,
       default: null,
-    },    
+    },
   },
- data() {
-  return {
+  data() {
+    return {
       revealOtherConfirmed: false,
     }
   },
@@ -71,14 +92,12 @@ export default {
   methods: {
     onRevealOtherConfirm() {
       this.revealOtherConfirmed = true
-    }
-  }
-
+    },
+  },
 }
 </script>
 
 <style scoped lang="scss">
-
 .chapter-opening {
   width: 100%;
   height: 100vh;

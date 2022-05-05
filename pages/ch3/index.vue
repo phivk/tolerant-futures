@@ -9,7 +9,11 @@
       <div>{{ input.created_at }}</div>
     </div> -->
 
-    <ChapterOpeningOtherUser :title="title" :paragraph="paragraph" :other-user-profile="inputsOtherUserProfile" />    
+    <ChapterOpeningOtherUser
+      :title="title"
+      :paragraph="paragraph"
+      :other-user-profile="inputsOtherUserProfile"
+    />
   </div>
 </template>
 

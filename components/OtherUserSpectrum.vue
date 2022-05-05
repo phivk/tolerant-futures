@@ -2,7 +2,7 @@
   <li>
     <slot></slot>
     <span class="other-user-spectrum-gradient" :class="gradientStyle">
-      <span class="other-user-circle" :style="{left: positionStyle}"></span>
+      <span class="other-user-circle" :style="{ left: positionStyle }"></span>
     </span>
   </li>
 </template>
@@ -23,18 +23,17 @@ export default {
     },
   },
   computed: {
-     positionStyle() {
+    positionStyle() {
       let n = Math.round(this.otherUserPosition * 100)
-          n = Math.max( 10, Math.min(n, 90) )
-          n = n + '%'
+      n = Math.max(10, Math.min(n, 90))
+      n = n + '%'
       return n
-     } 
+    },
   },
 }
 </script>
 
 <style scoped lang="scss">
-
 li {
   position: relative;
   width: 100%;
@@ -46,7 +45,7 @@ li {
   .other-user-spectrum-gradient {
     position: absolute;
     width: 100%;
-    height: 100%;   
+    height: 100%;
     filter: blur($blur-1);
 
     .other-user-circle {
