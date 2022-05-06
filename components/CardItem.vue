@@ -31,6 +31,10 @@ export default {
   padding: $offset-2;
   box-sizing: border-box;
   font-size: $f-2;
+  -webkit-transform: translateZ(0);
+  outline: 1px solid transparent;
+  box-shadow: 0 0 1px rgba(0,0,0,.05);  
+  filter: $draggable-item-shadow-effect-passive;
 
   &.present-card {
     color: $black-color;

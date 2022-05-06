@@ -99,7 +99,7 @@ export default {
 .draggable {
   position: absolute;
   z-index: $z-3;
-  filter: $draggable-item-shadow-effect-passive;
+  //filter: $draggable-item-shadow-effect-passive;
   -webkit-transform: translateZ(0);
   outline: 1px solid transparent;
   box-shadow: 0 0 1px rgba(0,0,0,.05);
