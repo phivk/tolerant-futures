@@ -100,9 +100,6 @@ export default {
   position: absolute;
   z-index: $z-3;
   //filter: $draggable-item-shadow-effect-passive;
-  -webkit-transform: translateZ(0);
-  outline: 1px solid transparent;
-  box-shadow: 0 0 1px rgba(0,0,0,.05);
 
   /* TO DO: add dragged class to this component while it's being dragged */
   &.dragged {
