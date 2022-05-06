@@ -11,7 +11,6 @@ export default {}
 </script>
 
 <style scoped lang="scss">
-
 .subtitle-player {
   width: 100%;
   display: block;

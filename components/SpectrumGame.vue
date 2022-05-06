@@ -8,9 +8,7 @@
       <SubtitlePlayer v-show="!showPresent">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="showPresent && !turnValuePresentConfirmed"
-      >
+      <SubtitlePlayer v-show="showPresent && !turnValuePresentConfirmed">
         {{ currentTurn.captionPresent }}
       </SubtitlePlayer>
       <SubtitlePlayer
@@ -19,7 +17,6 @@
       >
         Please finish the sentence below
       </SubtitlePlayer>
-
     </header>
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
@@ -199,31 +196,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
+header {
+  width: 100%;
 
-  header {
-    width: 100%;
-    
-    .subtitle-player {
-      margin-top: $offset-4;
+  .subtitle-player {
+    margin-top: $offset-4;
 
-      &.feedback-modal-subtitles {
-        margin-top: $offset-6;
-      }
+    &.feedback-modal-subtitles {
+      margin-top: $offset-6;
     }
   }
+}
 
-  .spectrum-game-dropzone {
-    top: 50%;
-    transform: translateY(-60%);
-  }
+.spectrum-game-dropzone {
+  top: 50%;
+  transform: translateY(-60%);
+}
 
-  .spectrum-game-draggable {
-    bottom: 10%;
-  }
+.spectrum-game-draggable {
+  bottom: 10%;
+}
 
-  .spectrum-game-feedback-modal {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+.spectrum-game-feedback-modal {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>

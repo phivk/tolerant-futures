@@ -1,10 +1,10 @@
 <template>
   <GameContainer>
-  <header>
-    <div class="w-100 flex justify-between ph3 pt3">
-      <ChapterProgressionList />
-      <ButtonExitGame />
-    </div>
+    <header>
+      <div class="w-100 flex justify-between ph3 pt3">
+        <ChapterProgressionList />
+        <ButtonExitGame />
+      </div>
       <SubtitlePlayer v-show="!turnValueSelfConfirmed">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
@@ -18,8 +18,7 @@
       >
         {{ captionOtherGuessConfirmed }}
       </SubtitlePlayer>
-
-  </header>
+    </header>
     <DropZone ref="theDropZone" class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
@@ -197,14 +196,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+header {
+  width: 100%;
 
-  header {
-    width: 100%;
-    
-    .subtitle-player {
-      margin-top: $offset-4;
-    }
+  .subtitle-player {
+    margin-top: $offset-4;
   }
+}
 
 .spectrum-game-dropzone {
   top: 50%;
