@@ -31,9 +31,8 @@ export default {
   padding: $offset-2;
   box-sizing: border-box;
   font-size: $f-2;
-  -webkit-transform: translateZ(0);
-  //outline: 1px solid transparent;
-  //box-shadow: 0 0 1px rgba(0,0,0,.05);  
+  // hack to fix the bug where on iOS an animated element with filter would leave ugly trail 
+  //-webkit-transform: translateZ(0); 
   filter: $draggable-item-shadow-effect-passive;
 
   &.present-card {
