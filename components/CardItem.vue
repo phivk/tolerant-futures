@@ -28,6 +28,8 @@ export default {
   border-color: $card-item-outline-color;
   border-width: $border-width-2;
   font-family: $headline-font;
+  padding: $offset-2;
+  box-sizing: border-box;
   font-size: $f-2;
 
   &.present-card {
