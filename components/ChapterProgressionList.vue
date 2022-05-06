@@ -1,9 +1,9 @@
 <template>
   <ul class="chapter-progression-list">
     <ChapterProgressionItem
-      v-for="(val, index) in chapters_completed"
+      v-for="(isCompleted, index) in chaptersCompleted"
       :key="index"
-      :is-completed="val"
+      :is-completed="isCompleted"
     />
   </ul>
 </template>
@@ -18,9 +18,9 @@ export default {
     },
   },
   computed: {
-    chapters_completed() {
-      const chapters = [0, 1, 2, 3]
-      const chaptersCompleted = chapters.map((v) => {
+    chaptersCompleted() {
+      const allChaptersIndexes = [0, 1, 2, 3]
+      const chaptersCompleted = allChaptersIndexes.map((v) => {
         if (v <= this.currentChapterIndex) {
           return true
         } else {
