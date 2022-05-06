@@ -1,5 +1,8 @@
 <template>
-  <li class="chapter-progression-item" :class="{ 'chapter_completed' : isCompleted }"></li>
+  <li
+    class="chapter-progression-item"
+    :class="{ chapter_completed: isCompleted }"
+  ></li>
 </template>
 
 <script>
@@ -9,9 +12,9 @@ export default {
       type: Boolean,
       required: true,
       default: null,
-    }
+    },
   },
-  }
+}
 </script>
 
 <style scoped lang="scss">

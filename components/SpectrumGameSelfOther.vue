@@ -2,7 +2,7 @@
   <GameContainer>
     <header>
       <div class="w-100 flex justify-between ph3 pt3">
-        <ChapterProgressionList :current-chapter-index="currentChapterIndex"/>
+        <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
         <ButtonExitGame />
       </div>
       <SubtitlePlayer v-show="!turnValueSelfConfirmed">
@@ -81,7 +81,7 @@ export default {
       type: Number,
       required: true,
       default: null,
-    },    
+    },
     turns: {
       type: Array,
       required: true,

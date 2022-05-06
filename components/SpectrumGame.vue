@@ -2,7 +2,7 @@
   <GameContainer v-if="currentTurn">
     <header>
       <div class="w-100 flex justify-between ph3 pt3">
-        <ChapterProgressionList :current-chapter-index="currentChapterIndex"/>
+        <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
         <ButtonExitGame />
       </div>
       <SubtitlePlayer v-show="!showPresent">
