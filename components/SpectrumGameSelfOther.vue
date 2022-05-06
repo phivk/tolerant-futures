@@ -50,7 +50,7 @@
       {{ currentTurn.conceptOther }}
     </CardItem>
     <TheFooter>
-      <div class="mb4">
+      <div>
         <ButtonPrimary
           v-if="hasTurnValueSelfToConfirm"
           @buttonClicked="onTurnSelfConfirm"
@@ -214,5 +214,9 @@ header {
 }
 .spectrum-game-draggable-other {
   top: 5%;
+}
+
+footer {
+  margin-bottom: $offset-7;
 }
 </style>
