@@ -213,7 +213,7 @@ header {
   bottom: 10%;
 }
 .spectrum-game-draggable-other {
-  top: 5%;
+  bottom: 10%;
 }
 
 footer {

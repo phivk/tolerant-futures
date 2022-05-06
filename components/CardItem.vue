@@ -30,8 +30,10 @@ export default {
   font-family: $headline-font;
   padding: $offset-2;
   box-sizing: border-box;
-  font-size: $f-2; 
-  -webkit-transform: translateZ(0); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
+  font-size: $f-2;
+  -webkit-transform: translateZ(
+    0
+  ); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
   filter: $draggable-item-shadow-effect-passive;
 
   &.present-card {
