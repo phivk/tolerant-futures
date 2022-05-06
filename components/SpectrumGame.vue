@@ -1,9 +1,26 @@
 <template>
   <GameContainer v-if="currentTurn">
-    <div class="w-100 flex justify-between ph3 pt3">
-      <ChapterProgressionList />
-      <ButtonExitGame />
-    </div>
+    <header>
+      <div class="w-100 flex justify-between ph3 pt3">
+        <ChapterProgressionList />
+        <ButtonExitGame />
+      </div>
+      <SubtitlePlayer v-show="!showPresent">
+        {{ currentTurn.caption }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="showPresent && !turnValuePresentConfirmed"
+      >
+        {{ currentTurn.captionPresent }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="requirePlayerFeedback && turnValuePresentConfirmed"
+        class="feedback-modal-subtitles"
+      >
+        Please finish the sentence below
+      </SubtitlePlayer>
+
+    </header>
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
@@ -49,21 +66,6 @@
           Confirm
         </ButtonPrimary>
       </div>
-      <SubtitlePlayer v-show="!showPresent" class="mb3">
-        {{ currentTurn.caption }}
-      </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="showPresent && !turnValuePresentConfirmed"
-        class="mb3"
-      >
-        {{ currentTurn.captionPresent }}
-      </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="requirePlayerFeedback && turnValuePresentConfirmed"
-        class="mb3"
-      >
-        Please finish the sentence above
-      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -197,18 +199,31 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.spectrum-game-dropzone {
-  top: 50%;
-  transform: translateY(-60%);
-}
 
-.spectrum-game-draggable {
-  bottom: 10%;
-}
+  header {
+    width: 100%;
+    
+    .subtitle-player {
+      margin-top: $offset-4;
 
-.spectrum-game-feedback-modal {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
+      &.feedback-modal-subtitles {
+        margin-top: $offset-6;
+      }
+    }
+  }
+
+  .spectrum-game-dropzone {
+    top: 50%;
+    transform: translateY(-60%);
+  }
+
+  .spectrum-game-draggable {
+    bottom: 10%;
+  }
+
+  .spectrum-game-feedback-modal {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 </style>

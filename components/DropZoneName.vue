@@ -9,7 +9,7 @@ export default {}
 <style scoped lang="scss">
 .drop-zone-name {
   font-family: $headline-font;
-  font-size: $f-1;
+  font-size: $f-0;
   z-index: $z-2;
   color: $background-color;
 }
