@@ -7,7 +7,7 @@ $card-item-inner-height: calc(
 );
 $drop-zone-height: 400px;
 $exit-game-button-width: 40px;
-$chapter-progression-item-width: 30px;
+$chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
 $modal-player-feedback-width: 60%;
 $modal-player-feedback-height: 50%;
@@ -39,14 +39,15 @@ $border-width-1: 1px;
 $border-width-2: 2px;
 $border-width-3: 4px;
 
-$border-radius-1: 10px;
-$border-radius-2: 20px;
+$border-radius-1: 5px;
+$border-radius-2: 15px;
 $border-radius-3: 100px;
 
 /* blur */
-$blur-1: 10px;
-$blur-2: 30px;
-$blur-3: 50px;
+$blur-1: 5px;
+$blur-2: 10px;
+$blur-3: 30px;
+$blur-4: 50px;
 
 /* shadow effects */
 $draggable-item-shadow-effect-passive: drop-shadow(0 6px 3px rgb(0, 0, 0, 0.5));

@@ -29,5 +29,17 @@ export default {
 .chapter-progression-list {
   margin: 0;
   display: flex;
+
+  .chapter-progression-item {
+  	margin-left: $offset-1;
+  	margin-right: $offset-1;
+
+  	&:first-of-type {
+  		margin-left: 0;
+  	}
+  	&:last-of-type {
+  		margin-right: 0;
+  	}
+  }
 }
 </style>
