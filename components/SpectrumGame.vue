@@ -61,10 +61,10 @@
         >
           Confirm
         </ButtonPrimary>
-        <ButtonSecondary v-show="!showConceptHint && !showPresent" @handeClick="onShowConceptHint">
-          Are you unsure about concept x?
+        <ButtonSecondary v-show="!showConceptHint && !showPresent" @buttonClicked="onShowConceptHint">
+          Are you unsure about concept {{ currentTurn.concept }}?
         </ButtonSecondary>
-        <SubtitlePlayer v-show="showConceptHint" class="subtitle-player-concept-hint">
+        <SubtitlePlayer v-show="showConceptHint && !showPresent" class="subtitle-player-concept-hint">
           concept explanation
         </SubtitlePlayer>
       </div>
