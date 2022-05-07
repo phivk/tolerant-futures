@@ -10,18 +10,14 @@
         />
 
         <ul v-show="revealOtherConfirmed" class="spectra-container">
-          <li v-for="input in otherUserProfile"
-             :key="input.id">
-          <SpectrumItem
-            gradient-class="gradient-1"
-            :spectrum-position="input.value">
-            <SpectrumName>{{
-              input.spectrumLeft
-            }}</SpectrumName>
-            <SpectrumName>{{
-              input.spectrumRight
-            }}</SpectrumName>
-          </SpectrumItem>
+          <li v-for="input in otherUserProfile" :key="input.id">
+            <SpectrumItem
+              gradient-class="gradient-1"
+              :spectrum-position="input.value"
+            >
+              <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
+              <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
+            </SpectrumItem>
           </li>
         </ul>
       </div>

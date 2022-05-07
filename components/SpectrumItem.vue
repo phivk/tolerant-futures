@@ -27,9 +27,9 @@ export default {
   computed: {
     styleObject() {
       let n = remapRange(this.spectrumPosition, 0.0, 1.0, 10.0, 90.0)
-          n = Math.round(n)
-          n = n + '%'
-      return {left: n};
+      n = Math.round(n)
+      n = n + '%'
+      return { left: n }
     },
   },
 }
