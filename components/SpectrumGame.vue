@@ -48,7 +48,6 @@
       @feedbackSkipped="onFeedbackSkipped"
     />
     <TheFooter>
-      <div>
         <ButtonPrimary
           v-if="hasTurnValueToConfirm"
           @buttonClicked="onTurnConfirm"
@@ -62,12 +61,11 @@
           Confirm
         </ButtonPrimary>
         <ButtonSecondary v-show="!showConceptHint && !showPresent" @buttonClicked="onShowConceptHint">
-          Are you unsure about concept {{ currentTurn.concept }}?
+          Are you unfamiliar with {{ currentTurn.concept }}?
         </ButtonSecondary>
         <SubtitlePlayer v-show="showConceptHint && !showPresent" class="subtitle-player-concept-hint">
-          concept explanation
+          // add concept explanation //
         </SubtitlePlayer>
-      </div>
     </TheFooter>
   </GameContainer>
 </template>
@@ -238,9 +236,12 @@ header {
 
 footer {
   margin-bottom: $offset-4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .button-primary {
-    margin-bottom: $offset-6;
+    margin-bottom: $offset-5;
   }
 
   .subtitle-player.subtitle-player-concept-hint {
