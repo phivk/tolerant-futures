@@ -10,20 +10,19 @@
         />
 
         <ul v-show="revealOtherConfirmed" class="spectra-container">
-          <OtherUserSpectrum
-            v-for="input in otherUserProfile"
-            :key="input.id"
-            gradient-style="gradient-1"
-            :other-user-position="input.value"
-            class="other-user-spectrum"
-          >
-            <OtherUserSpectrumName>{{
+          <li v-for="input in otherUserProfile"
+             :key="input.id">
+          <SpectrumItem
+            gradient-class="gradient-1"
+            :spectrum-position="input.value">
+            <SpectrumName>{{
               input.spectrumLeft
-            }}</OtherUserSpectrumName>
-            <OtherUserSpectrumName>{{
+            }}</SpectrumName>
+            <SpectrumName>{{
               input.spectrumRight
-            }}</OtherUserSpectrumName>
-          </OtherUserSpectrum>
+            }}</SpectrumName>
+          </SpectrumItem>
+          </li>
         </ul>
       </div>
       <ButtonPrimary
@@ -125,9 +124,8 @@ export default {
         width: 100%;
         list-style: none;
 
-        .other-user-spectrum {
+        li {
           margin-bottom: $offset-4;
-
           &:last-of-type {
             margin-bottom: 0;
           }

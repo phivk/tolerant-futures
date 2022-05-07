@@ -1,40 +1,42 @@
 <template>
-  <li>
+  <div>
     <slot></slot>
-    <span class="other-user-spectrum-gradient" :class="gradientStyle">
-      <span class="other-user-circle" :style="{ left: positionStyle }"></span>
+    <span class="spectrum-item" :class="gradientClass">
+      <span class="spectrum-circle" :style="styleObject"></span>
     </span>
-  </li>
+  </div>
 </template>
 
 <script>
+import { remapRange } from '~/util/maths.js'
+
 export default {
   props: {
-    /* all gradientStyle classes passed to this component are generated in ~/assets/scss/gradients.scss */
-    gradientStyle: {
+    /* all gradientClass(es) passed to this component are defined in ~/assets/scss/gradients.scss */
+    gradientClass: {
       type: String,
       required: true,
       default: null,
     },
-    otherUserPosition: {
+    spectrumPosition: {
       type: Number,
       required: true,
       default: null,
     },
   },
   computed: {
-    positionStyle() {
-      let n = Math.round(this.otherUserPosition * 100)
-      n = Math.max(10, Math.min(n, 90))
-      n = n + '%'
-      return n
+    styleObject() {
+      let n = remapRange(this.spectrumPosition, 0.0, 1.0, 10.0, 90.0)
+          n = Math.round(n)
+          n = n + '%'
+      return {left: n};
     },
   },
 }
 </script>
 
 <style scoped lang="scss">
-li {
+div {
   position: relative;
   width: 100%;
   height: $ch3-other-user-spectrum-height;
@@ -42,13 +44,13 @@ li {
   justify-content: space-between;
   align-items: center;
 
-  .other-user-spectrum-gradient {
+  .spectrum-item {
     position: absolute;
     width: 100%;
     height: 100%;
     filter: blur($blur-1);
 
-    .other-user-circle {
+    .spectrum-circle {
       position: absolute;
       width: $ch3-other-user-spectrum-height;
       height: $ch3-other-user-spectrum-height;
