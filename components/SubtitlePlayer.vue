@@ -1,13 +1,14 @@
 <template>
-  <div class="subtitle-player">
-    <p>
+  <p class="subtitle-player">
       <slot></slot>
-    </p>
-  </div>
+  </p>
 </template>
 
 <script>
-export default {}
+  export default {
+
+
+  }
 </script>
 
 <style scoped lang="scss">
@@ -17,13 +18,11 @@ export default {}
   box-sizing: border-box;
   padding-left: $offset-8;
   padding-right: $offset-8;
+  text-align: center;
+  color: $white-color;
+  font-size: $f-1;
+  filter: $caption-shadow-effect;
+  line-height: 2.8rem;
 
-  p {
-    text-align: center;
-    color: $white-color;
-    font-size: $f-1;
-    filter: $caption-shadow-effect;
-    line-height: 2.8rem;
-  }
 }
 </style>

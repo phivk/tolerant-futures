@@ -47,7 +47,6 @@
       @feedbackSubmitted="onFeedbackSubmitted"
       @feedbackSkipped="onFeedbackSkipped"
     />
-
     <TheFooter>
       <div>
         <ButtonPrimary
@@ -62,6 +61,12 @@
         >
           Confirm
         </ButtonPrimary>
+        <ButtonSecondary v-show="!showConceptHint && !showPresent" @handeClick="onShowConceptHint">
+          Are you unsure about concept x?
+        </ButtonSecondary>
+        <SubtitlePlayer v-show="showConceptHint" class="subtitle-player-concept-hint">
+          concept explanation
+        </SubtitlePlayer>
       </div>
     </TheFooter>
   </GameContainer>
@@ -98,6 +103,7 @@ export default {
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
+      showConceptHint: false,      
       feedback: null,
     }
   },
@@ -146,7 +152,9 @@ export default {
       this.feedback = feedbackText
       this.endTurn()
     },
-
+    onShowConceptHint() {
+      this.showConceptHint = true
+    },
     endTurn() {
       // store input
       this.submitInput(this.currentTurn)
@@ -229,6 +237,15 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-7;
+  margin-bottom: $offset-4;
+
+  .button-primary {
+    margin-bottom: $offset-6;
+  }
+
+  .subtitle-player.subtitle-player-concept-hint {
+  //margin-top: $offset-7;
+    font-size: $f-4;
+  }
 }
 </style>
