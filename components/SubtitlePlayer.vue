@@ -1,6 +1,6 @@
 <template>
   <div class="subtitle-player">
-    <p class="center mw8">
+    <p>
       <slot></slot>
     </p>
   </div>
@@ -13,11 +13,17 @@ export default {}
 <style scoped lang="scss">
 .subtitle-player {
   width: 100%;
-  height: 50px;
+  display: block;
+  box-sizing: border-box;
+  padding-left: $offset-8;
+  padding-right: $offset-8;
 
   p {
+    text-align: center;
     color: $white-color;
+    font-size: $f-2;
     filter: $caption-shadow-effect;
+    line-height: 2.8rem;
   }
 }
 </style>

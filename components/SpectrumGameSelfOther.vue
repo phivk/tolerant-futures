@@ -1,13 +1,18 @@
 <template>
   <GameContainer>
-    <div class="w-100 flex justify-between ph3 pt3">
-      <ChapterProgressionList />
-      <ButtonExitGame />
-    </div>
+    <header>
+      <div class="w-100 flex justify-between ph3 pt3">
+        <ChapterProgressionList />
+        <ButtonExitGame />
+      </div>
+      <SubtitlePlayer class="mb3">
+        {{ currentState.caption }}
+      </SubtitlePlayer>
+    </header>
     <DropZone ref="theDropZone" class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground gradient-style="gradient-1" />
+      <DropZoneBackground gradient-class="gradient-1" />
     </DropZone>
     <!-- self -->
     <DraggableItem
@@ -79,9 +84,6 @@
           </ButtonSecondary>
         </span>
       </div>
-      <SubtitlePlayer class="mb3">
-        {{ currentState.caption }}
-      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -328,6 +330,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+header {
+  width: 100%;
+
+  .subtitle-player {
+    margin-top: $offset-4;
+  }
+}
+
 .spectrum-game-dropzone {
   top: 50%;
   transform: translateY(-60%);
