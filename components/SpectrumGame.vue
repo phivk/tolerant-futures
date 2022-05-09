@@ -49,7 +49,7 @@
     />
 
     <TheFooter>
-      <div class="mb4">
+      <div>
         <ButtonPrimary
           v-if="hasTurnValueToConfirm"
           @buttonClicked="onTurnConfirm"
@@ -221,5 +221,9 @@ header {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+footer {
+  margin-bottom: $offset-7;
 }
 </style>
