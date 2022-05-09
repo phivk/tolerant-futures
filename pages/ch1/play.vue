@@ -1,6 +1,10 @@
 <template>
   <div class="flex flex-column justify-between items-center tc vh-100">
-    <SpectrumGame :turns="turns" :next-path="nextPath" />
+    <SpectrumGame
+      :turns="turns"
+      :next-path="nextPath"
+      :current-chapter-index="0"
+    />
     <TheFooter></TheFooter>
   </div>
 </template>

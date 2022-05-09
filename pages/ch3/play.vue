@@ -4,6 +4,7 @@
       v-if="turns.length"
       :turns="turns"
       :next-path="nextPath"
+      :current-chapter-index="2"
     />
   </div>
 </template>
