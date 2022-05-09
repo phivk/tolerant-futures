@@ -350,13 +350,14 @@ header {
 }
 .spectrum-game-feedback-modal {
   left: 50%;
-  top: 60%;
+  top: 70%;
+  height: 35%;
   transform: translate(-50%, -50%);
 }
 .spectrum-game-feedback-other {
   /* TODO: improve these temp placeholder styles */
   left: 50%;
-  top: 30%;
+  top: 33%;
   transform: translate(-50%, -50%);
 }
 </style>

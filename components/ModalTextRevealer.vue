@@ -4,13 +4,13 @@
       <div class="text-area">
         {{ text }}
       </div>
-      <div
-        v-if="isHidden"
-        class="text-hider absolute w-100 h-100 top-0 bg-blur"
-      >
-        <span v-if="hint">{{ hint }}</span>
-      </div>
     </section>
+    <div
+      v-if="isHidden"
+      class="text-hider absolute w-100 h-100 top-0 bg-white-90 bg-blur f2 pa3 br4"
+    >
+      <span v-if="hint">{{ hint }}</span>
+    </div>
   </div>
 </template>
 
@@ -37,11 +37,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+// TODO: replace these hacky copied styles with something proper
+// ideally in a way that doesn't duplicate much
 div.modal-text-revealer {
   position: absolute;
   z-index: $z-5;
   width: $modal-player-feedback-width;
-  height: $modal-player-feedback-height;
+  height: 35%;
   section {
     width: 100%;
     height: 100%;
