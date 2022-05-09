@@ -49,7 +49,7 @@
       class="spectrum-game-feedback-other"
       text="other visitor's reasoning here"
       hint="provide your input to see theirs"
-      :is-hidden="feedback === null"
+      :is-hidden="feedback === ''"
     />
     <!-- feedbackSelf -->
     <ModalPlayerFeedback
@@ -116,7 +116,7 @@ export default {
       cardWidth: 300,
       dropzoneWidth: 0,
       diffThreshold: 0.25,
-      feedback: null,
+      feedback: '',
       showFeedbackForm: false,
       stateIndex: 0,
     }
@@ -297,7 +297,7 @@ export default {
       this.turnValueOtherGuessConfirmed = false
       this.$refs.draggableItemSelf.resetPosition()
       this.$refs.draggableItemOther.resetPosition()
-      this.feedback = null
+      this.feedback = ''
       this.showFeedbackForm = false
     },
     onSetValueSelf(value) {
