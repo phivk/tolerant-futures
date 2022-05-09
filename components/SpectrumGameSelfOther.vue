@@ -1,9 +1,24 @@
 <template>
   <GameContainer>
-    <div class="w-100 flex justify-between ph3 pt3">
-      <ChapterProgressionList />
-      <ButtonExitGame />
-    </div>
+    <header>
+      <div class="w-100 flex justify-between ph3 pt3">
+        <ChapterProgressionList />
+        <ButtonExitGame />
+      </div>
+      <SubtitlePlayer v-show="!turnValueSelfConfirmed">
+        {{ currentTurn.caption }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="turnValueSelfConfirmed && !turnValueOtherGuessConfirmed"
+      >
+        {{ currentTurn.captionOther }}
+      </SubtitlePlayer>
+      <SubtitlePlayer
+        v-show="turnValueSelfConfirmed && turnValueOtherGuessConfirmed"
+      >
+        {{ captionOtherGuessConfirmed }}
+      </SubtitlePlayer>
+    </header>
     <DropZone ref="theDropZone" class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
@@ -55,21 +70,6 @@
           {{ hasNextTurn ? 'Next turn' : 'Next Chapter' }}
         </ButtonPrimary>
       </div>
-      <SubtitlePlayer v-show="!turnValueSelfConfirmed" class="mb3">
-        {{ currentTurn.caption }}
-      </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="turnValueSelfConfirmed && !turnValueOtherGuessConfirmed"
-        class="mb3"
-      >
-        {{ currentTurn.captionOther }}
-      </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="turnValueSelfConfirmed && turnValueOtherGuessConfirmed"
-        class="mb3"
-      >
-        {{ captionOtherGuessConfirmed }}
-      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -196,6 +196,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+header {
+  width: 100%;
+
+  .subtitle-player {
+    margin-top: $offset-4;
+  }
+}
+
 .spectrum-game-dropzone {
   top: 50%;
   transform: translateY(-60%);
