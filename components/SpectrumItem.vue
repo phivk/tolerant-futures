@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { remapRange } from '~/util/maths.js'
+import { remapRange } from '~/util/math.js'
 
 export default {
   props: {
