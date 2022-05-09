@@ -8,7 +8,12 @@
       </div>
       <div>{{ input.created_at }}</div>
     </div> -->
-    <ChapterOpening :title="title" :paragraph="paragraph" />
+
+    <ChapterOpeningOtherUser
+      :title="title"
+      :paragraph="paragraph"
+      :other-user-profile="inputsOtherUserProfile"
+    />
   </div>
 </template>
 
@@ -42,7 +47,6 @@ export default {
       .select('*')
       .eq('chapter', 'ch1')
       .eq('user', otherUser)
-
     this.inputsOtherUserProfile = inputsOtherUserProfile
     this.$store.commit('setInputsOtherUserProfile', inputsOtherUserProfile)
   },
