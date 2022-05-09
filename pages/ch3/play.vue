@@ -5,6 +5,7 @@
       :turns="turns"
       :next-path="nextPath"
       require-player-feedback
+      :current-chapter-index="2"
     />
   </div>
 </template>

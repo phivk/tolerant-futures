@@ -3,6 +3,7 @@
     <SpectrumGame
       :turns="turns"
       :next-path="nextPath"
+      :current-chapter-index="1"
       require-player-feedback
     />
   </div>

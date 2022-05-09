@@ -1,9 +1,20 @@
 <template>
-  <li class="chapter-progression-item"></li>
+  <li
+    class="chapter-progression-item"
+    :class="{ chapter_completed: isCompleted }"
+  ></li>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    isCompleted: {
+      type: Boolean,
+      required: true,
+      default: null,
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -14,7 +25,7 @@ export default {}
   border-radius: $border-radius-1;
   filter: blur($blur-1);
 
-  .level_completed {
+  &.chapter_completed {
     filter: blur(0);
   }
 }

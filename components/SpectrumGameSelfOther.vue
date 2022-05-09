@@ -2,7 +2,7 @@
   <GameContainer>
     <header>
       <div class="w-100 flex justify-between ph3 pt3">
-        <ChapterProgressionList />
+        <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
         <ButtonExitGame />
       </div>
       <SubtitlePlayer class="mb3">
@@ -66,7 +66,7 @@
       :is-hidden="false"
     />
     <TheFooter>
-      <div class="mb4">
+      <div>
         <span v-if="currentState.buttonPrimary">
           <ButtonPrimary
             v-show="currentState.buttonPrimary.visible"
@@ -91,6 +91,11 @@
 <script>
 export default {
   props: {
+    currentChapterIndex: {
+      type: Number,
+      required: true,
+      default: null,
+    },
     turns: {
       type: Array,
       required: true,
@@ -346,7 +351,11 @@ header {
   bottom: 10%;
 }
 .spectrum-game-draggable-other {
-  top: 5%;
+  bottom: 10%;
+}
+
+footer {
+  margin-bottom: $offset-7;
 }
 .spectrum-game-feedback-modal {
   left: 50%;

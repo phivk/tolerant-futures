@@ -1,7 +1,7 @@
 <template>
-  <button class="button-exit-game">
+  <NuxtLink to="/" class="button-exit-game">
     <img src="@/static/svg/exit_game_icon.svg" />
-  </button>
+  </NuxtLink>
 </template>
 
 <script>
