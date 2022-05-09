@@ -1,6 +1,7 @@
 <template>
   <div class="card-item" :class="isPresentCard ? 'present-card' : 'past-card'">
     <slot></slot>
+    <div class="f6" v-if="value !== null">{{ value }}</div>
   </div>
 </template>
 
@@ -10,6 +11,10 @@ export default {
     isPresentCard: {
       type: Boolean,
       default: false,
+    },
+    value: {
+      type: Number,
+      default: 0.5,
     },
   },
 }

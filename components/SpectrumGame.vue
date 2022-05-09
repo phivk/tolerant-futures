@@ -28,7 +28,7 @@
       class="spectrum-game-draggable"
       @set-value="onSetValue"
     >
-      <CardItem>{{ currentTurn.concept }}</CardItem>
+      <CardItem :value="turnValue">{{ currentTurn.concept }}</CardItem>
     </DraggableItem>
     <DraggableItem
       v-show="showPresent"
