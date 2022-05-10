@@ -28,7 +28,7 @@
       class="spectrum-game-draggable"
       @set-value="onSetValue"
     >
-      <CardItem :value="turnValue">{{ currentTurn.concept }}</CardItem>
+      <CardItem :value="turnValue" :gradient-colors="['#ffed49', '#70a0fd']">{{ currentTurn.concept }}</CardItem>
     </DraggableItem>
     <DraggableItem
       v-show="showPresent"
@@ -36,7 +36,7 @@
       class="spectrum-game-draggable"
       @set-value="onSetValuePresent"
     >
-      <CardItem is-present-card>
+      <CardItem is-present-card :value="turnValue" :gradient-colors="['#ffed49', '#70a0fd']">
         {{ currentTurn.conceptPresent }}
       </CardItem>
     </DraggableItem>
