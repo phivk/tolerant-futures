@@ -3,7 +3,7 @@
     <header>
       <div class="w-100 flex justify-between ph3 pt3">
         <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
-        <ButtonExitGame/>
+        <ButtonExitGame />
       </div>
       <SubtitlePlayer v-show="!showPresent">
         {{ currentTurn.caption }}
