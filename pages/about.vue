@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-column justify-between items-center tc vh-100">
-    <header>
+  <div class="flex flex-column justify-between items-center tc vh-100 about-wrapper">
+    <header class="w-100 flex justify-end ph3 pt3">
       <ButtonExitGame/>
     </header>
     <section class="measure">
@@ -18,9 +18,15 @@
         accusantium, neque magnam quisquam dolor nostrum. Aut ex, repellendus
         omnis voluptatum atque, nihil!
       </p>
+      <h2> Authors </h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Iste
+        doloribus facilis voluptatem nihil quas excepturi magni provident
+        accusantium, neque magnam quisquam dolor nostrum. Aut ex, repellendus
+        omnis voluptatum atque, nihil!
+      </p>      
     </section>
     <TheFooter>
-      <NuxtLink to="/">Back to start</NuxtLink>
     </TheFooter>
   </div>
 </template>
@@ -29,7 +35,7 @@
 export default {
   data() {
     return {
-      title: 'Emapthy Spectrum',
+      title: 'Tolerant Futures',
 
     }
   },
@@ -37,17 +43,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  
-  header {
-    width: 100%;
+  .about-wrapper {
+    background-image: url('@/static/image/chapter_intro_background.jpg');
+    background-size: cover;
 
-    a {
-      padding-top: 200px;
+    h1 {
+      text-decoration: underline;
+      padding-bottom: $offset-3;
     }
-    height: 150px;
+
+    h2 {
+      padding-bottom: $offset-2,
+    }
+
+    p {
+      padding-bottom: $offset-3;
+    }
+
+    h1,h2,p {
+      color: $white-color;
+     }
+
   }
 
-  h1,h2,p {
-    color: $white-color;
-   }
+
+
 </style>
