@@ -1,5 +1,10 @@
 @use 'variables';
 
+a {
+  color: variables.$white-color;
+  text-decoration: none;
+}
+
 .link-primary {
   display: inline-block;
   max-width: variables.$main-button-max-width;
