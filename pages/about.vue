@@ -62,6 +62,7 @@ export default {
 
     h1,h2,p {
       color: $white-color;
+      filter: $caption-shadow-effect;
      }
 
   }
