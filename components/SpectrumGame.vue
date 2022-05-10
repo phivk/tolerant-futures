@@ -21,7 +21,7 @@
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground gradient-style="gradient-1" />
+      <DropZoneBackground gradient-class="gradient-1" />
     </DropZone>
     <DraggableItem
       ref="draggableItem"
@@ -146,7 +146,6 @@ export default {
       this.feedback = feedbackText
       this.endTurn()
     },
-
     endTurn() {
       // store input
       this.submitInput(this.currentTurn)
