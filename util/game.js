@@ -3,7 +3,11 @@ import spectra from '~/data/spectra.json'
 import concepts from '~/data/concepts.json'
 
 export const getRandomSpectrum = () => {
-  return getRandomFromArray(spectra).spectrum
+  return getRandomFromArray(spectra)
+}
+
+export const getSpectrumByLeft = (left) => {
+  return spectra.find((spectrum) => spectrum.left === left)
 }
 
 export const getRandomConceptPast = () => {
@@ -36,8 +40,9 @@ export const getRandomTurn = () => {
   return {
     concept: concept.name,
     caption: concept.caption,
-    spectrumLeft: spectrum[0],
-    spectrumRight: spectrum[1],
+    spectrumLeft: spectrum.left,
+    spectrumRight: spectrum.right,
+    gradientClass: spectrum.gradientClass,
   }
 }
 
@@ -49,13 +54,17 @@ export const getRandomTurnPastPresent = () => {
     caption: conceptPair.past.caption,
     conceptPresent: conceptPair.present.name,
     captionPresent: conceptPair.present.caption,
-    spectrumLeft: spectrum[0],
-    spectrumRight: spectrum[1],
+    spectrumLeft: spectrum.left,
+    spectrumRight: spectrum.right,
+    gradientClass: spectrum.gradientClass,
   }
 }
 
 export const getRandomTurnSelfOther = (priorInputs) => {
   const conceptPair = getRandomConceptSelfOther(priorInputs)
+  const gradientClass = getSpectrumByLeft(
+    conceptPair.other.spectrumLeft
+  ).gradientClass
 
   return {
     concept: conceptPair.self.name,
@@ -65,6 +74,7 @@ export const getRandomTurnSelfOther = (priorInputs) => {
     captionOther: `Where do you think the other visitor placed ${conceptPair.other.concept} on this spectrum?`,
     spectrumLeft: conceptPair.other.spectrumLeft,
     spectrumRight: conceptPair.other.spectrumRight,
+    gradientClass,
     otherUser: conceptPair.other.user,
   }
 }

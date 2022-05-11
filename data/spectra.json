@@ -1,82 +1,102 @@
 [
   {
-    "spectrum": ["civilised", "barbaric"],
-    "gradientClass": "gradient-0"
-  },
-  {
-    "spectrum": ["heroic", "deluded"],
+    "left": "civilised",
+    "right": "barbaric",
     "gradientClass": "gradient-1"
   },
   {
-    "spectrum": ["reassuring", "worrying"],
+    "left": "heroic",
+    "right": "deluded",
+    "gradientClass": "gradient-1"
+  },
+  {
+    "left": "reassuring",
+    "right": "worrying",
+    "gradientClass": "gradient-1"
+  },
+  {
+    "left": "inclusive",
+    "right": "exclusive",
+    "gradientClass": "gradient-1"
+  },
+  {
+    "left": "connecting",
+    "right": "dividing",
+    "gradientClass": "gradient-1"
+  },
+  {
+    "left": "regenerating",
+    "right": "destructive",
+    "gradientClass": "gradient-1"
+  },
+  {
+    "left": "multicultural",
+    "right": "non multicultural",
     "gradientClass": "gradient-2"
   },
   {
-    "spectrum": ["inclusive", "exclusive"],
+    "left": "native",
+    "right": "foreign",
+    "gradientClass": "gradient-2"
+  },
+  {
+    "left": "free",
+    "right": "controlled",
+    "gradientClass": "gradient-2"
+  },
+  {
+    "left": "moving",
+    "right": "fixed",
+    "gradientClass": "gradient-2"
+  },
+  {
+    "left": "secure",
+    "right": "insecure",
+    "gradientClass": "gradient-2"
+  },
+  {
+    "left": "progressive",
+    "right": "regressive",
+    "gradientClass": "gradient-2"
+  },
+  {
+    "left": "benevolent",
+    "right": "malevolent",
     "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["connecting", "dividing"],
-    "gradientClass": "gradient-4"
+    "left": "long-lasting",
+    "right": "short-term",
+    "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["regenerating", "destructive"],
-    "gradientClass": "gradient-5"
+    "left": "dominant",
+    "right": "submissive",
+    "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["multicultural", "non multicultural"],
-    "gradientClass": "gradient-6"
+    "left": "refined",
+    "right": "crude",
+    "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["native", "foreign"],
-    "gradientClass": "gradient-7"
+    "left": "skillful",
+    "right": "incompetent",
+    "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["free", "controlled"],
-    "gradientClass": "gradient-8"
+    "left": "celebrated",
+    "right": "condemned",
+    "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["moving", "fixed"],
-    "gradientClass": "gradient-9"
+    "left": "practical",
+    "right": "symbolic",
+    "gradientClass": "gradient-3"
   },
   {
-    "spectrum": ["secure", "insecure"],
-    "gradientClass": "gradient-10"
-  },
-  {
-    "spectrum": ["progressive", "regressive"],
-    "gradientClass": "gradient-11"
-  },
-  {
-    "spectrum": ["benevolent", "malevolent"],
-    "gradientClass": "gradient-12"
-  },
-  {
-    "spectrum": ["long-lasting", "short-term"],
-    "gradientClass": "gradient-13"
-  },
-  {
-    "spectrum": ["dominant", "submissive"],
-    "gradientClass": "gradient-14"
-  },
-  {
-    "spectrum": ["refined", "crude"],
-    "gradientClass": "gradient-15"
-  },
-  {
-    "spectrum": ["skillful", "incompetent"],
-    "gradientClass": "gradient-16"
-  },
-  {
-    "spectrum": ["celebrated", "condemned"],
-    "gradientClass": "gradient-17"
-  },
-  {
-    "spectrum": ["practical", "symbolic"],
-    "gradientClass": "gradient-18"
-  },
-  {
-    "spectrum": ["peaceful", "violent"],
-    "gradientClass": "gradient-19"
+    "left": "peaceful",
+    "right": "violent",
+    "gradientClass": "gradient-3"
   }
 ]
