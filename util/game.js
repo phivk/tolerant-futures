@@ -3,7 +3,7 @@ import spectra from '~/data/spectra.json'
 import concepts from '~/data/concepts.json'
 
 export const getRandomSpectrum = () => {
-  return getRandomFromArray(spectra)
+  return getRandomFromArray(spectra).spectrum
 }
 
 export const getRandomConceptPast = () => {

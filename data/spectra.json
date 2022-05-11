@@ -1,22 +1,82 @@
 [
-  ["civilised", "barbaric"],
-  ["heroic", "deluded"],
-  ["reassuring", "worrying"],
-  ["inclusive", "exclusive"],
-  ["connecting", "dividing"],
-  ["regenerating", "destructive"],
-  ["multicultural", "non multicultural"],
-  ["native", "foreign"],
-  ["free", "controlled"],
-  ["moving", "fixed"],
-  ["secure", "insecure"],
-  ["progressive", "regressive"],
-  ["benevolent", "malevolent"],
-  ["long-lasting", "short-term"],
-  ["dominant", "submissive"],
-  ["refined", "crude"],
-  ["skillful", "incompetent"],
-  ["celebrated", "condemned"],
-  ["practical", "symbolic"],
-  ["peaceful", "violent"]
+  {
+    "spectrum": ["civilised", "barbaric"],
+    "gradientClass": "gradient-0"
+  },
+  {
+    "spectrum": ["heroic", "deluded"],
+    "gradientClass": "gradient-1"
+  },
+  {
+    "spectrum": ["reassuring", "worrying"],
+    "gradientClass": "gradient-2"
+  },
+  {
+    "spectrum": ["inclusive", "exclusive"],
+    "gradientClass": "gradient-3"
+  },
+  {
+    "spectrum": ["connecting", "dividing"],
+    "gradientClass": "gradient-4"
+  },
+  {
+    "spectrum": ["regenerating", "destructive"],
+    "gradientClass": "gradient-5"
+  },
+  {
+    "spectrum": ["multicultural", "non multicultural"],
+    "gradientClass": "gradient-6"
+  },
+  {
+    "spectrum": ["native", "foreign"],
+    "gradientClass": "gradient-7"
+  },
+  {
+    "spectrum": ["free", "controlled"],
+    "gradientClass": "gradient-8"
+  },
+  {
+    "spectrum": ["moving", "fixed"],
+    "gradientClass": "gradient-9"
+  },
+  {
+    "spectrum": ["secure", "insecure"],
+    "gradientClass": "gradient-10"
+  },
+  {
+    "spectrum": ["progressive", "regressive"],
+    "gradientClass": "gradient-11"
+  },
+  {
+    "spectrum": ["benevolent", "malevolent"],
+    "gradientClass": "gradient-12"
+  },
+  {
+    "spectrum": ["long-lasting", "short-term"],
+    "gradientClass": "gradient-13"
+  },
+  {
+    "spectrum": ["dominant", "submissive"],
+    "gradientClass": "gradient-14"
+  },
+  {
+    "spectrum": ["refined", "crude"],
+    "gradientClass": "gradient-15"
+  },
+  {
+    "spectrum": ["skillful", "incompetent"],
+    "gradientClass": "gradient-16"
+  },
+  {
+    "spectrum": ["celebrated", "condemned"],
+    "gradientClass": "gradient-17"
+  },
+  {
+    "spectrum": ["practical", "symbolic"],
+    "gradientClass": "gradient-18"
+  },
+  {
+    "spectrum": ["peaceful", "violent"],
+    "gradientClass": "gradient-19"
+  }
 ]
