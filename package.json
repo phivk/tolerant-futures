@@ -41,6 +41,6 @@
     "sass": "^1.51.0",
     "sass-loader": "^10.2.1",
     "typescript": "^4.6.4",
-    "webpack": "^5.72.0"
+    "webpack": "^5.72.1"
   }
 }
