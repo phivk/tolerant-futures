@@ -26,6 +26,7 @@
     <DraggableItem
       ref="draggableItem"
       class="spectrum-game-draggable"
+      :dragging-disabled="turnValueConfirmed"
       @set-value="onSetValue"
     >
       <CardItem>{{ currentTurn.concept }}</CardItem>
