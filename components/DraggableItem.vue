@@ -124,11 +124,11 @@ export default {
   }
 
   &.can-drop {
-    border: solid 4px blue;
+    
   }
 
   &.dropped {
-    border: solid 4px green;
+
   }
 }
 </style>
