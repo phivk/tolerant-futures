@@ -1,5 +1,9 @@
 <template>
-  <span class="drop-zone-background" :style="styleObject"></span>
+  <span class="drop-zone-wrapper">
+  		<span class="drop-zone-gradient" :style="styleObject">
+
+  		</span>
+  </span>
 </template>
 
 <script>
@@ -32,12 +36,31 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.drop-zone-background {
-  z-index: $z-1;
-  position: absolute;
-  left: -7%;
-  width: 110%;
-  height: 100%;
-  filter: blur($blur-3);
+
+  .drop-zone-wrapper {
+    z-index: $z-1;
+    position: absolute;
+    left: -7%;
+    width: 110%;
+    height: 100%;
+    filter: blur($blur-3);
+
+    .drop-zone-gradient {
+        display: block;
+  		width: 100%;
+  		height: 100%;
+        animation: anim 0.75s ease-out infinite alternate;   
+    }
+  }
+
+@keyframes anim {
+    0% {
+        transform: scaleY(1.0);
+        filter: brightness(1.0);
+    }
+    100% {
+        transform: scaleY(1.07);
+       	filter: brightness(1.15);
+    }
 }
 </style>
