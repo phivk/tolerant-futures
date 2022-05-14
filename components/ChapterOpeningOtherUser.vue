@@ -13,8 +13,7 @@
             <SpectrumItem
               :color-a="input.colorA"
               :color-b="input.colorB"
-              :spectrum-position="input.value"
-            >
+              :spectrum-position="input.value">
               <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
               <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
             </SpectrumItem>
@@ -87,13 +86,13 @@ export default {
   },
   computed: {
     userProfile() {
-      return this.otherUserProfile.map((item) => {
-        const spectrum = profileSpectra.find((s) => s.left === item.left)
+      return this.otherUserProfile.map(item => {
+        const spectrum = profileSpectra.find(s => s.left === item.left)
         item.colorA = spectrum.colorA
         item.colorB = spectrum.colorB
         return item
       })
-    },
+    }
   },
   methods: {
     onRevealOtherConfirm() {
@@ -113,6 +112,17 @@ export default {
   align-items: center;
   background-size: cover;
   background-image: url('@/static/image/chapter_intro_background.jpg');
+
+  &:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    background-size: cover;
+    background-image: url('@/static/image/noise_lowres.jpg');  
+    mix-blend-mode: screen; 
+    opacity: 0.6;
+  }
 
   .wrapper {
     display: flex;

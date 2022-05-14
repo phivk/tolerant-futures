@@ -12,7 +12,19 @@ export default {}
 
 <style scoped lang="scss">
 section {
+  position: relative;
   overflow: hidden;
   background-color: $background-color;
+
+  &:before {
+  	width: 100%;
+  	height: 100%;
+  	position: absolute;
+  	content: "";
+  	background-size: cover;
+  	background-image: url('@/static/image/noise_lowres.jpg');  
+  	mix-blend-mode: screen;	
+  	opacity: 0.6;
+  }
 }
 </style>
