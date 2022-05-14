@@ -47,6 +47,7 @@ export const getRandomTurnPastPresent = () => {
   return {
     concept: conceptPair.past.name,
     caption: conceptPair.past.caption,
+    hint: conceptPair.past.hint,
     conceptPresent: conceptPair.present.name,
     captionPresent: conceptPair.present.caption,
     spectrumLeft: spectrum[0],

@@ -4,7 +4,8 @@
       :turns="turns"
       :next-path="nextPath"
       :current-chapter-index="1"
-      require-player-feedback
+      require-player-feedback 
+      showConceptHints
     />
   </div>
 </template>

@@ -60,11 +60,11 @@
         >
           Confirm
         </ButtonPrimary>
-        <ButtonSecondary v-show="!showConceptHint && !showPresent" @buttonClicked="onShowConceptHint">
+        <ButtonSecondary v-show="showConceptHints && !showCurrentHint && !showPresent" @buttonClicked="onShowCurrentHint">
           Are you unfamiliar with {{ currentTurn.concept }}?
         </ButtonSecondary>
-        <SubtitlePlayer v-show="showConceptHint && !showPresent" class="subtitle-player-concept-hint">
-          // add concept explanation //
+        <SubtitlePlayer v-show="showConceptHints && showCurrentHint && !showPresent" class="subtitle-player-concept-hint">
+          {{ currentTurn.hint }}
         </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
@@ -92,6 +92,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    showConceptHints: {
+      type: Boolean,
+      default: false,
+    }
   },
   data() {
     return {
@@ -101,7 +105,7 @@ export default {
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
-      showConceptHint: false,      
+      showCurrentHint: false,      
       feedback: null,
     }
   },
@@ -134,24 +138,36 @@ export default {
       if (this.hasPresent) {
         this.showPresent = true
       } else {
+        if(this.showConceptHints) {
+          this.showCurrentHint = false
+        }
         this.endTurn()
       }
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
+      if(this.showConceptHints) {
+        this.showCurrentHint = false
+      }      
       if (!this.requirePlayerFeedback) {
         this.endTurn()
       }
     },
     onFeedbackSkipped() {
+      if(this.showConceptHints) {
+        this.showCurrentHint = false
+      }      
       this.endTurn()
     },
     onFeedbackSubmitted(feedbackText) {
+      if(this.showConceptHints) {
+        this.showCurrentHint = false
+      }         
       this.feedback = feedbackText
       this.endTurn()
     },
-    onShowConceptHint() {
-      this.showConceptHint = true
+    onShowCurrentHint() {
+      this.showCurrentHint = true
     },
     endTurn() {
       // store input
@@ -235,7 +251,7 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-4;
+  margin-bottom: $offset-3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,6 +263,7 @@ footer {
   .subtitle-player.subtitle-player-concept-hint {
   //margin-top: $offset-7;
     font-size: $f-4;
+    line-height: $f-3;
   }
 }
 </style>
