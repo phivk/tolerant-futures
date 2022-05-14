@@ -42,7 +42,8 @@ export const getRandomTurn = () => {
     caption: concept.caption,
     spectrumLeft: spectrum.left,
     spectrumRight: spectrum.right,
-    gradientClass: spectrum.gradientClass,
+    colorA: spectrum.colorA,
+    colorB: spectrum.colorB,    
   }
 }
 
@@ -56,15 +57,19 @@ export const getRandomTurnPastPresent = () => {
     captionPresent: conceptPair.present.caption,
     spectrumLeft: spectrum.left,
     spectrumRight: spectrum.right,
-    gradientClass: spectrum.gradientClass,
+    colorA: spectrum.colorA,
+    colorB: spectrum.colorB,  
   }
 }
 
 export const getRandomTurnSelfOther = (priorInputs) => {
   const conceptPair = getRandomConceptSelfOther(priorInputs)
-  const gradientClass = getSpectrumByLeft(
+  const colorA = getSpectrumByLeft(
     conceptPair.other.spectrumLeft
-  ).gradientClass
+  ).colorA
+  const colorB = getSpectrumByLeft(
+    conceptPair.other.spectrumLeft
+  ).colorB
 
   return {
     concept: conceptPair.self.name,
@@ -74,7 +79,7 @@ export const getRandomTurnSelfOther = (priorInputs) => {
     captionOther: `Where do you think the other visitor placed ${conceptPair.other.concept} on this spectrum?`,
     spectrumLeft: conceptPair.other.spectrumLeft,
     spectrumRight: conceptPair.other.spectrumRight,
-    gradientClass,
+    colorA, colorB
     otherUser: conceptPair.other.user,
   }
 }

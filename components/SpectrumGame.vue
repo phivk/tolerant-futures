@@ -21,7 +21,7 @@
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground :gradient-class="currentTurn.gradientClass" />
+      <DropZoneBackground :color-a="currentTurn.colorA" :color-b="currentTurn.colorB"/>
     </DropZone>
     <DraggableItem
       ref="draggableItem"

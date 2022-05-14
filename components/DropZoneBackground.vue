@@ -5,12 +5,19 @@
 <script>
 export default {
   props: {
-    /* all gradientClass(es) passed to this component are defined in ~/assets/scss/gradients.scss */
-    gradientClass: {
+    colorA: {
       type: String,
       required: true,
       defaul: null,
     },
+    colorB: {
+      type: String,
+      required: true,
+      defaul: null,
+    },    
+  },
+  computed: {
+
   },
 }
 </script>
