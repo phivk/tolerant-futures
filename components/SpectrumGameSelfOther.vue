@@ -19,6 +19,7 @@
       v-show="currentState.elementsVisible.selfCard"
       ref="draggableItemSelf"
       class="spectrum-game-draggable"
+      :dragging-disabled="turnValueSelfConfirmed"
       @set-value="onSetValueSelf"
     >
       <CardItem>{{ currentTurn.concept }} </CardItem>
@@ -28,6 +29,7 @@
       v-show="currentState.elementsVisible.otherGuessCard"
       ref="draggableItemOther"
       class="spectrum-game-draggable-other"
+      :dragging-disabled="turnValueOtherGuessConfirmed"
       @set-value="onSetValueOther"
     >
       <CardItem is-present-card>

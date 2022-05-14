@@ -3,11 +3,14 @@
 h1 {
   font-family: variables.$headline-font;
   font-size: variables.$f-1;
-  color: variables.$black-color;
+}
+
+h2 {
+  font-family: variables.$headline-font;
+  font-size: variables.$f-2;
 }
 
 p {
   font-family: variables.$text-font;
   font-size: variables.$f-4;
-  color: variables.$black-color;
 }
