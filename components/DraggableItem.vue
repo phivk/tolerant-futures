@@ -77,9 +77,8 @@ export default {
 
       if (event.relatedTarget) {
         // dropped on dropzone!
-        const dropzoneWidth = interact.getElementRect(event.relatedTarget).width
         const cardWidth = boundingClientRect.width
-        const value = this.screenX / (dropzoneWidth - cardWidth)
+        const value = this.screenX / (window.innerWidth - cardWidth)
         event.target.setAttribute('data-value', value.toFixed(2))
         this.value = value
         this.$emit('set-value', value)
@@ -124,7 +123,7 @@ export default {
   }
 
   &.can-drop {
-    
+
   }
 
   &.dropped {

@@ -28,8 +28,10 @@ export default {
   },
   computed: {
   	styleObject() {
+      const colorADist = (1-this.value-0.25)*100;
+      const colorBDst = (1-this.value+0.25)*100;
   		return {
-  			background: "linear-gradient(90deg, " + this.colorA + " 0%, " + this.colorB + " " + ((1-this.value)*100) + "%)",
+  			background: "linear-gradient(90deg, " + this.colorA + " " + colorADist + "%, " + this.colorB + " " + colorBDst + "%)"
   		}  		
   	}
   },
@@ -56,6 +58,7 @@ export default {
     0
   ); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
   filter: $draggable-item-shadow-effect-passive;
+
 
   &.present-card {
     color: $black-color;
