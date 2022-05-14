@@ -22,7 +22,7 @@
       :dragging-disabled="turnValueSelfConfirmed"
       @set-value="onSetValueSelf"
     >
-      <CardItem :value="turnValueSelf" :gradient-colors="['#ffed49', '#70a0fd']">{{ currentTurn.concept }}</CardItem>
+      <CardItem :value="turnValueSelf" :color-a="currentTurn.colorA" :color-b="currentTurn.colorB">{{ currentTurn.concept }}</CardItem>
     </DraggableItem>
     <!-- otherGuess -->
     <DraggableItem
@@ -32,7 +32,7 @@
       :dragging-disabled="turnValueOtherGuessConfirmed"
       @set-value="onSetValueOther"
     >
-      <CardItem is-present-card :value="turnValueOtherGuess" :gradient-colors="['#ffed49', '#70a0fd']">
+      <CardItem is-present-card :value="turnValueOtherGuess" :color-a="currentTurn.colorA" :color-b="currentTurn.colorB">
         {{ currentTurn.conceptOther }}
       </CardItem>
     </DraggableItem>
@@ -41,6 +41,7 @@
       v-show="currentState.elementsVisible.otherTrueCard"
       is-present-card
       class="o-70 z-5"
+      :color-a="currentTurn.colorA" :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
     >
       {{ currentTurn.conceptOther }}

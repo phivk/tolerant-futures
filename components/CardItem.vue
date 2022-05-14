@@ -1,8 +1,7 @@
 <template>
   <div :style="value ? styleObject : undefined" class="card-item" :class="isPresentCard ? 'present-card' : 'past-card'">
     <slot></slot>
-<!--     <div class="f6" v-if="value !== null">{{ value }}</div>
- -->  </div>
+   </div>
 </template>
 
 <script>
@@ -16,16 +15,21 @@ export default {
       type: Number,
       default: 0.5,
     },
-    gradientColors: {
-    	type: Array,
+    colorA: {
+    	type: String,
     	required: true,
     	default: null,
-    }
+    },
+    colorB: {
+    	type: String,
+    	required: true,
+    	default: null,
+    }    
   },
   computed: {
   	styleObject() {
   		return {
-  			background: "linear-gradient(90deg, #ffed49 0%, #70a0fd " + ((1-this.value)*100) + "%)",
+  			background: "linear-gradient(90deg, " + this.colorA + " 0%, " + this.colorB + " " + ((1-this.value)*100) + "%)",
   		}  		
   	}
   },
