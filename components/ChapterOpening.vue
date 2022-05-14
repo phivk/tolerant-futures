@@ -61,7 +61,7 @@ export default {
     background-size: cover;
     background-image: url('@/static/image/noise_lowres.jpg');  
     mix-blend-mode: screen; 
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   .wrapper {
