@@ -222,9 +222,11 @@ export default {
 <style scoped lang="scss">
 header {
   width: 100%;
+  z-index: $z-5;
 
   .subtitle-player {
     margin-top: $offset-4;
+    z-index: $z-5;
 
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
@@ -239,6 +241,7 @@ header {
 
 .spectrum-game-draggable {
   bottom: 10%;
+  z-index: $z-5;
 }
 
 .spectrum-game-feedback-modal {
@@ -248,6 +251,7 @@ header {
 }
 
 footer {
+  z-index: $z-5;
   margin-bottom: $offset-7;
 }
 </style>

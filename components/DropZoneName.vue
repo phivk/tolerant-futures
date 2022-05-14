@@ -10,7 +10,7 @@ export default {}
 .drop-zone-name {
   font-family: $headline-font;
   font-size: $f-0;
-  z-index: $z-2;
+  z-index: $z-5;
   color: $background-color;
 }
 </style>

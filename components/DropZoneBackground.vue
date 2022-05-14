@@ -53,7 +53,7 @@ export default {
 <style scoped lang="scss">
 
   .drop-zone-wrapper {
-    z-index: $z-1;
+    //z-index: $z-1;
     position: absolute;
     left: -7%;
     width: 110%;
