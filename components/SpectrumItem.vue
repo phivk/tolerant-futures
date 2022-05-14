@@ -1,8 +1,8 @@
 <template>
   <div>
     <slot></slot>
-    <span class="spectrum-item" :class="gradientClass">
-      <span class="spectrum-circle" :style="styleObject"></span>
+    <span class="spectrum-item" :style="styleObjectGradient">
+      <span class="spectrum-circle" :style="styleObjectCircle"></span>
     </span>
   </div>
 </template>
@@ -13,11 +13,16 @@ import { remapRange } from '~/util/math.js'
 export default {
   props: {
     /* all gradientClass(es) passed to this component are defined in ~/assets/scss/gradients.scss */
-    gradientClass: {
+    colorA: {
       type: String,
       required: true,
       default: null,
     },
+    colorB: {
+      type: String,
+      required: true,
+      default: null,
+    },    
     spectrumPosition: {
       type: Number,
       required: true,
@@ -25,7 +30,12 @@ export default {
     },
   },
   computed: {
-    styleObject() {
+    styleObjectGradient() {
+      return {
+        background: "linear-gradient(90deg, " + this.colorA + " 25%, " + this.colorB + " 75%)",
+      }
+    },
+    styleObjectCircle() {
       let n = remapRange(this.spectrumPosition, 0.0, 1.0, 10.0, 90.0)
       n = Math.round(n)
       n = n + '%'

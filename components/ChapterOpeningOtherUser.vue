@@ -8,13 +8,12 @@
           v-show="!revealOtherConfirmed"
           src="~/static/image/the_other.png"
         />
-
         <ul v-show="revealOtherConfirmed" class="spectra-container">
-          <li v-for="input in otherUserProfile" :key="input.id">
+          <li v-for="input in userProfile" :key="input.id">
             <SpectrumItem
-              gradient-class="gradient-1"
-              :spectrum-position="input.value"
-            >
+              :color-a="input.colorA"
+              :color-b="input.colorB"
+              :spectrum-position="input.value">
               <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
               <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
             </SpectrumItem>
@@ -40,6 +39,8 @@
 </template>
 
 <script>
+import profileSpectra from '~/data/profileSpectra.json'
+
 export default {
   props: {
     title: {
@@ -83,7 +84,16 @@ export default {
       revealOtherConfirmed: false,
     }
   },
-
+  computed: {
+    userProfile() {
+      return this.otherUserProfile.map(item => {
+        const spectrum = profileSpectra.find(s => s.left === item.left)
+        item.colorA = spectrum.colorA
+        item.colorB = spectrum.colorB
+        return item
+      })
+    }
+  },
   methods: {
     onRevealOtherConfirm() {
       this.revealOtherConfirmed = true

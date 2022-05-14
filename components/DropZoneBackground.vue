@@ -19,7 +19,7 @@ export default {
   computed: {
     styleObject() {
       return {
-        background: "linear-gradient(90deg, " + this.colorA + " 0%, " + this.colorB + " 100%)",
+        background: "linear-gradient(90deg, " + this.colorA + " 25%, " + this.colorB + " 75%)",
       }     
     }
   },
