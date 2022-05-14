@@ -21,7 +21,7 @@
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground gradient-style="gradient-1" />
+      <DropZoneBackground gradient-class="gradient-1" />
     </DropZone>
     <DraggableItem
       ref="draggableItem"
@@ -144,31 +144,20 @@ export default {
       if (this.hasPresent) {
         this.showPresent = true
       } else {
-        if (this.showConceptHints) {
-          this.showCurrentHint = false
-        }
         this.endTurn()
       }
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
-      if (this.showConceptHints) {
-        this.showCurrentHint = false
-      }
+
       if (!this.requirePlayerFeedback) {
         this.endTurn()
       }
     },
     onFeedbackSkipped() {
-      if (this.showConceptHints) {
-        this.showCurrentHint = false
-      }
       this.endTurn()
     },
     onFeedbackSubmitted(feedbackText) {
-      if (this.showConceptHints) {
-        this.showCurrentHint = false
-      }
       this.feedback = feedbackText
       this.endTurn()
     },
@@ -176,6 +165,11 @@ export default {
       this.showCurrentHint = true
     },
     endTurn() {
+      // reset hint visibility
+      if (this.showConceptHints) {
+        this.showCurrentHint = false
+      }
+
       // store input
       this.submitInput(this.currentTurn)
 
