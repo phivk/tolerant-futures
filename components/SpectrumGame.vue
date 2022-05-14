@@ -21,11 +21,12 @@
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground gradient-style="gradient-1" />
+      <DropZoneBackground :color-a="currentTurn.colorA" :color-b="currentTurn.colorB"/>
     </DropZone>
     <DraggableItem
       ref="draggableItem"
       class="spectrum-game-draggable"
+      :dragging-disabled="turnValueConfirmed"
       @set-value="onSetValue"
     >
       <CardItem :value="turnValue" :gradient-colors="['#ffed49', '#70a0fd']">{{ currentTurn.concept }}</CardItem>
@@ -146,7 +147,6 @@ export default {
       this.feedback = feedbackText
       this.endTurn()
     },
-
     endTurn() {
       // store input
       this.submitInput(this.currentTurn)

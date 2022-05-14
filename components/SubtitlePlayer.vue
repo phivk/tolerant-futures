@@ -21,7 +21,7 @@ export default {}
   p {
     text-align: center;
     color: $white-color;
-    font-size: $f-1;
+    font-size: $f-2;
     filter: $caption-shadow-effect;
     line-height: 2.8rem;
   }

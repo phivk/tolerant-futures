@@ -17,6 +17,7 @@ export default {
 <style scoped lang="scss">
 .button-exit-game {
   box-sizing: border-box;
+  display: inline-block;
   width: $exit-game-button-width;
   height: $exit-game-button-width;
   padding: $offset-2;

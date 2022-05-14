@@ -1,5 +1,9 @@
 <template>
-  <div ref="myDraggable" class="draggable">
+  <div
+    ref="myDraggable"
+    class="draggable"
+    :class="{ 'not-draggable': draggingDisabled }"
+  >
     <slot></slot>
   </div>
 </template>
@@ -9,6 +13,13 @@ import interact from 'interactjs'
 
 export default {
   name: 'DraggableItem',
+  props: {
+    draggingDisabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   data() {
     return {
       screenX: 0,
@@ -41,20 +52,22 @@ export default {
       })
     },
     dragMoveListener(event) {
-      const target = event.target
-      // keep the dragged position in the data-x/data-y attributes
-      const x =
-        (parseFloat(target.getAttribute('data-x')) || this.screenX) + event.dx
-      const y =
-        (parseFloat(target.getAttribute('data-y')) || this.screenY) + event.dy
+      if (!this.draggingDisabled) {
+        const target = event.target
+        // keep the dragged position in the data-x/data-y attributes
+        const x =
+          (parseFloat(target.getAttribute('data-x')) || this.screenX) + event.dx
+        const y =
+          (parseFloat(target.getAttribute('data-y')) || this.screenY) + event.dy
 
-      // translate the element
-      target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px, ' + y + 'px)'
+        // translate the element
+        target.style.webkitTransform = target.style.transform =
+          'translate(' + x + 'px, ' + y + 'px)'
 
-      // update the posiion attributes
-      target.setAttribute('data-x', x)
-      target.setAttribute('data-y', y)
+        // update the posiion attributes
+        target.setAttribute('data-x', x)
+        target.setAttribute('data-y', y)
+      }
     },
     onDragEnd(event) {
       // update the state
@@ -100,6 +113,10 @@ export default {
   position: absolute;
   z-index: $z-3;
   //filter: $draggable-item-shadow-effect-passive;
+
+  &.not-draggable {
+    cursor: default !important;
+  }
 
   /* TO DO: add dragged class to this component while it's being dragged */
   &.dragged {
