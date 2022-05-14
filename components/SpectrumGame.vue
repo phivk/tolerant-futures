@@ -48,24 +48,30 @@
       @feedbackSkipped="onFeedbackSkipped"
     />
     <TheFooter>
-        <ButtonPrimary
-          v-if="hasTurnValueToConfirm"
-          @buttonClicked="onTurnConfirm"
-        >
-          Confirm
-        </ButtonPrimary>
-        <ButtonPrimary
-          v-if="hasTurnValuePresentToConfirm"
-          @buttonClicked="onTurnPresentConfirm"
-        >
-          Confirm
-        </ButtonPrimary>
-        <ButtonSecondary v-show="showConceptHints && !showCurrentHint && !showPresent" @buttonClicked="onShowCurrentHint">
-          Are you unfamiliar with {{ currentTurn.concept }}?
-        </ButtonSecondary>
-        <SubtitlePlayer v-show="showConceptHints && showCurrentHint && !showPresent" class="subtitle-player-concept-hint">
-          {{ currentTurn.hint }}
-        </SubtitlePlayer>
+      <ButtonPrimary
+        v-if="hasTurnValueToConfirm"
+        @buttonClicked="onTurnConfirm"
+      >
+        Confirm
+      </ButtonPrimary>
+      <ButtonPrimary
+        v-if="hasTurnValuePresentToConfirm"
+        @buttonClicked="onTurnPresentConfirm"
+      >
+        Confirm
+      </ButtonPrimary>
+      <ButtonSecondary
+        v-show="showConceptHints && !showCurrentHint && !showPresent"
+        @buttonClicked="onShowCurrentHint"
+      >
+        Are you unfamiliar with {{ currentTurn.concept }}?
+      </ButtonSecondary>
+      <SubtitlePlayer
+        v-show="showConceptHints && showCurrentHint && !showPresent"
+        class="subtitle-player-concept-hint"
+      >
+        {{ currentTurn.hint }}
+      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -95,7 +101,7 @@ export default {
     showConceptHints: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   data() {
     return {
@@ -105,7 +111,7 @@ export default {
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
-      showCurrentHint: false,      
+      showCurrentHint: false,
       feedback: null,
     }
   },
@@ -138,7 +144,7 @@ export default {
       if (this.hasPresent) {
         this.showPresent = true
       } else {
-        if(this.showConceptHints) {
+        if (this.showConceptHints) {
           this.showCurrentHint = false
         }
         this.endTurn()
@@ -146,23 +152,23 @@ export default {
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
-      if(this.showConceptHints) {
+      if (this.showConceptHints) {
         this.showCurrentHint = false
-      }      
+      }
       if (!this.requirePlayerFeedback) {
         this.endTurn()
       }
     },
     onFeedbackSkipped() {
-      if(this.showConceptHints) {
+      if (this.showConceptHints) {
         this.showCurrentHint = false
-      }      
+      }
       this.endTurn()
     },
     onFeedbackSubmitted(feedbackText) {
-      if(this.showConceptHints) {
+      if (this.showConceptHints) {
         this.showCurrentHint = false
-      }         
+      }
       this.feedback = feedbackText
       this.endTurn()
     },
@@ -261,7 +267,7 @@ footer {
   }
 
   .subtitle-player.subtitle-player-concept-hint {
-  //margin-top: $offset-7;
+    //margin-top: $offset-7;
     font-size: $f-4;
     line-height: $f-3;
   }

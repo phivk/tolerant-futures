@@ -1,14 +1,11 @@
 <template>
   <p class="subtitle-player">
-      <slot></slot>
+    <slot></slot>
   </p>
 </template>
 
 <script>
-  export default {
-
-
-  }
+export default {}
 </script>
 
 <style scoped lang="scss">
@@ -23,6 +20,5 @@
   font-size: $f-1;
   filter: $caption-shadow-effect;
   line-height: 2.8rem;
-
 }
 </style>
