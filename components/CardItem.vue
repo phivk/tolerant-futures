@@ -1,7 +1,11 @@
 <template>
-  <div :style="value ? styleObject : undefined" class="card-item" :class="isPresentCard ? 'present-card' : 'past-card'">
+  <div
+    :style="value ? styleObject : undefined"
+    class="card-item"
+    :class="isPresentCard ? 'present-card' : 'past-card'"
+  >
     <slot></slot>
-   </div>
+  </div>
 </template>
 
 <script>
@@ -16,24 +20,33 @@ export default {
       default: 0.5,
     },
     colorA: {
-    	type: String,
-    	required: true,
-    	default: null,
+      type: String,
+      required: true,
+      default: null,
     },
     colorB: {
-    	type: String,
-    	required: true,
-    	default: null,
-    }    
+      type: String,
+      required: true,
+      default: null,
+    },
   },
   computed: {
-  	styleObject() {
-      const colorADist = (1-this.value-0.25)*100;
-      const colorBDst = (1-this.value+0.25)*100;
-  		return {
-  			background: "linear-gradient(90deg, " + this.colorA + " " + colorADist + "%, " + this.colorB + " " + colorBDst + "%)"
-  		}  		
-  	}
+    styleObject() {
+      const colorADist = (1 - this.value - 0.25) * 100
+      const colorBDst = (1 - this.value + 0.25) * 100
+      return {
+        background:
+          'linear-gradient(90deg, ' +
+          this.colorA +
+          ' ' +
+          colorADist +
+          '%, ' +
+          this.colorB +
+          ' ' +
+          colorBDst +
+          '%)',
+      }
+    },
   },
 }
 </script>
@@ -58,7 +71,6 @@ export default {
     0
   ); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
   filter: $draggable-item-shadow-effect-passive;
-
 
   &.present-card {
     color: $black-color;

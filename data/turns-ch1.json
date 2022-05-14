@@ -12,7 +12,7 @@
     "spectrumLeft": "Young",
     "spectrumRight": "Old",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b",    
+    "colorB": "#ff007b",
     "caption": "Thank you! Now, on the spectrum between Young and Old, where would you place yourself?"
   },
   {
@@ -20,7 +20,7 @@
     "spectrumLeft": "Near",
     "spectrumRight": "Far",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b",    
+    "colorB": "#ff007b",
     "caption": "Neat! Let's now reflect on where is home for you right now. At this moment, are you Near or Far from home?"
   },
   {
@@ -28,7 +28,7 @@
     "spectrumLeft": "Past oriented",
     "spectrumRight": "Future oriented",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b",    
+    "colorB": "#ff007b",
     "caption": "Thanks! And how would you describe your relationship to time. Are you more past oriented or future oriented?"
   }
 ]

@@ -22,7 +22,7 @@ export default {
       type: String,
       required: true,
       default: null,
-    },    
+    },
     spectrumPosition: {
       type: Number,
       required: true,
@@ -32,7 +32,12 @@ export default {
   computed: {
     styleObjectGradient() {
       return {
-        background: "linear-gradient(90deg, " + this.colorA + " 25%, " + this.colorB + " 75%)",
+        background:
+          'linear-gradient(90deg, ' +
+          this.colorA +
+          ' 25%, ' +
+          this.colorB +
+          ' 75%)',
       }
     },
     styleObjectCircle() {

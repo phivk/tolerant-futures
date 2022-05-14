@@ -13,7 +13,8 @@
             <SpectrumItem
               :color-a="input.colorA"
               :color-b="input.colorB"
-              :spectrum-position="input.value">
+              :spectrum-position="input.value"
+            >
               <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
               <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
             </SpectrumItem>
@@ -86,13 +87,13 @@ export default {
   },
   computed: {
     userProfile() {
-      return this.otherUserProfile.map(item => {
-        const spectrum = profileSpectra.find(s => s.left === item.left)
+      return this.otherUserProfile.map((item) => {
+        const spectrum = profileSpectra.find((s) => s.left === item.left)
         item.colorA = spectrum.colorA
         item.colorB = spectrum.colorB
         return item
       })
-    }
+    },
   },
   methods: {
     onRevealOtherConfirm() {

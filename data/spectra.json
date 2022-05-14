@@ -21,49 +21,49 @@
     "left": "inclusive",
     "right": "exclusive",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b" 
+    "colorB": "#ff007b"
   },
   {
     "left": "connecting",
     "right": "dividing",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b"    
+    "colorB": "#ff007b"
   },
   {
     "left": "regenerating",
     "right": "destructive",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b"   
+    "colorB": "#ff007b"
   },
   {
     "left": "multicultural",
     "right": "non multicultural",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b"     
+    "colorB": "#ff007b"
   },
   {
     "left": "native",
     "right": "foreign",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b"   
+    "colorB": "#ff007b"
   },
   {
     "left": "free",
     "right": "controlled",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b"     
+    "colorB": "#ff007b"
   },
   {
     "left": "moving",
     "right": "fixed",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b"   
+    "colorB": "#ff007b"
   },
   {
     "left": "secure",
     "right": "insecure",
     "colorA": "#85b4ff",
-    "colorB": "#ff007b" 
+    "colorB": "#ff007b"
   },
   {
     "left": "progressive",

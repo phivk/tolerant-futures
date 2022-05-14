@@ -123,11 +123,9 @@ export default {
   }
 
   &.can-drop {
-
   }
 
   &.dropped {
-
   }
 }
 </style>

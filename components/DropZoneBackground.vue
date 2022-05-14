@@ -14,14 +14,19 @@ export default {
       type: String,
       required: true,
       defaul: null,
-    },    
+    },
   },
   computed: {
     styleObject() {
       return {
-        background: "linear-gradient(90deg, " + this.colorA + " 25%, " + this.colorB + " 75%)",
-      }     
-    }
+        background:
+          'linear-gradient(90deg, ' +
+          this.colorA +
+          ' 25%, ' +
+          this.colorB +
+          ' 75%)',
+      }
+    },
   },
 }
 </script>
