@@ -24,12 +24,14 @@
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :animation-state="animationState"
       />
     </DropZone>
     <DraggableItem
       ref="draggableItem"
       class="spectrum-game-draggable"
       :dragging-disabled="turnValueConfirmed"
+      @dragging="onSetAnimationState('DRAGGING')"
       @set-value="onSetValue"
     >
       <CardItem
@@ -113,6 +115,7 @@ export default {
       turnValuePresentConfirmed: false,
       showPresent: false,
       feedback: null,
+      animationState: "PASSIVE",
     }
   },
   computed: {
@@ -187,6 +190,9 @@ export default {
     },
     onSetValue(value) {
       this.turnValue = value
+    },
+    onSetAnimationState(state) {
+      this.animationState = state;
     },
     onSetValuePresent(value) {
       this.turnValuePresent = value

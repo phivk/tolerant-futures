@@ -1,6 +1,6 @@
 <template>
   <span class="drop-zone-wrapper">
-  		<span class="drop-zone-gradient" :style="styleObject">
+  		<span class="drop-zone-gradient" :style="styleObject" :class="classObject">
 
   		</span>
   </span>
@@ -19,6 +19,10 @@ export default {
       required: true,
       defaul: null,
     },
+    animationState: {
+      type: String,
+      default: "PASSIVE"
+    }    
   },
   computed: {
     styleObject() {
@@ -31,6 +35,17 @@ export default {
           ' 75%)',
       }
     },
+    classObject() {
+      switch(this.animationState) {
+      case "PASSIVE":
+        return "animate-passive"
+      case "DRAGGING":
+        return "animate-dragging"
+      default:
+        return undefined
+    } 
+
+    }
   },
 }
 </script>
@@ -49,7 +64,14 @@ export default {
         display: block;
   		width: 100%;
   		height: 100%;
-        animation: anim 0.75s ease-out infinite alternate;   
+
+        &.animate-passive {
+          animation: anim 0.75s ease-out infinite alternate;
+        } 
+        &.animate-dragging {
+          animation: anim 0.3s ease-out infinite alternate;
+
+        }  
     }
   }
 
