@@ -101,7 +101,7 @@ export default {
     },
     showConceptHints: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data() {
