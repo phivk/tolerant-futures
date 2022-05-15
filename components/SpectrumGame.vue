@@ -48,22 +48,31 @@
       @feedbackSubmitted="onFeedbackSubmitted"
       @feedbackSkipped="onFeedbackSkipped"
     />
-
     <TheFooter>
-      <div>
-        <ButtonPrimary
-          v-if="hasTurnValueToConfirm"
-          @buttonClicked="onTurnConfirm"
-        >
-          Confirm
-        </ButtonPrimary>
-        <ButtonPrimary
-          v-if="hasTurnValuePresentToConfirm"
-          @buttonClicked="onTurnPresentConfirm"
-        >
-          Confirm
-        </ButtonPrimary>
-      </div>
+      <ButtonPrimary
+        v-if="hasTurnValueToConfirm"
+        @buttonClicked="onTurnConfirm"
+      >
+        Confirm
+      </ButtonPrimary>
+      <ButtonPrimary
+        v-if="hasTurnValuePresentToConfirm"
+        @buttonClicked="onTurnPresentConfirm"
+      >
+        Confirm
+      </ButtonPrimary>
+      <ButtonSecondary
+        v-show="showConceptHints && !showHint && hasHint"
+        @buttonClicked="onHintRequest"
+      >
+        Not familiar with {{ currentTurn.concept }}?
+      </ButtonSecondary>
+      <SubtitlePlayer
+        v-show="showConceptHints && showHint"
+        class="subtitle-player-concept-hint"
+      >
+        {{ currentTurn.hint }}
+      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -90,6 +99,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    showConceptHints: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -99,6 +112,7 @@ export default {
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
+      showHint: false,
       feedback: null,
     }
   },
@@ -121,6 +135,9 @@ export default {
     hasTurnValuePresentToConfirm() {
       return this.turnValuePresent !== null && !this.turnValuePresentConfirmed
     },
+    hasHint() {
+      return Object.prototype.hasOwnProperty.call(this.currentTurn, 'hint')
+    },
     feedbackInputPlaceholderText() {
       return `I placed ${this.currentTurn.conceptPresent} here because ...`
     },
@@ -136,6 +153,7 @@ export default {
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
+
       if (!this.requirePlayerFeedback) {
         this.endTurn()
       }
@@ -146,6 +164,9 @@ export default {
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
       this.endTurn()
+    },
+    onHintRequest() {
+      this.showHint = true
     },
     endTurn() {
       // store input
@@ -171,6 +192,7 @@ export default {
       this.$refs.draggableItemPresent.resetPosition()
       this.showPresent = false
       this.feedback = null
+      this.showHint = false
     },
     onSetValue(value) {
       this.turnValue = value
@@ -229,6 +251,19 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-7;
+  margin-bottom: $offset-3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button-primary {
+    margin-bottom: $offset-5;
+  }
+
+  .subtitle-player.subtitle-player-concept-hint {
+    //margin-top: $offset-7;
+    font-size: $f-4;
+    line-height: $f-3;
+  }
 }
 </style>
