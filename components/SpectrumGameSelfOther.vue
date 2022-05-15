@@ -357,7 +357,7 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-7;
+  margin-bottom: $offset-4;
 }
 .spectrum-game-feedback-modal {
   left: 50%;
