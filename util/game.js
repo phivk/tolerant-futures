@@ -30,17 +30,6 @@ export const getRandomConceptSelfOther = (priorInputs) => {
   }
 }
 
-export const getRandomTurn = () => {
-  const concept = getRandomConceptPast()
-  const spectrum = getRandomSpectrum()
-  return {
-    concept: concept.name,
-    caption: concept.caption,
-    spectrumLeft: spectrum[0],
-    spectrumRight: spectrum[1],
-  }
-}
-
 export const getRandomTurnPastPresent = () => {
   const conceptPair = getRandomConceptPastPresent()
   const spectrum = getRandomSpectrum()
@@ -69,12 +58,6 @@ export const getRandomTurnSelfOther = (priorInputs) => {
     spectrumRight: conceptPair.other.spectrumRight,
     otherUser: conceptPair.other.user,
   }
-}
-
-export const getRandomTurns = (n) => {
-  return Array(n)
-    .fill(0)
-    .map((i) => getRandomTurn())
 }
 
 export const getRandomTurnsPastPresent = (n) => {
