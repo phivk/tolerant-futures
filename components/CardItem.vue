@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="value ? styleObject : '' "
+    :style="value !== null ? styleObject : ''"
     class="card-item"
     :class="isPresentCard ? 'present-card' : 'past-card'"
   >
