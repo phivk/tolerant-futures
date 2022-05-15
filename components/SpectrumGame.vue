@@ -62,13 +62,13 @@
         Confirm
       </ButtonPrimary>
       <ButtonSecondary
-        v-show="showConceptHints && !showCurrentHint && !showPresent"
+        v-show="showConceptHints && !showCurrentHint && hasHint"
         @buttonClicked="onShowCurrentHint"
       >
         Not familiar with {{ currentTurn.concept }}?
       </ButtonSecondary>
       <SubtitlePlayer
-        v-show="showConceptHints && showCurrentHint && !showPresent"
+        v-show="showConceptHints && showCurrentHint"
         class="subtitle-player-concept-hint"
       >
         {{ currentTurn.hint }}
@@ -134,6 +134,9 @@ export default {
     },
     hasTurnValuePresentToConfirm() {
       return this.turnValuePresent !== null && !this.turnValuePresentConfirmed
+    },
+    hasHint() {
+      return Object.prototype.hasOwnProperty.call(this.currentTurn, 'hint')
     },
     feedbackInputPlaceholderText() {
       return `I placed ${this.currentTurn.conceptPresent} here because ...`
