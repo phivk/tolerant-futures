@@ -1,18 +1,21 @@
-import { getRandomFromArray } from '~/util/array.js'
 import spectra from '~/data/spectra.json'
 import concepts from '~/data/concepts.json'
+import {
+  getRandomItemFromArray,
+  getRandomItemsFromArray,
+} from '~/util/array.js'
 
 export const getRandomSpectrum = () => {
-  return getRandomFromArray(spectra)
+  return getRandomItemFromArray(spectra)
 }
 
 export const getRandomConceptPast = () => {
-  return getRandomFromArray(concepts).past
+  return getRandomItemFromArray(concepts).past
 }
 
 export const getRandomConceptPastPresent = () => {
-  const concept = getRandomFromArray(concepts)
-  const conceptPresent = getRandomFromArray(concept.present)
+  const concept = getRandomItemFromArray(concepts)
+  const conceptPresent = getRandomItemFromArray(concept.present)
   return {
     past: concept.past,
     present: conceptPresent,
@@ -20,7 +23,7 @@ export const getRandomConceptPastPresent = () => {
 }
 
 export const getRandomConceptSelfOther = (priorInputs) => {
-  const input = getRandomFromArray(priorInputs)
+  const input = getRandomItemFromArray(priorInputs)
   const concept = concepts.find(
     (concept) => concept.past.name === input.concept
   )
@@ -61,9 +64,21 @@ export const getRandomTurnSelfOther = (priorInputs) => {
 }
 
 export const getRandomTurnsPastPresent = (n) => {
-  return Array(n)
-    .fill(0)
-    .map((i) => getRandomTurnPastPresent())
+  // pick n randomly from concepts
+  // then augment concepts with spectrum to build turn
+  return getRandomItemsFromArray(concepts, n).map((concept) => {
+    const conceptPresent = getRandomItemFromArray(concept.present)
+    const spectrum = getRandomSpectrum()
+    return {
+      concept: concept.past.name,
+      caption: concept.past.caption,
+      hint: concept.past.hint,
+      conceptPresent: conceptPresent.name,
+      captionPresent: conceptPresent.caption,
+      spectrumLeft: spectrum[0],
+      spectrumRight: spectrum[1],
+    }
+  })
 }
 
 export const getRandomTurnsSelfOther = (priorInputs, n) => {
