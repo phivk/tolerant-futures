@@ -282,7 +282,7 @@ export default {
       this.showHint = true
     },
     onFeedbackSkipped() {
-      this.endState()
+      this.endTurn()
     },
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
