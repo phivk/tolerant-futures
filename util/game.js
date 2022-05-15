@@ -10,30 +10,6 @@ export const getRandomSpectrum = () => {
   return getRandomItemFromArray(spectra)
 }
 
-export const getRandomConceptPast = () => {
-  return getRandomItemFromArray(concepts).past
-}
-
-export const getRandomConceptPastPresent = () => {
-  const concept = getRandomItemFromArray(concepts)
-  const conceptPresent = getRandomItemFromArray(concept.present)
-  return {
-    past: concept.past,
-    present: conceptPresent,
-  }
-}
-
-export const getRandomConceptSelfOther = (priorInputs) => {
-  const input = getRandomItemFromArray(priorInputs)
-  const concept = concepts.find(
-    (concept) => concept.past.name === input.concept
-  )
-  return {
-    self: concept.past,
-    other: input,
-  }
-}
-
 export const getRandomTurnsPastPresent = (n) => {
   // pick n concepts randomly from list
   // then augment each concept with spectrum to build turn
