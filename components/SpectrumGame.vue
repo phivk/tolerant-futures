@@ -65,7 +65,7 @@
         v-show="showConceptHints && !showCurrentHint && !showPresent"
         @buttonClicked="onShowCurrentHint"
       >
-        Are you unfamiliar with {{ currentTurn.concept }}?
+        Not familiar with {{ currentTurn.concept }}?
       </ButtonSecondary>
       <SubtitlePlayer
         v-show="showConceptHints && showCurrentHint && !showPresent"
