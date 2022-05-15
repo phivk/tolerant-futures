@@ -166,11 +166,6 @@ export default {
       this.showCurrentHint = true
     },
     endTurn() {
-      // reset hint visibility
-      if (this.showConceptHints) {
-        this.showCurrentHint = false
-      }
-
       // store input
       this.submitInput(this.currentTurn)
 
@@ -194,6 +189,7 @@ export default {
       this.$refs.draggableItemPresent.resetPosition()
       this.showPresent = false
       this.feedback = null
+      this.showCurrentHint = false
     },
     onSetValue(value) {
       this.turnValue = value
