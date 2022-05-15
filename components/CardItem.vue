@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="value ? styleObject : undefined"
+    :style="value ? styleObject : '' "
     class="card-item"
     :class="isPresentCard ? 'present-card' : 'past-card'"
   >
@@ -34,6 +34,7 @@ export default {
     styleObject() {
       const colorADist = (1 - this.value - 0.25) * 100
       const colorBDst = (1 - this.value + 0.25) * 100
+
       return {
         background:
           'linear-gradient(90deg, ' +

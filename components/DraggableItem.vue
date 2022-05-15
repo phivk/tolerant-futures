@@ -53,6 +53,7 @@ export default {
     },
     dragMoveListener(event) {
       if (!this.draggingDisabled) {
+
         const target = event.target
         // keep the dragged position in the data-x/data-y attributes
         const x =
@@ -111,7 +112,6 @@ export default {
 .draggable {
   position: absolute;
   z-index: $z-3;
-  //filter: $draggable-item-shadow-effect-passive;
 
   &.not-draggable {
     cursor: default !important;
