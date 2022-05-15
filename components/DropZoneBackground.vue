@@ -66,16 +66,16 @@ export default {
   		height: 100%;
 
         &.animate-passive {
-          animation: anim 0.75s ease-out infinite alternate;
+          animation: anim-passive 0.75s ease-out infinite alternate;
         } 
         &.animate-dragging {
-          animation: anim 0.3s ease-out infinite alternate;
+          animation: anim-dragging 0.2s ease-out infinite alternate;
 
         }  
     }
   }
 
-@keyframes anim {
+@keyframes anim-passive {
     0% {
         transform: scaleY(1.0);
         filter: brightness(1.0);
@@ -85,4 +85,17 @@ export default {
        	filter: brightness(1.15);
     }
 }
+
+@keyframes anim-dragging {
+    0% {
+        transform: scaleY(1.0);
+        filter: brightness(1.0);
+    }
+    100% {
+        transform: scaleY(1.15);
+        filter: brightness(1.3);
+    }
+}
+
+
 </style>

@@ -25,7 +25,7 @@ section {
   	background-size: cover;
   	background-image: url('@/static/image/noise_lowres.jpg');  
   	mix-blend-mode: screen;	
-  	opacity: 0.7;
+  	
   }
   // background elliptical shadow
   &:after {
@@ -33,13 +33,10 @@ section {
   	height: 100%;
   	position: absolute;
   	content: "";
-	background: radial-gradient(ellipse, rgba(255,255,255,0) 30%, rgba(16, 6, 43,0.35) 90%); 
+	background: radial-gradient(ellipse, rgba(255,255,255,0) 30%, rgba(16, 6, 43,0.4) 90%); 
   	mix-blend-mode: multiply;	
   }  
 }
-
-
-// background: radial-gradient(circle, rgba(2,0,36,0) 0%, rgba(0,212,255,1) 70%); 
 </style>
 
 
