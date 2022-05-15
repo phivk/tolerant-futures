@@ -62,13 +62,13 @@
         Confirm
       </ButtonPrimary>
       <ButtonSecondary
-        v-show="showConceptHints && !showCurrentHint && hasHint"
-        @buttonClicked="onShowCurrentHint"
+        v-show="showConceptHints && !showHint && hasHint"
+        @buttonClicked="onHintRequest"
       >
         Not familiar with {{ currentTurn.concept }}?
       </ButtonSecondary>
       <SubtitlePlayer
-        v-show="showConceptHints && showCurrentHint"
+        v-show="showConceptHints && showHint"
         class="subtitle-player-concept-hint"
       >
         {{ currentTurn.hint }}
@@ -112,7 +112,7 @@ export default {
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
-      showCurrentHint: false,
+      showHint: false,
       feedback: null,
     }
   },
@@ -165,8 +165,8 @@ export default {
       this.feedback = feedbackText
       this.endTurn()
     },
-    onShowCurrentHint() {
-      this.showCurrentHint = true
+    onHintRequest() {
+      this.showHint = true
     },
     endTurn() {
       // store input
@@ -192,7 +192,7 @@ export default {
       this.$refs.draggableItemPresent.resetPosition()
       this.showPresent = false
       this.feedback = null
-      this.showCurrentHint = false
+      this.showHint = false
     },
     onSetValue(value) {
       this.turnValue = value
