@@ -3,6 +3,7 @@ import concepts from '~/data/concepts.json'
 import {
   getRandomItemFromArray,
   getRandomItemsFromArray,
+  uniqBy,
 } from '~/util/array.js'
 
 export const getRandomSpectrum = () => {
@@ -82,7 +83,24 @@ export const getRandomTurnsPastPresent = (n) => {
 }
 
 export const getRandomTurnsSelfOther = (priorInputs, n) => {
-  return Array(n)
-    .fill(0)
-    .map((i) => getRandomTurnSelfOther(priorInputs))
+  // build new array of unique inputs from priorInputs
+  // then pick n inputs randomly from uniqueInputs
+  // then augment each input to build turn
+  const uniqueInputs = uniqBy(priorInputs, (input) => input.concept)
+  return getRandomItemsFromArray(uniqueInputs, n).map((input) => {
+    const concept = concepts.find(
+      (concept) => concept.past.name === input.concept
+    )
+    return {
+      concept: concept.past.name,
+      caption: concept.past.caption,
+      hint: concept.past.hint,
+      conceptOther: input.concept,
+      valueOther: input.value,
+      captionOther: `Where do you think the other visitor placed ${input.concept} on this spectrum?`,
+      spectrumLeft: input.spectrumLeft,
+      spectrumRight: input.spectrumRight,
+      otherUser: input.user,
+    }
+  })
 }
