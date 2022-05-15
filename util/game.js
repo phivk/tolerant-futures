@@ -64,8 +64,8 @@ export const getRandomTurnSelfOther = (priorInputs) => {
 }
 
 export const getRandomTurnsPastPresent = (n) => {
-  // pick n randomly from concepts
-  // then augment concepts with spectrum to build turn
+  // pick n concepts randomly from list
+  // then augment each concept with spectrum to build turn
   return getRandomItemsFromArray(concepts, n).map((concept) => {
     const conceptPresent = getRandomItemFromArray(concept.present)
     const spectrum = getRandomSpectrum()
