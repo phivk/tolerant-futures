@@ -1,9 +1,7 @@
 <template>
-  <div class="subtitle-player">
-    <p>
-      <slot></slot>
-    </p>
-  </div>
+  <p class="subtitle-player">
+    <slot></slot>
+  </p>
 </template>
 
 <script>
@@ -17,13 +15,10 @@ export default {}
   box-sizing: border-box;
   padding-left: $offset-8;
   padding-right: $offset-8;
-
-  p {
-    text-align: center;
-    color: $white-color;
-    font-size: $f-2;
-    filter: $caption-shadow-effect;
-    line-height: 2.8rem;
-  }
+  text-align: center;
+  color: $white-color;
+  font-size: $f-1;
+  filter: $caption-shadow-effect;
+  line-height: 2.8rem;
 }
 </style>

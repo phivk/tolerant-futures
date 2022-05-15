@@ -53,6 +53,7 @@ export const getRandomTurnPastPresent = () => {
   return {
     concept: conceptPair.past.name,
     caption: conceptPair.past.caption,
+    hint: conceptPair.past.hint,
     conceptPresent: conceptPair.present.name,
     captionPresent: conceptPair.present.caption,
     spectrumLeft: spectrum.left,
@@ -70,6 +71,7 @@ export const getRandomTurnSelfOther = (priorInputs) => {
   return {
     concept: conceptPair.self.name,
     caption: conceptPair.self.caption,
+    hint: conceptPair.self.hint,
     conceptOther: conceptPair.other.concept,
     valueOther: conceptPair.other.value,
     captionOther: `Where do you think the other visitor placed ${conceptPair.other.concept} on this spectrum?`,
