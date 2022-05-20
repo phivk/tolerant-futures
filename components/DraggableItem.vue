@@ -53,11 +53,6 @@ export default {
     },
     dragMoveListener(event) {
       if (!this.draggingDisabled) {
-<<<<<<< HEAD
-        this.$emit('stateChange', 'dragging')        
-=======
-
->>>>>>> f7ceb34c823da8b87d59f1c4e6f22f4b1131142b
         const target = event.target
         // keep the dragged position in the data-x/data-y attributes
         const x =
@@ -72,6 +67,8 @@ export default {
         // update the posiion attributes
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
+
+        this.$emit('set-drag-state', 'dragging')
       }
     },
     onDragEnd(event) {
@@ -80,8 +77,7 @@ export default {
       this.screenX = boundingClientRect.left
       this.screenY = boundingClientRect.top
 
-      if (event.relatedTarget) { 
-        this.$emit('stateChange', 'passive')                     
+      if (event.relatedTarget) {             
         // dropped on dropzone!
         const cardWidth = boundingClientRect.width
         const value = this.screenX / (window.innerWidth - cardWidth)
@@ -92,6 +88,7 @@ export default {
         this.value = null
         this.$emit('set-value', null)
       }
+      this.$emit('set-drag-state', 'not-dragging')
     },
     resetPosition() {
       const myDraggable = this.$refs.myDraggable

@@ -1,7 +1,6 @@
 <template>
   <span class="drop-zone-wrapper">
   		<span class="drop-zone-gradient" :style="styleObject" :class="classObject">
-
   		</span>
   </span>
 </template>
@@ -21,7 +20,7 @@ export default {
     },
     animationState: {
       type: String,
-      default: "passive"
+      default: "DRAGGING"
     }    
   },
   computed: {
@@ -36,16 +35,14 @@ export default {
       }
     },
     classObject() {
-      console.log(this.animationState);
       switch(this.animationState) {
-      case "passive":
-        return "animate-passive"
-      case "dragging":
-        return "animate-dragging"
+      case "placing":
+        return "animate-placing"
+      case "placed-spectrum":
+        return "animate-placed-spectrum"        
       default:
-        return undefined
+        return "animate-placed"
     } 
-
     }
   },
 }
@@ -66,37 +63,51 @@ export default {
   		width: 100%;
   		height: 100%;
 
-        &.animate-passive {
-          animation: anim-passive 0.75s ease-out infinite alternate;
+        &.animate-placed-spectrum {
+          animation: frames-placed-spectrum 0.65s forwards ease-out;
         } 
-        &.animate-dragging {
-          animation: anim-dragging 0.2s ease-out infinite alternate;
 
+        &.animate-placed {
+          animation: frames-placed 1s ease-out infinite alternate;
+        } 
+
+        &.animate-placing {
+          animation: frames-placing 0.3s ease-out infinite alternate;
         }  
     }
   }
 
-@keyframes anim-passive {
+@keyframes frames-placed-spectrum {
     0% {
         transform: scaleY(1.0);
         filter: brightness(1.0);
     }
     100% {
-        transform: scaleY(1.07);
-       	filter: brightness(1.15);
+        transform: scaleY(0.3);
+       	filter: brightness(1.5);
     }
 }
 
-@keyframes anim-dragging {
+@keyframes frames-placed {
+    0% {
+        transform: scaleY(1.0);
+        filter: brightness(1.0);
+    }
+    100% {
+        transform: scaleY(1.08);
+        filter: brightness(1.15);
+    }
+}
+
+@keyframes frames-placing {
     0% {
         transform: scaleY(1.0);
         filter: brightness(1.0);
     }
     100% {
         transform: scaleY(1.15);
-        filter: brightness(1.3);
+        filter: brightness(1.1);
     }
 }
-
 
 </style>
