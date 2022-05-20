@@ -1,12 +1,18 @@
 <template>
   <section class="white">
-    <div class="d-browser">Browser!</div>
-    <div class="d-standalone">Standalone!</div>
+    <p>isStandalone: {{ isStandalone }}</p>
+    <div class="d-browser-only">Browser!</div>
+    <div class="d-standalone-only">Standalone!</div>
   </section>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isStandalone: false,
+    }
+  },
   props: {
     title: {
       type: String,
@@ -14,19 +20,24 @@ export default {
       default: null,
     },
   },
+  mounted() {
+    if (window.navigator.standalone) {
+      this.isStandalone = true
+    }
+  },
 }
 </script>
 
 <style scoped>
-.d-standalone {
+.d-standalone-only {
   display: none;
 }
 @media all and (display-mode: standalone) {
-  .d-browser {
+  .d-browser-only {
     display: none;
   }
-  .d-standalone {
-    display: initial;
+  .d-standalone-only {
+    display: block;
   }
 }
 </style>
