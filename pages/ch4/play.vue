@@ -1,11 +1,5 @@
 <template>
-  <!-- TODO: this will need to look different, not like a ChapterOpening -->
-  <ChapterOpening
-    :title="title"
-    :paragraph="paragraph"
-    :button-text="nextButtonText"
-    :next-path="nextPath"
-  />
+  <StandaloneConditionalDisplay></StandaloneConditionalDisplay>
 </template>
 
 <script>
