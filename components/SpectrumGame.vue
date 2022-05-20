@@ -31,7 +31,7 @@
       ref="draggableItem"
       class="spectrum-game-draggable"
       :dragging-disabled="turnValueConfirmed"
-      @dragging="onSetAnimationState('DRAGGING')"
+      @state-change="onSetSpectrumAnimationState"
       @set-value="onSetValue"
     >
       <CardItem
@@ -191,7 +191,8 @@ export default {
     onSetValue(value) {
       this.turnValue = value
     },
-    onSetAnimationState(state) {
+    onSetSpectrumAnimationState(state) {
+      console.log(state);
       this.animationState = state;
     },
     onSetValuePresent(value) {

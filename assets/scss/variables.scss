@@ -51,8 +51,10 @@ $blur-3: 30px;
 $blur-4: 50px;
 
 /* shadow effects */
-$draggable-item-shadow-effect-passive: drop-shadow(0 6px 3px rgb(0, 0, 0, 0.5));
-$draggable-item-shadow-effect-active: drop-shadow(0 6px 15px rgb(0, 0, 0, 0.5));
+$draggable-item-shadow-effect-passive: drop-shadow(0 6px 16px rgb(0, 0, 0, 0.5));
+$draggable-item-shadow-effect-active: drop-shadow(0 6px 26px rgb(0, 0, 0, 0.5));
+$draggable-item-shadow-effect-can-drop: drop-shadow(0 0 40px rgb(255, 255, 255, 1.0));
+
 $main-button-shadow-effect: drop-shadow(0 8px 7px rgb(0, 0, 0, 0.4));
 $secondary-button-shadow-effect: drop-shadow(0 6px 6px rgb(0, 0, 0, 0.4));
 $caption-shadow-effect: drop-shadow(1px 2px 0px rgb(0, 0, 0, 0.75));

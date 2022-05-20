@@ -21,7 +21,7 @@ export default {
     },
     animationState: {
       type: String,
-      default: "PASSIVE"
+      default: "passive"
     }    
   },
   computed: {
@@ -36,10 +36,11 @@ export default {
       }
     },
     classObject() {
+      console.log(this.animationState);
       switch(this.animationState) {
-      case "PASSIVE":
+      case "passive":
         return "animate-passive"
-      case "DRAGGING":
+      case "dragging":
         return "animate-dragging"
       default:
         return undefined

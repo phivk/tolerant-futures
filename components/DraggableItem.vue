@@ -53,7 +53,7 @@ export default {
     },
     dragMoveListener(event) {
       if (!this.draggingDisabled) {
-        this.$emit('dragging')        
+        this.$emit('stateChange', 'dragging')        
         const target = event.target
         // keep the dragged position in the data-x/data-y attributes
         const x =
@@ -76,7 +76,8 @@ export default {
       this.screenX = boundingClientRect.left
       this.screenY = boundingClientRect.top
 
-      if (event.relatedTarget) {
+      if (event.relatedTarget) { 
+        this.$emit('stateChange', 'passive')                     
         // dropped on dropzone!
         const cardWidth = boundingClientRect.width
         const value = this.screenX / (window.innerWidth - cardWidth)
@@ -112,6 +113,8 @@ export default {
 .draggable {
   position: absolute;
   z-index: $z-3;
+  filter: $draggable-item-shadow-effect-passive;
+
   //filter: $draggable-item-shadow-effect-passive;
 
   &.not-draggable {
@@ -120,10 +123,14 @@ export default {
 
   /* TO DO: add dragged class to this component while it's being dragged */
   &.dragged {
-    filter: $draggable-item-shadow-effect-passive;
+    //filter: $draggable-item-shadow-effect-active;
   }
 
   &.can-drop {
+    //box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.8);
+    filter: $draggable-item-shadow-effect-can-drop
+            $draggable-item-shadow-effect-can-drop;
+    //filter: $draggable-item-shadow-effect-active;
   }
 
   &.dropped {
