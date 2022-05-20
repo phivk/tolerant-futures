@@ -100,6 +100,12 @@
             {{ currentState.buttonSecondary.text }}
           </ButtonSecondary>
         </span>
+        <SubtitlePlayer
+          v-show="currentState.elementsVisible.hint"
+          class="subtitle-player-concept-hint"
+        >
+          {{ currentTurn.hint }}
+        </SubtitlePlayer>
       </div>
     </TheFooter>
   </GameContainer>
@@ -140,6 +146,7 @@ export default {
       diffThreshold: 0.25,
       feedback: '',
       showFeedbackForm: false,
+      showHint: false,
       stateIndex: 0,
     }
   },
@@ -154,8 +161,14 @@ export default {
             visible: this.hasTurnValueSelfToConfirm,
             handler: this.onTurnSelfConfirm,
           },
+          buttonSecondary: {
+            text: `Not familiar with ${this.currentTurn.concept}?`,
+            visible: !this.showHint,
+            handler: this.onHintRequest,
+          },
           elementsVisible: {
             selfCard: true,
+            hint: this.showHint,
           },
         },
         {
@@ -169,6 +182,7 @@ export default {
           elementsVisible: {
             selfCard: true,
             otherGuessCard: true,
+            hint: this.showHint,
           },
         },
         {
@@ -279,8 +293,11 @@ export default {
       this.showFeedbackForm = true
       this.endState()
     },
+    onHintRequest() {
+      this.showHint = true
+    },
     onFeedbackSkipped() {
-      this.endState()
+      this.endTurn()
     },
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
@@ -321,6 +338,7 @@ export default {
       this.$refs.draggableItemOther.resetPosition()
       this.feedback = ''
       this.showFeedbackForm = false
+      this.showHint = false
     },
     onSetValueSelf(value) {
       this.turnValueSelf = value
@@ -372,7 +390,12 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-7;
+  margin-bottom: $offset-4;
+
+  .subtitle-player.subtitle-player-concept-hint {
+    font-size: $f-4;
+    line-height: $f-3;
+  }
 }
 .spectrum-game-feedback-modal {
   left: 50%;

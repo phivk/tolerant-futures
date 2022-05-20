@@ -1,14 +1,5 @@
 <template>
   <div>
-    <!-- <div v-for="input in inputsOtherUserProfile" :key="input.id">
-      <div>{{ input.concept }}</div>
-      <div>
-        <span>{{ input.spectrumLeft }}</span> - <span>{{ input.value }}</span> -
-        <span>{{ input.spectrumRight }}</span>
-      </div>
-      <div>{{ input.created_at }}</div>
-    </div> -->
-
     <ChapterOpeningOtherUser
       :title="title"
       :paragraph="paragraph"

@@ -53,7 +53,11 @@ export default {
     },
     dragMoveListener(event) {
       if (!this.draggingDisabled) {
+<<<<<<< HEAD
         this.$emit('stateChange', 'dragging')        
+=======
+
+>>>>>>> f7ceb34c823da8b87d59f1c4e6f22f4b1131142b
         const target = event.target
         // keep the dragged position in the data-x/data-y attributes
         const x =
@@ -113,9 +117,6 @@ export default {
 .draggable {
   position: absolute;
   z-index: $z-3;
-  filter: $draggable-item-shadow-effect-passive;
-
-  //filter: $draggable-item-shadow-effect-passive;
 
   &.not-draggable {
     cursor: default !important;

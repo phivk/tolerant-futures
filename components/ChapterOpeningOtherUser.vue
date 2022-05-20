@@ -9,7 +9,7 @@
           src="~/static/image/the_other.png"
         />
         <ul v-show="revealOtherConfirmed" class="spectra-container">
-          <li v-for="input in userProfile" :key="input.id">
+          <li v-for="input in otherUserProfileWithColors" :key="input.id">
             <SpectrumItem
               :color-a="input.colorA"
               :color-b="input.colorB"
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import profileSpectra from '~/data/profileSpectra.json'
+import profileSpectra from '~/data/turns-ch1.json'
 
 export default {
   props: {
@@ -85,7 +85,7 @@ export default {
     }
   },
   computed: {
-    userProfile() {
+    otherUserProfileWithColors() {
       return this.otherUserProfile.map(item => {
         const spectrum = profileSpectra.find(s => s.left === item.left)
         item.colorA = spectrum.colorA
