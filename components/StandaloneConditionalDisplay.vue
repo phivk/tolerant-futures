@@ -1,8 +1,7 @@
 <template>
   <section class="white">
-    <p>isStandalone: {{ isStandalone }}</p>
-    <div class="d-browser-only">Browser!</div>
-    <div class="d-standalone-only">Standalone!</div>
+    <div v-if="isStandalone">Standalone!</div>
+    <div v-else>Browser!</div>
   </section>
 </template>
 
