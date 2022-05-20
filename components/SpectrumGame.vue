@@ -21,7 +21,10 @@
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground gradient-class="gradient-1" />
+      <DropZoneBackground
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+      />
     </DropZone>
     <DraggableItem
       ref="draggableItem"
@@ -29,7 +32,12 @@
       :dragging-disabled="turnValueConfirmed"
       @set-value="onSetValue"
     >
-      <CardItem>{{ currentTurn.concept }}</CardItem>
+      <CardItem
+        :value="turnValue"
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+        >{{ currentTurn.concept }}</CardItem
+      >
     </DraggableItem>
     <DraggableItem
       v-show="showPresent"
@@ -37,7 +45,12 @@
       class="spectrum-game-draggable"
       @set-value="onSetValuePresent"
     >
-      <CardItem is-present-card>
+      <CardItem
+        is-present-card
+        :value="turnValuePresent"
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+      >
         {{ currentTurn.conceptPresent }}
       </CardItem>
     </DraggableItem>

@@ -1,5 +1,9 @@
 <template>
-  <div class="card-item" :class="isPresentCard ? 'present-card' : 'past-card'">
+  <div
+    :style="value !== null ? styleObject : ''"
+    class="card-item"
+    :class="isPresentCard ? 'present-card' : 'past-card'"
+  >
     <slot></slot>
   </div>
 </template>
@@ -10,6 +14,39 @@ export default {
     isPresentCard: {
       type: Boolean,
       default: false,
+    },
+    value: {
+      type: Number,
+      default: 0.5,
+    },
+    colorA: {
+      type: String,
+      required: true,
+      default: null,
+    },
+    colorB: {
+      type: String,
+      required: true,
+      default: null,
+    },
+  },
+  computed: {
+    styleObject() {
+      const colorADist = (1 - this.value - 0.25) * 100
+      const colorBDst = (1 - this.value + 0.25) * 100
+
+      return {
+        background:
+          'linear-gradient(90deg, ' +
+          this.colorA +
+          ' ' +
+          colorADist +
+          '%, ' +
+          this.colorB +
+          ' ' +
+          colorBDst +
+          '%)',
+      }
     },
   },
 }

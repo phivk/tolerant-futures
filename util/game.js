@@ -10,6 +10,10 @@ export const getRandomSpectrum = () => {
   return getRandomItemFromArray(spectra)
 }
 
+export const getSpectrumByLeft = (left) => {
+  return spectra.find((spectrum) => spectrum.left === left)
+}
+
 export const getRandomTurnsPastPresent = (n) => {
   // pick n concepts randomly from list
   // then augment each concept with spectrum to build turn
@@ -22,8 +26,10 @@ export const getRandomTurnsPastPresent = (n) => {
       hint: concept.past.hint,
       conceptPresent: conceptPresent.name,
       captionPresent: conceptPresent.caption,
-      spectrumLeft: spectrum[0],
-      spectrumRight: spectrum[1],
+      spectrumLeft: spectrum.left,
+      spectrumRight: spectrum.right,
+      colorA: spectrum.colorA,
+      colorB: spectrum.colorB,
     }
   })
 }
@@ -37,6 +43,8 @@ export const getRandomTurnsSelfOther = (priorInputs, n) => {
     const concept = concepts.find(
       (concept) => concept.past.name === input.concept
     )
+    const colorA = getSpectrumByLeft(input.spectrumLeft).colorA
+    const colorB = getSpectrumByLeft(input.spectrumLeft).colorB
     return {
       concept: concept.past.name,
       caption: concept.past.caption,
@@ -46,6 +54,8 @@ export const getRandomTurnsSelfOther = (priorInputs, n) => {
       captionOther: `Where do you think the other visitor placed ${input.concept} on this spectrum?`,
       spectrumLeft: input.spectrumLeft,
       spectrumRight: input.spectrumRight,
+      colorA,
+      colorB,
       otherUser: input.user,
     }
   })

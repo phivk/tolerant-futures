@@ -53,6 +53,7 @@ export default {
     },
     dragMoveListener(event) {
       if (!this.draggingDisabled) {
+
         const target = event.target
         // keep the dragged position in the data-x/data-y attributes
         const x =
@@ -77,9 +78,8 @@ export default {
 
       if (event.relatedTarget) {
         // dropped on dropzone!
-        const dropzoneWidth = interact.getElementRect(event.relatedTarget).width
         const cardWidth = boundingClientRect.width
-        const value = this.screenX / (dropzoneWidth - cardWidth)
+        const value = this.screenX / (window.innerWidth - cardWidth)
         event.target.setAttribute('data-value', value.toFixed(2))
         this.value = value
         this.$emit('set-value', value)
@@ -112,7 +112,6 @@ export default {
 .draggable {
   position: absolute;
   z-index: $z-3;
-  //filter: $draggable-item-shadow-effect-passive;
 
   &.not-draggable {
     cursor: default !important;
@@ -124,11 +123,9 @@ export default {
   }
 
   &.can-drop {
-    border: solid 4px blue;
   }
 
   &.dropped {
-    border: solid 4px green;
   }
 }
 </style>

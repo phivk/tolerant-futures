@@ -8,13 +8,12 @@
           v-show="!revealOtherConfirmed"
           src="~/static/image/the_other.png"
         />
-
         <ul v-show="revealOtherConfirmed" class="spectra-container">
-          <li v-for="input in otherUserProfile" :key="input.id">
+          <li v-for="input in otherUserProfileWithColors" :key="input.id">
             <SpectrumItem
-              gradient-class="gradient-1"
-              :spectrum-position="input.value"
-            >
+              :color-a="input.colorA"
+              :color-b="input.colorB"
+              :spectrum-position="input.value">
               <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
               <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
             </SpectrumItem>
@@ -40,6 +39,8 @@
 </template>
 
 <script>
+import profileSpectra from '~/data/turns-ch1.json'
+
 export default {
   props: {
     title: {
@@ -83,7 +84,16 @@ export default {
       revealOtherConfirmed: false,
     }
   },
-
+  computed: {
+    otherUserProfileWithColors() {
+      return this.otherUserProfile.map(item => {
+        const spectrum = profileSpectra.find(s => s.left === item.left)
+        item.colorA = spectrum.colorA
+        item.colorB = spectrum.colorB
+        return item
+      })
+    }
+  },
   methods: {
     onRevealOtherConfirm() {
       this.revealOtherConfirmed = true
@@ -102,6 +112,17 @@ export default {
   align-items: center;
   background-size: cover;
   background-image: url('@/static/image/chapter_intro_background.jpg');
+
+  &:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    background-size: cover;
+    background-image: url('@/static/image/noise_lowres.jpg');  
+    mix-blend-mode: screen; 
+    opacity: 0.7;
+  }
 
   .wrapper {
     display: flex;

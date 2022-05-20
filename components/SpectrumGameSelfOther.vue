@@ -12,7 +12,10 @@
     <DropZone ref="theDropZone" class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
-      <DropZoneBackground gradient-class="gradient-1" />
+      <DropZoneBackground
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+      />
     </DropZone>
     <!-- self -->
     <DraggableItem
@@ -22,7 +25,12 @@
       :dragging-disabled="turnValueSelfConfirmed"
       @set-value="onSetValueSelf"
     >
-      <CardItem>{{ currentTurn.concept }} </CardItem>
+      <CardItem
+        :value="turnValueSelf"
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+        >{{ currentTurn.concept }}</CardItem
+      >
     </DraggableItem>
     <!-- otherGuess -->
     <DraggableItem
@@ -32,7 +40,12 @@
       :dragging-disabled="turnValueOtherGuessConfirmed"
       @set-value="onSetValueOther"
     >
-      <CardItem is-present-card>
+      <CardItem
+        is-present-card
+        :value="turnValueOtherGuess"
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+      >
         {{ currentTurn.conceptOther }}
       </CardItem>
     </DraggableItem>
@@ -41,6 +54,8 @@
       v-show="currentState.elementsVisible.otherTrueCard"
       is-present-card
       class="o-70 z-5"
+      :color-a="currentTurn.colorA"
+      :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
     >
       {{ currentTurn.conceptOther }}

@@ -1,15 +1,31 @@
 <template>
-  <span class="drop-zone-background" :class="gradientClass"></span>
+  <span class="drop-zone-background" :style="styleObject"></span>
 </template>
 
 <script>
 export default {
   props: {
-    /* all gradientClass(es) passed to this component are defined in ~/assets/scss/gradients.scss */
-    gradientClass: {
+    colorA: {
       type: String,
       required: true,
       defaul: null,
+    },
+    colorB: {
+      type: String,
+      required: true,
+      defaul: null,
+    },
+  },
+  computed: {
+    styleObject() {
+      return {
+        background:
+          'linear-gradient(90deg, ' +
+          this.colorA +
+          ' 25%, ' +
+          this.colorB +
+          ' 75%)',
+      }
     },
   },
 }
