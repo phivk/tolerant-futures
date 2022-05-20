@@ -7,17 +7,17 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isStandalone: false,
-    }
-  },
   props: {
     title: {
       type: String,
       required: false,
       default: null,
     },
+  },
+  data() {
+    return {
+      isStandalone: false,
+    }
   },
   mounted() {
     if (window.navigator.standalone) {

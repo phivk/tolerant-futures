@@ -40,10 +40,6 @@ export default {
 // TODO: replace these hacky copied styles with something proper
 // ideally in a way that doesn't duplicate much
 div.modal-text-revealer {
-  position: absolute;
-  z-index: $z-5;
-  width: $modal-player-feedback-width;
-  height: 35%;
   section {
     width: 100%;
     height: 100%;

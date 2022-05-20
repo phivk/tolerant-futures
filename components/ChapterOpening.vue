@@ -3,7 +3,13 @@
     <div class="wrapper">
       <h1>{{ title }}</h1>
       <p class="pt2 pb4 measure-wide">{{ paragraph }}</p>
-      <NuxtLink class="link-primary" :to="nextPath" :append="nextPathAppend">
+      <slot></slot>
+      <NuxtLink
+        v-if="showButton"
+        class="link-primary"
+        :to="nextPath"
+        :append="nextPathAppend"
+      >
         {{ buttonText }}
       </NuxtLink>
     </div>
@@ -27,6 +33,11 @@ export default {
       type: String,
       required: false,
       default: 'Continue',
+    },
+    showButton: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     nextPath: {
       type: String,

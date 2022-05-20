@@ -408,5 +408,11 @@ footer {
   left: 50%;
   top: 33%;
   transform: translate(-50%, -50%);
+
+  // moved here from ModalTextRevealer
+  position: absolute;
+  z-index: $z-5;
+  width: $modal-player-feedback-width;
+  height: 35%;
 }
 </style>
