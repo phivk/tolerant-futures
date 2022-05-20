@@ -1,7 +1,7 @@
 <template>
   <section class="white">
-    <div class="dn-standalone db-browser">Browser!</div>
-    <div class="dn-browser db-standalone">Standalone!</div>
+    <div class="d-browser">Browser!</div>
+    <div class="d-standalone">Standalone!</div>
   </section>
 </template>
 
@@ -18,20 +18,15 @@ export default {
 </script>
 
 <style scoped>
-@media all and (display-mode: standalone) {
-  .db-standalone {
-    display: block;
-  }
-  .dn-standalone {
-    display: none;
-  }
+.d-standalone {
+  display: none;
 }
-@media all and (display-mode: browser) {
-  .db-browser {
-    display: block;
-  }
-  .dn-browser {
+@media all and (display-mode: standalone) {
+  .d-browser {
     display: none;
+  }
+  .d-standalone {
+    display: initial;
   }
 }
 </style>
