@@ -1,7 +1,7 @@
 <template>
   <section class="white">
-    <div v-if="isStandalone">Standalone!</div>
-    <div v-else>Browser!</div>
+    <slot v-if="isStandalone" name="standalone"></slot>
+    <slot v-else name="browser"></slot>
   </section>
 </template>
 
@@ -26,17 +26,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.d-standalone-only {
-  display: none;
-}
-@media all and (display-mode: standalone) {
-  .d-browser-only {
-    display: none;
-  }
-  .d-standalone-only {
-    display: block;
-  }
-}
-</style>

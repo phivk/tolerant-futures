@@ -1,5 +1,12 @@
 <template>
-  <StandaloneConditionalDisplay></StandaloneConditionalDisplay>
+  <StandaloneConditionalDisplay>
+    <template v-slot:standalone>
+      <h1 class="white">standalone title!</h1>
+    </template>
+    <template v-slot:browser>
+      <h1 class="white">browser title!</h1>
+    </template>
+  </StandaloneConditionalDisplay>
 </template>
 
 <script>
