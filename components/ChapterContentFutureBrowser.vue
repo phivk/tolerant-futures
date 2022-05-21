@@ -88,7 +88,7 @@ export default {
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
       this.currentStateKey = 'displayFeedback'
-      this.submitInput()
+      this.$emit('submit-input', feedbackText)
     },
     onFeedbackSkipped() {
       this.currentStateKey = 'endState'
@@ -102,17 +102,6 @@ export default {
     },
     onBackToStart() {
       this.$router.push('/')
-    },
-    async submitInput() {
-      await this.$supabase
-        .from('inputCh4')
-        .insert([
-          {
-            feedback: this.feedback,
-            user: this.$store.state.user,
-          },
-        ])
-        .single()
     },
   },
 }
