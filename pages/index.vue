@@ -15,12 +15,6 @@
           {{ aboutProjectLinkText }}
         </NuxtLink>
       </p>
-      <p>
-        <NuxtLink class="link-inline" to="/ch4">
-          chapter 4
-          <!-- TODO remove this -->
-        </NuxtLink>
-      </p>
     </div>
   </div>
 </template>
