@@ -46,7 +46,7 @@
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
       >
-        {{ currentTurn.conceptOther }}
+        {{ currentTurn.concept }}
       </CardItem>
     </DraggableItem>
     <!-- otherTrue -->
@@ -58,7 +58,7 @@
       :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
     >
-      {{ currentTurn.conceptOther }}
+      {{ currentTurn.concept }}
     </CardItem>
     <!-- feedbackOther -->
     <ModalTextRevealer
