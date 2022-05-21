@@ -53,7 +53,6 @@ export default {
     },
     dragMoveListener(event) {
       if (!this.draggingDisabled) {
-
         const target = event.target
         // keep the dragged position in the data-x/data-y attributes
         const x =
