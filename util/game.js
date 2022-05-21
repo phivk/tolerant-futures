@@ -51,7 +51,6 @@ export const getRandomTurnsSelfOther = (priorInputs, n) => {
       hint: concept.past.hint,
       valueOther: input.valuePast,
       feedbackOther: input.feedback,
-      captionOther: `Where do you think the other visitor placed ${input.concept} on this spectrum?`,
       spectrumLeft: input.spectrumLeft,
       spectrumRight: input.spectrumRight,
       colorA,

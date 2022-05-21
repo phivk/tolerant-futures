@@ -173,7 +173,7 @@ export default {
         },
         {
           name: 'otherGuess',
-          caption: this.currentTurn.captionOther,
+          caption: `Where do you think the other visitor placed ${this.currentTurn.concept} on this spectrum?`,
           buttonPrimary: {
             text: 'Confirm your guess',
             visible: this.hasTurnValueOtherGuessToConfirm,
