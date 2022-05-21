@@ -243,7 +243,10 @@ export default {
       return this.turnIndex < this.turns.length - 1
     },
     currentTurn() {
-      return this.turns[this.turnIndex]
+      return {
+        ...this.turns[this.turnIndex],
+        turnIndex: this.turnIndex,
+      }
     },
     hasTurnValueSelfToConfirm() {
       return this.turnValueSelf !== null && !this.turnValueSelfConfirmed
@@ -283,10 +286,13 @@ export default {
   methods: {
     onTurnSelfConfirm() {
       this.turnValueSelfConfirmed = true
+      this.currentTurn.valueSelf = this.turnValueSelf
       this.endState()
     },
     onTurnOtherConfirm() {
       this.turnValueOtherGuessConfirmed = true
+      this.currentTurn.valueOtherGuess = this.turnValueOtherGuess
+      this.currentTurn.valueOtherDiff = this.valueOtherDiff
       this.endState()
     },
     onFeedbackRequest() {
@@ -301,6 +307,7 @@ export default {
     },
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
+      this.currentTurn.feedback = feedbackText
       this.endState()
     },
     endState() {
@@ -314,8 +321,8 @@ export default {
       }
     },
     endTurn() {
-      // store input
-      this.submitInput()
+      // emit input to be stored
+      this.$emit('submit-input', this.currentTurn)
 
       // advance game
       if (this.hasNextTurn) {
@@ -345,25 +352,6 @@ export default {
     },
     onSetValueOther(value) {
       this.turnValueOtherGuess = value
-    },
-    async submitInput() {
-      await this.$supabase
-        .from('inputSelfOther')
-        .insert([
-          {
-            concept: this.currentTurn.concept,
-            spectrumLeft: this.currentTurn.spectrumLeft,
-            spectrumRight: this.currentTurn.spectrumRight,
-            valueSelf: this.turnValueSelf,
-            valueOtherGuess: this.turnValueOtherGuess,
-            valueOtherTrue: this.currentTurn.valueOther,
-            valueOtherDiff: this.valueOtherDiff,
-            feedback: this.feedback,
-            turnIndex: this.turnIndex,
-            user: this.$store.state.user,
-          },
-        ])
-        .single()
     },
   },
 }

@@ -24,9 +24,8 @@ export default {
     this.$store.commit('setCurrentChapter', 'ch3')
 
     const { data: priorInputs } = await this.$supabase
-      .from('spectrumInput')
+      .from('inputCh2')
       .select('*')
-      .eq('chapter', 'ch2')
       .not('user', 'is', null)
 
     const turnsSelfOther = getRandomTurnsSelfOther(priorInputs, 3)
@@ -34,9 +33,8 @@ export default {
 
     const otherUser = turnsSelfOther[0].otherUser
     const { data: inputsOtherUserProfile } = await this.$supabase
-      .from('spectrumInput')
+      .from('inputCh1')
       .select('*')
-      .eq('chapter', 'ch1')
       .eq('user', otherUser)
     this.inputsOtherUserProfile = inputsOtherUserProfile
     this.$store.commit('setInputsOtherUserProfile', inputsOtherUserProfile)
