@@ -158,6 +158,7 @@ export default {
   methods: {
     onTurnConfirm() {
       this.turnValueConfirmed = true
+      this.currentTurn.value = this.turnValue
       if (this.hasPresent) {
         this.showPresent = true
       } else {
@@ -166,6 +167,7 @@ export default {
     },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
+      this.currentTurn.valuePresent = this.turnValuePresent
 
       if (!this.requirePlayerFeedback) {
         this.endTurn()
@@ -176,14 +178,15 @@ export default {
     },
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
+      this.currentTurn.feedback = feedbackText
       this.endTurn()
     },
     onHintRequest() {
       this.showHint = true
     },
     endTurn() {
-      // store input
-      this.submitInput(this.currentTurn)
+      // emit input to be stored
+      this.$emit('submit-input', this.currentTurn)
 
       // advance game
       if (this.hasNextTurn) {
@@ -212,24 +215,6 @@ export default {
     },
     onSetValuePresent(value) {
       this.turnValuePresent = value
-    },
-    async submitInput() {
-      await this.$supabase
-        .from('spectrumInput')
-        .insert([
-          {
-            concept: this.currentTurn.concept,
-            conceptPresent: this.currentTurn.conceptPresent,
-            value: this.turnValue,
-            valuePresent: this.turnValuePresent,
-            feedback: this.feedback,
-            spectrumLeft: this.currentTurn.spectrumLeft,
-            spectrumRight: this.currentTurn.spectrumRight,
-            chapter: this.$store.state.currentChapter,
-            user: this.$store.state.user,
-          },
-        ])
-        .single()
     },
   },
 }
