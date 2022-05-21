@@ -210,6 +210,7 @@ export default {
       this.showPresent = false
       this.feedback = null
       this.showHint = false
+      this.backgroundAnimationState = "placed"
     },
     onSetValue(value) {
       this.turnValue = value

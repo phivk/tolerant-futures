@@ -79,11 +79,11 @@ export default {
 
 @keyframes frames-placed-spectrum {
     0% {
-        transform: scaleY(1.0);
+        //transform: scaleY(1.0);
         filter: brightness(1.0);
     }
     100% {
-        transform: scaleY(0.3);
+        //transform: scaleY();
        	filter: brightness(1.5);
     }
 }
