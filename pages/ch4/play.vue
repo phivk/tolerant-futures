@@ -4,42 +4,35 @@
       <ChapterOpening
         :title="title"
         :paragraph="paragraphStandalone"
-        :button-text="nextButtonText"
-        :next-path="nextPath"
+        button-text="Back to start"
+        next-path="/"
       />
     </template>
     <template #browser>
       <ChapterOpening
         :title="title"
-        :paragraph="paragraphBrowser"
-        :button-text="nextButtonText"
-        :next-path="nextPath"
+        :paragraph="currentState.caption"
+        :show-button="false"
       >
         <div class="mv4 tc">
-          <FeedbackInput
-            v-show="showFeedbackForm"
+          <component
+            :is="currentState.component"
             class="mv3"
-            :input-placeholder-text="inputPlaceholderText"
+            v-bind="currentState.dynamicProps"
             @feedbackSubmitted="onFeedbackSubmitted"
             @feedbackSkipped="onFeedbackSkipped"
           />
-          <ModalTextRevealer
-            v-show="showFeedbackResponse"
-            class="mv3"
-            :text="feedback"
-            :is-hidden="false"
-          />
           <ButtonPrimary
-            v-show="showFeedbackResponse"
-            @buttonClicked="onEmailClick"
+            v-if="currentState.buttonPrimary"
+            @buttonClicked="currentState.buttonPrimary.handler"
           >
-            Email a friend
+            {{ currentState.buttonPrimary.text }}
           </ButtonPrimary>
           <ButtonSecondary
-            v-show="showFeedbackResponse"
-            @buttonClicked="onEmailSkip"
+            v-if="currentState.buttonSecondary"
+            @buttonClicked="currentState.buttonSecondary.handler"
           >
-            Skip
+            {{ currentState.buttonSecondary.text }}
           </ButtonSecondary>
         </div>
       </ChapterOpening>
@@ -54,17 +47,51 @@ export default {
       title: 'Chapter 4: The Future',
       paragraphStandalone:
         "As part of this installation, you'll find a set of physical cards. We invite you to pick one and take it with you. What meaning do you attach to this card? And how would someone else see it? Feel free to use this card as a keepsake or a conversation starter whenever the moment is right.",
-      paragraphBrowser:
-        'We invite you to take a moment and reflect: What does a tolerant future look like to you?',
-      inputPlaceholderText: 'A tolerant future unfolds for me, when ...',
       feedback: '',
-      showFeedbackForm: true,
-      showFeedbackResponse: false,
-      nextButtonText: 'Back to start',
-      nextPath: '/',
+      currentStateKey: 'inputFeedback',
     }
   },
   computed: {
+    states() {
+      return {
+        inputFeedback: {
+          caption:
+            'We invite you to take a moment and reflect: When does a tolerant future unfold for you?',
+          component: 'FeedbackInput',
+          dynamicProps: {
+            inputPlaceholderText: 'A tolerant future unfolds for me, when ...',
+          },
+        },
+        displayFeedback: {
+          caption:
+            'Thank you. Sharing your thought with someone else can be a great first step in making it real. Why not start by sending out your message to a friend?',
+          component: 'ModalTextRevealer',
+          dynamicProps: {
+            text: this.feedback,
+            isHidden: false,
+          },
+          buttonPrimary: {
+            text: 'Email a friend',
+            handler: this.onEmailClick,
+          },
+          buttonSecondary: {
+            text: 'Skip',
+            handler: this.onEmailSkip,
+          },
+        },
+        endState: {
+          caption:
+            'Thank you for participating. May your future be bright and tolerant!',
+          buttonPrimary: {
+            text: 'Back to start',
+            handler: this.onBackToStart,
+          },
+        },
+      }
+    },
+    currentState() {
+      return this.states[this.currentStateKey]
+    },
     mailtoURL() {
       return `mailto:${encodeURI(
         `add@your-friends-email.here?subject=A tolerant future ...&body=${this.feedback}`
@@ -77,16 +104,21 @@ export default {
   methods: {
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
-      this.showFeedbackForm = false
-      this.showFeedbackResponse = true
+      this.currentStateKey = 'displayFeedback'
     },
     onFeedbackSkipped() {
-      this.showFeedbackForm = false
+      this.currentStateKey = 'endState'
     },
     onEmailClick() {
       window.open(this.mailtoURL)
+      this.currentStateKey = 'endState'
     },
-    onEmailSkip() {},
+    onEmailSkip() {
+      this.currentStateKey = 'endState'
+    },
+    onBackToStart() {
+      this.$router.push('/')
+    },
   },
 }
 </script>
