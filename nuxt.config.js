@@ -69,7 +69,8 @@ export default {
   pwa: {
     manifest: {
       name: 'Tolerant Futures',
-      description: 'Test your binary thinking across the past and the present',
+      description:
+        'Put your binary thinking to the test across the past, the present and the future.',
       lang: 'en',
       display: 'fullscreen',
     },
