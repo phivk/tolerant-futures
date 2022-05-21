@@ -12,6 +12,9 @@
 <script>
 export default {
   mounted() {
+    if (!this.$store.state.user) {
+      this.$store.commit('setUser')
+    }
     this.$store.commit('setCurrentChapter', 'ch4')
   },
   methods: {
