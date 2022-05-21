@@ -64,7 +64,7 @@
     <ModalTextRevealer
       v-show="currentState.elementsVisible.feedbackModalOther"
       class="spectrum-game-feedback-other"
-      text="other visitor's reasoning here"
+      :text="currentTurn.feedbackOther"
       hint="provide your input to see theirs"
       :is-hidden="feedback === ''"
     />
