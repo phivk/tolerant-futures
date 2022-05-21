@@ -3,16 +3,26 @@
     <div class="wrapper">
       <div>
         <h1>{{ title }}</h1>
-        <p class="pv3">{{ projectDescription }}</p>
+        <p class="pv3">
+          Discover how concepts from the distant to recent past can reappear in
+          our lives in unexpected ways. Share your own interpretations of
+          connections between the past and the present and reflect on those of
+          others.
+        </p>
+        <p class="pv3">
+          This playful experience is based on research about Iron Age and Roman
+          heritage in Modern Britain by the Universities of Edinburgh and
+          Durham. Take part and contribute your vision for a collective
+          imagination of tolerant futures.
+        </p>
       </div>
       <NuxtLink class="link-primary ma3 w-100" :to="nextLinkPath">
         {{ nextLinkText }}
       </NuxtLink>
 
       <p class="pv3">
-        {{ aboutProjectDescription }}
-        <NuxtLink class="link-inline" :to="aboutProjectPath">
-          {{ aboutProjectLinkText }}
+        <NuxtLink class="link-inline" to="/about">
+          Read more about the Tolerant Futures research project
         </NuxtLink>
       </p>
     </div>
@@ -26,12 +36,6 @@ export default {
       title: 'Tolerant Futures',
       nextLinkText: 'Begin experience',
       nextLinkPath: '/consent',
-      projectDescription:
-        'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.',
-      aboutProjectPath: '/about',
-      aboutProjectLinkText: 'read more',
-      aboutProjectDescription:
-        'This project is a result of tolerant futures project.',
     }
   },
 }
