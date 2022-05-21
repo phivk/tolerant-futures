@@ -152,7 +152,7 @@ export default {
       return Object.prototype.hasOwnProperty.call(this.currentTurn, 'hint')
     },
     feedbackInputPlaceholderText() {
-      return `I placed ${this.currentTurn.conceptPresent} here because ...`
+      return `I placed ${this.currentTurn.concept} here because `
     },
   },
   methods: {
