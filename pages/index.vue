@@ -51,8 +51,8 @@ div.landing-page {
   background-image: url('@/static/image/landing_page_background.jpg');
 
   .wrapper {
-    width: 25%;
-    min-width: 300px;
+    width: 30%;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
