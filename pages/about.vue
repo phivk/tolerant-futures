@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="flex flex-column justify-center items-center tc vh-100 about-wrapper"
-  >
+  <div class="flex flex-column justify-center items-center tc about-wrapper">
     <header class="w-100 flex justify-end ph3 pt3">
       <ButtonExitGame />
     </header>
-    <section class="mw7 tl">
+    <section class="mw7 tl mv5">
       <h1>
         <NuxtLink class="underline" to="/">{{ title }}</NuxtLink>
       </h1>
