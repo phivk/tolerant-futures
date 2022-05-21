@@ -10,7 +10,13 @@ h2 {
   font-size: variables.$f-2;
 }
 
-p {
+h3 {
+  font-family: variables.$headline-font;
+  font-size: variables.$f-3;
+}
+
+p,
+ul {
   font-family: variables.$text-font;
   font-size: variables.$f-4;
 }
