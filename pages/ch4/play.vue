@@ -1,7 +1,7 @@
 <template>
   <StandaloneConditionalDisplay>
     <template #standalone>
-      <ChapterOpening
+      <ChapterWrapperFuture
         :title="title"
         :paragraph="paragraphStandalone"
         button-text="Back to start"
@@ -9,7 +9,7 @@
       />
     </template>
     <template #browser>
-      <ChapterOpening
+      <ChapterWrapperFuture
         :title="title"
         :paragraph="currentState.caption"
         :show-button="false"
@@ -35,7 +35,7 @@
             {{ currentState.buttonSecondary.text }}
           </ButtonSecondary>
         </div>
-      </ChapterOpening>
+      </ChapterWrapperFuture>
     </template>
   </StandaloneConditionalDisplay>
 </template>
