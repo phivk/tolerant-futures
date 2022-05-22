@@ -145,7 +145,6 @@ export default {
       dropzoneWidth: 0,
       diffThreshold: 0.25,
       feedback: '',
-      showFeedbackForm: false,
       showHint: false,
       stateIndex: 0,
     }
@@ -296,7 +295,6 @@ export default {
       this.endState()
     },
     onFeedbackRequest() {
-      this.showFeedbackForm = true
       this.endState()
     },
     onHintRequest() {
@@ -344,7 +342,6 @@ export default {
       this.$refs.draggableItemSelf.resetPosition()
       this.$refs.draggableItemOther.resetPosition()
       this.feedback = ''
-      this.showFeedbackForm = false
       this.showHint = false
     },
     onSetValueSelf(value) {
