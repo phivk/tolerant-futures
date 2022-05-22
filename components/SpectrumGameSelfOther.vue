@@ -142,15 +142,15 @@ export default {
       diffThreshold: 0.25,
       feedback: '',
       showHint: false,
-      stateIndex: 0,
+      currentStateKey: 'inputSelf',
       feedbackAvailable: true,
     }
   },
   computed: {
     states() {
-      return [
-        {
-          name: 'self',
+      return {
+        inputSelf: {
+          name: 'inputSelf',
           caption: this.currentTurn.caption,
           buttonPrimary: {
             text: 'Confirm your choice',
@@ -167,7 +167,7 @@ export default {
             hint: this.showHint,
           },
         },
-        {
+        otherGuess: {
           name: 'otherGuess',
           caption: `Where do you think the other visitor placed ${this.currentTurn.concept} on this spectrum?`,
           buttonPrimary: {
@@ -181,7 +181,7 @@ export default {
             hint: this.showHint,
           },
         },
-        {
+        otherTrue: {
           name: 'otherTrue',
           caption: this.captionOtherGuessConfirmed,
           buttonPrimary: {
@@ -200,7 +200,7 @@ export default {
             otherTrueCard: true,
           },
         },
-        {
+        giveFeedback: {
           name: 'giveFeedback',
           caption: 'Please provide your reasoning to see theirs.',
           elementsVisible: {
@@ -211,13 +211,13 @@ export default {
             feedbackModalOther: true,
           },
         },
-        {
+        seeFeedback: {
           name: 'seeFeedback',
           caption: 'This is why they placed it here.',
           buttonPrimary: {
             text: 'Next turn',
             visible: true,
-            handler: this.endState,
+            handler: this.endTurn,
           },
           elementsVisible: {
             selfCard: true,
@@ -227,13 +227,10 @@ export default {
             feedbackModalOther: true,
           },
         },
-      ]
-    },
-    hasNextState() {
-      return this.stateIndex < this.states.length - 1
+      }
     },
     currentState() {
-      return this.states[this.stateIndex]
+      return this.states[this.currentStateKey]
     },
     hasNextTurn() {
       return this.turnIndex < this.turns.length - 1
@@ -283,16 +280,16 @@ export default {
     onTurnSelfConfirm() {
       this.turnValueSelfConfirmed = true
       this.currentTurn.valueSelf = this.turnValueSelf
-      this.endState()
+      this.currentStateKey = 'otherGuess'
     },
     onTurnOtherConfirm() {
       this.turnValueOtherGuessConfirmed = true
       this.currentTurn.valueOtherGuess = this.turnValueOtherGuess
       this.currentTurn.valueOtherDiff = this.valueOtherDiff
-      this.endState()
+      this.currentStateKey = 'otherTrue'
     },
     onFeedbackRequest() {
-      this.endState()
+      this.currentStateKey = 'giveFeedback'
     },
     onHintRequest() {
       this.showHint = true
@@ -303,17 +300,7 @@ export default {
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
       this.currentTurn.feedback = feedbackText
-      this.endState()
-    },
-    endState() {
-      // advance game
-      if (this.hasNextState) {
-        // next state
-        this.stateIndex++
-      } else {
-        // next turn
-        this.endTurn()
-      }
+      this.currentStateKey = 'seeFeedback'
     },
     endTurn() {
       // emit input to be stored
@@ -331,7 +318,7 @@ export default {
       }
     },
     reset() {
-      this.stateIndex = 0
+      this.currentStateKey = 'inputSelf'
       this.turnValueSelf = null
       this.turnValueSelfConfirmed = false
       this.turnValueOtherGuess = null
