@@ -2,121 +2,121 @@
   {
     "left": "civilised",
     "right": "barbaric",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#7FE9F0",
+    "colorB": "#DD50BE"
   },
   {
     "left": "heroic",
     "right": "deluded",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#F687B6",
+    "colorB": "#00DAB3"
   },
   {
     "left": "reassuring",
     "right": "worrying",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#6FBDE9",
+    "colorB": "#9CDB6B"
   },
   {
     "left": "inclusive",
     "right": "exclusive",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#F2F273",
+    "colorB": "#B465F1"
   },
   {
     "left": "connecting",
     "right": "dividing",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#8AFBAA",
+    "colorB": "#FF9F69"
   },
   {
     "left": "regenerating",
     "right": "destructive",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#92DEF9",
+    "colorB": "#FFBF69"
   },
   {
     "left": "multicultural",
     "right": "non multicultural",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#61F8B8",
+    "colorB": "#FF99F5"
   },
   {
     "left": "native",
     "right": "foreign",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#7DFAF6",
+    "colorB": "#FF8080"
   },
   {
     "left": "free",
     "right": "controlled",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#FFF27D",
+    "colorB": "#63C7FF"
   },
   {
     "left": "moving",
     "right": "fixed",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#E59AFF",
+    "colorB": "#59F3E8"
   },
   {
     "left": "secure",
     "right": "insecure",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#5BFAD3",
+    "colorB": "#FF85C5"
   },
   {
     "left": "progressive",
     "right": "regressive",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#FA8888",
+    "colorB": "#73E38B"
   },
   {
     "left": "benevolent",
     "right": "malevolent",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#67CCF8",
+    "colorB": "#F07DBB"
   },
   {
     "left": "long-lasting",
     "right": "short-term",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#6FE9AF",
+    "colorB": "#DF81E1"
   },
   {
     "left": "dominant",
     "right": "submissive",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#93FDFF",
+    "colorB": "#FF968F"
   },
   {
     "left": "refined",
     "right": "crude",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#AAF98B",
+    "colorB": "#FD81CB"
   },
   {
     "left": "skillful",
     "right": "incompetent",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#FC8F8F",
+    "colorB": "#58E2B6"
   },
   {
     "left": "celebrated",
     "right": "condemned",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#80F0FE",
+    "colorB": "#EF8250"
   },
   {
     "left": "practical",
     "right": "symbolic",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#EBC255",
+    "colorB": "#67C5FF"
   },
   {
     "left": "peaceful",
     "right": "violent",
-    "colorA": "#85b4ff",
-    "colorB": "#ff007b"
+    "colorA": "#53DBCB",
+    "colorB": "#EEE856"
   }
 ]
