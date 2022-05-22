@@ -61,27 +61,29 @@
       {{ currentTurn.concept }}
     </CardItem>
     <!-- feedbackOther -->
-    <ModalTextRevealer
-      v-show="currentState.elementsVisible.feedbackModalOther"
-      class="spectrum-game-feedback-other"
-      :text="currentTurn.feedbackOther"
-      hint="provide your input to see theirs"
-      :is-hidden="feedback === ''"
-    />
-    <!-- feedbackSelf -->
-    <ModalPlayerFeedback
-      v-show="currentState.elementsVisible.feedbackModalSelf"
-      class="spectrum-game-feedback-modal"
-      :input-placeholder-text="feedbackInputPlaceholderText"
-      @feedbackSubmitted="onFeedbackSubmitted"
-      @feedbackSkipped="onFeedbackSkipped"
-    />
-    <ModalTextRevealer
-      v-show="currentState.elementsVisible.feedbackModalSelfText"
-      class="spectrum-game-feedback-modal"
-      :text="feedback"
-      :is-hidden="false"
-    />
+    <div v-if="currentTurn.feedbackOther">
+      <ModalTextRevealer
+        v-show="currentState.elementsVisible.feedbackModalOther"
+        class="spectrum-game-feedback-other"
+        :text="currentTurn.feedbackOther"
+        hint="provide your input to see theirs"
+        :is-hidden="feedback === ''"
+      />
+      <!-- feedbackSelf -->
+      <ModalPlayerFeedback
+        v-show="currentState.elementsVisible.feedbackModalSelf"
+        class="spectrum-game-feedback-modal"
+        :input-placeholder-text="feedbackInputPlaceholderText"
+        @feedbackSubmitted="onFeedbackSubmitted"
+        @feedbackSkipped="onFeedbackSkipped"
+      />
+      <ModalTextRevealer
+        v-show="currentState.elementsVisible.feedbackModalSelfText"
+        class="spectrum-game-feedback-modal"
+        :text="feedback"
+        :is-hidden="false"
+      />
+    </div>
     <TheFooter>
       <div>
         <span v-if="currentState.buttonPrimary">
@@ -143,7 +145,6 @@ export default {
       feedback: '',
       showHint: false,
       currentStateKey: 'inputSelf',
-      feedbackAvailable: true,
     }
   },
   computed: {
@@ -185,13 +186,17 @@ export default {
           name: 'otherTrue',
           caption: this.captionOtherGuessConfirmed,
           buttonPrimary: {
-            text: 'See their reasoning',
+            text: this.currentTurn.feedbackOther
+              ? 'See their reasoning'
+              : 'Continue',
             visible: true,
-            handler: this.onFeedbackRequest,
+            handler: this.currentTurn.feedbackOther
+              ? this.onFeedbackRequest
+              : this.endTurn,
           },
           buttonSecondary: {
             text: 'Skip',
-            visible: true,
+            visible: this.currentTurn.feedbackOther,
             handler: this.endTurn,
           },
           elementsVisible: {
@@ -266,7 +271,7 @@ export default {
           ? 'Not quite...'
           : 'Well done!'
       } This is where the other visitor placed ${this.currentTurn.concept}. ${
-        this.feedbackAvailable ? 'Curious why they placed it here?' : ''
+        this.currentTurn.feedbackOther ? 'Curious why they placed it here?' : ''
       }`
     },
     feedbackInputPlaceholderText() {
