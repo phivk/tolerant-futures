@@ -2,7 +2,7 @@
   <div>
     <Nuxt />
     <div
-      v-if="isAppIdle"
+      v-if="isIdle"
       class="w-100 vh-100 bg-white-90 absolute top-0 z-999 flex justify-center items-center"
     >
       <ModalTextRevealer
@@ -20,7 +20,7 @@
 export default {
   data() {
     return {
-      isAppIdle: false,
+      isIdle: false,
       timerEnabled: false,
       timerCountStart: 10,
       timerCount: this.timerCountStart,
@@ -28,13 +28,13 @@ export default {
   },
   onIdle() {
     console.log('ZZZ')
-    this.isAppIdle = true
+    this.isIdle = true
     this.timerEnabled = true
   },
   onActive() {
     console.log('Hello')
     this.resetTimer()
-    this.isAppIdle = false
+    this.isIdle = false
   },
   watch: {
     timerEnabled(value) {
@@ -66,7 +66,7 @@ export default {
     },
     onTimerEnded() {
       this.resetTimer()
-      this.isAppIdle = false
+      this.isIdle = false
       this.$router.push('/')
     },
   },
