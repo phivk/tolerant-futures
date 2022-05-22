@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-column justify-center items-center tc about-wrapper">
+  <div
+    class="relative flex flex-column justify-center items-center tc about-wrapper"
+  >
     <header class="w-100 flex justify-end ph3 pt3">
       <ButtonExitGame />
     </header>

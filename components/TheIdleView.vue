@@ -1,7 +1,7 @@
 <template>
   <div
     v-show="isIdle"
-    class="w-100 vh-100 bg-white-90 absolute top-0 z-999 flex justify-center items-center"
+    class="w-100 h-100 bg-white-90 absolute top-0 z-999 flex justify-center items-center"
   >
     <ModalTextRevealer
       class="tc"
