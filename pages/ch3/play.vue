@@ -4,7 +4,6 @@
       v-if="turns.length"
       :turns="turns"
       :next-path="nextPath"
-      require-player-feedback
       :current-chapter-index="2"
       @submit-input="onSubmitInput"
     />
@@ -22,10 +21,17 @@ export default {
   created() {
     if (this.$store.state.turnsSelfOther) {
       this.turns = this.$store.state.turnsSelfOther
+      console.log('this.turns', this.turns)
     } else {
       // navigate back to index page to fetch priorInputs and generate turns
       this.$router.push('/ch3')
     }
+  },
+  mounted() {
+    if (!this.$store.state.user) {
+      this.$store.commit('setUser')
+    }
+    this.$store.commit('setCurrentChapter', 'ch3')
   },
   methods: {
     async onSubmitInput(currentTurn) {

@@ -38,10 +38,10 @@ export const getRandomTurnsSelfOther = (priorInputs, n) => {
   // build new array of unique inputs from priorInputs
   // then pick n inputs randomly from uniqueInputs
   // then augment each input to build turn
-  const uniqueInputs = uniqBy(priorInputs, (input) => input.concept)
+  const uniqueInputs = uniqBy(priorInputs, (input) => input.conceptPast)
   return getRandomItemsFromArray(uniqueInputs, n).map((input) => {
     const concept = concepts.find(
-      (concept) => concept.past.name === input.concept
+      (concept) => concept.past.name === input.conceptPast
     )
     const colorA = getSpectrumByLeft(input.spectrumLeft).colorA
     const colorB = getSpectrumByLeft(input.spectrumLeft).colorB
@@ -49,9 +49,8 @@ export const getRandomTurnsSelfOther = (priorInputs, n) => {
       concept: concept.past.name,
       caption: concept.past.caption,
       hint: concept.past.hint,
-      conceptOther: input.concept,
-      valueOther: input.value,
-      captionOther: `Where do you think the other visitor placed ${input.concept} on this spectrum?`,
+      valueOther: input.valuePast,
+      feedbackOther: input.feedback,
       spectrumLeft: input.spectrumLeft,
       spectrumRight: input.spectrumRight,
       colorA,

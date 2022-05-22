@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-column justify-between items-center tc vh-100">
-    <SpectrumGame
+    <SpectrumGamePastPresent
       :turns="turns"
       :next-path="nextPath"
       :current-chapter-index="1"
@@ -21,6 +21,9 @@ export default {
     }
   },
   mounted() {
+    if (!this.$store.state.user) {
+      this.$store.commit('setUser')
+    }
     this.$store.commit('setCurrentChapter', 'ch2')
   },
   methods: {
@@ -29,9 +32,9 @@ export default {
         .from('inputCh2')
         .insert([
           {
-            concept: currentTurn.concept,
+            conceptPast: currentTurn.concept,
             conceptPresent: currentTurn.conceptPresent,
-            value: currentTurn.value,
+            valuePast: currentTurn.valuePast,
             valuePresent: currentTurn.valuePresent,
             feedback: currentTurn.feedback,
             spectrumLeft: currentTurn.spectrumLeft,

@@ -6,9 +6,9 @@
         <ButtonExitGame />
       </div>
       <SubtitlePlayer v-show="!showPresent">
-        {{ currentTurn.caption }}
+        {{ currentState.caption }}
       </SubtitlePlayer>
-      <SubtitlePlayer v-show="showPresent && !turnValuePresentConfirmed">
+      <!-- <SubtitlePlayer v-show="showPresent && !turnValuePresentConfirmed">
         {{ currentTurn.captionPresent }}
       </SubtitlePlayer>
       <SubtitlePlayer
@@ -16,7 +16,7 @@
         class="feedback-modal-subtitles"
       >
         Please finish the sentence below
-      </SubtitlePlayer>
+      </SubtitlePlayer> -->
     </header>
     <DropZone class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
@@ -26,27 +26,15 @@
         :color-b="currentTurn.colorB"
       />
     </DropZone>
+    <!-- Present Concept Card -->
     <DraggableItem
-      ref="draggableItem"
-      class="spectrum-game-draggable"
-      :dragging-disabled="turnValueConfirmed"
-      @set-value="onSetValue"
-    >
-      <CardItem
-        :value="turnValue"
-        :color-a="currentTurn.colorA"
-        :color-b="currentTurn.colorB"
-        >{{ currentTurn.concept }}</CardItem
-      >
-    </DraggableItem>
-    <DraggableItem
-      v-show="showPresent"
+      v-show="currentState.elementsVisible.presentCard"
       ref="draggableItemPresent"
       class="spectrum-game-draggable"
+      :dragging-disabled="turnValuePresentConfirmed"
       @set-value="onSetValuePresent"
     >
       <CardItem
-        is-present-card
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
@@ -54,34 +42,47 @@
         {{ currentTurn.conceptPresent }}
       </CardItem>
     </DraggableItem>
+    <!-- Past Concept Card -->
+    <DraggableItem
+      v-show="currentState.elementsVisible.pastCard"
+      ref="draggableItem"
+      class="spectrum-game-draggable"
+      :dragging-disabled="turnValuePastConfirmed"
+      @set-value="onSetValuePast"
+    >
+      <CardItem
+        :value="turnValuePast"
+        :color-a="currentTurn.colorA"
+        :color-b="currentTurn.colorB"
+        >{{ currentTurn.concept }}</CardItem
+      >
+    </DraggableItem>
     <ModalPlayerFeedback
-      v-show="requirePlayerFeedback && turnValuePresentConfirmed"
+      v-show="currentState.elementsVisible.feedbackModal"
       class="spectrum-game-feedback-modal"
       :input-placeholder-text="feedbackInputPlaceholderText"
       @feedbackSubmitted="onFeedbackSubmitted"
       @feedbackSkipped="onFeedbackSkipped"
     />
     <TheFooter>
-      <ButtonPrimary
-        v-if="hasTurnValueToConfirm"
-        @buttonClicked="onTurnConfirm"
-      >
-        Confirm
-      </ButtonPrimary>
-      <ButtonPrimary
-        v-if="hasTurnValuePresentToConfirm"
-        @buttonClicked="onTurnPresentConfirm"
-      >
-        Confirm
-      </ButtonPrimary>
-      <ButtonSecondary
-        v-show="showConceptHints && !showHint && hasHint"
-        @buttonClicked="onHintRequest"
-      >
-        Not familiar with {{ currentTurn.concept }}?
-      </ButtonSecondary>
+      <span v-if="currentState.buttonPrimary">
+        <ButtonPrimary
+          v-show="currentState.buttonPrimary.visible"
+          @buttonClicked="currentState.buttonPrimary.handler"
+        >
+          {{ currentState.buttonPrimary.text }}
+        </ButtonPrimary>
+      </span>
+      <span v-if="currentState.buttonSecondary">
+        <ButtonSecondary
+          v-show="currentState.buttonSecondary.visible"
+          @buttonClicked="currentState.buttonSecondary.handler"
+        >
+          {{ currentState.buttonSecondary.text }}
+        </ButtonSecondary>
+      </span>
       <SubtitlePlayer
-        v-show="showConceptHints && showHint"
+        v-show="currentState.elementsVisible.hint"
         class="subtitle-player-concept-hint"
       >
         {{ currentTurn.hint }}
@@ -120,16 +121,65 @@ export default {
   data() {
     return {
       turnIndex: 0,
-      turnValue: null,
-      turnValueConfirmed: false,
+      turnValuePast: null,
+      turnValuePastConfirmed: false,
       turnValuePresent: null,
       turnValuePresentConfirmed: false,
       showPresent: false,
       showHint: false,
       feedback: null,
+      currentStateKey: 'inputPresent',
     }
   },
   computed: {
+    states() {
+      return {
+        inputPresent: {
+          name: 'inputPresent',
+          caption: `Where would you place ${this.currentTurn.conceptPresent} on this spectrum?`,
+          buttonPrimary: {
+            text: 'Confirm',
+            visible: this.hasTurnValuePresentToConfirm,
+            handler: this.onTurnPresentConfirm,
+          },
+          elementsVisible: {
+            presentCard: true,
+            hint: this.showHint,
+          },
+        },
+        inputPast: {
+          name: 'inputPast',
+          caption: `Our research shows that ${this.currentTurn.conceptPresent} is often associated with ${this.currentTurn.concept}. Where would you place it on the spectrum?`,
+          buttonPrimary: {
+            text: 'Confirm',
+            visible: this.hasTurnValuePastToConfirm,
+            handler: this.onTurnPastConfirm,
+          },
+          buttonSecondary: {
+            text: `Not familiar with ${this.currentTurn.concept}?`,
+            visible: !this.showHint,
+            handler: this.onHintRequest,
+          },
+          elementsVisible: {
+            presentCard: true,
+            pastCard: true,
+            hint: this.showHint,
+          },
+        },
+        feedbackPast: {
+          name: 'feedbackPast',
+          caption: 'Please finish the sentence below',
+          elementsVisible: {
+            presentCard: true,
+            pastCard: true,
+            feedbackModal: true,
+          },
+        },
+      }
+    },
+    currentState() {
+      return this.states[this.currentStateKey]
+    },
     hasNextTurn() {
       return this.turnIndex < this.turns.length - 1
     },
@@ -142,8 +192,8 @@ export default {
         'conceptPresent'
       )
     },
-    hasTurnValueToConfirm() {
-      return this.turnValue !== null && !this.turnValueConfirmed
+    hasTurnValuePastToConfirm() {
+      return this.turnValuePast !== null && !this.turnValuePastConfirmed
     },
     hasTurnValuePresentToConfirm() {
       return this.turnValuePresent !== null && !this.turnValuePresentConfirmed
@@ -156,22 +206,16 @@ export default {
     },
   },
   methods: {
-    onTurnConfirm() {
-      this.turnValueConfirmed = true
-      this.currentTurn.value = this.turnValue
-      if (this.hasPresent) {
-        this.showPresent = true
-      } else {
-        this.endTurn()
-      }
-    },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
       this.currentTurn.valuePresent = this.turnValuePresent
 
-      if (!this.requirePlayerFeedback) {
-        this.endTurn()
-      }
+      this.currentStateKey = 'inputPast'
+    },
+    onTurnPastConfirm() {
+      this.turnValuePastConfirmed = true
+      this.currentTurn.valuePast = this.turnValuePast
+      this.currentStateKey = 'feedbackPast'
     },
     onFeedbackSkipped() {
       this.endTurn()
@@ -200,9 +244,10 @@ export default {
       }
     },
     reset() {
-      this.turnValue = null
+      this.currentStateKey = 'inputPresent'
+      this.turnValuePast = null
       this.turnValuePresent = null
-      this.turnValueConfirmed = false
+      this.turnValuePastConfirmed = false
       this.turnValuePresentConfirmed = false
       this.$refs.draggableItem.resetPosition()
       this.$refs.draggableItemPresent.resetPosition()
@@ -210,8 +255,8 @@ export default {
       this.feedback = null
       this.showHint = false
     },
-    onSetValue(value) {
-      this.turnValue = value
+    onSetValuePast(value) {
+      this.turnValuePast = value
     },
     onSetValuePresent(value) {
       this.turnValuePresent = value
