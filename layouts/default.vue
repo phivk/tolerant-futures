@@ -10,8 +10,8 @@
         text="Are you still there?"
         :is-hidden="false"
       >
-        <p class="mv3">touch to continue</p>
-        <p class="mv3">restarting in {{ timerCount }}</p>
+        <p class="mv3">Interact to continue</p>
+        <p class="mv3">Restarting in {{ timerCount }}</p>
       </ModalTextRevealer>
     </div>
   </div>
@@ -22,7 +22,7 @@ export default {
     return {
       isAppIdle: false,
       timerEnabled: false,
-      timerCountStart: 5,
+      timerCountStart: 10,
       timerCount: this.timerCountStart,
     }
   },
