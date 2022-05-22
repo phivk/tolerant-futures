@@ -1,5 +1,8 @@
 <template>
-  <Nuxt />
+  <div>
+    <Nuxt />
+    <TheIdleView />
+  </div>
 </template>
 <style>
 body {

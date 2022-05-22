@@ -3,6 +3,7 @@
     <section>
       <div class="text-area">
         {{ text }}
+        <slot></slot>
       </div>
     </section>
     <div
