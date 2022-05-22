@@ -132,7 +132,6 @@ export default {
     align-items: center;
 
     .profile-container {
-      height: $ch3-other-user-profile-container-height;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -140,12 +139,14 @@ export default {
       justify-content: center;
 
       .face-img {
-        height: 525px;
+        height: 500px;
+        padding-bottom: $offset-3;
       }
 
       .spectra-container {
         width: 100%;
         list-style: none;
+        padding-bottom: $offset-4;
 
         li {
           margin-bottom: $offset-4;
