@@ -129,10 +129,6 @@ export default {
       required: true,
       default: null,
     },
-    requirePlayerFeedback: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
@@ -147,6 +143,7 @@ export default {
       feedback: '',
       showHint: false,
       stateIndex: 0,
+      feedbackAvailable: true,
     }
   },
   computed: {
@@ -272,7 +269,7 @@ export default {
           ? 'Not quite...'
           : 'Well done!'
       } This is where the other visitor placed ${this.currentTurn.concept}. ${
-        this.requirePlayerFeedback ? 'Curious why they placed it here?' : ''
+        this.feedbackAvailable ? 'Curious why they placed it here?' : ''
       }`
     },
     feedbackInputPlaceholderText() {

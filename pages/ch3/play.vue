@@ -4,7 +4,6 @@
       v-if="turns.length"
       :turns="turns"
       :next-path="nextPath"
-      require-player-feedback
       :current-chapter-index="2"
       @submit-input="onSubmitInput"
     />
