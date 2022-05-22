@@ -5,7 +5,7 @@ $card-item-inner-width: calc($card-item-width * 0.9);
 $card-item-inner-height: calc(
   ($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px
 );
-$drop-zone-height: 400px;
+$drop-zone-height: 250px;
 $exit-game-button-width: 40px;
 $chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
@@ -47,7 +47,7 @@ $border-radius-3: 100px;
 /* blur */
 $blur-1: 5px;
 $blur-2: 10px;
-$blur-3: 30px;
+$blur-3: 20px;
 $blur-4: 50px;
 
 /* shadow effects */
