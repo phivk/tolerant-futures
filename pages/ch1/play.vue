@@ -6,7 +6,6 @@
       :current-chapter-index="0"
       @submit-input="onSubmitInput"
     />
-    <TheFooter></TheFooter>
   </div>
 </template>
 
