@@ -6,6 +6,7 @@
       <div class="profile-container">
         <img
           v-show="!revealOtherConfirmed"
+          class="face-img"
           src="~/static/image/the_other.png"
         />
         <ul v-show="revealOtherConfirmed" class="spectra-container">
@@ -137,6 +138,10 @@ export default {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
+      .face-img {
+        height: 525px;
+      }
 
       .spectra-container {
         width: 100%;
