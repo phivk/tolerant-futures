@@ -85,7 +85,6 @@
       />
     </div>
     <TheFooter>
-      <div>
         <span v-if="currentState.buttonPrimary">
           <ButtonPrimary
             v-show="currentState.buttonPrimary.visible"
@@ -108,7 +107,6 @@
         >
           {{ currentTurn.hint }}
         </SubtitlePlayer>
-      </div>
     </TheFooter>
   </GameContainer>
 </template>
@@ -364,7 +362,14 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-4;
+  margin-bottom: $offset-3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button-primary {
+    margin-bottom: $offset-5;
+  }
 
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;

@@ -259,7 +259,6 @@ footer {
   }
 
   .subtitle-player.subtitle-player-concept-hint {
-    //margin-top: $offset-7;
     font-size: $f-4;
     line-height: $f-3;
   }

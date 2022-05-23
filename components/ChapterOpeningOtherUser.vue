@@ -6,6 +6,7 @@
       <div class="profile-container">
         <img
           v-show="!revealOtherConfirmed"
+          class="face-img"
           src="~/static/image/the_other.png"
         />
         <ul v-show="revealOtherConfirmed" class="spectra-container">
@@ -88,7 +89,7 @@ export default {
   computed: {
     otherUserProfileWithColors() {
       return this.otherUserProfile.map((item) => {
-        const spectrum = profileSpectra.find((s) => s.left === item.left)
+        const spectrum = profileSpectra.find((s) => s.spectrumLeft === item.spectrumLeft)
         item.colorA = spectrum.colorA
         item.colorB = spectrum.colorB
         return item
@@ -131,16 +132,21 @@ export default {
     align-items: center;
 
     .profile-container {
-      height: $ch3-other-user-profile-container-height;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
 
+      .face-img {
+        height: 500px;
+        padding-bottom: $offset-3;
+      }
+
       .spectra-container {
         width: 100%;
         list-style: none;
+        padding-bottom: $offset-4;
 
         li {
           margin-bottom: $offset-4;
