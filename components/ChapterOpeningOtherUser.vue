@@ -89,7 +89,9 @@ export default {
   computed: {
     otherUserProfileWithColors() {
       return this.otherUserProfile.map((item) => {
-        const spectrum = profileSpectra.find((s) => s.spectrumLeft === item.spectrumLeft)
+        const spectrum = profileSpectra.find(
+          (s) => s.spectrumLeft === item.spectrumLeft
+        )
         item.colorA = spectrum.colorA
         item.colorB = spectrum.colorB
         return item

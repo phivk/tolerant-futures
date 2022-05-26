@@ -38,6 +38,7 @@
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        class="present-card"
       >
         {{ currentTurn.conceptPresent }}
       </CardItem>
@@ -54,6 +55,7 @@
         :value="turnValuePast"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        class="past-card"
         >{{ currentTurn.concept }}</CardItem
       >
     </DraggableItem>
