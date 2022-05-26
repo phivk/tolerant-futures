@@ -21,7 +21,6 @@ export default {
   created() {
     if (this.$store.state.turnsSelfOther) {
       this.turns = this.$store.state.turnsSelfOther
-      console.log('this.turns', this.turns)
     } else {
       // navigate back to index page to fetch priorInputs and generate turns
       this.$router.push('/ch3')
