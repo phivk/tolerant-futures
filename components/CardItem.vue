@@ -1,8 +1,5 @@
 <template>
-  <div
-    :style="value !== null ? styleObject : ''"
-    class="card-item"
-  >
+  <div :style="value !== null ? styleObject : ''" class="card-item">
     <p><slot></slot></p>
   </div>
 </template>
