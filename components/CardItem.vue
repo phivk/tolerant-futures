@@ -2,7 +2,6 @@
   <div
     :style="value !== null ? styleObject : ''"
     class="card-item"
-    :class="cardBackgroundImageClass"
   >
     <p><slot></slot></p>
   </div>
@@ -11,10 +10,6 @@
 <script>
 export default {
   props: {
-    cardBackgroundImageClass: {
-      type: String,
-      default: 'self-card',
-    },
     value: {
       type: Number,
       default: 0.5,

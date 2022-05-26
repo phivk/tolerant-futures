@@ -27,9 +27,9 @@
     >
       <CardItem
         :value="turnValueSelf"
-        card-background-image-class="self-card"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
     </DraggableItem>
@@ -45,7 +45,7 @@
         :value="turnValueOtherGuess"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
-        card-background-image-class="other-card"
+        class="other-card"
       >
         {{ currentTurn.concept }}
       </CardItem>
@@ -53,8 +53,7 @@
     <!-- otherTrue -->
     <CardItem
       v-show="currentState.elementsVisible.otherTrueCard"
-      class="o-70 z-5"
-      card-background-image-class="other-card"
+      class="o-70 z-5 other-card"
       :color-a="currentTurn.colorA"
       :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
