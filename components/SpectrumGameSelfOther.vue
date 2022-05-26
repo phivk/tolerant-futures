@@ -27,6 +27,7 @@
     >
       <CardItem
         :value="turnValueSelf"
+        card-background-image-class="self-card"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
         >{{ currentTurn.concept }}</CardItem
@@ -41,10 +42,10 @@
       @set-value="onSetValueOther"
     >
       <CardItem
-        is-present-card
         :value="turnValueOtherGuess"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        card-background-image-class="other-card"
       >
         {{ currentTurn.concept }}
       </CardItem>
@@ -52,8 +53,8 @@
     <!-- otherTrue -->
     <CardItem
       v-show="currentState.elementsVisible.otherTrueCard"
-      is-present-card
       class="o-70 z-5"
+      card-background-image-class="other-card"
       :color-a="currentTurn.colorA"
       :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
@@ -85,28 +86,28 @@
       />
     </div>
     <TheFooter>
-        <span v-if="currentState.buttonPrimary">
-          <ButtonPrimary
-            v-show="currentState.buttonPrimary.visible"
-            @buttonClicked="currentState.buttonPrimary.handler"
-          >
-            {{ currentState.buttonPrimary.text }}
-          </ButtonPrimary>
-        </span>
-        <span v-if="currentState.buttonSecondary">
-          <ButtonSecondary
-            v-show="currentState.buttonSecondary.visible"
-            @buttonClicked="currentState.buttonSecondary.handler"
-          >
-            {{ currentState.buttonSecondary.text }}
-          </ButtonSecondary>
-        </span>
-        <SubtitlePlayer
-          v-show="currentState.elementsVisible.hint"
-          class="subtitle-player-concept-hint"
+      <span v-if="currentState.buttonPrimary">
+        <ButtonPrimary
+          v-show="currentState.buttonPrimary.visible"
+          @buttonClicked="currentState.buttonPrimary.handler"
         >
-          {{ currentTurn.hint }}
-        </SubtitlePlayer>
+          {{ currentState.buttonPrimary.text }}
+        </ButtonPrimary>
+      </span>
+      <span v-if="currentState.buttonSecondary">
+        <ButtonSecondary
+          v-show="currentState.buttonSecondary.visible"
+          @buttonClicked="currentState.buttonSecondary.handler"
+        >
+          {{ currentState.buttonSecondary.text }}
+        </ButtonSecondary>
+      </span>
+      <SubtitlePlayer
+        v-show="currentState.elementsVisible.hint"
+        class="subtitle-player-concept-hint"
+      >
+        {{ currentTurn.hint }}
+      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>

@@ -36,6 +36,7 @@
         :value="turnValue"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        card-background-image-class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
     </DraggableItem>
@@ -46,10 +47,10 @@
       @set-value="onSetValuePresent"
     >
       <CardItem
-        is-present-card
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        card-background-image-class="self-card"
       >
         {{ currentTurn.conceptPresent }}
       </CardItem>

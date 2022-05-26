@@ -2,18 +2,18 @@
   <div
     :style="value !== null ? styleObject : ''"
     class="card-item"
-    :class="isPresentCard ? 'present-card' : 'past-card'"
+    :class="cardBackgroundImageClass"
   >
-    <slot></slot>
+    <p><slot></slot></p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    isPresentCard: {
-      type: Boolean,
-      default: false,
+    cardBackgroundImageClass: {
+      type: String,
+      default: 'self-card',
     },
     value: {
       type: Number,
@@ -64,34 +64,41 @@ export default {
   border-style: solid;
   border-color: $card-item-outline-color;
   border-width: $border-width-2;
-  font-family: $headline-font;
-  padding: $offset-2;
+  padding: 0 $offset-4;
+  background-color: $card-item-background-color;
   box-sizing: border-box;
-  font-size: $f-2;
   -webkit-transform: translateZ(
     0
   ); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
   filter: $draggable-item-shadow-effect-passive;
 
-  &.present-card {
-    color: $black-color;
-    background-color: $present-card-item-color;
-  }
-
-  &.past-card {
+  p {
+    text-align: center;
+    font-family: $headline-font;
     color: $white-color;
-    background-color: $past-card-item-color;
+    font-size: $f-2;
+    padding-bottom: $offset-1;
   }
 
   &::before {
     position: absolute;
     content: '';
-    width: $card-item-inner-width;
-    height: $card-item-inner-height;
-    border-style: solid;
-    border-radius: $border-radius-1;
-    border-color: $card-item-outline-color;
-    border-width: $border-width-2;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  &.past-card::before {
+    background-image: url('@/static/image/cards/past.png');
+  }
+  &.present-card::before {
+    background-image: url('@/static/image/cards/present.png');
+  }
+  &.self-card::before {
+    background-image: url('@/static/image/cards/self.png');
+  }
+  &.other-card::before {
+    background-image: url('@/static/image/cards/other.png');
   }
 }
 </style>
