@@ -1,8 +1,7 @@
 <template>
   <section class="chapter-opening">
     <div class="wrapper">
-      <SubtitlePlayer
-      >
+      <SubtitlePlayer>
         {{ paragraph }}
       </SubtitlePlayer>
       <slot></slot>
