@@ -58,7 +58,6 @@ export default {
         } 
 
         &.placed {
-          // animation: frames-placed 1s ease-out infinite alternate;
           animation: none;
         } 
 
@@ -71,33 +70,18 @@ export default {
 @keyframes frames-placed-spectrum {
     0% {
         transform: scaleY(1.1);
-        filter: brightness(1.1);
     }
     100% {
         transform: scaleY(1.0);
-       	filter: brightness(1.0);
-    }
-}
-
-@keyframes frames-placed {
-    0% {
-        transform: scaleY(1.0);
-        filter: brightness(1.0);
-    }
-    100% {
-        transform: scaleY(1.08);
-        filter: brightness(1.15);
     }
 }
 
 @keyframes frames-placing {
     0% {
         transform: scaleY(1.0);
-        filter: brightness(1.0);
     }
     100% {
         transform: scaleY(1.15);
-        filter: brightness(1.1);
     }
 }
 
