@@ -15,8 +15,8 @@
         "caption": "Our research shows that Boudica is often associated with The suffragettes. Where would you place them on the spectrum?"
       },
       {
-        "name": "Margareth Thatcher",
-        "caption": "Our research shows that Boudica is often associated with Margareth Thatcher. Where would you place her on the spectrum?"
+        "name": "Margaret Thatcher",
+        "caption": "Our research shows that Boudica is often associated with Margaret Thatcher. Where would you place her on the spectrum?"
       },
       {
         "name": "Theresa May",
@@ -32,20 +32,20 @@
     },
     "present": [
       {
-        "name": "British Empire",
-        "caption": "Our research shows that Roman Empire is often associated with British Empire. Where would you place it on the spectrum?"
+        "name": "the British Empire",
+        "caption": "Our research shows that the Roman Empire is often associated with the British Empire. Where would you place it on the spectrum?"
       },
       {
         "name": "Nazi Germany",
-        "caption": "Our research shows that Roman Empire is often associated with Nazi Germany. Where would you place it on the spectrum?"
+        "caption": "Our research shows that the Roman Empire is often associated with Nazi Germany. Where would you place it on the spectrum?"
       },
       {
-        "name": "USSR",
-        "caption": "Our research shows that Roman Empire is often associated with USSR. Where would you place it on the spectrum?"
+        "name": "the USSR",
+        "caption": "Our research shows that the Roman Empire is often associated with the USSR. Where would you place it on the spectrum?"
       },
       {
-        "name": "European Union",
-        "caption": "Our research shows that Roman Empire is often associated with European Union. Where would you place it on the spectrum?"
+        "name": "the European Union",
+        "caption": "Our research shows that the Roman Empire is often associated with the European Union. Where would you place it on the spectrum?"
       }
     ]
   },
@@ -57,20 +57,20 @@
     },
     "present": [
       {
-        "name": "Great Wall of China",
-        "caption": "Our research shows that Hadrian's Wall is often associated with Great Wall of China. Where would you place it on the spectrum?"
+        "name": "the Great Wall of China",
+        "caption": "Our research shows that Hadrian's Wall is often associated with the Great Wall of China. Where would you place it on the spectrum?"
       },
       {
-        "name": "Berlin Wall",
-        "caption": "Our research shows that Hadrian's Wall is often associated with Berlin Wall. Where would you place it on the spectrum?"
+        "name": "the Berlin Wall",
+        "caption": "Our research shows that Hadrian's Wall is often associated with the Berlin Wall. Where would you place it on the spectrum?"
       },
       {
-        "name": "Anglo-Scottish border",
-        "caption": "Our research shows that Hadrian's Wall is often associated with Anglo-Scottish border. Where would you place it on the spectrum?"
+        "name": "the Anglo-Scottish border",
+        "caption": "Our research shows that Hadrian's Wall is often associated with the Anglo-Scottish border. Where would you place it on the spectrum?"
       },
       {
-        "name": "US-Mexican border",
-        "caption": "Our research shows that Hadrian's Wall is often associated with US-Mexican border. Where would you place it on the spectrum?"
+        "name": "the US-Mexican border",
+        "caption": "Our research shows that Hadrian's Wall is often associated with the US-Mexican border. Where would you place it on the spectrum?"
       }
     ]
   },
