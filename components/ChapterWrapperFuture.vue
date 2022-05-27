@@ -1,8 +1,10 @@
 <template>
   <section class="chapter-opening">
     <div class="wrapper">
-      <h1>{{ title }}</h1>
-      <p class="pt2 pb4 measure-wide">{{ paragraph }}</p>
+      <SubtitlePlayer
+      >
+        {{ paragraph }}
+      </SubtitlePlayer>
       <slot></slot>
       <NuxtLink
         v-if="showButton"
