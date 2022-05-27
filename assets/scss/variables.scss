@@ -1,11 +1,12 @@
 /* widths & heights */
-$card-item-width: 300px;
-$card-item-height: 180px;
+$card-item-width: 330px;
+$card-item-height: 198px;
 $card-item-inner-width: calc($card-item-width * 0.9);
 $card-item-inner-height: calc(
   ($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px
 );
-$drop-zone-height: 300px;
+
+$drop-zone-height: 250px;
 $exit-game-button-width: 40px;
 $chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
@@ -13,7 +14,7 @@ $modal-player-feedback-width: 60%;
 $modal-player-feedback-height: 50%;
 $modal-player-feedback-textarea-height: 80%;
 $ch3-other-user-profile-container-height: 600px;
-$ch3-other-user-spectrum-height: 100px;
+$ch3-other-user-spectrum-height: 80px;
 /* font families */
 $headline-font: 'headline_font', sans_serif;
 $text-font: 'text_font', serif;
@@ -47,13 +48,14 @@ $border-radius-3: 100px;
 /* blur */
 $blur-1: 5px;
 $blur-2: 10px;
-$blur-3: 30px;
+$blur-3: 20px;
 $blur-4: 50px;
 
 /* shadow effects */
 $draggable-item-shadow-effect-passive: drop-shadow(0 6px 16px rgb(0, 0, 0, 0.5));
 $draggable-item-shadow-effect-active: drop-shadow(0 6px 26px rgb(0, 0, 0, 0.5));
 $draggable-item-shadow-effect-can-drop: drop-shadow(0 0 40px rgb(255, 255, 255, 1.0));
+$draggable-item-shadow-effect-dropped: drop-shadow(0 0 20px rgb(255, 255, 255, 0.8));
 
 $main-button-shadow-effect: drop-shadow(0 8px 7px rgb(0, 0, 0, 0.4));
 $secondary-button-shadow-effect: drop-shadow(0 6px 6px rgb(0, 0, 0, 0.4));
@@ -72,8 +74,7 @@ $offset-8: 190px;
 /* colors */
 $black-color: #000;
 $white-color: #fff;
-$present-card-item-color: #f2f2f2;
-$past-card-item-color: #333131;
+$card-item-background-color: #0e0b30;
 $card-item-outline-color: #909090;
 $background-color: #3c1b9a;
 $signal-color: #8968e7;

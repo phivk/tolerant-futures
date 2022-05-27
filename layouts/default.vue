@@ -1,10 +1,13 @@
 <template>
-  <Nuxt />
+  <div>
+    <Nuxt />
+    <TheIdleView />
+  </div>
 </template>
 <style>
 body {
   touch-action: none;
   user-select: none;
-  background-color: indigo;
+  background-color: #3b1b9a;
 }
 </style>

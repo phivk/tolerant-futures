@@ -29,6 +29,7 @@
         :value="turnValueSelf"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
     </DraggableItem>
@@ -41,72 +42,71 @@
       @set-value="onSetValueOther"
     >
       <CardItem
-        is-present-card
         :value="turnValueOtherGuess"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        class="other-card"
       >
-        {{ currentTurn.conceptOther }}
+        {{ currentTurn.concept }}
       </CardItem>
     </DraggableItem>
     <!-- otherTrue -->
     <CardItem
       v-show="currentState.elementsVisible.otherTrueCard"
-      is-present-card
-      class="o-70 z-5"
+      class="o-70 z-5 other-card"
       :color-a="currentTurn.colorA"
       :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
     >
-      {{ currentTurn.conceptOther }}
+      {{ currentTurn.concept }}
     </CardItem>
     <!-- feedbackOther -->
-    <ModalTextRevealer
-      v-show="currentState.elementsVisible.feedbackModalOther"
-      class="spectrum-game-feedback-other"
-      text="other visitor's reasoning here"
-      hint="provide your input to see theirs"
-      :is-hidden="feedback === ''"
-    />
-    <!-- feedbackSelf -->
-    <ModalPlayerFeedback
-      v-show="currentState.elementsVisible.feedbackModalSelf"
-      class="spectrum-game-feedback-modal"
-      :input-placeholder-text="feedbackInputPlaceholderText"
-      @feedbackSubmitted="onFeedbackSubmitted"
-      @feedbackSkipped="onFeedbackSkipped"
-    />
-    <ModalTextRevealer
-      v-show="currentState.elementsVisible.feedbackModalSelfText"
-      class="spectrum-game-feedback-modal"
-      :text="feedback"
-      :is-hidden="false"
-    />
+    <div v-if="currentTurn.feedbackOther">
+      <ModalTextRevealer
+        v-show="currentState.elementsVisible.feedbackModalOther"
+        class="spectrum-game-feedback-other"
+        :text="currentTurn.feedbackOther"
+        hint="provide your input to see theirs"
+        :is-hidden="feedback === ''"
+      />
+      <!-- feedbackSelf -->
+      <ModalPlayerFeedback
+        v-show="currentState.elementsVisible.feedbackModalSelf"
+        class="spectrum-game-feedback-modal"
+        :input-placeholder-text="feedbackInputPlaceholderText"
+        @feedbackSubmitted="onFeedbackSubmitted"
+        @feedbackSkipped="onFeedbackSkipped"
+      />
+      <ModalTextRevealer
+        v-show="currentState.elementsVisible.feedbackModalSelfText"
+        class="spectrum-game-feedback-modal"
+        :text="feedback"
+        :is-hidden="false"
+      />
+    </div>
     <TheFooter>
-      <div>
-        <span v-if="currentState.buttonPrimary">
-          <ButtonPrimary
-            v-show="currentState.buttonPrimary.visible"
-            @buttonClicked="currentState.buttonPrimary.handler"
-          >
-            {{ currentState.buttonPrimary.text }}
-          </ButtonPrimary>
-        </span>
-        <span v-if="currentState.buttonSecondary">
-          <ButtonSecondary
-            v-show="currentState.buttonSecondary.visible"
-            @buttonClicked="currentState.buttonSecondary.handler"
-          >
-            {{ currentState.buttonSecondary.text }}
-          </ButtonSecondary>
-        </span>
-        <SubtitlePlayer
-          v-show="currentState.elementsVisible.hint"
-          class="subtitle-player-concept-hint"
+      <span v-if="currentState.buttonPrimary">
+        <ButtonPrimary
+          v-show="currentState.buttonPrimary.visible"
+          @buttonClicked="currentState.buttonPrimary.handler"
         >
-          {{ currentTurn.hint }}
-        </SubtitlePlayer>
-      </div>
+          {{ currentState.buttonPrimary.text }}
+        </ButtonPrimary>
+      </span>
+      <span v-if="currentState.buttonSecondary">
+        <ButtonSecondary
+          v-show="currentState.buttonSecondary.visible"
+          @buttonClicked="currentState.buttonSecondary.handler"
+        >
+          {{ currentState.buttonSecondary.text }}
+        </ButtonSecondary>
+      </span>
+      <SubtitlePlayer
+        v-show="currentState.elementsVisible.hint"
+        class="subtitle-player-concept-hint"
+      >
+        {{ currentTurn.hint }}
+      </SubtitlePlayer>
     </TheFooter>
   </GameContainer>
 </template>
@@ -129,10 +129,6 @@ export default {
       required: true,
       default: null,
     },
-    requirePlayerFeedback: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
@@ -145,16 +141,15 @@ export default {
       dropzoneWidth: 0,
       diffThreshold: 0.25,
       feedback: '',
-      showFeedbackForm: false,
       showHint: false,
-      stateIndex: 0,
+      currentStateKey: 'inputSelf',
     }
   },
   computed: {
     states() {
-      return [
-        {
-          name: 'self',
+      return {
+        inputSelf: {
+          name: 'inputSelf',
           caption: this.currentTurn.caption,
           buttonPrimary: {
             text: 'Confirm your choice',
@@ -171,9 +166,9 @@ export default {
             hint: this.showHint,
           },
         },
-        {
+        otherGuess: {
           name: 'otherGuess',
-          caption: this.currentTurn.captionOther,
+          caption: `Where do you think the other visitor placed ${this.currentTurn.concept} on this spectrum?`,
           buttonPrimary: {
             text: 'Confirm your guess',
             visible: this.hasTurnValueOtherGuessToConfirm,
@@ -185,17 +180,21 @@ export default {
             hint: this.showHint,
           },
         },
-        {
+        otherTrue: {
           name: 'otherTrue',
           caption: this.captionOtherGuessConfirmed,
           buttonPrimary: {
-            text: 'See their reasoning',
+            text: this.currentTurn.feedbackOther
+              ? 'See their reasoning'
+              : 'Continue',
             visible: true,
-            handler: this.onFeedbackRequest,
+            handler: this.currentTurn.feedbackOther
+              ? this.onFeedbackRequest
+              : this.endTurn,
           },
           buttonSecondary: {
             text: 'Skip',
-            visible: true,
+            visible: this.currentTurn.feedbackOther,
             handler: this.endTurn,
           },
           elementsVisible: {
@@ -204,7 +203,7 @@ export default {
             otherTrueCard: true,
           },
         },
-        {
+        giveFeedback: {
           name: 'giveFeedback',
           caption: 'Please provide your reasoning to see theirs.',
           elementsVisible: {
@@ -215,13 +214,13 @@ export default {
             feedbackModalOther: true,
           },
         },
-        {
+        seeFeedback: {
           name: 'seeFeedback',
           caption: 'This is why they placed it here.',
           buttonPrimary: {
             text: 'Next turn',
             visible: true,
-            handler: this.endState,
+            handler: this.endTurn,
           },
           elementsVisible: {
             selfCard: true,
@@ -231,19 +230,19 @@ export default {
             feedbackModalOther: true,
           },
         },
-      ]
-    },
-    hasNextState() {
-      return this.stateIndex < this.states.length - 1
+      }
     },
     currentState() {
-      return this.states[this.stateIndex]
+      return this.states[this.currentStateKey]
     },
     hasNextTurn() {
       return this.turnIndex < this.turns.length - 1
     },
     currentTurn() {
-      return this.turns[this.turnIndex]
+      return {
+        ...this.turns[this.turnIndex],
+        turnIndex: this.turnIndex,
+      }
     },
     hasTurnValueSelfToConfirm() {
       return this.turnValueSelf !== null && !this.turnValueSelfConfirmed
@@ -270,11 +269,11 @@ export default {
           ? 'Not quite...'
           : 'Well done!'
       } This is where the other visitor placed ${this.currentTurn.concept}. ${
-        this.requirePlayerFeedback ? 'Curious why they placed it here?' : ''
+        this.currentTurn.feedbackOther ? 'Curious why they placed it here?' : ''
       }`
     },
     feedbackInputPlaceholderText() {
-      return `I placed ${this.currentTurn.concept} here because ...`
+      return `I placed ${this.currentTurn.concept} here because `
     },
   },
   mounted() {
@@ -283,15 +282,17 @@ export default {
   methods: {
     onTurnSelfConfirm() {
       this.turnValueSelfConfirmed = true
-      this.endState()
+      this.currentTurn.valueSelf = this.turnValueSelf
+      this.currentStateKey = 'otherGuess'
     },
     onTurnOtherConfirm() {
       this.turnValueOtherGuessConfirmed = true
-      this.endState()
+      this.currentTurn.valueOtherGuess = this.turnValueOtherGuess
+      this.currentTurn.valueOtherDiff = this.valueOtherDiff
+      this.currentStateKey = 'otherTrue'
     },
     onFeedbackRequest() {
-      this.showFeedbackForm = true
-      this.endState()
+      this.currentStateKey = 'giveFeedback'
     },
     onHintRequest() {
       this.showHint = true
@@ -301,21 +302,12 @@ export default {
     },
     onFeedbackSubmitted(feedbackText) {
       this.feedback = feedbackText
-      this.endState()
-    },
-    endState() {
-      // advance game
-      if (this.hasNextState) {
-        // next state
-        this.stateIndex++
-      } else {
-        // next turn
-        this.endTurn()
-      }
+      this.currentTurn.feedback = feedbackText
+      this.currentStateKey = 'seeFeedback'
     },
     endTurn() {
-      // store input
-      this.submitInput()
+      // emit input to be stored
+      this.$emit('submit-input', this.currentTurn)
 
       // advance game
       if (this.hasNextTurn) {
@@ -329,7 +321,7 @@ export default {
       }
     },
     reset() {
-      this.stateIndex = 0
+      this.currentStateKey = 'inputSelf'
       this.turnValueSelf = null
       this.turnValueSelfConfirmed = false
       this.turnValueOtherGuess = null
@@ -337,7 +329,6 @@ export default {
       this.$refs.draggableItemSelf.resetPosition()
       this.$refs.draggableItemOther.resetPosition()
       this.feedback = ''
-      this.showFeedbackForm = false
       this.showHint = false
     },
     onSetValueSelf(value) {
@@ -345,25 +336,6 @@ export default {
     },
     onSetValueOther(value) {
       this.turnValueOtherGuess = value
-    },
-    async submitInput() {
-      await this.$supabase
-        .from('inputSelfOther')
-        .insert([
-          {
-            concept: this.currentTurn.concept,
-            spectrumLeft: this.currentTurn.spectrumLeft,
-            spectrumRight: this.currentTurn.spectrumRight,
-            valueSelf: this.turnValueSelf,
-            valueOtherGuess: this.turnValueOtherGuess,
-            valueOtherTrue: this.currentTurn.valueOther,
-            valueOtherDiff: this.valueOtherDiff,
-            feedback: this.feedback,
-            turnIndex: this.turnIndex,
-            user: this.$store.state.user,
-          },
-        ])
-        .single()
     },
   },
 }
@@ -390,8 +362,15 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-4;
+  margin-bottom: $offset-3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: $z-5;
+
+  .button-primary {
+    margin-bottom: $offset-5;
+  }
 
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
@@ -409,5 +388,11 @@ footer {
   left: 50%;
   top: 33%;
   transform: translate(-50%, -50%);
+
+  // moved here from ModalTextRevealer
+  position: absolute;
+  z-index: $z-5;
+  width: $modal-player-feedback-width;
+  height: 35%;
 }
 </style>

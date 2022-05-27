@@ -109,7 +109,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .draggable {
   position: absolute;
@@ -117,21 +116,6 @@ export default {
 
   &.not-draggable {
     cursor: default !important;
-  }
-
-  /* TO DO: add dragged class to this component while it's being dragged */
-  &.dragged {
-    //filter: $draggable-item-shadow-effect-active;
-  }
-
-  &.can-drop {
-    //box-shadow: 0 0 40px 20px rgba(255, 255, 255, 0.8);
-    filter: $draggable-item-shadow-effect-can-drop
-            $draggable-item-shadow-effect-can-drop;
-    //filter: $draggable-item-shadow-effect-active;
-  }
-
-  &.dropped {
   }
 }
 </style>

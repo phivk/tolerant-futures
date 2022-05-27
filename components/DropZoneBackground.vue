@@ -18,9 +18,9 @@ export default {
       required: true,
       defaul: null,
     },
-    animationState: {
+    draggableState: {
       type: String,
-      default: "DRAGGING"
+      default: "placed"
     }    
   },
   computed: {
@@ -35,7 +35,7 @@ export default {
       }
     },
     classObject() {
-      switch(this.animationState) {
+      switch(this.draggableState) {
       case "placing":
         return "animate-placing"
       case "placed-spectrum":
@@ -64,7 +64,7 @@ export default {
   		height: 100%;
 
         &.animate-placed-spectrum {
-          animation: frames-placed-spectrum 0.65s forwards ease-out;
+          animation: frames-placed-spectrum 0.35s forwards ease-out;
         } 
 
         &.animate-placed {
@@ -79,12 +79,12 @@ export default {
 
 @keyframes frames-placed-spectrum {
     0% {
-        //transform: scaleY(1.0);
-        filter: brightness(1.0);
+        transform: scaleY(1.1);
+        filter: brightness(1.1);
     }
     100% {
-        //transform: scaleY();
-       	filter: brightness(1.5);
+        transform: scaleY(1.0);
+       	filter: brightness(1.0);
     }
 }
 

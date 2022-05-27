@@ -1,10 +1,11 @@
 <template>
   <div class="flex flex-column justify-between items-center tc vh-100">
-    <SpectrumGame
+    <SpectrumGamePastPresent
       :turns="turns"
       :next-path="nextPath"
       :current-chapter-index="1"
       require-player-feedback
+      @submit-input="onSubmitInput"
     />
   </div>
 </template>
@@ -20,7 +21,30 @@ export default {
     }
   },
   mounted() {
+    if (!this.$store.state.user) {
+      this.$store.commit('setUser')
+    }
     this.$store.commit('setCurrentChapter', 'ch2')
+  },
+  methods: {
+    async onSubmitInput(currentTurn) {
+      await this.$supabase
+        .from('inputCh2')
+        .insert([
+          {
+            conceptPast: currentTurn.concept,
+            conceptPresent: currentTurn.conceptPresent,
+            valuePast: currentTurn.valuePast,
+            valuePresent: currentTurn.valuePresent,
+            feedback: currentTurn.feedback,
+            spectrumLeft: currentTurn.spectrumLeft,
+            spectrumRight: currentTurn.spectrumRight,
+            chapter: this.$store.state.currentChapter,
+            user: this.$store.state.user,
+          },
+        ])
+        .single()
+    },
   },
 }
 </script>

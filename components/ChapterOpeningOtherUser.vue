@@ -6,6 +6,7 @@
       <div class="profile-container">
         <img
           v-show="!revealOtherConfirmed"
+          class="face-img"
           src="~/static/image/the_other.png"
         />
         <ul v-show="revealOtherConfirmed" class="spectra-container">
@@ -13,7 +14,8 @@
             <SpectrumItem
               :color-a="input.colorA"
               :color-b="input.colorB"
-              :spectrum-position="input.value">
+              :spectrum-position="input.value"
+            >
               <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
               <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
             </SpectrumItem>
@@ -86,13 +88,15 @@ export default {
   },
   computed: {
     otherUserProfileWithColors() {
-      return this.otherUserProfile.map(item => {
-        const spectrum = profileSpectra.find(s => s.left === item.left)
+      return this.otherUserProfile.map((item) => {
+        const spectrum = profileSpectra.find(
+          (s) => s.spectrumLeft === item.spectrumLeft
+        )
         item.colorA = spectrum.colorA
         item.colorB = spectrum.colorB
         return item
       })
-    }
+    },
   },
   methods: {
     onRevealOtherConfirm() {
@@ -117,10 +121,10 @@ export default {
     width: 100%;
     height: 100%;
     position: absolute;
-    content: "";
+    content: '';
     background-size: cover;
-    background-image: url('@/static/image/noise_lowres.jpg');  
-    mix-blend-mode: screen; 
+    background-image: url('@/static/image/noise_lowres.jpg');
+    mix-blend-mode: screen;
     opacity: 0.7;
   }
 
@@ -130,16 +134,21 @@ export default {
     align-items: center;
 
     .profile-container {
-      height: $ch3-other-user-profile-container-height;
       width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
 
+      .face-img {
+        height: 500px;
+        padding-bottom: $offset-3;
+      }
+
       .spectra-container {
         width: 100%;
         list-style: none;
+        padding-bottom: $offset-4;
 
         li {
           margin-bottom: $offset-4;

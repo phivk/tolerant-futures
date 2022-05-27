@@ -4,8 +4,8 @@
       v-if="turns.length"
       :turns="turns"
       :next-path="nextPath"
-      require-player-feedback
       :current-chapter-index="2"
+      @submit-input="onSubmitInput"
     />
   </div>
 </template>
@@ -25,6 +25,33 @@ export default {
       // navigate back to index page to fetch priorInputs and generate turns
       this.$router.push('/ch3')
     }
+  },
+  mounted() {
+    if (!this.$store.state.user) {
+      this.$store.commit('setUser')
+    }
+    this.$store.commit('setCurrentChapter', 'ch3')
+  },
+  methods: {
+    async onSubmitInput(currentTurn) {
+      await this.$supabase
+        .from('inputCh3')
+        .insert([
+          {
+            concept: currentTurn.concept,
+            spectrumLeft: currentTurn.spectrumLeft,
+            spectrumRight: currentTurn.spectrumRight,
+            valueSelf: currentTurn.valueSelf,
+            valueOtherGuess: currentTurn.valueOtherGuess,
+            valueOtherTrue: currentTurn.valueOther,
+            valueOtherDiff: currentTurn.valueOtherDiff,
+            feedback: currentTurn.feedback,
+            turnIndex: currentTurn.turnIndex,
+            user: this.$store.state.user,
+          },
+        ])
+        .single()
+    },
   },
 }
 </script>
