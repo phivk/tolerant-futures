@@ -68,10 +68,10 @@ export default {
     width: 100%;
     height: 100%;
     position: absolute;
-    content: "";
+    content: '';
     background-size: cover;
-    background-image: url('@/static/image/noise_lowres.jpg');  
-    mix-blend-mode: screen; 
+    background-image: url('@/static/image/noise_lowres.jpg');
+    mix-blend-mode: screen;
     opacity: 0.7;
   }
 

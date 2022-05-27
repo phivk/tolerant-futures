@@ -1,7 +1,11 @@
 <template>
   <span class="drop-zone-wrapper">
-  		<span class="drop-zone-gradient" :style="styleObject" :class="draggableState">
-  		</span>
+    <span
+      class="drop-zone-gradient"
+      :style="styleObject"
+      :class="draggableState"
+    >
+    </span>
   </span>
 </template>
 
@@ -20,8 +24,8 @@ export default {
     },
     draggableState: {
       type: String,
-      default: "placed"
-    }    
+      default: 'placed',
+    },
   },
   computed: {
     styleObject() {
@@ -39,50 +43,48 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.drop-zone-wrapper {
+  //z-index: $z-1;
+  position: absolute;
+  left: -7%;
+  width: 110%;
+  height: 100%;
+  filter: blur($blur-3);
 
-  .drop-zone-wrapper {
-    //z-index: $z-1;
-    position: absolute;
-    left: -7%;
-    width: 110%;
+  .drop-zone-gradient {
+    display: block;
+    width: 100%;
     height: 100%;
-    filter: blur($blur-3);
 
-    .drop-zone-gradient {
-        display: block;
-  		width: 100%;
-  		height: 100%;
+    &.placed-spectrum {
+      animation: frames-placed-spectrum 0.35s forwards ease-out;
+    }
 
-        &.placed-spectrum {
-          animation: frames-placed-spectrum 0.35s forwards ease-out;
-        } 
+    &.placed {
+      animation: none;
+    }
 
-        &.placed {
-          animation: none;
-        } 
-
-        &.placing {
-          animation: frames-placing 0.3s ease-out infinite alternate;
-        }  
+    &.placing {
+      animation: frames-placing 0.3s ease-out infinite alternate;
     }
   }
+}
 
 @keyframes frames-placed-spectrum {
-    0% {
-        transform: scaleY(1.1);
-    }
-    100% {
-        transform: scaleY(1.0);
-    }
+  0% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @keyframes frames-placing {
-    0% {
-        transform: scaleY(1.0);
-    }
-    100% {
-        transform: scaleY(1.15);
-    }
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1.15);
+  }
 }
-
 </style>

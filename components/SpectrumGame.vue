@@ -18,9 +18,7 @@
         Please finish the sentence below
       </SubtitlePlayer>
     </header>
-    <DropZone 
-      @set-can-drop="onIsCardOnDropzone"
-      class="spectrum-game-dropzone">
+    <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
@@ -51,14 +49,14 @@
       ref="draggableItemPresent"
       class="spectrum-game-draggable"
       @set-value="onSetValuePresent"
-      @set-drag-state="onSetDraggableState"      
+      @set-drag-state="onSetDraggableState"
     >
       <CardItem
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
-        :draggable-state="draggableState" 
-        :can-drop-on-drop-zone="isCardOnDropzone"               
+        :draggable-state="draggableState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="self-card"
       >
         {{ currentTurn.conceptPresent }}
@@ -137,7 +135,7 @@ export default {
       showPresent: false,
       showHint: false,
       feedback: null,
-      draggableState: "placed",
+      draggableState: 'placed',
       isCardOnDropzone: false,
     }
   },
@@ -226,10 +224,10 @@ export default {
       this.turnValue = value
     },
     onIsCardOnDropzone(boolean) {
-      this.isCardOnDropzone = boolean;
+      this.isCardOnDropzone = boolean
     },
     onSetDraggableState(state) {
-      this.draggableState = state;
+      this.draggableState = state
     },
     onSetValuePresent(value) {
       this.turnValuePresent = value

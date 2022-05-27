@@ -69,7 +69,6 @@ export default {
         target.setAttribute('data-y', y)
 
         this.$emit('set-drag-state', 'placing')
-
       }
     },
     onDragEnd(event) {
@@ -107,7 +106,7 @@ export default {
       this.screenX = 0
       this.screenY = 0
 
-      this.$emit('set-drag-state', 'placed')      
+      this.$emit('set-drag-state', 'placed')
     },
   },
 }

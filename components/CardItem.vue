@@ -23,19 +23,19 @@ export default {
     },
     draggableState: {
       type: String,
-      default: "placed",
+      default: 'placed',
     },
     canDropOnDropZone: {
       type: Boolean,
       default: false,
-    }     
+    },
   },
   computed: {
     styleObject() {
       const colorADist = (1 - this.value - 0.25) * 100
       const colorBDst = (1 - this.value + 0.25) * 100
 
-      if(this.value !== null && this.draggableState !== "placing") {
+      if (this.value !== null && this.draggableState !== 'placing') {
         return {
           background:
             'linear-gradient(90deg, ' +
@@ -49,16 +49,16 @@ export default {
             '%)',
         }
       } else {
-        return "";
+        return ''
       }
     },
     classObject() {
-      if(this.canDropOnDropZone && this.draggableState === "placing") {
-        return "can-drop";
+      if (this.canDropOnDropZone && this.draggableState === 'placing') {
+        return 'can-drop'
       } else {
-        return this.draggableState;
+        return this.draggableState
       }
-    }   
+    },
   },
 }
 </script>
@@ -100,7 +100,8 @@ export default {
   }
 
   &.can-drop {
-    filter: $draggable-item-shadow-effect-can-drop $draggable-item-shadow-effect-can-drop;
+    filter: $draggable-item-shadow-effect-can-drop
+      $draggable-item-shadow-effect-can-drop;
   }
 
   &.placed-spectrum {

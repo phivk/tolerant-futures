@@ -9,15 +9,17 @@
         {{ currentState.caption }}
       </SubtitlePlayer>
     </header>
-    <DropZone ref="theDropZone" class="spectrum-game-dropzone"
-    @set-can-drop="onIsCardOnDropzone">
+    <DropZone
+      ref="theDropZone"
+      class="spectrum-game-dropzone"
+      @set-can-drop="onIsCardOnDropzone"
+    >
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
-        :draggable-state="currentDraggableState"        
-
+        :draggable-state="currentDraggableState"
       />
     </DropZone>
     <!-- self -->
@@ -34,7 +36,7 @@
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
         :draggable-state="draggableSelfState"
-        :can-drop-on-drop-zone="isCardOnDropzone"   
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
@@ -45,7 +47,7 @@
       ref="draggableItemOther"
       class="spectrum-game-draggable-other"
       :dragging-disabled="turnValueOtherGuessConfirmed"
-      @set-drag-state="onSetOtherDraggableState"  
+      @set-drag-state="onSetOtherDraggableState"
       @set-value="onSetValueOther"
     >
       <CardItem
@@ -152,9 +154,9 @@ export default {
       feedback: '',
       showHint: false,
       currentStateKey: 'inputSelf',
-      draggableSelfState: "placed",
-      draggableOtherState: "placed",
-      isCardOnDropzone: false,           
+      draggableSelfState: 'placed',
+      draggableOtherState: 'placed',
+      isCardOnDropzone: false,
     }
   },
   computed: {
@@ -288,12 +290,12 @@ export default {
       return `I placed ${this.currentTurn.concept} here because `
     },
     currentDraggableState() {
-      if(this.turnValueSelfConfirmed) {
+      if (this.turnValueSelfConfirmed) {
         return this.draggableOtherState
       } else {
         return this.draggableSelfState
       }
-    },    
+    },
   },
   mounted() {
     this.dropzoneWidth = this.$refs.theDropZone.$el.clientWidth
@@ -351,14 +353,14 @@ export default {
       this.showHint = false
     },
     onIsCardOnDropzone(boolean) {
-      this.isCardOnDropzone = boolean;
+      this.isCardOnDropzone = boolean
     },
     onSetSelfDraggableState(state) {
-      this.draggableSelfState = state;
-    },    
+      this.draggableSelfState = state
+    },
     onSetOtherDraggableState(state) {
-      this.draggableOtherState = state;
-    },    
+      this.draggableOtherState = state
+    },
     onSetValueSelf(value) {
       this.turnValueSelf = value
     },

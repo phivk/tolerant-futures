@@ -21,8 +21,7 @@ export default {
   },
   methods: {
     initInteract(selector) {
-
-      const that = this;
+      const that = this
       interact(selector).dropzone({
         // Require a 75% element overlap for a drop to be possible
         overlap: 0.75,
@@ -40,13 +39,13 @@ export default {
           // feedback the possibility of a drop
           dropzoneElement.classList.add('drop-target')
           // draggableElement.classList.add('can-drop')
-          that.$emit('set-can-drop', true);
+          that.$emit('set-can-drop', true)
         },
         ondragleave(event) {
           // remove the drop feedback style
           event.target.classList.remove('drop-target')
           event.target.classList.remove('drop-received')
-          that.$emit('set-can-drop', );          
+          that.$emit('set-can-drop')
           // event.relatedTarget.classList.remove('can-drop')
           // event.relatedTarget.classList.remove('dropped')
         },
