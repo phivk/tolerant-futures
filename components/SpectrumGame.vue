@@ -221,7 +221,7 @@ export default {
       this.turnValue = value
     },
     onSetDraggableState(state) {
-      if(state === "dragging") {
+      if(state === "placing") {
         this.draggableState = "placing";
       } else if(state === "not-dragging" && this.turnValue) {
         this.draggableState = "placed-spectrum";

@@ -68,7 +68,8 @@ export default {
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
 
-        this.$emit('set-drag-state', 'dragging')
+        this.$emit('set-drag-state', 'placing')
+
       }
     },
     onDragEnd(event) {
@@ -77,7 +78,7 @@ export default {
       this.screenX = boundingClientRect.left
       this.screenY = boundingClientRect.top
 
-      if (event.relatedTarget) {             
+      if (event.relatedTarget) {
         // dropped on dropzone!
         const cardWidth = boundingClientRect.width
         const value = this.screenX / (window.innerWidth - cardWidth)
@@ -87,8 +88,10 @@ export default {
       } else {
         this.value = null
         this.$emit('set-value', null)
+        this.$emit('set-drag-state', 'placed-spectrum')
+
       }
-      this.$emit('set-drag-state', 'not-dragging')
+      this.$emit('set-drag-state', 'placed')
     },
     resetPosition() {
       const myDraggable = this.$refs.myDraggable
@@ -104,11 +107,14 @@ export default {
       // update the state
       this.screenX = 0
       this.screenY = 0
+
+      this.$emit('set-drag-state', 'placed')      
     },
   },
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .draggable {
   position: absolute;
@@ -116,6 +122,17 @@ export default {
 
   &.not-draggable {
     cursor: default !important;
+  }
+
+  /* TO DO: add dragged class to this component while it's being dragged */
+  &.dragged {
+    filter: $draggable-item-shadow-effect-passive;
+  }
+
+  &.can-drop {
+  }
+
+  &.dropped {
   }
 }
 </style>

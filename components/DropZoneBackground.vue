@@ -1,6 +1,6 @@
 <template>
   <span class="drop-zone-wrapper">
-  		<span class="drop-zone-gradient" :style="styleObject" :class="classObject">
+  		<span class="drop-zone-gradient" :style="styleObject" :class="draggableState">
   		</span>
   </span>
 </template>
@@ -34,16 +34,6 @@ export default {
           ' 75%)',
       }
     },
-    classObject() {
-      switch(this.draggableState) {
-      case "placing":
-        return "animate-placing"
-      case "placed-spectrum":
-        return "animate-placed-spectrum"        
-      default:
-        return "animate-placed"
-    } 
-    }
   },
 }
 </script>
@@ -63,15 +53,15 @@ export default {
   		width: 100%;
   		height: 100%;
 
-        &.animate-placed-spectrum {
+        &.placed-spectrum {
           animation: frames-placed-spectrum 0.35s forwards ease-out;
         } 
 
-        &.animate-placed {
+        &.placed {
           animation: frames-placed 1s ease-out infinite alternate;
         } 
 
-        &.animate-placing {
+        &.placing {
           animation: frames-placing 0.3s ease-out infinite alternate;
         }  
     }

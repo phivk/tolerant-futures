@@ -1,5 +1,5 @@
 <template>
-  <div :style="styleObject" class="card-item">
+  <div :style="styleObject" class="card-item" :class="draggableState">
     <p><slot></slot></p>
   </div>
 </template>
@@ -47,17 +47,7 @@ export default {
       } else {
         return "";
       }
-    },
-    classObject() {
-      switch(this.draggableState) {
-      case "placing":
-        return "placing"
-      case "placed-spectrum":
-        return "placed-spectrum"        
-      default:
-        return "placed"
-      } 
-    }    
+    },   
   },
 }
 </script>
@@ -88,6 +78,18 @@ export default {
     color: $white-color;
     font-size: $f-2;
     padding-bottom: $offset-1;
+  }
+
+  &.placing {
+    
+  }
+
+  &.placed {
+
+  }
+
+  &.placed-spectrum {
+
   }
 
   &::before {
