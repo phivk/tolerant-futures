@@ -25,7 +25,7 @@ export default {
       type: String,
       default: "placed",
     },
-    canDropDraggable: {
+    canDropOnDropZone: {
       type: Boolean,
       default: false,
     }     
@@ -53,7 +53,7 @@ export default {
       }
     },
     classObject() {
-      if(this.canDropDraggable) {
+      if(this.canDropOnDropZone && this.draggableState === "placing") {
         return "can-drop";
       } else {
         return this.draggableState;
@@ -100,11 +100,11 @@ export default {
   }
 
   &.can-drop {
-    border: 1px solid red;
+    filter: $draggable-item-shadow-effect-can-drop $draggable-item-shadow-effect-can-drop;
   }
 
   &.placed-spectrum {
-    filter: $draggable-item-shadow-effect-dropped;
+    filter: $draggable-item-shadow-effect-placed;
   }
 
   &::before {

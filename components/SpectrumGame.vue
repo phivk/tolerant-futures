@@ -19,7 +19,7 @@
       </SubtitlePlayer>
     </header>
     <DropZone 
-      @set-can-drop="onCanDropDraggable"
+      @set-can-drop="onIsCardOnDropzone"
       class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
@@ -41,6 +41,7 @@
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
         :draggable-state="draggableState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
@@ -136,7 +137,7 @@ export default {
       showHint: false,
       feedback: null,
       draggableState: "placed",
-      canDropDraggable: false,
+      isCardOnDropzone: false,
     }
   },
   computed: {
@@ -223,8 +224,8 @@ export default {
     onSetValue(value) {
       this.turnValue = value
     },
-    onCanDropDraggable(boolean) {
-      this.canDropDraggable = boolean;
+    onIsCardOnDropzone(boolean) {
+      this.isCardOnDropzone = boolean;
     },
     onSetDraggableState(state) {
       this.draggableState = state;

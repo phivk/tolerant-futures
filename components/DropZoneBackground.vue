@@ -58,7 +58,8 @@ export default {
         } 
 
         &.placed {
-          animation: frames-placed 1s ease-out infinite alternate;
+          // animation: frames-placed 1s ease-out infinite alternate;
+          animation: none;
         } 
 
         &.placing {
