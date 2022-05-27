@@ -3,7 +3,7 @@ export default [
     route: '/ch1',
     title: 'Chapter 1: The Here and the Now',
     paragraph:
-      "This chapter is about you. Take a moment to think about yourself in the present moment.",
+      'This chapter is about you. Take a moment to think about yourself in the present moment.',
   },
   {
     route: '/ch2',
