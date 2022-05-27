@@ -57,7 +57,8 @@
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
-        :draggable-state="draggableState"        
+        :draggable-state="draggableState" 
+        :can-drop-on-drop-zone="isCardOnDropzone"               
         class="self-card"
       >
         {{ currentTurn.conceptPresent }}
