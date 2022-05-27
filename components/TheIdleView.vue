@@ -20,7 +20,7 @@ export default {
       isIdle: false,
       timerEnabled: false,
       timerCountStart: 10,
-      timerCount: this.timerCountStart,
+      timerCount: 10,
     }
   },
   onIdle() {
