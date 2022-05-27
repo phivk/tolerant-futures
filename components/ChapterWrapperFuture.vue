@@ -1,8 +1,9 @@
 <template>
   <section class="chapter-opening">
     <div class="wrapper">
-      <h1>{{ title }}</h1>
-      <p class="pt2 pb4 measure-wide">{{ paragraph }}</p>
+      <SubtitlePlayer>
+        {{ paragraph }}
+      </SubtitlePlayer>
       <slot></slot>
       <NuxtLink
         v-if="showButton"
@@ -62,7 +63,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-size: cover;
-  background-image: url('@/static/image/chapter_intro_background.jpg');
+  background-image: url('@/static/image/future_chapter_background.jpg');
 
   .wrapper {
     display: flex;
