@@ -62,7 +62,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-size: cover;
-  background-image: url('@/static/image/chapter_intro_background.jpg');
+  background-image: url('@/static/image/future_chapter_background.jpg');
 
   .wrapper {
     display: flex;
