@@ -391,6 +391,7 @@ header {
 
 footer {
   margin-bottom: $offset-4;
+  z-index: $z-5;
 
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;

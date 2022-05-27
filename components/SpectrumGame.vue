@@ -285,6 +285,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: $z-5;
 
   .button-primary {
     margin-bottom: $offset-5;
