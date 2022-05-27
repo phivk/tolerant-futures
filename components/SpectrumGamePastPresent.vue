@@ -151,7 +151,7 @@ export default {
         },
         inputPast: {
           name: 'inputPast',
-          caption: `Our research shows that ${this.currentTurn.conceptPresent} is often associated with ${this.currentTurn.concept}. Where would you place it on the spectrum?`,
+          caption: `Our research shows that ${this.currentTurn.conceptPresent} is often associated with ${this.currentTurn.concept}. Where would you place this card on the spectrum?`,
           buttonPrimary: {
             text: 'Confirm',
             visible: this.hasTurnValuePastToConfirm,

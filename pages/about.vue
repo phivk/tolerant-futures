@@ -14,13 +14,13 @@
         This playful experience has been designed as part of the Co-producing
         Tolerant Futures through Ancient Identities project, funded by the UK
         Arts and Humanities Research Council (AHRC). The project is led by the
-        University of Edinburgh in partnership with Durham University with input
+        University of Edinburgh together with Durham University, with input
         from nine heritage museums and sites across Britain.
       </p>
 
       <p>
         Co-Producing Tolerant Futures aims to expose and challenge divisive uses
-        of the Iron Age, Roman and Early Medieval past uncovered during the
+        of the Iron Age, Roman and Early Medieval past uncovered during the original
         Ancient Identities in Modern Britain project (2016-2019, AHRC-funded).
         Findings from this project showed that the Iron Age and Roman periods
         are often presented through dichotomies and exaggerated caricatures in
