@@ -4,14 +4,13 @@
       <div>
         <h1>{{ title }}</h1>
         <p class="pv3">
-          Discover how concepts from the distant to recent past can reappear in
-          our lives in unexpected ways. Share your own interpretations of
-          connections between the past and the present and reflect on those of
-          others.
+          Discover how concepts from the past can reappear in our lives today in
+          unexpected ways. Share your views on how past and present are
+          connected and reflect on those of others.
         </p>
         <p class="pv3">
           This playful experience is based on research about Iron Age and Roman
-          heritage in Modern Britain by the Universities of Edinburgh and
+          heritage in modern Britain by the Universities of Edinburgh and
           Durham. Take part and contribute your vision for a collective
           imagination of tolerant futures.
         </p>
@@ -22,7 +21,7 @@
 
       <p class="pv3">
         <NuxtLink class="link-inline" to="/about">
-          Read more about the Tolerant Futures research project
+          Read more about the Tolerant Futures project
         </NuxtLink>
       </p>
     </div>
