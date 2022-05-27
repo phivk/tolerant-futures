@@ -20,7 +20,7 @@ export default {
       nextLinkText: 'I consent to this use of the data',
       nextLinkPath: '/ch1',
       informedConsentText:
-        'While interacting with this artwork, you will be asked questions. No personal data is collected and your answers will be stored anonymously. They will be used by the Co-Producing Tolerant Futures through Ancient Identities team at the University of Edinburgh and Durham University to understand more about the ways in which people associate past and present and the values of these associations. Results will be published in academic publications.',
+        'While interacting with this artwork, you will be asked questions. No personal data is collected and your answers will be stored anonymously. They will be used by the Tolerant Futures project team at the University of Edinburgh and Durham University to understand more about the ways in which people associate past and present and the values of these associations. Results will be published in academic publications.',
     }
   },
 }

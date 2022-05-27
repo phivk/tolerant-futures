@@ -3,7 +3,7 @@ export default [
     route: '/ch1',
     title: 'Chapter 1: The Self',
     paragraph:
-      "This chapter is about you. Let's take a moment to arrive and check in with yourself where you stand.",
+      "This chapter is about you. Take a moment to think about yourself in the present.",
   },
   {
     route: '/ch2',
