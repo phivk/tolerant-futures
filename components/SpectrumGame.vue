@@ -18,7 +18,9 @@
         Please finish the sentence below
       </SubtitlePlayer>
     </header>
-    <DropZone class="spectrum-game-dropzone">
+    <DropZone 
+      @set-can-drop="onCanDropDraggable"
+      class="spectrum-game-dropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
@@ -134,6 +136,7 @@ export default {
       showHint: false,
       feedback: null,
       draggableState: "placed",
+      canDropDraggable: false,
     }
   },
   computed: {
@@ -220,14 +223,11 @@ export default {
     onSetValue(value) {
       this.turnValue = value
     },
+    onCanDropDraggable(boolean) {
+      this.canDropDraggable = boolean;
+    },
     onSetDraggableState(state) {
-      if(state === "placing") {
-        this.draggableState = "placing";
-      } else if(state === "not-dragging" && this.turnValue) {
-        this.draggableState = "placed-spectrum";
-      } else {
-        this.draggableState = "placed";
-      }
+      this.draggableState = state;
     },
     onSetValuePresent(value) {
       this.turnValuePresent = value

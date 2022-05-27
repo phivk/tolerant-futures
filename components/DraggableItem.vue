@@ -85,13 +85,12 @@ export default {
         event.target.setAttribute('data-value', value.toFixed(2))
         this.value = value
         this.$emit('set-value', value)
+        this.$emit('set-drag-state', 'placed-spectrum')
       } else {
         this.value = null
         this.$emit('set-value', null)
-        this.$emit('set-drag-state', 'placed-spectrum')
-
+        this.$emit('set-drag-state', 'placed')
       }
-      this.$emit('set-drag-state', 'placed')
     },
     resetPosition() {
       const myDraggable = this.$refs.myDraggable
@@ -122,17 +121,6 @@ export default {
 
   &.not-draggable {
     cursor: default !important;
-  }
-
-  /* TO DO: add dragged class to this component while it's being dragged */
-  &.dragged {
-    filter: $draggable-item-shadow-effect-passive;
-  }
-
-  &.can-drop {
-  }
-
-  &.dropped {
   }
 }
 </style>

@@ -38,11 +38,13 @@ export default {
           // feedback the possibility of a drop
           dropzoneElement.classList.add('drop-target')
           draggableElement.classList.add('can-drop')
+          // this.$emit('set-can-drop', true);
         },
         ondragleave(event) {
           // remove the drop feedback style
           event.target.classList.remove('drop-target')
           event.target.classList.remove('drop-received')
+          // this.$emit('set-can-drop', );          
           event.relatedTarget.classList.remove('can-drop')
           event.relatedTarget.classList.remove('dropped')
         },

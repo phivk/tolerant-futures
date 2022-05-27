@@ -1,5 +1,5 @@
 <template>
-  <div :style="styleObject" class="card-item" :class="draggableState">
+  <div :style="styleObject" class="card-item" :class="classObject">
     <p><slot></slot></p>
   </div>
 </template>
@@ -23,7 +23,11 @@ export default {
     },
     draggableState: {
       type: String,
-      default: "placed"
+      default: "placed",
+    },
+    canDropDraggable: {
+      type: Boolean,
+      default: false,
     }     
   },
   computed: {
@@ -47,7 +51,14 @@ export default {
       } else {
         return "";
       }
-    },   
+    },
+    classObject() {
+      if(this.canDropDraggable) {
+        return "can-drop";
+      } else {
+        return this.draggableState;
+      }
+    }   
   },
 }
 </script>
@@ -81,15 +92,19 @@ export default {
   }
 
   &.placing {
-    
+    filter: $draggable-item-shadow-effect-placing;
   }
 
   &.placed {
+    filter: $draggable-item-shadow-effect-placed;
+  }
 
+  &.can-drop {
+    border: 1px solid red;
   }
 
   &.placed-spectrum {
-
+    filter: $draggable-item-shadow-effect-dropped;
   }
 
   &::before {
