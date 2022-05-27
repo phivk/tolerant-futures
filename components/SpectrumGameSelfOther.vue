@@ -9,12 +9,17 @@
         {{ currentState.caption }}
       </SubtitlePlayer>
     </header>
-    <DropZone ref="theDropZone" class="spectrum-game-dropzone">
+    <DropZone
+      ref="theDropZone"
+      class="spectrum-game-dropzone"
+      @set-can-drop="onIsCardOnDropzone"
+    >
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="currentDraggableState"
       />
     </DropZone>
     <!-- self -->
@@ -23,12 +28,15 @@
       ref="draggableItemSelf"
       class="spectrum-game-draggable"
       :dragging-disabled="turnValueSelfConfirmed"
+      @set-drag-state="onSetSelfDraggableState"
       @set-value="onSetValueSelf"
     >
       <CardItem
         :value="turnValueSelf"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggableSelfState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
@@ -39,12 +47,15 @@
       ref="draggableItemOther"
       class="spectrum-game-draggable-other"
       :dragging-disabled="turnValueOtherGuessConfirmed"
+      @set-drag-state="onSetOtherDraggableState"
       @set-value="onSetValueOther"
     >
       <CardItem
         :value="turnValueOtherGuess"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggableOtherState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="other-card"
       >
         {{ currentTurn.concept }}
@@ -143,6 +154,9 @@ export default {
       feedback: '',
       showHint: false,
       currentStateKey: 'inputSelf',
+      draggableSelfState: 'placed',
+      draggableOtherState: 'placed',
+      isCardOnDropzone: false,
     }
   },
   computed: {
@@ -275,6 +289,13 @@ export default {
     feedbackInputPlaceholderText() {
       return `I placed ${this.currentTurn.concept} here because `
     },
+    currentDraggableState() {
+      if (this.turnValueSelfConfirmed) {
+        return this.draggableOtherState
+      } else {
+        return this.draggableSelfState
+      }
+    },
   },
   mounted() {
     this.dropzoneWidth = this.$refs.theDropZone.$el.clientWidth
@@ -331,6 +352,15 @@ export default {
       this.feedback = ''
       this.showHint = false
     },
+    onIsCardOnDropzone(boolean) {
+      this.isCardOnDropzone = boolean
+    },
+    onSetSelfDraggableState(state) {
+      this.draggableSelfState = state
+    },
+    onSetOtherDraggableState(state) {
+      this.draggableOtherState = state
+    },
     onSetValueSelf(value) {
       this.turnValueSelf = value
     },
@@ -366,6 +396,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: $z-5;
 
   .button-primary {
     margin-bottom: $offset-5;

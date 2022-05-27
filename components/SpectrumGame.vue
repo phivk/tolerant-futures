@@ -18,24 +18,28 @@
         Please finish the sentence below
       </SubtitlePlayer>
     </header>
-    <DropZone class="spectrum-game-dropzone">
+    <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggableState"
       />
     </DropZone>
     <DraggableItem
       ref="draggableItem"
       class="spectrum-game-draggable"
       :dragging-disabled="turnValueConfirmed"
+      @set-drag-state="onSetDraggableState"
       @set-value="onSetValue"
     >
       <CardItem
         :value="turnValue"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggableState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="self-card"
         >{{ currentTurn.concept }}</CardItem
       >
@@ -45,11 +49,14 @@
       ref="draggableItemPresent"
       class="spectrum-game-draggable"
       @set-value="onSetValuePresent"
+      @set-drag-state="onSetDraggableState"
     >
       <CardItem
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggableState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="self-card"
       >
         {{ currentTurn.conceptPresent }}
@@ -128,6 +135,8 @@ export default {
       showPresent: false,
       showHint: false,
       feedback: null,
+      draggableState: 'placed',
+      isCardOnDropzone: false,
     }
   },
   computed: {
@@ -214,6 +223,12 @@ export default {
     onSetValue(value) {
       this.turnValue = value
     },
+    onIsCardOnDropzone(boolean) {
+      this.isCardOnDropzone = boolean
+    },
+    onSetDraggableState(state) {
+      this.draggableState = state
+    },
     onSetValuePresent(value) {
       this.turnValuePresent = value
     },
@@ -224,9 +239,11 @@ export default {
 <style scoped lang="scss">
 header {
   width: 100%;
+  z-index: $z-5;
 
   .subtitle-player {
     margin-top: $offset-4;
+    z-index: $z-5;
 
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
@@ -241,6 +258,7 @@ header {
 
 .spectrum-game-draggable {
   bottom: 10%;
+  z-index: $z-5;
 }
 
 .spectrum-game-feedback-modal {
@@ -254,6 +272,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: $z-5;
 
   .button-primary {
     margin-bottom: $offset-5;

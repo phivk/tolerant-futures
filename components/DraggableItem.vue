@@ -67,6 +67,8 @@ export default {
         // update the posiion attributes
         target.setAttribute('data-x', x)
         target.setAttribute('data-y', y)
+
+        this.$emit('set-drag-state', 'placing')
       }
     },
     onDragEnd(event) {
@@ -82,9 +84,11 @@ export default {
         event.target.setAttribute('data-value', value.toFixed(2))
         this.value = value
         this.$emit('set-value', value)
+        this.$emit('set-drag-state', 'placed-spectrum')
       } else {
         this.value = null
         this.$emit('set-value', null)
+        this.$emit('set-drag-state', 'placed')
       }
     },
     resetPosition() {
@@ -101,6 +105,8 @@ export default {
       // update the state
       this.screenX = 0
       this.screenY = 0
+
+      this.$emit('set-drag-state', 'placed')
     },
   },
 }
@@ -114,17 +120,6 @@ export default {
 
   &.not-draggable {
     cursor: default !important;
-  }
-
-  /* TO DO: add dragged class to this component while it's being dragged */
-  &.dragged {
-    filter: $draggable-item-shadow-effect-passive;
-  }
-
-  &.can-drop {
-  }
-
-  &.dropped {
   }
 }
 </style>

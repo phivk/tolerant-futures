@@ -1,5 +1,12 @@
 <template>
-  <span class="drop-zone-background" :style="styleObject"></span>
+  <span class="drop-zone-wrapper">
+    <span
+      class="drop-zone-gradient"
+      :style="styleObject"
+      :class="draggableState"
+    >
+    </span>
+  </span>
 </template>
 
 <script>
@@ -14,6 +21,10 @@ export default {
       type: String,
       required: true,
       defaul: null,
+    },
+    draggableState: {
+      type: String,
+      default: 'placed',
     },
   },
   computed: {
@@ -32,12 +43,48 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.drop-zone-background {
-  z-index: $z-1;
+.drop-zone-wrapper {
+  //z-index: $z-1;
   position: absolute;
   left: -7%;
   width: 110%;
   height: 100%;
   filter: blur($blur-3);
+
+  .drop-zone-gradient {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &.placed-spectrum {
+      animation: frames-placed-spectrum 0.35s forwards ease-out;
+    }
+
+    &.placed {
+      animation: none;
+    }
+
+    &.placing {
+      animation: frames-placing 0.3s ease-out infinite alternate;
+    }
+  }
+}
+
+@keyframes frames-placed-spectrum {
+  0% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes frames-placing {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1.15);
+  }
 }
 </style>

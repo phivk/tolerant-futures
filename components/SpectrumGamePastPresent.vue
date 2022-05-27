@@ -18,12 +18,13 @@
         Please finish the sentence below
       </SubtitlePlayer> -->
     </header>
-    <DropZone class="spectrum-game-dropzone">
+    <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
       <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="currentDraggableState"
       />
     </DropZone>
     <!-- Present Concept Card -->
@@ -32,12 +33,15 @@
       ref="draggableItemPresent"
       class="spectrum-game-draggable"
       :dragging-disabled="turnValuePresentConfirmed"
+      @set-drag-state="onSetPresentDraggableState"
       @set-value="onSetValuePresent"
     >
       <CardItem
         :value="turnValuePresent"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggablePresentState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="present-card"
       >
         {{ currentTurn.conceptPresent }}
@@ -49,12 +53,15 @@
       ref="draggableItem"
       class="spectrum-game-draggable"
       :dragging-disabled="turnValuePastConfirmed"
+      @set-drag-state="onSetPastDraggableState"
       @set-value="onSetValuePast"
     >
       <CardItem
         :value="turnValuePast"
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
+        :draggable-state="draggablePastState"
+        :can-drop-on-drop-zone="isCardOnDropzone"
         class="past-card"
         >{{ currentTurn.concept }}</CardItem
       >
@@ -131,6 +138,9 @@ export default {
       showHint: false,
       feedback: null,
       currentStateKey: 'inputPresent',
+      draggablePresentState: 'placed',
+      draggablePastState: 'placed',
+      isCardOnDropzone: false,
     }
   },
   computed: {
@@ -206,6 +216,13 @@ export default {
     feedbackInputPlaceholderText() {
       return `I placed ${this.currentTurn.concept} here because `
     },
+    currentDraggableState() {
+      if (this.turnValuePresentConfirmed) {
+        return this.draggablePastState
+      } else {
+        return this.draggablePresentState
+      }
+    },
   },
   methods: {
     onTurnPresentConfirm() {
@@ -256,6 +273,15 @@ export default {
       this.showPresent = false
       this.feedback = null
       this.showHint = false
+    },
+    onIsCardOnDropzone(boolean) {
+      this.isCardOnDropzone = boolean
+    },
+    onSetPresentDraggableState(state) {
+      this.draggablePresentState = state
+    },
+    onSetPastDraggableState(state) {
+      this.draggablePastState = state
     },
     onSetValuePast(value) {
       this.turnValuePast = value

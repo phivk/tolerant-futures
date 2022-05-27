@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     initInteract(selector) {
+      const that = this
       interact(selector).dropzone({
         // Require a 75% element overlap for a drop to be possible
         overlap: 0.75,
@@ -32,23 +33,25 @@ export default {
           event.target.classList.add('drop-active')
         },
         ondragenter(event) {
-          const draggableElement = event.relatedTarget
+          // const draggableElement = event.relatedTarget
           const dropzoneElement = event.target
 
           // feedback the possibility of a drop
           dropzoneElement.classList.add('drop-target')
-          draggableElement.classList.add('can-drop')
+          // draggableElement.classList.add('can-drop')
+          that.$emit('set-can-drop', true)
         },
         ondragleave(event) {
           // remove the drop feedback style
           event.target.classList.remove('drop-target')
           event.target.classList.remove('drop-received')
-          event.relatedTarget.classList.remove('can-drop')
-          event.relatedTarget.classList.remove('dropped')
+          that.$emit('set-can-drop')
+          // event.relatedTarget.classList.remove('can-drop')
+          // event.relatedTarget.classList.remove('dropped')
         },
         ondrop(event) {
           event.target.classList.add('drop-received')
-          event.relatedTarget.classList.add('dropped')
+          // event.relatedTarget.classList.add('dropped')
         },
         ondropdeactivate(event) {
           // remove active dropzone feedback
@@ -97,7 +100,7 @@ export default {
   align-items: center;
   height: $drop-zone-height;
   width: 100%;
-  z-index: $z-1;
+  // z-index: $z-1;
 }
 .drop-active {
   border-color: #aaa;

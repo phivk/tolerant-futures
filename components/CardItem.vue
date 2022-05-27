@@ -1,5 +1,5 @@
 <template>
-  <div :style="value !== null ? styleObject : ''" class="card-item">
+  <div :style="styleObject" class="card-item" :class="classObject">
     <p><slot></slot></p>
   </div>
 </template>
@@ -21,23 +21,42 @@ export default {
       required: true,
       default: null,
     },
+    draggableState: {
+      type: String,
+      default: 'placed',
+    },
+    canDropOnDropZone: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     styleObject() {
       const colorADist = (1 - this.value - 0.25) * 100
       const colorBDst = (1 - this.value + 0.25) * 100
 
-      return {
-        background:
-          'linear-gradient(90deg, ' +
-          this.colorA +
-          ' ' +
-          colorADist +
-          '%, ' +
-          this.colorB +
-          ' ' +
-          colorBDst +
-          '%)',
+      if (this.value !== null && this.draggableState !== 'placing') {
+        return {
+          background:
+            'linear-gradient(90deg, ' +
+            this.colorA +
+            ' ' +
+            colorADist +
+            '%, ' +
+            this.colorB +
+            ' ' +
+            colorBDst +
+            '%)',
+        }
+      } else {
+        return ''
+      }
+    },
+    classObject() {
+      if (this.canDropOnDropZone && this.draggableState === 'placing') {
+        return 'can-drop'
+      } else {
+        return this.draggableState
       }
     },
   },
@@ -62,7 +81,7 @@ export default {
   -webkit-transform: translateZ(
     0
   ); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
-  filter: $draggable-item-shadow-effect-passive;
+  //filter: $draggable-item-shadow-effect-passive;
 
   p {
     text-align: center;
@@ -70,6 +89,23 @@ export default {
     color: $white-color;
     font-size: $f-2;
     padding-bottom: $offset-1;
+  }
+
+  &.placing {
+    filter: $draggable-item-shadow-effect-placing;
+  }
+
+  &.placed {
+    filter: $draggable-item-shadow-effect-placed;
+  }
+
+  &.can-drop {
+    filter: $draggable-item-shadow-effect-can-drop
+      $draggable-item-shadow-effect-can-drop;
+  }
+
+  &.placed-spectrum {
+    filter: $draggable-item-shadow-effect-placed;
   }
 
   &::before {
