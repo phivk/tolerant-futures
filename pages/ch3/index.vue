@@ -39,7 +39,8 @@ export default {
     const chapterIndex = 2
     return {
       title: chapters[chapterIndex].title,
-      paragraph: chapters[chapterIndex].paragraph,
+      paragraph1: chapters[chapterIndex].paragraph,
+      paragraph2: chapters[chapterIndex].paragraph2,
       inputsOtherUserProfile: [],
       revealOtherConfirmed: false,
     }
@@ -54,6 +55,9 @@ export default {
         item.colorB = spectrum.colorB
         return item
       })
+    },
+    paragraph() {
+      return !this.revealOtherConfirmed ? this.paragraph1 : this.paragraph2
     },
   },
   async mounted() {
