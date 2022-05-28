@@ -78,12 +78,12 @@
 
 <script>
 export default {
+  layout: 'scrollable',
   data() {
     return {
       title: 'Tolerant Futures',
     }
   },
-  layout: 'scrollable',
 }
 </script>
 

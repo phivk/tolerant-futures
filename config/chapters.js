@@ -15,9 +15,9 @@ export default [
     route: '/ch3',
     title: 'Chapter 3: The Self and the Other',
     paragraph:
-      "Our research found that concepts from the past can be used in divisive ways in discussions about social and political issues today. But interpretations can vary: the same metaphor is often used to argue both sides of the same argument! This chapter pairs you with a prior visitor. Ready to meet them?",
+      'Our research found that concepts from the past can be used in divisive ways in discussions about social and political issues today. But interpretations can vary: the same metaphor is often used to argue both sides of the same argument! This chapter pairs you with a prior visitor. Ready to meet them?',
     paragraph2:
-      "The other visitor played through the same experience as you, in their own unique way. Below is how they they reflected on their Here and Now. Will their interpretation of the past be similar to yours?",
+      'The other visitor played through the same experience as you, in their own unique way. Below is how they they reflected on their Here and Now. Will their interpretation of the past be similar to yours?',
   },
   {
     route: '/ch4',
