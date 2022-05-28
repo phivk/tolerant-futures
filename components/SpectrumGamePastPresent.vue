@@ -1,5 +1,5 @@
 <template>
-  <GameContainer v-if="currentTurn">
+  <GameContainer v-if="currentTurn" @clicked="onGameContainerClick">
     <header>
       <div class="w-100 flex justify-between ph3 pt3">
         <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
@@ -216,6 +216,17 @@ export default {
     },
   },
   methods: {
+    onGameContainerClick(event) {
+      if (this.currentState.elementsVisible.feedbackModal) {
+        // if click is outside feedback-modal, then hide the virtual keyboard on iPad
+        const isFeedbackChild = Boolean(
+          event.target.closest('.spectrum-game-feedback-modal')
+        )
+        if (!isFeedbackChild) {
+          document.activeElement.blur()
+        }
+      }
+    },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
       this.currentTurn.valuePresent = this.turnValuePresent
