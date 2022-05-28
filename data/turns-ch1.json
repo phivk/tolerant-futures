@@ -1,19 +1,11 @@
 [
   {
-    "concept": "You",
-    "spectrumLeft": "left handed",
-    "spectrumRight": "right handed",
-    "colorA": "#FF9C9C",
-    "colorB": "#CFF578",
-    "caption": "Let's start simple. Are you left handed, right handed, or somewhere in between? Go ahead and place yourself on the spectrum."
-  },
-  {
-    "concept": "You",
+    "concept": "Your age",
     "spectrumLeft": "young",
     "spectrumRight": "old",
     "colorA": "#61F19B",
     "colorB": "#FE91F2",
-    "caption": "Thank you! Now, on the spectrum between Young and Old, where would you place yourself?"
+    "caption": "On the spectrum between Young and Old, where would you place yourself? Go ahead and place your card on the spectrum."
   },
   {
     "concept": "Your home",
@@ -24,11 +16,11 @@
     "caption": "Neat! Let's now reflect on where is home for you right now. At this moment, are you Near or Far from home?"
   },
   {
-    "concept": "Your relationship to time",
-    "spectrumLeft": "past oriented",
-    "spectrumRight": "future oriented",
+    "concept": "Your relationship with time",
+    "spectrumLeft": "past-oriented",
+    "spectrumRight": "future-oriented",
     "colorA": "#7AE4D8",
     "colorB": "#FF7676",
-    "caption": "Thanks! And how would you describe your relationship to time. Are you more past oriented or future oriented?"
+    "caption": "Thanks! And how would you describe your relationship with time. Are you more past-oriented or future-oriented?"
   }
 ]
