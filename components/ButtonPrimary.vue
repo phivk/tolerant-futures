@@ -16,7 +16,7 @@ export default {
 .button-primary {
   max-width: $main-button-max-width;
   font-family: $headline-font;
-  font-size: $f-2;
+  font-size: $f-3;
   text-align: center;
   box-sizing: border-box;
   padding: $offset-3;

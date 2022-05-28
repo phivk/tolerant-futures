@@ -38,25 +38,20 @@ div.informed-consent-page {
   background-image: url('@/static/image/landing_page_background.jpg');
 
   .wrapper {
-    width: 50%;
+    width: 35%;
     min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: $border-radius-2;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: $border-radius-1;
     padding: $offset-4;
     text-align: center;
 
     h1,
     p {
       display: block;
-    }
-
-    p {
-      font-family: $text-font;
-      font-size: $f-5;
     }
   }
 }

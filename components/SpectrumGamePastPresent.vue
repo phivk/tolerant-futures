@@ -296,6 +296,7 @@ export default {
 <style scoped lang="scss">
 header {
   width: 100%;
+  z-index: $z-4;
 
   .subtitle-player {
     margin-top: $offset-4;
@@ -309,19 +310,23 @@ header {
 .spectrum-game-dropzone {
   top: 50%;
   transform: translateY(-60%);
+  z-index: $z-4;  
 }
 
 .spectrum-game-draggable {
   bottom: 10%;
+  z-index: $z-5;
 }
 
 .spectrum-game-feedback-modal {
+  z-index: $z-6;  
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 footer {
+  z-index: $z-4;
   margin-bottom: $offset-3;
   display: flex;
   flex-direction: column;
@@ -332,7 +337,7 @@ footer {
   }
 
   .subtitle-player.subtitle-player-concept-hint {
-    //margin-top: $offset-7;
+    z-index: $z-4;
     font-size: $f-4;
     line-height: $f-3;
   }

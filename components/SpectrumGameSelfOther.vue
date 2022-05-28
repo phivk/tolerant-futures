@@ -374,6 +374,7 @@ export default {
 <style scoped lang="scss">
 header {
   width: 100%;
+  z-index: $z-4;
 
   .subtitle-player {
     margin-top: $offset-4;
@@ -381,13 +382,16 @@ header {
 }
 
 .spectrum-game-dropzone {
+  z-index: $z-4;
   top: 50%;
   transform: translateY(-60%);
 }
 .spectrum-game-draggable {
+  z-index: $z-5;
   bottom: 10%;
 }
 .spectrum-game-draggable-other {
+  z-index: $z-5;  
   bottom: 10%;
 }
 
@@ -396,7 +400,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: $z-5;
+  z-index: $z-4;
 
   .button-primary {
     margin-bottom: $offset-5;
@@ -408,12 +412,14 @@ footer {
   }
 }
 .spectrum-game-feedback-modal {
+  z-index: $z-6;
   left: 50%;
   top: 70%;
   height: 35%;
   transform: translate(-50%, -50%);
 }
 .spectrum-game-feedback-other {
+  z-index: $z-6;  
   /* TODO: improve these temp placeholder styles */
   left: 50%;
   top: 33%;
@@ -421,7 +427,7 @@ footer {
 
   // moved here from ModalTextRevealer
   position: absolute;
-  z-index: $z-5;
+  z-index: $z-6;
   width: $modal-player-feedback-width;
   height: 35%;
 }
