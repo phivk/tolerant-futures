@@ -95,7 +95,7 @@ export default {
   justify-content: center;
 
   .face-img {
-    height: 500px;
+    height: 370px;
     padding-bottom: $offset-3;
   }
 }
