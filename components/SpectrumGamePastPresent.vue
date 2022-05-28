@@ -8,15 +8,6 @@
       <SubtitlePlayer v-show="!showPresent">
         {{ currentState.caption }}
       </SubtitlePlayer>
-      <!-- <SubtitlePlayer v-show="showPresent && !turnValuePresentConfirmed">
-        {{ currentTurn.captionPresent }}
-      </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="requirePlayerFeedback && turnValuePresentConfirmed"
-        class="feedback-modal-subtitles"
-      >
-        Please finish the sentence below
-      </SubtitlePlayer> -->
     </header>
     <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
