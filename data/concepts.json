@@ -101,26 +101,26 @@
   },
   {
     "past": {
-      "name": "Fall of the Roman Empire",
-      "caption": "Where would you place the fall of the Roman Empire on this spectrum?",
+      "name": "the Fall of the Roman Empire",
+      "caption": "Where would you place the Fall of the Roman Empire on this spectrum?",
       "hint": "The end of the Roman Empire in the early fifth century across its western lands."
     },
     "present": [
       {
-        "name": "End of Nazi Germany",
-        "caption": "Our research shows that Fall of the Roman Empire is often associated with End of Nazi Germany. Where would you place it on the spectrum?"
+        "name": "the End of Nazi Germany",
+        "caption": "Our research shows that the Fall of the Roman Empire is often associated with the End of Nazi Germany. Where would you place it on the spectrum?"
       },
       {
-        "name": "End of the British Empire",
-        "caption": "Our research shows that Fall of the Roman Empire is often associated with End of the British Empire. Where would you place it on the spectrum?"
+        "name": "the End of the British Empire",
+        "caption": "Our research shows that the Fall of the Roman Empire is often associated with the End of the British Empire. Where would you place it on the spectrum?"
       },
       {
         "name": "Scottish independence",
-        "caption": "Our research shows that Fall of the Roman Empire is often associated with Scottish independence. Where would you place it on the spectrum?"
+        "caption": "Our research shows that the Fall of the Roman Empire is often associated with Scottish independence. Where would you place it on the spectrum?"
       },
       {
         "name": "Brexit",
-        "caption": "Our research shows that Fall of the Roman Empire is often associated with Brexit. Where would you place it on the spectrum?"
+        "caption": "Our research shows that the Fall of the Roman Empire is often associated with Brexit. Where would you place it on the spectrum?"
       }
     ]
   }
