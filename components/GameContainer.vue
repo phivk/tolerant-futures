@@ -1,15 +1,21 @@
 <template>
   <section
     class="w-100 h-100 relative flex flex-column justify-between items-center relative"
+    @click="onClick"
   >
     <slot> </slot>
   </section>
 </template>
-
 <script>
-export default {}
+export default {
+  methods: {
+    onClick(event) {
+      // emit click event to be handled by SpectrumGame components
+      this.$emit('clicked', event)
+    },
+  },
+}
 </script>
-
 <style scoped lang="scss">
 section {
   position: relative;

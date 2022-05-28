@@ -1,5 +1,5 @@
 <template>
-  <GameContainer v-if="currentTurn">
+  <GameContainer v-if="currentTurn" @clicked="onGameContainerClick">
     <header>
       <div class="w-100 flex justify-between ph3 pt3">
         <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
@@ -8,15 +8,6 @@
       <SubtitlePlayer v-show="!showPresent">
         {{ currentState.caption }}
       </SubtitlePlayer>
-      <!-- <SubtitlePlayer v-show="showPresent && !turnValuePresentConfirmed">
-        {{ currentTurn.captionPresent }}
-      </SubtitlePlayer>
-      <SubtitlePlayer
-        v-show="requirePlayerFeedback && turnValuePresentConfirmed"
-        class="feedback-modal-subtitles"
-      >
-        Please finish the sentence below
-      </SubtitlePlayer> -->
     </header>
     <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
       <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
@@ -225,6 +216,17 @@ export default {
     },
   },
   methods: {
+    onGameContainerClick(event) {
+      if (this.currentState.elementsVisible.feedbackModal) {
+        // if click is outside feedback-modal, then hide the virtual keyboard on iPad
+        const isFeedbackChild = Boolean(
+          event.target.closest('.spectrum-game-feedback-modal')
+        )
+        if (!isFeedbackChild) {
+          document.activeElement.blur()
+        }
+      }
+    },
     onTurnPresentConfirm() {
       this.turnValuePresentConfirmed = true
       this.currentTurn.valuePresent = this.turnValuePresent
