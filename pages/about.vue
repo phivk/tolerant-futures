@@ -83,6 +83,7 @@ export default {
       title: 'Tolerant Futures',
     }
   },
+  layout: 'scrollable',
 }
 </script>
 

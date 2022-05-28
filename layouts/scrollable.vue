@@ -1,5 +1,5 @@
 <template>
-  <div class="touch-action-none">
+  <div class="touch-action-pany">
     <Nuxt />
     <TheIdleView />
   </div>
@@ -9,7 +9,7 @@ body {
   user-select: none;
   background-color: #3b1b9a;
 }
-.touch-action-none {
-  touch-action: none;
+.touch-action-pany {
+  touch-action: pan-y;
 }
 </style>
