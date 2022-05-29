@@ -35,6 +35,11 @@ export default {
       required: false,
       default: true,
     },
+    // overrideWith is a hack
+    // I needed to wrap this component in ModalContainer component...
+    // but in ch4 i couldn't because i don't understand the structure of dynamic components
+    // so i came up with this for now
+    // sorry ! 
     overrideWidth: {
       type: String,
       default: '',

@@ -57,7 +57,6 @@ export default {
         margin-top: $offset-3;
       }
 
-
       .button-secondary {
         margin-top: $offset-3;
       }
