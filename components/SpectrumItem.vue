@@ -1,8 +1,9 @@
 <template>
   <div>
     <slot></slot>
-    <span class="spectrum-item" :style="styleObjectGradient">
-      <span class="spectrum-circle" :style="styleObjectCircle"></span>
+    <span class="spectrum-item">
+      <span class="gradient" :style="styleObjectGradient"></span>
+      <span class="spectrum-card" :style="styleObjectCard"></span>
     </span>
   </div>
 </template>
@@ -12,7 +13,6 @@ import { remapRange } from '~/util/math.js'
 
 export default {
   props: {
-    /* all gradientClass(es) passed to this component are defined in ~/assets/scss/gradients.scss */
     colorA: {
       type: String,
       required: true,
@@ -40,7 +40,7 @@ export default {
           ' 75%)',
       }
     },
-    styleObjectCircle() {
+    styleObjectCard() {
       let n = remapRange(this.spectrumPosition, 0.0, 1.0, 10.0, 90.0)
       n = Math.round(n)
       n = n + '%'
@@ -63,14 +63,21 @@ div {
     position: absolute;
     width: 100%;
     height: 100%;
-    filter: blur($blur-1);
 
-    .spectrum-circle {
+    .gradient {
       position: absolute;
-      width: $ch3-other-user-spectrum-height;
-      height: $ch3-other-user-spectrum-height;
-      border-radius: 100%;
-      background-color: $white-color;
+      width: 100%;
+      height: 100%;
+      filter: blur($blur-1);      
+    }
+
+    .spectrum-card {
+      z-index: $z-3;
+      position: absolute;
+      width: $ch3-other-user-spectrum-width;
+      height: $ch3-other-user-mini-card-height;
+      border-radius: $border-radius-2;
+      border: 5px solid $white-color;
       top: -50%;
       transform: translateY(50%);
     }
