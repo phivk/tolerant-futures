@@ -116,7 +116,7 @@ export default {
 <style scoped lang="scss">
 .draggable {
   position: absolute;
-  z-index: $z-3;
+  z-index: $z-5;
 
   &.not-draggable {
     cursor: default !important;
