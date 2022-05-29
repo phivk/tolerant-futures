@@ -66,13 +66,15 @@
         >{{ currentTurn.concept }}</CardItem
       >
     </DraggableItem>
-    <ModalPlayerFeedback
-      v-show="currentState.elementsVisible.feedbackModal"
-      class="spectrum-game-feedback-modal"
-      :input-placeholder-text="feedbackInputPlaceholderText"
-      @feedbackSubmitted="onFeedbackSubmitted"
-      @feedbackSkipped="onFeedbackSkipped"
-    />
+    <ModalContainer>
+      <ModalPlayerFeedback
+        v-show="currentState.elementsVisible.feedbackModal"
+        class="spectrum-game-feedback-modal"
+        :input-placeholder-text="feedbackInputPlaceholderText"
+        @feedbackSubmitted="onFeedbackSubmitted"
+        @feedbackSkipped="onFeedbackSkipped"
+      />
+    </ModalContainer>
     <TheFooter>
       <span v-if="currentState.buttonPrimary">
         <ButtonPrimary
@@ -316,13 +318,6 @@ header {
 .spectrum-game-draggable {
   bottom: 10%;
   z-index: $z-5;
-}
-
-.spectrum-game-feedback-modal {
-  z-index: $z-6;  
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 footer {

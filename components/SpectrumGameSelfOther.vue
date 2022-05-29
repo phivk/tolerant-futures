@@ -72,7 +72,7 @@
       {{ currentTurn.concept }}
     </CardItem>
     <!-- feedbackOther -->
-    <div v-if="currentTurn.feedbackOther">
+    <ModalContainer v-if="currentTurn.feedbackOther">
       <ModalTextRevealer
         v-show="currentState.elementsVisible.feedbackModalOther"
         class="spectrum-game-feedback-other"
@@ -94,7 +94,7 @@
         :text="feedback"
         :is-hidden="false"
       />
-    </div>
+    </ModalContainer>
     <TheFooter>
       <span v-if="currentState.buttonPrimary">
         <ButtonPrimary
@@ -377,7 +377,7 @@ header {
   z-index: $z-4;
 
   .subtitle-player {
-    margin-top: $offset-4;
+    margin-top: $offset-3;
   }
 }
 
@@ -411,24 +411,8 @@ footer {
     line-height: $f-3;
   }
 }
-.spectrum-game-feedback-modal {
-  z-index: $z-6;
-  left: 50%;
-  top: 70%;
-  height: 35%;
-  transform: translate(-50%, -50%);
-}
-.spectrum-game-feedback-other {
-  z-index: $z-6;  
-  /* TODO: improve these temp placeholder styles */
-  left: 50%;
-  top: 33%;
-  transform: translate(-50%, -50%);
 
-  // moved here from ModalTextRevealer
-  position: absolute;
-  z-index: $z-6;
-  width: $modal-player-feedback-width;
-  height: 35%;
+.spectrum-game-feedback-other {
+  margin-bottom: $offset-3;
 }
 </style>
