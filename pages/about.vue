@@ -3,7 +3,9 @@
     class="relative flex flex-column justify-center items-center tc about-wrapper"
   >
     <header class="w-100 flex justify-end ph3 pt3">
-      <ButtonExitGame />
+      <NuxtLink to="/">
+        <ButtonExitGame />
+      </NuxtLink>
     </header>
     <section class="mw7 tl mv5">
       <h1>
