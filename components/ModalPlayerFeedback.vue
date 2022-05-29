@@ -62,20 +62,36 @@ div {
   form {
     width: 100%;
     height: 100%;
-    border-radius: $border-radius-2;
-    padding: $offset-3;
-    border: $border-width-3 solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.8);
-    @supports (
-      (-webkit-backdrop-filter: blur($blur-1)) or
-        (backdrop-filter: blur($blur-1))
-    ) {
-      background-color: rgba(255, 255, 255, 0.3);
-      -webkit-backdrop-filter: blur($blur-1);
-      backdrop-filter: blur($blur-1);
-      border: $border-width-3 solid rgba(255, 255, 255, 0.4);
-    }
+    //border-radius: $border-radius-2;
+    padding: 50px 70px; // $offset-4;
+    //border: $border-width-3 solid rgba(255, 255, 255, 0.4);
+    //background-color: rgba(255, 255, 255, 0.8);
+    // @supports (
+    //   (-webkit-backdrop-filter: blur($blur-1)) or
+    //     (backdrop-filter: blur($blur-1))
+    // ) {
+      // background-color: rgba(255, 255, 255, 0.3);
+     // -webkit-backdrop-filter: blur($blur-2);
+     //  backdrop-filter: blur($blur-2);
+      // border: $border-width-3 solid rgba(255, 255, 255, 0.4);
+    // }
+
+    &::before  {
+      position: absolute;
+      border-radius: $border-radius-2;
+      left: 0;
+      top: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
+      filter: blur($blur-3);
+    }   
+
+    //filter: blur($blur-3);
+
     textarea {
+      position: relative;
       background: none;
       outline: none;
       resize: none;
@@ -88,9 +104,10 @@ div {
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
+
       &:focus {
         outline: none;
-      }
+      }   
     }
     input[type='submit'] {
       max-width: $main-button-max-width;
