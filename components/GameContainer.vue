@@ -1,10 +1,16 @@
 <template>
-  <section
-    class="w-100 h-100 relative flex flex-column justify-between items-center relative"
-    @click="onClick"
-  >
-    <slot> </slot>
-  </section>
+  <div class="w-100 h-100 relative">
+    <div class="absolute w-100 flex justify-between ph3 pt3 z-999">
+      <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
+      <ButtonExitGame />
+    </div>
+    <section
+      class="w-100 h-100 relative flex flex-column justify-between items-center"
+      @click="onClick"
+    >
+      <slot> </slot>
+    </section>
+  </div>
 </template>
 <script>
 export default {
