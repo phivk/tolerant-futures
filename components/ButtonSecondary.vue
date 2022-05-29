@@ -28,6 +28,12 @@ export default {
   outline: none;
   filter: $secondary-button-shadow-effect;
 
+  &.outlined {
+    background: none;
+    border: 1px solid $white-color;
+    color: $white-color;
+  }
+
   &:hover {
     cursor: pointer;
   }

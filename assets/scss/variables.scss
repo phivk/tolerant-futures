@@ -36,6 +36,7 @@ $z-3: 3;
 $z-4: 4;
 $z-5: 5;
 $z-6: 6;
+$z-top: 1000;
 
 /* borders */
 $border-width-1: 1px;
@@ -81,6 +82,7 @@ $offset-8: 190px;
 $black-color: #000;
 $white-color: #fff;
 $dark-blue: #10103D;
+$very-dark-blue: #050524;
 $light-gray: #adadad;
 $gray: #878787;
 $card-item-background-color: #0e0b30;
@@ -90,6 +92,7 @@ $signal-color: #8968e7;
 $action-color: #3c1b9a;
 $button-outline-color: $white-color;
 $button-disabled-color: $gray;
+$warn-overlay-color: rgba(5, 5, 36, 0.3);
 
 /* spectrum gradient colors
 	are hand picked color vars used in background gradients of the spectra	

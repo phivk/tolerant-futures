@@ -16,7 +16,7 @@ export default {
 .button-primary {
   max-width: $main-button-max-width;
   font-family: $headline-font;
-  font-size: $f-3;
+  font-size: $f-2;
   text-align: center;
   box-sizing: border-box;
   padding: $offset-3;
@@ -26,6 +26,12 @@ export default {
   outline: none;
   filter: $main-button-shadow-effect;
   color: $black-color;
+
+  &.outlined {
+    background: none;
+    border: 1px solid $white-color;
+    color: $white-color;
+  }
 
   &:hover {
     cursor: pointer;
