@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isIdle" class="confirm-exit-container">
+  <div class="confirm-exit-container">
     <div>
       <h1>Are you sure you want to leave?</h1>
       <p class="mv3 large-paragraph">All your progress will be lost.</p>
@@ -14,11 +14,6 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      // isIdle: false,
-    }
-  },
   methods: {
     onStay() {
       this.$emit('stay', {})
