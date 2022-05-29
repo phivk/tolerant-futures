@@ -68,7 +68,7 @@ div {
       position: absolute;
       width: 100%;
       height: 100%;
-      filter: blur($blur-1);      
+      filter: blur($blur-1);
     }
 
     .spectrum-card {

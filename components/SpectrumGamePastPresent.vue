@@ -310,7 +310,7 @@ header {
 .spectrum-game-dropzone {
   top: 50%;
   transform: translateY(-60%);
-  z-index: $z-4;  
+  z-index: $z-4;
 }
 
 .spectrum-game-draggable {

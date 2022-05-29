@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-text-revealer" :style="{width: overrideWidth}">
+  <div class="modal-text-revealer" :style="{ width: overrideWidth }">
     <div class="text">
       <div>
         <p>
@@ -8,10 +8,7 @@
         </p>
       </div>
     </div>
-    <div
-      v-if="isHidden"
-      class="text-hider"
-    >
+    <div v-if="isHidden" class="text-hider">
       <span v-if="hint">{{ hint }}</span>
     </div>
   </div>
@@ -39,17 +36,16 @@ export default {
     // I needed to wrap this component in ModalContainer component...
     // but in ch4 i couldn't because i don't understand the structure of dynamic components
     // so i came up with this for now
-    // sorry ! 
+    // sorry !
     overrideWidth: {
       type: String,
       default: '',
-    }
+    },
   },
 }
 </script>
 
 <style scoped lang="scss">
-
 div.modal-text-revealer {
   z-index: 10000;
   position: relative;
@@ -88,7 +84,7 @@ div.modal-text-revealer {
 
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       width: 100%;
       height: $modal-player-feedback-height;
       background-color: $dark-blue;
@@ -102,7 +98,6 @@ div.modal-text-revealer {
       margin-bottom: $offset-3;
       z-index: $z-6;
     }
-
-  }  
+  }
 }
 </style>

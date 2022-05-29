@@ -247,7 +247,7 @@ header {
 }
 
 .spectrum-game-dropzone {
-  z-index: $z-4;  
+  z-index: $z-4;
   top: 50%;
   transform: translateY(-60%);
 }

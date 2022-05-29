@@ -64,17 +64,17 @@ div {
     width: 100%;
     padding: 50px 70px 0 70px;
 
-    &::before  {
+    &::before {
       position: absolute;
       border-radius: $border-radius-2;
       left: 0;
       top: 0;
-      content: "";
+      content: '';
       width: 100%;
       height: $modal-player-feedback-height;
-      background-color: rgba(255, 255, 255, 0.90);
+      background-color: rgba(255, 255, 255, 0.9);
       filter: blur($blur-3);
-    }   
+    }
 
     textarea {
       position: relative;
@@ -93,9 +93,9 @@ div {
 
       &:focus {
         outline: none;
-      }   
+      }
     }
-    input[type='submit'] {      
+    input[type='submit'] {
       max-width: $main-button-max-width;
       font-family: $headline-font;
       font-size: $f-3;

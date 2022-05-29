@@ -398,7 +398,7 @@ header {
   bottom: 10%;
 }
 .spectrum-game-draggable-other {
-  z-index: $z-5;  
+  z-index: $z-5;
   bottom: 10%;
 }
 

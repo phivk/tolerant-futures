@@ -20,16 +20,17 @@
       </ButtonPrimary>
       <ButtonSecondary
         v-if="currentState.buttonSecondary"
-        @buttonClicked="currentState.buttonSecondary.handler"
         class="mt3"
+        @buttonClicked="currentState.buttonSecondary.handler"
       >
         {{ currentState.buttonSecondary.text }}
-      </ButtonSecondary>     
+      </ButtonSecondary>
     </div>
-    <NuxtLink 
+    <NuxtLink
       v-if="currentStateKey === 'endState'"
-      class="link-inline" 
-      to="/about">
+      class="link-inline"
+      to="/about"
+    >
       Read more about the Tolerant Futures project
     </NuxtLink>
   </ChapterWrapperFuture>
@@ -62,7 +63,7 @@ export default {
           dynamicProps: {
             text: this.feedback,
             isHidden: false,
-            overrideWidth: "60%",
+            overrideWidth: '60%',
           },
           buttonPrimary: {
             text: 'Email a friend',
@@ -116,7 +117,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  a {
-    color: $white-color;
-  }
+a {
+  color: $white-color;
+}
 </style>
