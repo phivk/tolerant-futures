@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-text-revealer">
+  <div class="modal-text-revealer" :style="{width: overrideWidth}">
     <div class="text">
       <div>
         <p>
@@ -10,7 +10,7 @@
     </div>
     <div
       v-if="isHidden"
-      class="text-hider absolute w-100 h-100 top-0 bg-white-90 bg-blur f2 pa3 br4"
+      class="text-hider"
     >
       <span v-if="hint">{{ hint }}</span>
     </div>
@@ -35,6 +35,10 @@ export default {
       required: false,
       default: true,
     },
+    overrideWidth: {
+      type: String,
+      default: '',
+    }
   },
 }
 </script>

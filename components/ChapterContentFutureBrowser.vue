@@ -4,7 +4,7 @@
     :paragraph="currentState.caption"
     :show-button="false"
   >
-    <div class="mv4 tc">
+    <div class="mv4 tc w-100 flex flex-column items-center justify-center">
       <component
         :is="currentState.component"
         class="mv3"
@@ -21,6 +21,7 @@
       <ButtonSecondary
         v-if="currentState.buttonSecondary"
         @buttonClicked="currentState.buttonSecondary.handler"
+        class="mt3"
       >
         {{ currentState.buttonSecondary.text }}
       </ButtonSecondary>
@@ -55,6 +56,7 @@ export default {
           dynamicProps: {
             text: this.feedback,
             isHidden: false,
+            overrideWidth: "60%",
           },
           buttonPrimary: {
             text: 'Email a friend',

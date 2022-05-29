@@ -56,7 +56,7 @@ export default {
 <style scoped lang="scss">
 div {
   z-index: $z-5;
-  width: 100%;
+  width: $modal-player-feedback-width;
   height: $modal-player-feedback-height;
 
   form {
