@@ -1,5 +1,5 @@
 {
-  "rewrites": [
+  "redirects": [
     { "source": "/installation", "destination": "https://docs.google.com/document/d/1yQfWmLXS64Jj4liqu580Dca2s4T5nmDoScCvM8NoJWI/edit?usp=sharing" }
   ]
 }
