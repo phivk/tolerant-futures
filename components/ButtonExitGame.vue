@@ -1,13 +1,13 @@
 <template>
-  <NuxtLink to="/" class="button-exit-game">
+  <span @click="onClick" class="button-exit-game">
     <img src="@/static/svg/exit_game_icon.svg" />
-  </NuxtLink>
+  </span>
 </template>
 
 <script>
 export default {
   methods: {
-    handleClick() {
+    onClick() {
       this.$emit('buttonClicked', {})
     },
   },
@@ -28,5 +28,6 @@ export default {
   background-color: $action-color;
   outline: 0;
   filter: $secondary-button-shadow-effect;
+  cursor: pointer;
 }
 </style>
