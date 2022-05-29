@@ -24,8 +24,14 @@
         class="mt3"
       >
         {{ currentState.buttonSecondary.text }}
-      </ButtonSecondary>
+      </ButtonSecondary>     
     </div>
+    <NuxtLink 
+      v-if="currentStateKey === 'endState'"
+      class="link-inline" 
+      to="/about">
+      Read more about the Tolerant Futures project
+    </NuxtLink>
   </ChapterWrapperFuture>
 </template>
 
@@ -108,3 +114,9 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+  a {
+    color: $white-color;
+  }
+</style>
