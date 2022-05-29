@@ -1,10 +1,6 @@
 <template>
   <GameContainer v-if="currentTurn">
-    <header>
-      <div class="w-100 flex justify-between ph3 pt3">
-        <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
-        <ButtonExitGame />
-      </div>
+    <header class="mt4">
       <SubtitlePlayer v-show="!showPresent">
         {{ currentTurn.caption }}
       </SubtitlePlayer>
