@@ -101,7 +101,7 @@ div {
       font-size: $f-3;
       text-align: center;
       box-sizing: border-box;
-      padding: $offset-2;
+      padding: $offset-3;
       border-radius: $border-radius-1;
       background-color: $white-color;
       border: none;
@@ -131,7 +131,7 @@ div {
     filter: $caption-shadow-effect;
   }
   button {
-    margin-top: $offset-6;
+    margin-top: $offset-5;
   }
 }
 </style>

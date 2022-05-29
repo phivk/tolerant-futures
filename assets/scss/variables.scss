@@ -12,7 +12,7 @@ $chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
 $modal-player-feedback-width: 50%;
 $modal-player-feedback-height: 320px;
-$modal-player-feedback-textarea-height: 200px;
+$modal-player-feedback-textarea-height: 190px;
 $ch3-other-user-profile-container-height: 600px;
 $ch3-other-user-spectrum-height: 80px;
 /* font families */
@@ -63,7 +63,7 @@ $draggable-item-shadow-effect-dropped: drop-shadow(
 );
 
 $main-button-shadow-effect: drop-shadow(0 8px 7px rgb(0, 0, 0, 0.4));
-$secondary-button-shadow-effect: drop-shadow(0 6px 6px rgb(0, 0, 0, 0.4));
+$secondary-button-shadow-effect: drop-shadow(0 4px 4px rgb(0, 0, 0, 0.3));
 $caption-shadow-effect: drop-shadow(1px 2px 0px rgb(0, 0, 0, 0.75));
 $shadow-effect-disabled: drop-shadow(0 0 0 rgb(0, 0, 0, 0.0));
 
@@ -81,13 +81,15 @@ $offset-8: 190px;
 $black-color: #000;
 $white-color: #fff;
 $dark-blue: #10103D;
+$light-gray: #adadad;
+$gray: #878787;
 $card-item-background-color: #0e0b30;
 $card-item-outline-color: #909090;
 $background-color: #3c1b9a;
 $signal-color: #8968e7;
 $action-color: #3c1b9a;
 $button-outline-color: $white-color;
-$button-disabled-color: #878787;
+$button-disabled-color: $gray;
 
 /* spectrum gradient colors
 	are hand picked color vars used in background gradients of the spectra	

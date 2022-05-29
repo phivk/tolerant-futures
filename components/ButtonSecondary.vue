@@ -19,14 +19,13 @@ export default {
   font-family: $headline-font;
   font-size: $f-4;
   box-sizing: border-box;
-  color: $white-color;
+  color: $light-gray;
   padding: $offset-2;
   border-radius: $border-radius-1;
   border-width: $border-width-2;
-  border-color: $white-color;
+  border-color: $gray;
   background-color: $background-color;
   outline: none;
-  border-style: solid;
   filter: $secondary-button-shadow-effect;
 
   &:hover {
