@@ -4,12 +4,35 @@
     :paragraph="currentState.caption"
     :show-button="false"
   >
-    <ButtonPrimary
-      v-if="currentState.buttonPrimary"
-      @buttonClicked="currentState.buttonPrimary.handler"
+    <div class="mv4 tc w-100 flex flex-column items-center justify-center">
+      <component
+        :is="currentState.component"
+        class="mv3"
+        v-bind="currentState.dynamicProps"
+        @feedbackSubmitted="onFeedbackSubmitted"
+        @feedbackSkipped="onFeedbackSkipped"
+      />
+      <ButtonPrimary
+        v-if="currentState.buttonPrimary"
+        @buttonClicked="currentState.buttonPrimary.handler"
+      >
+        {{ currentState.buttonPrimary.text }}
+      </ButtonPrimary>
+      <ButtonSecondary
+        v-if="currentState.buttonSecondary"
+        class="mt3"
+        @buttonClicked="currentState.buttonSecondary.handler"
+      >
+        {{ currentState.buttonSecondary.text }}
+      </ButtonSecondary>
+    </div>
+    <NuxtLink
+      v-if="currentStateKey === 'endState'"
+      class="link-inline"
+      to="/about"
     >
-      {{ currentState.buttonPrimary.text }}
-    </ButtonPrimary>
+      Read more about the Tolerant Futures project
+    </NuxtLink>
   </ChapterWrapperFuture>
 </template>
 
@@ -18,18 +41,33 @@ export default {
   data() {
     return {
       title: 'Chapter 4: The Future',
-      currentStateKey: 'pickupCard',
+      feedback: '',
+      currentStateKey: 'inputFeedback',
     }
   },
   computed: {
     states() {
       return {
-        pickupCard: {
+        inputFeedback: {
           caption:
-            "As part of this installation, you'll find a set of physical cards. We invite you to pick one and take it with you. What meaning do you attach to this card? And how would someone else see it? Feel free to use this card as a keepsake or a conversation starter whenever the moment is right.",
+            'We invite you to take a moment and reflect: What would a tolerant future look like for you?',
+          component: 'FeedbackInput',
+          dynamicProps: {
+            inputPlaceholderText: 'For me, a tolerant future would look like ',
+          },
+        },
+        displayFeedback: {
+          caption:
+            'Thank you. Sharing your thought with someone else can be a great first step in making it real. Why not share this thought with someone you know?',
+          component: 'ModalTextRevealer',
+          dynamicProps: {
+            text: this.feedback,
+            isHidden: false,
+            overrideWidth: '60%',
+          },
           buttonPrimary: {
             text: 'Continue',
-            handler: this.onContinue,
+            handler: this.onFeedbackSkipped,
           },
         },
         endState: {
@@ -47,7 +85,12 @@ export default {
     },
   },
   methods: {
-    onContinue() {
+    onFeedbackSubmitted(feedbackText) {
+      this.feedback = feedbackText
+      this.currentStateKey = 'displayFeedback'
+      this.$emit('submit-input', feedbackText)
+    },
+    onFeedbackSkipped() {
       this.currentStateKey = 'endState'
     },
     onBackToStart() {
@@ -56,3 +99,9 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+a {
+  color: $white-color;
+}
+</style>
