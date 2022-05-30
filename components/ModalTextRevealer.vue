@@ -52,10 +52,18 @@ div.modal-text-revealer {
   width: 100%;
   height: $modal-player-feedback-height;
 
+  &.modal-short {
+    height: $modal-player-feedback-height-short;
+
+    .text-hider {
+      height: $modal-player-feedback-height-short;
+    }
+  }
+
   .text {
     position: absolute;
     width: 100%;
-    height: $modal-player-feedback-height;
+    height: 100%;
     border-radius: $border-radius-2;
     box-sizing: border-box;
     padding: $offset-3 $offset-4;
@@ -86,7 +94,7 @@ div.modal-text-revealer {
       position: absolute;
       content: '';
       width: 100%;
-      height: $modal-player-feedback-height;
+      height: 100%;
       background-color: $dark-blue;
       filter: blur($blur-2);
     }
