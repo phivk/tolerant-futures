@@ -71,7 +71,7 @@
     <ModalContainer v-if="currentTurn.feedbackOther">
       <ModalTextRevealer
         v-show="currentState.elementsVisible.feedbackModalOther"
-        class="spectrum-game-feedback-other"
+        class="spectrum-game-feedback-other modal-short"
         :text="currentTurn.feedbackOther"
         hint="provide your input to see theirs"
         :is-hidden="feedback === ''"
@@ -79,14 +79,14 @@
       <!-- feedbackSelf -->
       <ModalPlayerFeedback
         v-show="currentState.elementsVisible.feedbackModalSelf"
-        class="spectrum-game-feedback-modal"
+        class="spectrum-game-feedback-modal modal-short"
         :input-placeholder-text="feedbackInputPlaceholderText"
         @feedbackSubmitted="onFeedbackSubmitted"
         @feedbackSkipped="onFeedbackSkipped"
       />
       <ModalTextRevealer
         v-show="currentState.elementsVisible.feedbackModalSelfText"
-        class="spectrum-game-feedback-modal"
+        class="spectrum-game-feedback-modal modal-short"
         :text="feedback"
         :is-hidden="false"
       />
@@ -384,7 +384,7 @@ header {
   z-index: $z-4;
 
   .subtitle-player {
-    margin-top: $offset-3;
+    margin-top: $offset-4;
   }
 }
 

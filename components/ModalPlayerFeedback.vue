@@ -59,9 +59,14 @@ div {
   width: 100%;
   height: $modal-player-feedback-height;
 
+  &.modal-short {
+    height: $modal-player-feedback-height-short;
+  }
+
   form {
     position: relative;
     width: 100%;
+    height: 100%;
     padding: 50px 70px 0 70px;
 
     &::before {
@@ -71,8 +76,8 @@ div {
       top: 0;
       content: '';
       width: 100%;
-      height: $modal-player-feedback-height;
-      background-color: rgba(255, 255, 255, 0.9);
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.95);
       filter: blur($blur-3);
     }
 
