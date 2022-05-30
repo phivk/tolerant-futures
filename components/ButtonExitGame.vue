@@ -1,5 +1,5 @@
 <template>
-  <span @click="onClick" class="button-exit-game">
+  <span class="button-exit-game" @click="onClick">
     <img src="@/static/svg/exit_game_icon.svg" />
   </span>
 </template>

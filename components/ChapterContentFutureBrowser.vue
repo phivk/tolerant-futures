@@ -4,7 +4,7 @@
     :paragraph="currentState.caption"
     :show-button="false"
   >
-    <div class="mv4 tc">
+    <div class="mv4 tc w-100 flex flex-column items-center justify-center">
       <component
         :is="currentState.component"
         class="mv3"
@@ -20,11 +20,19 @@
       </ButtonPrimary>
       <ButtonSecondary
         v-if="currentState.buttonSecondary"
+        class="mt3"
         @buttonClicked="currentState.buttonSecondary.handler"
       >
         {{ currentState.buttonSecondary.text }}
       </ButtonSecondary>
     </div>
+    <NuxtLink
+      v-if="currentStateKey === 'endState'"
+      class="link-inline"
+      to="/about"
+    >
+      Read more about the Tolerant Futures project
+    </NuxtLink>
   </ChapterWrapperFuture>
 </template>
 
@@ -55,6 +63,7 @@ export default {
           dynamicProps: {
             text: this.feedback,
             isHidden: false,
+            overrideWidth: '60%',
           },
           buttonPrimary: {
             text: 'Email a friend',
@@ -106,3 +115,9 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+a {
+  color: $white-color;
+}
+</style>

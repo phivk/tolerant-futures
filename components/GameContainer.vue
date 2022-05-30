@@ -2,7 +2,7 @@
   <div class="w-100 h-100 relative">
     <div class="absolute w-100 flex justify-between ph3 pt3 z-999">
       <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
-      <ButtonExitGame @buttonClicked="onExitClicked"/>
+      <ButtonExitGame @buttonClicked="onExitClicked" />
     </div>
     <section
       class="w-100 h-100 relative flex flex-column justify-between items-center"
@@ -10,7 +10,11 @@
     >
       <slot> </slot>
     </section>
-    <TheExitConfirmation v-show="showExitConfirmation" @stay="onStay" @leave="onLeave"/>
+    <TheExitConfirmation
+      v-show="showExitConfirmation"
+      @stay="onStay"
+      @leave="onLeave"
+    />
   </div>
 </template>
 <script>
@@ -25,13 +29,13 @@ export default {
       // emit click event to be handled by SpectrumGame components
       this.$emit('clicked', event)
     },
-    onExitClicked(){
-      this.showExitConfirmation = true;
+    onExitClicked() {
+      this.showExitConfirmation = true
     },
-    onStay(){
-      this.showExitConfirmation = false;
+    onStay() {
+      this.showExitConfirmation = false
     },
-    onLeave(){
+    onLeave() {
       this.$router.push('/')
     },
   },

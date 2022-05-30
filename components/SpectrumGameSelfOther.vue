@@ -68,7 +68,7 @@
       {{ currentTurn.concept }}
     </CardItem>
     <!-- feedbackOther -->
-    <div v-if="currentTurn.feedbackOther">
+    <ModalContainer v-if="currentTurn.feedbackOther">
       <ModalTextRevealer
         v-show="currentState.elementsVisible.feedbackModalOther"
         class="spectrum-game-feedback-other"
@@ -90,7 +90,7 @@
         :text="feedback"
         :is-hidden="false"
       />
-    </div>
+    </ModalContainer>
     <TheFooter>
       <span v-if="currentState.buttonPrimary">
         <ButtonPrimary
@@ -381,20 +381,24 @@ export default {
 <style scoped lang="scss">
 header {
   width: 100%;
+  z-index: $z-4;
 
   .subtitle-player {
-    margin-top: $offset-4;
+    margin-top: $offset-3;
   }
 }
 
 .spectrum-game-dropzone {
+  z-index: $z-4;
   top: 50%;
   transform: translateY(-60%);
 }
 .spectrum-game-draggable {
+  z-index: $z-5;
   bottom: 10%;
 }
 .spectrum-game-draggable-other {
+  z-index: $z-5;
   bottom: 10%;
 }
 
@@ -403,7 +407,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: $z-5;
+  z-index: $z-4;
 
   .button-primary {
     margin-bottom: $offset-5;
@@ -414,22 +418,8 @@ footer {
     line-height: $f-3;
   }
 }
-.spectrum-game-feedback-modal {
-  left: 50%;
-  top: 70%;
-  height: 35%;
-  transform: translate(-50%, -50%);
-}
-.spectrum-game-feedback-other {
-  /* TODO: improve these temp placeholder styles */
-  left: 50%;
-  top: 33%;
-  transform: translate(-50%, -50%);
 
-  // moved here from ModalTextRevealer
-  position: absolute;
-  z-index: $z-5;
-  width: $modal-player-feedback-width;
-  height: 35%;
+.spectrum-game-feedback-other {
+  margin-bottom: $offset-3;
 }
 </style>

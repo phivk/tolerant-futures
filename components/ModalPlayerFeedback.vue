@@ -55,27 +55,29 @@ export default {
 
 <style scoped lang="scss">
 div {
-  position: absolute;
   z-index: $z-5;
-  width: $modal-player-feedback-width;
+  width: 100%;
   height: $modal-player-feedback-height;
+
   form {
+    position: relative;
     width: 100%;
-    height: 100%;
-    border-radius: $border-radius-2;
-    padding: $offset-3;
-    border: $border-width-3 solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.8);
-    @supports (
-      (-webkit-backdrop-filter: blur($blur-1)) or
-        (backdrop-filter: blur($blur-1))
-    ) {
-      background-color: rgba(255, 255, 255, 0.3);
-      -webkit-backdrop-filter: blur($blur-1);
-      backdrop-filter: blur($blur-1);
-      border: $border-width-3 solid rgba(255, 255, 255, 0.4);
+    padding: 50px 70px 0 70px;
+
+    &::before {
+      position: absolute;
+      border-radius: $border-radius-2;
+      left: 0;
+      top: 0;
+      content: '';
+      width: 100%;
+      height: $modal-player-feedback-height;
+      background-color: rgba(255, 255, 255, 0.9);
+      filter: blur($blur-3);
     }
+
     textarea {
+      position: relative;
       background: none;
       outline: none;
       resize: none;
@@ -88,6 +90,7 @@ div {
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
+
       &:focus {
         outline: none;
       }
@@ -95,7 +98,7 @@ div {
     input[type='submit'] {
       max-width: $main-button-max-width;
       font-family: $headline-font;
-      font-size: $f-2;
+      font-size: $f-3;
       text-align: center;
       box-sizing: border-box;
       padding: $offset-3;
@@ -109,11 +112,13 @@ div {
       &:hover {
         cursor: pointer;
       }
+
       &:disabled {
         color: $button-disabled-color;
         border: 2px solid $button-disabled-color;
         background: none;
-        filter: none;
+        filter: $shadow-effect-disabled;
+
         &:hover {
           cursor: not-allowed;
         }
@@ -126,7 +131,7 @@ div {
     filter: $caption-shadow-effect;
   }
   button {
-    margin-top: $offset-3;
+    margin-top: $offset-5;
   }
 }
 </style>

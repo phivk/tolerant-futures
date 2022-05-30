@@ -1,29 +1,19 @@
 <template>
-  <div
-    class="w-100 h-100 bg-white-90 absolute top-0 z-999 flex justify-center items-center"
-  >
-    <ModalTextRevealer
-      class="tc mw7"
-      :is-hidden="false"
-    >
-      <div class="lh-copy">
-        Are you sure you want to leave? <br>
-        All your progress will be lost.
-      </div>
-      <div class="mv3">
-        <ButtonPrimary @buttonClicked="onStay">Stay</ButtonPrimary>
-        <ButtonSecondary @buttonClicked="onLeave">Leave</ButtonSecondary>
-      </div>
-    </ModalTextRevealer>
+  <div class="confirm-exit-container">
+    <div>
+      <h1>Are you sure you want to leave?</h1>
+      <p class="mv3 large-paragraph">All your progress will be lost.</p>
+      <ButtonPrimary class="outlined" @buttonClicked="onStay"
+        >Stay</ButtonPrimary
+      >
+      <ButtonSecondary class="outlined" @buttonClicked="onLeave"
+        >Leave</ButtonSecondary
+      >
+    </div>
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      // isIdle: false,
-    }
-  },
   methods: {
     onStay() {
       this.$emit('stay', {})
@@ -34,3 +24,51 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="scss">
+.confirm-exit-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: $z-top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $warn-overlay-color;
+  pointer-events: auto;
+
+  div {
+    width: 500px;
+    padding: $offset-6;
+    text-align: center;
+    color: $white-color;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .button-primary {
+      margin-top: $offset-3;
+    }
+
+    .button-secondary {
+      margin-top: $offset-3;
+    }
+
+    &:before {
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: $very-dark-blue;
+      filter: blur($blur-3);
+    }
+  }
+}
+</style>

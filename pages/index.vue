@@ -50,13 +50,13 @@ div.landing-page {
   background-image: url('@/static/image/landing_page_background.jpg');
 
   .wrapper {
-    width: 30%;
+    width: 35%;
     min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: $border-radius-2;
     padding: $offset-4;
     text-align: center;

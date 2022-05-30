@@ -100,7 +100,7 @@ export default {
   align-items: center;
   height: $drop-zone-height;
   width: 100%;
-  // z-index: $z-1;
+  z-index: $z-4;
 }
 .drop-active {
   border-color: #aaa;

@@ -1,15 +1,14 @@
 <template>
-  <div class="modal-text-revealer">
-    <section>
-      <div class="text-area">
-        {{ text }}
-        <slot></slot>
+  <div class="modal-text-revealer" :style="{ width: overrideWidth }">
+    <div class="text">
+      <div>
+        <p>
+          {{ text }}
+          <slot></slot>
+        </p>
       </div>
-    </section>
-    <div
-      v-if="isHidden"
-      class="text-hider absolute w-100 h-100 top-0 bg-white-90 bg-blur f2 pa3 br4"
-    >
+    </div>
+    <div v-if="isHidden" class="text-hider">
       <span v-if="hint">{{ hint }}</span>
     </div>
   </div>
@@ -33,65 +32,72 @@ export default {
       required: false,
       default: true,
     },
+    // overrideWith is a hack
+    // I needed to wrap this component in ModalContainer component...
+    // but in ch4 i couldn't because i don't understand the structure of dynamic components
+    // so i came up with this for now
+    // sorry !
+    overrideWidth: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>
 
 <style scoped lang="scss">
-// TODO: replace these hacky copied styles with something proper
-// ideally in a way that doesn't duplicate much
 div.modal-text-revealer {
-  section {
+  z-index: 10000;
+  position: relative;
+  width: 100%;
+  height: $modal-player-feedback-height;
+
+  .text {
+    position: absolute;
     width: 100%;
-    height: 100%;
+    height: $modal-player-feedback-height;
     border-radius: $border-radius-2;
-    padding: $offset-3;
-    border: $border-width-3 solid rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.8);
-    @supports (
-      (-webkit-backdrop-filter: blur($blur-1)) or
-        (backdrop-filter: blur($blur-1))
-    ) {
-      background-color: rgba(255, 255, 255, 0.3);
-      -webkit-backdrop-filter: blur($blur-1);
-      backdrop-filter: blur($blur-1);
-      border: $border-width-3 solid rgba(255, 255, 255, 0.4);
-    }
-    .text-area {
-      background: none;
-      outline: none;
-      resize: none;
-      width: 100%;
-      height: $modal-player-feedback-textarea-height;
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      border: none;
-      color: $black-color;
-      font-family: $text-font;
-      font-size: $f-2;
-      &:focus {
-        outline: none;
-      }
-    }
-    .text-hider {
-      color: $black-color;
-      font-family: $text-font;
-      font-size: $f-2;
-      @supports (
-        (-webkit-backdrop-filter: blur($blur-1)) or
-          (backdrop-filter: blur($blur-1))
-      ) {
-        background-color: rgba(255, 255, 255, 0.7);
-        -webkit-backdrop-filter: blur($blur-1);
-        backdrop-filter: blur($blur-1);
-        border: $border-width-3 solid rgba(255, 255, 255, 0.4);
+    box-sizing: border-box;
+    padding: $offset-3 $offset-4;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    div {
+      overflow-y: auto;
+      height: 100%;
+
+      p {
+        text-align: left;
+        color: $black-color;
+        font-size: $f-2;
+        line-height: $f-2;
       }
     }
   }
-}
-.bg-blur {
-  -webkit-backdrop-filter: blur($blur-1);
-  backdrop-filter: blur($blur-1);
+
+  .text-hider {
+    position: absolute;
+    width: 100%;
+    height: $modal-player-feedback-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: $modal-player-feedback-height;
+      background-color: $dark-blue;
+      filter: blur($blur-2);
+    }
+
+    span {
+      color: $white-color;
+      font-family: $text-font;
+      font-size: $f-2;
+      margin-bottom: $offset-3;
+      z-index: $z-6;
+    }
+  }
 }
 </style>

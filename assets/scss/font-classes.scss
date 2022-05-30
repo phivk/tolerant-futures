@@ -19,4 +19,10 @@ p,
 ul {
   font-family: variables.$text-font;
   font-size: variables.$f-4;
+  line-height: 1.5rem;
+}
+
+p.large-paragraph {
+  font-size: variables.$f-3;
+  line-height: variables.$f-3;
 }

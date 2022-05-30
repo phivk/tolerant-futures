@@ -235,11 +235,10 @@ export default {
 <style scoped lang="scss">
 header {
   width: 100%;
-  z-index: $z-5;
+  z-index: $z-4;
 
   .subtitle-player {
     margin-top: $offset-4;
-    z-index: $z-5;
 
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
@@ -248,6 +247,7 @@ header {
 }
 
 .spectrum-game-dropzone {
+  z-index: $z-4;
   top: 50%;
   transform: translateY(-60%);
 }
@@ -268,7 +268,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: $z-5;
+  z-index: $z-4;
 
   .button-primary {
     margin-bottom: $offset-5;
