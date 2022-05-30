@@ -26,12 +26,6 @@ export default {
       this.$router.push('/ch3')
     }
   },
-  mounted() {
-    if (!this.$store.state.user) {
-      this.$store.commit('setUser')
-    }
-    this.$store.commit('setCurrentChapter', 'ch3')
-  },
   methods: {
     async onSubmitInput(currentTurn) {
       await this.$supabase

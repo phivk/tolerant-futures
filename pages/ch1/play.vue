@@ -19,10 +19,6 @@ export default {
       nextPath: '/ch2',
     }
   },
-  mounted() {
-    this.$store.commit('setUser')
-    this.$store.commit('setCurrentChapter', 'ch1')
-  },
   methods: {
     async onSubmitInput(currentTurn) {
       await this.$supabase

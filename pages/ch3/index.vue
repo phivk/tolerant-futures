@@ -61,6 +61,9 @@ export default {
     },
   },
   async mounted() {
+    if (!this.$store.state.user) {
+      this.$store.commit('setUser')
+    }
     this.$store.commit('setCurrentChapter', 'ch3')
 
     const { data: priorInputs } = await this.$supabase

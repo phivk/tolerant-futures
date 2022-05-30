@@ -12,5 +12,9 @@ export default {
       paragraph: chapters[chapterIndex].paragraph,
     }
   },
+  mounted() {
+    this.$store.commit('setUser')
+    this.$store.commit('setCurrentChapter', 'ch1')
+  },
 }
 </script>

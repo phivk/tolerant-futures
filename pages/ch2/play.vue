@@ -20,12 +20,6 @@ export default {
       inputs: [],
     }
   },
-  mounted() {
-    if (!this.$store.state.user) {
-      this.$store.commit('setUser')
-    }
-    this.$store.commit('setCurrentChapter', 'ch2')
-  },
   methods: {
     async onSubmitInput(currentTurn) {
       await this.$supabase
