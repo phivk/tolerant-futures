@@ -1,5 +1,8 @@
 <template>
-  <GameContainer @clicked="onGameContainerClick">
+  <GameContainer
+    :current-chapter-index="currentChapterIndex"
+    @clicked="onGameContainerClick"
+  >
     <header class="mt4">
       <SubtitlePlayer class="mb3">
         {{ currentState.caption }}

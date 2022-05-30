@@ -1,5 +1,8 @@
 <template>
-  <GameContainer v-if="currentTurn">
+  <GameContainer
+    v-if="currentTurn"
+    :current-chapter-index="currentChapterIndex"
+  >
     <header class="mt4">
       <SubtitlePlayer v-show="!showPresent">
         {{ currentTurn.caption }}

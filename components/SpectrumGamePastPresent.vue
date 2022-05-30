@@ -1,5 +1,9 @@
 <template>
-  <GameContainer v-if="currentTurn" @clicked="onGameContainerClick">
+  <GameContainer
+    v-if="currentTurn"
+    :current-chapter-index="currentChapterIndex"
+    @clicked="onGameContainerClick"
+  >
     <header class="mt4">
       <SubtitlePlayer v-show="!showPresent">
         {{ currentState.caption }}

@@ -19,6 +19,13 @@
 </template>
 <script>
 export default {
+  props: {
+    currentChapterIndex: {
+      type: Number, // String, Number, Boolean, Function, Object, Array
+      required: true,
+      default: null,
+    },
+  },
   data() {
     return {
       showExitConfirmation: false,
