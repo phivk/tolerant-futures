@@ -70,6 +70,7 @@ export default {
       .from('inputCh2')
       .select('*')
       .not('user', 'is', null)
+      .neq('user', this.$store.state.user)
 
     const turnsSelfOther = getRandomTurnsSelfOther(priorInputs, 3)
     this.$store.commit('setTurnsSelfOther', turnsSelfOther)
