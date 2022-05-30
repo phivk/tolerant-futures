@@ -87,7 +87,7 @@ div {
       outline: none;
       resize: none;
       width: 100%;
-      height: $modal-player-feedback-textarea-height
+      height: $modal-player-feedback-textarea-height;
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
