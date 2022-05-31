@@ -13,7 +13,7 @@
       </h1>
 
       <p>
-        This playful experience has been designed as part of the Co-producing
+        This digital experience has been designed as part of the Co-producing
         Tolerant Futures through Ancient Identities project, funded by the UK
         Arts and Humanities Research Council (AHRC). The project is led by the
         University of Edinburgh together with Durham University, with input from
@@ -35,7 +35,7 @@
 
       <p>
         Co-Producing Tolerant Futures through Ancient Identities challenges
-        these uses through the digital artwork you have experienced and by
+        these uses through the digital artwork and by
         developing education training resources to promote more nuanced and less
         binary interpretation of the Iron Age and Roman past at heritage venues
         and in primary school classrooms.
@@ -60,6 +60,14 @@
           Matúš Solčány - Concept, UX Design, Graphic Design, Front-end
           Development
         </li>
+        <li>
+          Matúš Solčány - Concept, UX Design, Graphic Design, Front-end
+          Development
+        </li>
+        <li>
+          Dr Elisa Broccoli - Graphic Design support
+        </li>
+
       </ul>
 
       <h2>Heritage Partners</h2>
