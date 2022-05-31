@@ -35,7 +35,7 @@
 
       <p>
         Co-Producing Tolerant Futures through Ancient Identities challenges
-        these uses through the digital artwork and by
+        these uses through the digital experience and by
         developing education training resources to promote more nuanced and less
         binary interpretation of the Iron Age and Roman past at heritage venues
         and in primary school classrooms.

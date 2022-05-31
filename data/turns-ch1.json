@@ -13,7 +13,7 @@
     "spectrumRight": "far",
     "colorA": "#389EFC",
     "colorB": "#EBD453",
-    "caption": "Neat! Let's now reflect on where is home for you right now. At this moment, are you Near or Far from home?"
+    "caption": "Nice! Let’s now reflect on where home is for you. At this moment, are you Near to or Far from home?"
   },
   {
     "concept": "Your relationship with time",
@@ -21,6 +21,6 @@
     "spectrumRight": "future-oriented",
     "colorA": "#7AE4D8",
     "colorB": "#FF7676",
-    "caption": "Thanks! And how would you describe your relationship with time. Are you more past-oriented or future-oriented?"
+    "caption": "Thanks! And how would you describe your relationship with time. Are you more Past-oriented or Future-oriented?"
   }
 ]
