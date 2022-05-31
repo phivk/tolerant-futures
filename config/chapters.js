@@ -17,12 +17,12 @@ export default [
     paragraph:
       'Our research found that concepts from the past can be used in divisive ways in discussions about social and political issues today. But interpretations can vary: the same metaphor is often used to debate both sides of the same argument! This chapter pairs you with a prior visitor. Are you ready to meet them?',
     paragraph2:
-      'The other visitor played through the same experience as you, in their own unique way. Below is how they they reflected on their Here and Now. Will their interpretation of the past be similar to yours?',
+      'The other visitor played through the same experience as you, in their own unique way. Below you can see how they reflected on their Here and Now. Will their interpretation of the past be similar to yours?',
   },
   {
     route: '/ch4',
     title: 'Chapter 4: The Future and You',
     paragraph:
-      "You've explored past and present, self and other. Our ideas of the past can influence how we think about the present and how we influence our own future and that of those around us. So, where will you go from here?",
+      "You’ve explored Past and Present, Self and Other. Our ideas of the past can influence how we think about the present and the future and how we shape our own future and that of those around us. So, where will you go from here?",
   },
 ]
