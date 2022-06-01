@@ -1,6 +1,6 @@
 <template>
   <div :style="styleObject" class="card-item" :class="classObject">
-    <p><slot></slot></p>
+    <p class="lh-title"><slot></slot></p>
   </div>
 </template>
 
