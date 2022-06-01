@@ -286,7 +286,7 @@ export default {
       }`
     },
     feedbackInputPlaceholderText() {
-      return `I placed ${this.currentTurn.concept} here because...`
+      return `I placed ${this.currentTurn.concept} here because ...`
     },
     currentDraggableState() {
       if (this.turnValueSelfConfirmed) {

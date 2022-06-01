@@ -18,7 +18,7 @@ export default {
   props: {
     inputPlaceholderText: {
       type: String,
-      default: 'I placed the card here because...',
+      default: 'I placed the card here because ...',
     },
   },
   data() {

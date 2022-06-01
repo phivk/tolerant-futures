@@ -9,7 +9,7 @@ export default [
     route: '/ch2',
     title: 'Chapter 2: The Past and the Present',
     paragraph:
-      'Concepts from the past and present sometimes get connected based on qualities they are thought to share. For example, people use the Iron Age and Roman pasts to express their views on current social and political problems. In this chapter, associated past and present concepts will be randomly paired with spectra reflecting those shared qualities.',
+      'Concepts from the past and present sometimes get connected based on qualities they are thought to share. For example, people use the Iron Age and Roman pasts to express their views on current social and political problems. In this chapter, associated past and present concepts will be randomly paired with spectra reflecting those shared qualities: where will you place your cards?',
   },
   {
     route: '/ch3',
@@ -23,6 +23,6 @@ export default [
     route: '/ch4',
     title: 'Chapter 4: The Future and You',
     paragraph:
-      "You’ve explored Past and Present, Self and Other. Our ideas of the past can influence how we think about the present and the future and how we shape our own future and that of those around us. So, where will you go from here?",
+      'You’ve explored Past and Present, Self and Other. Our ideas of the past can influence how we think about the present and how we shape the future for ourselves and those around us. So, where will you go from here?',
   },
 ]
