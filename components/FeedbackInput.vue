@@ -18,7 +18,7 @@ export default {
   props: {
     inputPlaceholderText: {
       type: String,
-      default: 'Your input goes here...',
+      default: 'Your input goes here ...',
     },
   },
   data() {

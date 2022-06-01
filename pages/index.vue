@@ -4,12 +4,12 @@
       <div>
         <h1>{{ title }}</h1>
         <p class="pv3">
-          Discover how concepts from the past can reappear in our lives today in
+          Discover how concepts from the past can reappear in our lives in
           unexpected ways. Share your views on how past and present are
           connected and reflect on those of others.
         </p>
         <p class="pv3">
-          This playful experience is based on research about Iron Age and Roman
+          This digital experience is based on research about Iron Age and Roman
           heritage in modern Britain by the Universities of Edinburgh and
           Durham. Take part and contribute your vision for a collective
           imagination of tolerant futures.

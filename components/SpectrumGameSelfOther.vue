@@ -76,7 +76,7 @@
         v-show="currentState.elementsVisible.feedbackModalOther"
         class="spectrum-game-feedback-other modal-short"
         :text="currentTurn.feedbackOther"
-        hint="provide your input to see theirs"
+        hint="Please provide your input to see theirs"
         :is-hidden="feedback === ''"
       />
       <!-- feedbackSelf -->
@@ -286,7 +286,7 @@ export default {
       }`
     },
     feedbackInputPlaceholderText() {
-      return `I placed ${this.currentTurn.concept} here because `
+      return `I placed ${this.currentTurn.concept} here because ...`
     },
     currentDraggableState() {
       if (this.turnValueSelfConfirmed) {

@@ -50,10 +50,10 @@ export default {
       return {
         inputFeedback: {
           caption:
-            'We invite you to take a moment and reflect: What would a tolerant future look like for you?',
+            'We invite you to pause and consider. How would a tolerant future look for you?',
           component: 'FeedbackInput',
           dynamicProps: {
-            inputPlaceholderText: 'For me, a tolerant future would look like ',
+            inputPlaceholderText: 'For me, a tolerant future would be ...',
           },
         },
         displayFeedback: {
