@@ -1,32 +1,54 @@
 <template>
-  <div class="confirm-exit-container">
+  <div class="confirmation-container">
     <div>
-      <h1>Are you sure you want to leave?</h1>
-      <p class="mv3 large-paragraph">All your progress will be lost.</p>
-      <ButtonPrimary class="outlined" @buttonClicked="onStay"
-        >Stay</ButtonPrimary
-      >
-      <ButtonSecondary class="outlined" @buttonClicked="onLeave"
-        >Leave</ButtonSecondary
-      >
+      <h1>{{ title }}</h1>
+      <p class="mv3 large-paragraph">{{ paragraph }}</p>
+      <ButtonPrimary class="outlined" @buttonClicked="onClickPrimary">
+        {{ buttonTextPrimary }}
+      </ButtonPrimary>
+      <ButtonSecondary class="outlined" @buttonClicked="onClickSecondary">
+        {{ buttonTextSecondary }}
+      </ButtonSecondary>
     </div>
   </div>
 </template>
 <script>
 export default {
-  methods: {
-    onStay() {
-      this.$emit('stay', {})
+  props: {
+    title: {
+      type: String,
+      required: true,
+      default: 'Are you sure?',
     },
-    onLeave() {
-      this.$emit('leave', {})
+    paragraph: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    buttonTextPrimary: {
+      type: String,
+      required: true,
+      default: 'Confirm',
+    },
+    buttonTextSecondary: {
+      type: String,
+      required: true,
+      default: 'Cancel',
+    },
+  },
+  methods: {
+    onClickPrimary() {
+      this.$emit('buttonClickedPrimary')
+    },
+    onClickSecondary() {
+      this.$emit('buttonClickedSecondary')
     },
   },
 }
 </script>
 
 <style scoped lang="scss">
-.confirm-exit-container {
+.confirmation-container {
   position: absolute;
   width: 100vw;
   height: 100vh;

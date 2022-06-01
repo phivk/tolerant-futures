@@ -10,16 +10,27 @@
     >
       <slot> </slot>
     </section>
-    <ButtonReloadGame class="absolute bottom-0 right-0 ma3 z-999" @buttonClicked="onReloadClicked" />
-    <TheExitConfirmation
-      v-show="showExitConfirmation"
-      @leave="onLeave"
-      @stay="onStay"
+    <ButtonReloadGame
+      class="absolute bottom-0 right-0 ma3 z-999"
+      @buttonClicked="onReloadClicked"
     />
-    <TheReloadConfirmation
+    <ModalConfirmation
+      v-show="showExitConfirmation"
+      title="Are you sure you want to leave?"
+      paragraph="All your progress will be lost."
+      button-text-primary="Leave"
+      button-text-secondary="Stay"
+      @buttonClickedPrimary="onLeaveConfirm"
+      @buttonClickedSecondary="onLeaveCancel"
+    />
+    <ModalConfirmation
       v-show="showReloadConfirmation"
-      @confirm="onReloadConfrim"
-      @cancel="onReloadCancel"
+      title="Would you like to reload the app?"
+      paragraph="This will restart the current chapter."
+      button-text-primary="Reload"
+      button-text-secondary="Cancel"
+      @buttonClickedPrimary="onReloadConfirm"
+      @buttonClickedSecondary="onReloadCancel"
     />
   </div>
 </template>
@@ -49,13 +60,13 @@ export default {
     onReloadClicked() {
       this.showReloadConfirmation = true
     },
-    onLeave() {
+    onLeaveConfirm() {
       this.$router.push('/')
     },
-    onStay() {
+    onLeaveCancel() {
       this.showExitConfirmation = false
     },
-    onReloadConfrim() {
+    onReloadConfirm() {
       this.$router.go(0)
     },
     onReloadCancel() {
