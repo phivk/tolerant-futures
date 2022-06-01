@@ -1,6 +1,6 @@
 <template>
   <div class="w-100 h-100 relative">
-    <div class="absolute w-100 flex justify-between ph3 pt3 z-999">
+    <div class="absolute top-0 w-100 flex justify-between ph3 pt3 z-999">
       <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
       <ButtonExitGame @buttonClicked="onExitClicked" />
     </div>
@@ -10,10 +10,18 @@
     >
       <slot> </slot>
     </section>
+    <div class="absolute bottom-0 w-100 flex justify-end pa3 z-999">
+      <ButtonReloadGame @buttonClicked="onReloadClicked" />
+    </div>
     <TheExitConfirmation
       v-show="showExitConfirmation"
-      @stay="onStay"
       @leave="onLeave"
+      @stay="onStay"
+    />
+    <TheReloadConfirmation
+      v-show="showReloadConfirmation"
+      @confirm="onReloadConfrim"
+      @cancel="onReloadCancel"
     />
   </div>
 </template>
@@ -29,6 +37,7 @@ export default {
   data() {
     return {
       showExitConfirmation: false,
+      showReloadConfirmation: false,
     }
   },
   methods: {
@@ -39,11 +48,20 @@ export default {
     onExitClicked() {
       this.showExitConfirmation = true
     },
-    onStay() {
-      this.showExitConfirmation = false
+    onReloadClicked() {
+      this.showReloadConfirmation = true
     },
     onLeave() {
       this.$router.push('/')
+    },
+    onStay() {
+      this.showExitConfirmation = false
+    },
+    onReloadConfrim() {
+      this.$router.go(0)
+    },
+    onReloadCancel() {
+      this.showReloadConfirmation = false
     },
   },
 }
