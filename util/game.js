@@ -3,12 +3,7 @@ import concepts from '~/data/concepts.json'
 import {
   getRandomItemFromArray,
   getRandomItemsFromArray,
-  uniqBy,
 } from '~/util/array.js'
-
-export const getRandomSpectrum = () => {
-  return getRandomItemFromArray(spectra)
-}
 
 export const getSpectrumByLeft = (left) => {
   return spectra.find((spectrum) => spectrum.left === left)
@@ -19,7 +14,7 @@ export const getRandomTurnsPastPresent = (n) => {
   // then augment each concept with spectrum to build turn
   return getRandomItemsFromArray(concepts, n).map((concept) => {
     const conceptPresent = getRandomItemFromArray(concept.present)
-    const spectrum = getRandomSpectrum()
+    const spectrum = getRandomItemFromArray(spectra)
     return {
       concept: concept.past.name,
       caption: concept.past.caption,
@@ -34,28 +29,60 @@ export const getRandomTurnsPastPresent = (n) => {
   })
 }
 
-export const getRandomTurnsSelfOther = (priorInputs, n) => {
-  // build new array of unique inputs from priorInputs
-  // then pick n inputs randomly from uniqueInputs
-  // then augment each input to build turn
-  const uniqueInputs = uniqBy(priorInputs, (input) => input.conceptPast)
-  return getRandomItemsFromArray(uniqueInputs, n).map((input) => {
-    const concept = concepts.find(
-      (concept) => concept.past.name === input.conceptPast
-    )
-    const colorA = getSpectrumByLeft(input.spectrumLeft).colorA
-    const colorB = getSpectrumByLeft(input.spectrumLeft).colorB
-    return {
-      concept: concept.past.name,
-      caption: concept.past.caption,
-      hint: concept.past.hint,
-      valueOther: input.valuePast,
-      feedbackOther: input.feedback,
-      spectrumLeft: input.spectrumLeft,
-      spectrumRight: input.spectrumRight,
-      colorA,
-      colorB,
-      otherUser: input.user,
-    }
-  })
+/* https://stackoverflow.com/a/34890276 */
+const groupBy = function (xs, key) {
+  return xs.reduce(function (rv, x) {
+    ;(rv[x[key]] = rv[x[key]] || []).push(x)
+    return rv
+  }, {})
+}
+
+export const getTurnsSelfOtherAndProfile = (inputsCh1, inputsCh2) => {
+  // get users with complete chapter input for ch1 and ch2
+  const inputsByUserCh1 = groupBy(inputsCh1, 'user')
+  const usersCompleteCh1 = Object.keys(inputsByUserCh1).filter(
+    (user) => inputsByUserCh1[user].length === 3
+  )
+
+  const inputsByUserCh2 = groupBy(inputsCh2, 'user')
+  const usersCompleteCh2 = Object.keys(inputsByUserCh2).filter(
+    (user) => inputsByUserCh2[user].length === 3
+  )
+
+  const usersCompleteBothChapters = usersCompleteCh1.filter((value) =>
+    usersCompleteCh2.includes(value)
+  )
+
+  // pull a random set of inputs by same user across ch 1 and 2
+  const randomUser = getRandomItemFromArray(usersCompleteBothChapters)
+
+  const otherProfile = inputsByUserCh1[randomUser]
+  const otherInputs = inputsByUserCh2[randomUser]
+  const turnsSelfOther = otherInputs.map(buildTurnSelfOtherFromInput)
+
+  return {
+    profile: otherProfile,
+    turns: turnsSelfOther,
+  }
+  // TODO fallback on default turns and profile?
+}
+
+const buildTurnSelfOtherFromInput = (input) => {
+  const concept = concepts.find(
+    (concept) => concept.past.name === input.conceptPast
+  )
+  const colorA = getSpectrumByLeft(input.spectrumLeft).colorA
+  const colorB = getSpectrumByLeft(input.spectrumLeft).colorB
+  return {
+    concept: concept.past.name,
+    caption: concept.past.caption,
+    hint: concept.past.hint,
+    valueOther: input.valuePast,
+    feedbackOther: input.feedback,
+    spectrumLeft: input.spectrumLeft,
+    spectrumRight: input.spectrumRight,
+    colorA,
+    colorB,
+    otherUser: input.user,
+  }
 }

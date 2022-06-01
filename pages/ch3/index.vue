@@ -33,7 +33,7 @@
 <script>
 import chapters from '~/config/chapters'
 import profileSpectra from '~/data/turns-ch1.json'
-import { getRandomTurnsSelfOther } from '~/util/game.js'
+import { getTurnsSelfOtherAndProfile } from '~/util/game.js'
 export default {
   data() {
     const chapterIndex = 2
@@ -66,22 +66,26 @@ export default {
     }
     this.$store.commit('setCurrentChapter', 'ch3')
 
-    const { data: priorInputs } = await this.$supabase
+    // fetch inputCh1 for profile
+    const { data: inputsCh1 } = await this.$supabase
+      .from('inputCh1')
+      .select('*')
+      .not('user', 'is', null)
+      .neq('user', this.$store.state.user) // not the current user
+
+    // fetch inputCh2 for spectrum values
+    const { data: inputsCh2 } = await this.$supabase
       .from('inputCh2')
       .select('*')
       .not('user', 'is', null)
-      .neq('user', this.$store.state.user)
+      .neq('user', this.$store.state.user) // not the current user
 
-    const turnsSelfOther = getRandomTurnsSelfOther(priorInputs, 3)
-    this.$store.commit('setTurnsSelfOther', turnsSelfOther)
+    // generate turnsSelfOther along with profile
+    const { profile, turns } = getTurnsSelfOtherAndProfile(inputsCh1, inputsCh2)
 
-    const otherUser = turnsSelfOther[0].otherUser
-    const { data: inputsOtherUserProfile } = await this.$supabase
-      .from('inputCh1')
-      .select('*')
-      .eq('user', otherUser)
-    this.inputsOtherUserProfile = inputsOtherUserProfile
-    this.$store.commit('setInputsOtherUserProfile', inputsOtherUserProfile)
+    this.inputsOtherUserProfile = profile
+    this.$store.commit('setInputsOtherUserProfile', profile)
+    this.$store.commit('setTurnsSelfOther', turns)
   },
   methods: {
     onRevealOtherConfirm() {
