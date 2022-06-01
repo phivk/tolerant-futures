@@ -15,10 +15,12 @@ export default {
       timerEnabled: false,
       timerCountStart: 10,
       timerCount: 10,
+      isStandalone: false,
     }
   },
   onIdle() {
-    if (this.$route.path !== '/') {
+    // only show idleView in standalone mode (PWA on iPad) and pages other than home
+    if (this.isStandalone && this.$route.path !== '/') {
       this.isIdle = true
       this.timerEnabled = true
     }
@@ -58,6 +60,11 @@ export default {
       this.isIdle = false
       this.$router.push('/')
     },
+  },
+  mounted() {
+    if (window.navigator.standalone) {
+      this.isStandalone = true
+    }
   },
 }
 </script>
