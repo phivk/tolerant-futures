@@ -10,9 +10,7 @@
     >
       <slot> </slot>
     </section>
-    <div class="absolute bottom-0 w-100 flex justify-end pa3 z-999">
-      <ButtonReloadGame @buttonClicked="onReloadClicked" />
-    </div>
+    <ButtonReloadGame class="absolute bottom-0 right-0 ma3 z-999" @buttonClicked="onReloadClicked" />
     <TheExitConfirmation
       v-show="showExitConfirmation"
       @leave="onLeave"
