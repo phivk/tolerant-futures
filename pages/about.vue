@@ -60,10 +60,6 @@
           Matúš Solčány - Concept, UX Design, Graphic Design, Front-end
           Development
         </li>
-        <li>
-          Matúš Solčány - Concept, UX Design, Graphic Design, Front-end
-          Development
-        </li>
         <li>Dr Elisa Broccoli - Museum Signage Graphic Design</li>
       </ul>
 
