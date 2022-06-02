@@ -2,7 +2,10 @@
   <div class="w-100 h-100 relative">
     <div class="absolute top-0 w-100 flex justify-between ph3 pt3 z-999">
       <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
-      <ButtonExitGame @buttonClicked="onExitClicked" />
+      <div>
+        <ButtonReloadGame @buttonClicked="onReloadClicked" />
+        <ButtonExitGame @buttonClicked="onExitClicked" />
+      </div>
     </div>
     <section
       class="w-100 h-100 relative flex flex-column justify-between items-center"
@@ -10,10 +13,6 @@
     >
       <slot> </slot>
     </section>
-    <ButtonReloadGame
-      class="absolute bottom-0 right-0 ma3 z-999"
-      @buttonClicked="onReloadClicked"
-    />
     <ModalConfirmation
       v-show="showExitConfirmation"
       title="Are you sure you want to leave?"
@@ -76,6 +75,10 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.button-reload-game {
+  margin-right: $offset-3;
+}
+
 section {
   position: relative;
   overflow: hidden;

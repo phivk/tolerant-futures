@@ -1,6 +1,6 @@
 <template>
   <span class="button-reload-game" @click="onClick">
-    <img src="@/static/svg/exit_game_icon.svg" />
+    <img src="@/static/svg/reset_icon.svg" />
   </span>
 </template>
 
