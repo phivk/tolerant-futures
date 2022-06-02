@@ -1,8 +1,11 @@
 <template>
   <div class="w-100 h-100 relative">
-    <div class="absolute w-100 flex justify-between ph3 pt3 z-999">
+    <div class="absolute top-0 w-100 flex justify-between ph3 pt3 z-999">
       <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
-      <ButtonExitGame @buttonClicked="onExitClicked" />
+      <div>
+        <ButtonReloadGame @buttonClicked="onReloadClicked" />
+        <ButtonExitGame @buttonClicked="onExitClicked" />
+      </div>
     </div>
     <section
       class="w-100 h-100 relative flex flex-column justify-between items-center"
@@ -10,10 +13,23 @@
     >
       <slot> </slot>
     </section>
-    <TheExitConfirmation
+    <ModalConfirmation
       v-show="showExitConfirmation"
-      @stay="onStay"
-      @leave="onLeave"
+      title="Are you sure you want to leave?"
+      paragraph="All your progress will be lost."
+      button-text-primary="Leave"
+      button-text-secondary="Stay"
+      @buttonClickedPrimary="onLeaveConfirm"
+      @buttonClickedSecondary="onLeaveCancel"
+    />
+    <ModalConfirmation
+      v-show="showReloadConfirmation"
+      title="Would you like to reload the app?"
+      paragraph="This will restart the current chapter."
+      button-text-primary="Reload"
+      button-text-secondary="Cancel"
+      @buttonClickedPrimary="onReloadConfirm"
+      @buttonClickedSecondary="onReloadCancel"
     />
   </div>
 </template>
@@ -29,6 +45,7 @@ export default {
   data() {
     return {
       showExitConfirmation: false,
+      showReloadConfirmation: false,
     }
   },
   methods: {
@@ -39,16 +56,29 @@ export default {
     onExitClicked() {
       this.showExitConfirmation = true
     },
-    onStay() {
+    onReloadClicked() {
+      this.showReloadConfirmation = true
+    },
+    onLeaveConfirm() {
+      this.$router.push('/')
+    },
+    onLeaveCancel() {
       this.showExitConfirmation = false
     },
-    onLeave() {
-      this.$router.push('/')
+    onReloadConfirm() {
+      this.$router.go(0)
+    },
+    onReloadCancel() {
+      this.showReloadConfirmation = false
     },
   },
 }
 </script>
 <style scoped lang="scss">
+.button-reload-game {
+  margin-right: $offset-3;
+}
+
 section {
   position: relative;
   overflow: hidden;
