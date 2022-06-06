@@ -50,6 +50,11 @@ export default {
       // immediate: true, // This ensures the watcher is triggered upon creation
     },
   },
+  mounted() {
+    if (window.navigator.standalone) {
+      this.isStandalone = true
+    }
+  },
   methods: {
     resetTimer() {
       this.timerEnabled = false
@@ -60,11 +65,6 @@ export default {
       this.isIdle = false
       this.$router.push('/')
     },
-  },
-  mounted() {
-    if (window.navigator.standalone) {
-      this.isStandalone = true
-    }
   },
 }
 </script>
