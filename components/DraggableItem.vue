@@ -76,20 +76,33 @@ export default {
       const boundingClientRect = event.target.getBoundingClientRect()
       this.screenX = boundingClientRect.left
       this.screenY = boundingClientRect.top
-
       if (event.relatedTarget) {
-        // dropped on dropzone!
-        const cardWidth = boundingClientRect.width
-        const value = this.screenX / (window.innerWidth - cardWidth)
+        // dropped on dropzone
+        const value =
+          this.screenX / (window.innerWidth - boundingClientRect.width)
         event.target.setAttribute('data-value', value.toFixed(2))
         this.value = value
         this.$emit('set-value', value)
         this.$emit('set-drag-state', 'placed-spectrum')
-      } else {
+      } else if (!this.isOutOfBounds(boundingClientRect)) {
+        // dropped outside of dropzone
         this.value = null
         this.$emit('set-value', null)
         this.$emit('set-drag-state', 'placed')
+      } else {
+        // occasional displacement outside of screen: fix by reset
+        this.resetPosition()
       }
+    },
+    isOutOfBounds(boundingClientRect) {
+      return (
+        boundingClientRect.left >
+          window.innerWidth - boundingClientRect.width ||
+        boundingClientRect.left < 0 ||
+        boundingClientRect.top >
+          window.innerHeight - boundingClientRect.height ||
+        boundingClientRect.top < 0
+      )
     },
     resetPosition() {
       const myDraggable = this.$refs.myDraggable
