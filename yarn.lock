@@ -980,10 +980,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@interactjs/types@1.10.11":
-  version "1.10.11"
-  resolved "https://registry.yarnpkg.com/@interactjs/types/-/types-1.10.11.tgz#29be25d503f9c7842df062fa3cda5b044a47cf2a"
-  integrity sha512-YRsVFWjL8Gkkvlx3qnjeaxW4fnibSJ9791g8BA7Pv5ANByI64WmtR1vU7A2rXcrOn8XvyCEfY0ss1s8NhZP+MA==
+"@interactjs/types@1.10.13":
+  version "1.10.13"
+  resolved "https://registry.yarnpkg.com/@interactjs/types/-/types-1.10.13.tgz#0ebcc9ab582cb27e84ccdd2a7a33c87076cd511e"
+  integrity sha512-VdsUBs2YSdrgB2ZuL2UL0WW3fH6XuINjdk7XE9K+r64X9k2IC3nQm7pIg7HjO3iiLtuBNUVEGy+eJwU1G8t/Lg==
 
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.0.5"
@@ -5027,12 +5027,12 @@ inquirer@^7.3.3:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-interactjs@^1.10.11:
-  version "1.10.11"
-  resolved "https://registry.yarnpkg.com/interactjs/-/interactjs-1.10.11.tgz#0b9eabe37f1f82fff68e22faad51269b8f2038ea"
-  integrity sha512-VPUWsGAOPmrZe1YF7Fq/4AIBBZ+3FikZRS8bpzT6VsAfUuhxl/CKJY73IAiZHd3fz9p174CXErn0Qs81XEFICA==
+interactjs@^1.10.13:
+  version "1.10.13"
+  resolved "https://registry.yarnpkg.com/interactjs/-/interactjs-1.10.13.tgz#6a501fb447c1fcda8917b1f59e4384bd4f70adbb"
+  integrity sha512-wvzcTBjB4gGITQvWGAEKVTfgs/oyxDRas+j948W/E8B/46Ogac1jsLHWvaM1Qka5GqvLKAqABocY7jx4T7VDNg==
   dependencies:
-    "@interactjs/types" "1.10.11"
+    "@interactjs/types" "1.10.13"
 
 internal-slot@^1.0.3:
   version "1.0.3"
