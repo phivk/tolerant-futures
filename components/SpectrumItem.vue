@@ -41,7 +41,13 @@ export default {
       }
     },
     styleObjectCard() {
-      let n = remapRange(this.spectrumPosition, 0.0, 1.0, 10.0, 90.0)
+      const mediaQuery = window.matchMedia("(max-width: 900px)")
+      let n;
+      if (mediaQuery.matches) { 
+        n = remapRange(this.spectrumPosition, 0.0, 1.0, 0.0, 71.0)
+      } else {
+        n = remapRange(this.spectrumPosition, 0.0, 1.0, 0.0, 87.0)
+      }   
       n = Math.round(n)
       n = n + '%'
       return { left: n }

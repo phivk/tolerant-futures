@@ -63,6 +63,7 @@ export default {
   align-items: center;
   background-size: cover;
   background-image: url('@/static/image/chapter_intro_background.jpg');
+  overflow-x: hidden;
 
   @media (max-width: $query-mobile) {
     padding: $offset-3;

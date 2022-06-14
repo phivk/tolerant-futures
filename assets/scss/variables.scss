@@ -6,19 +6,21 @@ $card-item-height-mobile: calc($card-item-height * 0.7);
 
 
 $drop-zone-height: 250px;
-$drop-zone-height-mobile: 120px;
+$drop-zone-height-mobile: 160px;
 $exit-game-button-width: 40px;
 $chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
 $modal-player-feedback-width: 50%;
+$modal-player-feedback-width-mobile: 95%;
 $modal-player-feedback-height: 320px;
+$modal-player-feedback-height-mobile: 350px;
 $modal-player-feedback-height-short: 230px;
 $modal-player-feedback-textarea-height: 70%;
+$modal-player-feedback-textarea-height-mobile: 90%;
 $ch3-other-user-profile-container-height: 600px;
-$ch3-other-user-spectrum-height: 80px;
-$ch3-other-user-mini-card-height: 70px;
-
-$ch3-other-user-spectrum-width: 120px;
+$ch3-other-user-spectrum-height: 70px;
+$ch3-other-user-mini-card-height: 60px;
+$ch3-other-user-spectrum-width: 100px;
 
 /* font families */
 $headline-font: 'headline_font', sans_serif;

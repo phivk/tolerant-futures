@@ -243,7 +243,7 @@ header {
   .subtitle-player {
     margin-top: $offset-4;
     @media (max-width: $query-mobile) {
-      margin-top: $offset-6;
+      margin-top: $offset-5;
     }  
 
     &.feedback-modal-subtitles {

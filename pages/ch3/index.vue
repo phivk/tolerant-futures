@@ -105,6 +105,12 @@ export default {
   .face-img {
     height: 370px;
     padding-bottom: $offset-3;
+
+    @media (max-width: $query-mobile) {
+      height: 250px;
+      padding-bottom: $offset-2;
+    }
+
   }
 }
 </style>

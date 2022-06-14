@@ -28,6 +28,10 @@ export default {
   outline: none;
   filter: $secondary-button-shadow-effect;
 
+  @media (max-width: $query-mobile) {
+    font-size: $f-5;
+  }     
+
   &.outlined {
     background: none;
     border: 1px solid $white-color;

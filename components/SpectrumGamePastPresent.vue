@@ -10,8 +10,8 @@
       </SubtitlePlayer>
     </header>
     <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
-      <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
-      <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
+      <DropZoneName class="dropzone-name-left">{{ currentTurn.spectrumLeft }}</DropZoneName>
+      <DropZoneName class="dropzone-name-right">{{ currentTurn.spectrumRight }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
@@ -304,9 +304,14 @@ header {
 
   .subtitle-player {
     margin-top: $offset-4;
-
+    @media (max-width: $query-mobile) {
+      margin-top: $offset-6;
+    }     
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
+      @media (max-width: $query-mobile) {
+        margin-top: $offset-8;
+      }         
     }
   }
 }

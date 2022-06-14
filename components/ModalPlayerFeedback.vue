@@ -58,6 +58,9 @@ div {
   z-index: $z-5;
   width: 100%;
   height: $modal-player-feedback-height;
+  @media (max-width: $query-mobile) {
+    height: $modal-player-feedback-height-mobile;
+  } 
 
   &.modal-short {
     height: $modal-player-feedback-height-short;
@@ -68,6 +71,9 @@ div {
     width: 100%;
     height: 100%;
     padding: 50px 70px 0 70px;
+    @media (max-width: $query-mobile) {
+      padding: 25px 35px 0 35px;
+    } 
 
     &::before {
       position: absolute;
@@ -95,7 +101,10 @@ div {
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
-
+      @media (max-width: $query-mobile) {
+        font-size: $f-3;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }  
       &:focus {
         outline: none;
       }
@@ -136,7 +145,7 @@ div {
     filter: $caption-shadow-effect;
   }
   button {
-    margin-top: $offset-5;
+    margin-top: $offset-6;
   }
 }
 </style>

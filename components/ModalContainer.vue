@@ -12,5 +12,9 @@ div.modals-container {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  @media (max-width: $query-mobile) {
+  	width: $modal-player-feedback-width-mobile;
+  }
 }
 </style>
