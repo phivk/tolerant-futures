@@ -64,6 +64,10 @@ export default {
   background-size: cover;
   background-image: url('@/static/image/chapter_intro_background.jpg');
 
+  @media (max-width: $query-mobile) {
+    padding: $offset-3;
+  }    
+
   &:before {
     width: 100%;
     height: 100%;

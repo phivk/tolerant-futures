@@ -20,6 +20,10 @@ a {
   filter: variables.$main-button-shadow-effect;
   text-decoration: none;
   color: variables.$black-color;
+
+  @media (max-width: variables.$query-mobile) {
+    font-size: variables.$f-3;
+  }  
 }
 
 .link-inline {
@@ -27,4 +31,8 @@ a {
   font-size: variables.$f-4;
   display: inline;
   color: variables.$black-color;
+
+  @media (max-width: variables.$query-mobile) {
+    font-size: variables.$f-4;
+  }   
 }

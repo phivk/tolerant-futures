@@ -49,9 +49,17 @@ div.landing-page {
   background-size: cover;
   background-image: url('@/static/image/landing_page_background.jpg');
 
+  @media (max-width: $query-mobile) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: 64% 0;
+    padding: $offset-3;
+  }
+
   .wrapper {
     width: 35%;
-    min-width: 400px;
+    min-width: 400px;    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,6 +68,11 @@ div.landing-page {
     border-radius: $border-radius-2;
     padding: $offset-4;
     text-align: center;
+
+    @media (max-width: $query-mobile) {
+      width: 100%;
+      min-width: auto;
+    }
 
     h1,
     p {
