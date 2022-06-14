@@ -78,6 +78,10 @@ div.modal-text-revealer {
         color: $black-color;
         font-size: $f-2;
         line-height: $f-2;
+        @media (max-width: $query-mobile) {
+          font-size: $f-3;
+          line-height: $f-3;
+        }          
       }
     }
   }
@@ -105,6 +109,10 @@ div.modal-text-revealer {
       font-size: $f-2;
       margin-bottom: $offset-3;
       z-index: $z-6;
+      @media (max-width: $query-mobile) {
+        font-size: $f-3;
+        line-height: $f-3;
+      }       
     }
   }
 }

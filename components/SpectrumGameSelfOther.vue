@@ -388,6 +388,9 @@ header {
 
   .subtitle-player {
     margin-top: $offset-4;
+    @media (max-width: $query-mobile) {
+      margin-top: $offset-4;
+    }  
   }
 }
 
@@ -406,7 +409,7 @@ header {
 }
 
 footer {
-  margin-bottom: $offset-3;
+  margin-bottom: $offset-2;
   display: flex;
   flex-direction: column;
   align-items: center;
