@@ -81,7 +81,11 @@ export default {
   -webkit-transform: translateZ(
     0
   ); // hack to fix the bug where on iOS an animated element with filter attribute would leave ugly trail behind
-  //filter: $draggable-item-shadow-effect-passive;
+
+  @media (max-width: $query-mobile) {
+    width: $card-item-width-mobile;
+    height: $card-item-height-mobile;
+  }  
 
   p {
     text-align: center;
@@ -89,6 +93,12 @@ export default {
     color: $white-color;
     font-size: $f-2;
     padding-bottom: $offset-1;
+
+    @media (max-width: $query-mobile) {
+      font-size: $f-3;
+      line-height: $f-3;
+
+    }      
   }
 
   &.placing {

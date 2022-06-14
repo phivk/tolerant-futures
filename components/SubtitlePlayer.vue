@@ -20,5 +20,12 @@ export default {}
   font-size: $f-1;
   filter: $caption-shadow-effect;
   line-height: 2.8rem;
+
+  @media (max-width: $query-mobile) {
+    font-size: $f-4;
+    line-height: 1.8rem;
+    padding-left: $offset-3;
+    padding-right: $offset-3;
+  }   
 }
 </style>

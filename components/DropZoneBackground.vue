@@ -45,8 +45,8 @@ export default {
 <style scoped lang="scss">
 .drop-zone-wrapper {
   position: absolute;
-  left: -7%;
-  width: 110%;
+  left: 0;
+  width: 100%;
   height: 100%;
   filter: blur($blur-3);
 
