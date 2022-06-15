@@ -35,6 +35,7 @@ div.informed-consent-page {
   width: 100%;
   height: 100vh;
   background-size: cover;
+  background-position: left;     
   background-image: url('@/static/image/landing_page_background.jpg');
 
   @media (max-width: $query-mobile) {
@@ -42,6 +43,9 @@ div.informed-consent-page {
     background-image: url('@/static/image/landing_page_background_mobile.jpg');
     background-position: center;       
   }
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+    padding: $offset-3;
+  }    
 
   .wrapper {
     width: 35%;
@@ -58,6 +62,11 @@ div.informed-consent-page {
     @media (max-width: $query-mobile) {
       width: 100%;
       min-width: auto;
+    }    
+
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        width: 100%;
+        padding: $offset-3;
     }    
 
     h1,

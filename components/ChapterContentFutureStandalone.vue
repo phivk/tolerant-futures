@@ -4,7 +4,7 @@
     :paragraph="currentState.caption"
     :show-button="false"
   >
-    <div class="mv4 tc w-100 flex flex-column items-center justify-center">
+    <div class="parent">
       <component
         :is="currentState.component"
         class="mv3"
@@ -20,7 +20,7 @@
       </ButtonPrimary>
       <ButtonSecondary
         v-if="currentState.buttonSecondary"
-        class="mt3"
+        class=""
         @buttonClicked="currentState.buttonSecondary.handler"
       >
         {{ currentState.buttonSecondary.text }}
@@ -59,11 +59,9 @@ export default {
         displayFeedback: {
           caption:
             'Thank you. Sharing your thought with someone else can be a great first step in making it real. Why not share this thought with someone you know?',
-          component: 'ModalTextRevealer',
+          component: 'ModalText',
           dynamicProps: {
             text: this.feedback,
-            isHidden: false,
-            overrideWidth: '60%',
           },
           buttonPrimary: {
             text: 'Continue',
@@ -101,7 +99,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $offset-4 $offset-3;
+  width: 100%;
+
+  @media (max-width: $query-mobile) {
+    width: 100%;
+  } 
+
+  .button-primary {
+    margin-top: $offset-3;    
+    margin-bottom: $offset-4;
+  }
+}
+
+
 a {
   color: $white-color;
 }
+
+
+
 </style>

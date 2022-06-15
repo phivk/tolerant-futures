@@ -382,6 +382,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 header {
   width: 100%;
   z-index: $z-4;
@@ -417,6 +418,9 @@ footer {
 
   .button-primary {
     margin-bottom: $offset-5;
+    @media (max-width: $query-mobile) {
+      margin-top: $offset-3;    
+    }      
   }
 
   .subtitle-player.subtitle-player-concept-hint {

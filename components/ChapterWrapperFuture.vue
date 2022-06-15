@@ -65,6 +65,12 @@ export default {
   background-size: cover;
   background-image: url('@/static/image/future_chapter_background.jpg');
 
+  @media (max-width: $query-mobile) {
+    background-image: url('@/static/image/future_chapter_background_mobile.jpg');
+    background-position: center;       
+  }
+
+
   .wrapper {
     display: flex;
     flex-direction: column;

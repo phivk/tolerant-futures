@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-text-revealer" :style="{ width: overrideWidth }">
+  <div class="modal-text-revealer" :style="{width: overrideWidth}">
     <div class="text">
       <div>
         <p>
@@ -110,6 +110,7 @@ div.modal-text-revealer {
       margin-bottom: $offset-3;
       z-index: $z-6;
       @media (max-width: $query-mobile) {
+        padding: $offset-3;
         font-size: $f-3;
         line-height: $f-3;
       }       

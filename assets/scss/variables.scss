@@ -101,9 +101,8 @@ $button-outline-color: $white-color;
 $button-disabled-color: $gray;
 $warn-overlay-color: rgba(5, 5, 36, 0.3);
 
-$query-mobile: 900px;
-$query-desktop: 1200px;
-
+$query-mobile: 450px;
+$query-mobile-landscape: 960px;
 
 /* spectrum gradient colors
 	are hand picked color vars used in background gradients of the spectra	

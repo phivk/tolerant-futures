@@ -46,8 +46,9 @@ div.landing-page {
   padding: $offset-4;
   width: 100%;
   height: 100vh;
-  //background-size: cover;
+  background-size: cover;
   background-image: url('@/static/image/landing_page_background.jpg');
+  background-position: center;   
 
   @media (max-width: $query-mobile) {
     display: flex;
@@ -56,8 +57,14 @@ div.landing-page {
     padding: $offset-3;
     background-image: url('@/static/image/landing_page_background_mobile.jpg');
     background-position: center;   
-
   }
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    padding: $offset-3;
+  }  
 
   .wrapper {
     width: 35%;
@@ -74,6 +81,11 @@ div.landing-page {
     @media (max-width: $query-mobile) {
       width: 100%;
       min-width: auto;
+    }
+
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        width: 50%;
+        padding: $offset-3;
     }
 
     h1,
