@@ -38,8 +38,9 @@ div.informed-consent-page {
   background-image: url('@/static/image/landing_page_background.jpg');
 
   @media (max-width: $query-mobile) {
-    background-position: 64% 0;
     padding: $offset-3;
+    background-image: url('@/static/image/landing_page_background_mobile.jpg');
+    background-position: center;       
   }
 
   .wrapper {
@@ -57,7 +58,6 @@ div.informed-consent-page {
     @media (max-width: $query-mobile) {
       width: 100%;
       min-width: auto;
-
     }    
 
     h1,

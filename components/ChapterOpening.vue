@@ -67,6 +67,8 @@ export default {
 
   @media (max-width: $query-mobile) {
     padding: $offset-3;
+    background-image: url('@/static/image/chapter_intro_background_mobile.jpg'); 
+    background-position: center; 
   }    
 
   &:before {

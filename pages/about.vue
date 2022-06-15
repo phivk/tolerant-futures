@@ -97,8 +97,14 @@ export default {
   color: $white-color;
   padding: $offset-3;
 
+  @media (max-width: $query-mobile) {
+    background-image: url('@/static/image/about_page_background_mobile.jpg'); 
+    background-position: center; 
+  } 
+
   section {
     padding: $offset-5 0;
+
     @media (max-width: $query-mobile) {
       padding: $offset-4 0;
     }     

@@ -46,15 +46,17 @@ div.landing-page {
   padding: $offset-4;
   width: 100%;
   height: 100vh;
-  background-size: cover;
+  //background-size: cover;
   background-image: url('@/static/image/landing_page_background.jpg');
 
   @media (max-width: $query-mobile) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-position: 64% 0;
     padding: $offset-3;
+    background-image: url('@/static/image/landing_page_background_mobile.jpg');
+    background-position: center;   
+
   }
 
   .wrapper {
