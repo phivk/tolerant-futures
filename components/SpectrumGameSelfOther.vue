@@ -389,8 +389,8 @@ header {
 
   .subtitle-player {
     margin-top: $offset-4;
-    @media (max-width: $query-mobile) {
-      margin-top: $offset-4;
+    @media (max-width: $query-mobile-landscape) {
+      margin-top: $offset-5;
     }  
   }
 }
@@ -403,10 +403,16 @@ header {
 .spectrum-game-draggable {
   z-index: $z-5;
   bottom: 10%;
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) { 
+      bottom: 14%;
+  }     
 }
 .spectrum-game-draggable-other {
   z-index: $z-5;
   bottom: 10%;
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+      bottom: 14%;
+  }     
 }
 
 footer {
@@ -416,16 +422,19 @@ footer {
   align-items: center;
   z-index: $z-4;
 
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) { 
+      margin-bottom: $offset-1;
+  }  
+
   .button-primary {
     margin-bottom: $offset-5;
-    @media (max-width: $query-mobile) {
-      margin-top: $offset-3;    
-    }      
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        margin-bottom: $offset-3;
+    }  
   }
-
+ 
   .subtitle-player.subtitle-player-concept-hint {
-    font-size: $f-4;
-    line-height: $f-3;
+    z-index: $z-4;
   }
 }
 

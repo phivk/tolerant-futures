@@ -342,7 +342,6 @@ footer {
       margin-bottom: $offset-1;
   }   
 
-
   .button-primary {
     margin-bottom: $offset-5;
     @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
