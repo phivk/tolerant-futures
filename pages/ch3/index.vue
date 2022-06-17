@@ -111,6 +111,11 @@ export default {
       padding-bottom: $offset-2;
     }
 
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        height: 125px;
+        //margin-bottom: $offset-1;
+    }    
+
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <section class="chapter-opening">
     <div class="wrapper">
       <h1>{{ title }}</h1>
-      <p class="pt2 pb4 measure-wide large-paragraph">{{ paragraph }}</p>
+      <p class="measure-wide large-paragraph">{{ paragraph }}</p>
       <slot></slot>
       <NuxtLink
         v-if="showButton"
@@ -92,6 +92,15 @@ export default {
       color: $white-color;
       text-align: center;
       filter: $caption-shadow-effect;
+    }
+
+    p {
+      padding-top: $offset-2;      
+      padding-bottom: $offset-4;
+        @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+            padding-bottom: $offset-2;
+        } 
+
     }
   }
 }

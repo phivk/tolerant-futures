@@ -157,8 +157,13 @@ div {
     color: $white-color;
     filter: $caption-shadow-effect;
   }
-  button {
+  button.button-secondary {
     margin-top: $offset-6;
+
+     @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+       margin-top: calc($offset-5 + 10px);
+
+    }     
   }
 }
 </style>

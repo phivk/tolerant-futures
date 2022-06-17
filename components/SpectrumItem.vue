@@ -41,9 +41,9 @@ export default {
       }
     },
     styleObjectCard() {
-      const mediaQuery = window.matchMedia("(max-width: 900px)")
+      const mobileQuery = window.matchMedia("(max-width: 450px)")
       let n;
-      if (mediaQuery.matches) { 
+      if (mobileQuery.matches) { 
         n = remapRange(this.spectrumPosition, 0.0, 1.0, 0.0, 71.0)
       } else {
         n = remapRange(this.spectrumPosition, 0.0, 1.0, 0.0, 87.0)
@@ -65,6 +65,11 @@ div {
   justify-content: space-between;
   align-items: center;
 
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+    height: $ch3-other-user-spectrum-height-mobile-landscape;
+  } 
+
+
   .spectrum-item {
     position: absolute;
     width: 100%;
@@ -80,12 +85,17 @@ div {
     .spectrum-card {
       z-index: $z-3;
       position: absolute;
-      width: $ch3-other-user-spectrum-width;
+      width: $ch3-other-user-mini-card-width;
       height: $ch3-other-user-mini-card-height;
       border-radius: $border-radius-2;
       border: 5px solid $white-color;
       top: -50%;
       transform: translateY(50%);
+
+      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+      width: $ch3-other-user-mini-card-width-mobile-landscape;        
+      height: $ch3-other-user-mini-card-height-mobile-landscape;
+      }       
     }
   }
 }

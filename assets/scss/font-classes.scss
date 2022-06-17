@@ -45,15 +45,10 @@ ul {
   font-size: variables.$f-4;
   line-height: 1.5rem;
 
-  @media (max-width: variables.$query-mobile) {
+  @media (max-width: variables.$query-mobile-landscape) {
     font-size: variables.$f-5;
     line-height:variables.$f-5;
-   }
-
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) {
-    font-size: variables.$f-5;
-    line-height:variables.$f-5;
-  }    
+   }  
 }
 
 p.large-paragraph {
@@ -65,8 +60,8 @@ p.large-paragraph {
     line-height: variables.$f-4;
    }
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) {
-    font-size: variables.$f-4;
-    line-height:variables.$f-4;
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) {
+    font-size: variables.$f-5;
+    line-height:variables.$f-5;
   }    
 }
