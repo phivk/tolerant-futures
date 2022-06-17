@@ -12,10 +12,11 @@ export default {}
   font-size: $f-0;
   z-index: $z-5;
   color: $background-color;
-  
-  @media (max-width: $query-mobile) {
+
+  @media (max-width: $query-mobile-landscape) {
   	font-size: $f-3;
   }  
+
 
 }
 </style>

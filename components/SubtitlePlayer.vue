@@ -23,9 +23,17 @@ export default {}
 
   @media (max-width: $query-mobile) {
     font-size: $f-4;
-    line-height: 1.8rem;
+    line-height: $f-4;
     padding-left: $offset-3;
     padding-right: $offset-3;
-  }   
+  }
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+      font-size: $f-5;
+      line-height: $f-5;
+      padding-left: $offset-2;
+      padding-right: $offset-2;  
+    }  
+
 }
 </style>

@@ -38,14 +38,15 @@ div.informed-consent-page {
   background-position: left;     
   background-image: url('@/static/image/landing_page_background.jpg');
 
-  @media (max-width: $query-mobile) {
+  @media (max-width: $query-mobile-landscape) {
     padding: $offset-3;
     background-image: url('@/static/image/landing_page_background_mobile.jpg');
     background-position: center;       
   }
+
   @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-    padding: $offset-3;
-  }    
+    background-image: url('@/static/image/landing_page_background.jpg');
+  }  
 
   .wrapper {
     width: 35%;

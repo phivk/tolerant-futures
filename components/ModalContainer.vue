@@ -13,7 +13,7 @@ div.modals-container {
   top: 50%;
   transform: translate(-50%, -50%);
 
-  @media (max-width: $query-mobile) {
+  @media (max-width: $query-mobile-landscape) {
   	width: $modal-player-feedback-width-mobile;
   }
 }

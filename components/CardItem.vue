@@ -87,6 +87,11 @@ export default {
     height: $card-item-height-mobile;
   }  
 
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+    width: $card-item-width-mobile-landscape;
+    height: $card-item-height-mobile-landscape;  
+  }  
+
   p {
     text-align: center;
     font-family: $headline-font;
@@ -97,7 +102,11 @@ export default {
     @media (max-width: $query-mobile) {
       font-size: $f-3;
       line-height: $f-3;
+    }      
 
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        font-size: $f-4;
+        line-height: $f-4;      
     }      
   }
 

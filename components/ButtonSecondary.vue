@@ -28,7 +28,7 @@ export default {
   outline: none;
   filter: $secondary-button-shadow-effect;
 
-  @media (max-width: $query-mobile) {
+  @media (max-width: $query-mobile-landscape) {
     font-size: $f-5;
   }     
 

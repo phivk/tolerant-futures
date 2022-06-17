@@ -1,3 +1,5 @@
+/* simplified duplicate of ModalTextRevealer component, created to fix styling issues in  ChapterContentFutureStandalone and ChapterContentFutureBrowser */
+
 <template>
   <div class="modal-text">
       <p>

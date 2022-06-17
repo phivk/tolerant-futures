@@ -105,6 +105,11 @@ export default {
   @media (max-width: $query-mobile) {
     height: $drop-zone-height-mobile;
   }   
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+      height: $drop-zone-height-mobile-landscape;
+  }   
+
 }
 .drop-active {
   border-color: #aaa;

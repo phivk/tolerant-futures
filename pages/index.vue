@@ -50,7 +50,7 @@ div.landing-page {
   background-image: url('@/static/image/landing_page_background.jpg');
   background-position: center;   
 
-  @media (max-width: $query-mobile) {
+  @media (max-width: $query-mobile-landscape) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,10 +60,7 @@ div.landing-page {
   }
 
   @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    padding: $offset-3;
+    background-image: url('@/static/image/landing_page_background.jpg');
   }  
 
   .wrapper {
@@ -78,14 +75,9 @@ div.landing-page {
     padding: $offset-4;
     text-align: center;
 
-    @media (max-width: $query-mobile) {
+    @media (max-width: $query-mobile-landscape) {
       width: 100%;
       min-width: auto;
-    }
-
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-        width: 50%;
-        padding: $offset-3;
     }
 
     h1,

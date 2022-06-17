@@ -58,9 +58,16 @@ div {
   z-index: $z-5;
   width: 100%;
   height: $modal-player-feedback-height;
+
   @media (max-width: $query-mobile) {
     height: $modal-player-feedback-height-mobile;
   } 
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+    height: $modal-player-feedback-height-mobile-landscape;
+  }   
+
+
 
   &.modal-short {
     height: $modal-player-feedback-height-short;
@@ -71,7 +78,7 @@ div {
     width: 100%;
     height: 100%;
     padding: 50px 70px 0 70px;
-    @media (max-width: $query-mobile) {
+    @media (max-width: $query-mobile-landscape) {
       padding: 25px 35px 0 35px;
     } 
 
@@ -105,6 +112,12 @@ div {
         font-size: $f-3;
         height: $modal-player-feedback-textarea-height-mobile;
       }  
+
+      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+          font-size: $f-4;
+          height: $modal-player-feedback-textarea-height-mobile;
+      }      
+
       &:focus {
         outline: none;
       }

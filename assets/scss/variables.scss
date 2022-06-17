@@ -1,12 +1,15 @@
 /* widths & heights */
 $card-item-width: 330px;
 $card-item-width-mobile: calc($card-item-width * 0.7);
+$card-item-width-mobile-landscape: calc($card-item-width * 0.6);
 $card-item-height: 198px;
 $card-item-height-mobile: calc($card-item-height * 0.7);
-
+$card-item-height-mobile-landscape: calc($card-item-height * 0.6);
 
 $drop-zone-height: 250px;
-$drop-zone-height-mobile: 160px;
+$drop-zone-height-mobile: calc($drop-zone-height * 0.65);
+$drop-zone-height-mobile-landscape: calc($drop-zone-height * 0.4);
+
 $exit-game-button-width: 40px;
 $chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
@@ -14,6 +17,7 @@ $modal-player-feedback-width: 50%;
 $modal-player-feedback-width-mobile: 95%;
 $modal-player-feedback-height: 320px;
 $modal-player-feedback-height-mobile: 350px;
+$modal-player-feedback-height-mobile-landscape: 180px;
 $modal-player-feedback-height-short: 230px;
 $modal-player-feedback-textarea-height: 70%;
 $modal-player-feedback-textarea-height-mobile: 90%;

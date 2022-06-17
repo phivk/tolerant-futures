@@ -27,10 +27,10 @@ export default {
   filter: $main-button-shadow-effect;
   color: $black-color;
 
-  @media (max-width: $query-mobile) {
+  @media (max-width: $query-mobile-landscape) {
     font-size: $f-3;
    }  
-
+    
   &.outlined {
     background: none;
     border: 1px solid $white-color;

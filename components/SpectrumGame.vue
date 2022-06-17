@@ -242,7 +242,7 @@ header {
 
   .subtitle-player {
     margin-top: $offset-4;
-    @media (max-width: $query-mobile) {
+    @media (max-width: $query-mobile-landscape) {
       margin-top: $offset-5;
     }  
 
@@ -269,6 +269,10 @@ header {
 .spectrum-game-draggable {
   bottom: 10%;
   z-index: $z-5;
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+      bottom: 12.5%;
+  }     
 }
 
 .spectrum-game-feedback-modal {
@@ -284,10 +288,18 @@ footer {
   align-items: center;
   z-index: $z-4;
 
-  .button-primary {
-    margin-bottom: $offset-5;
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+      margin-bottom: $offset-1;
   }
 
+  .button-primary {
+    margin-bottom: $offset-5;
+
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        margin-bottom: $offset-3;
+    }      
+  }
+  
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
     line-height: $f-3;
