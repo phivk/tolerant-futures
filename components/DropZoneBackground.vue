@@ -48,6 +48,8 @@ export default {
   left: -7%;
   width: 110%;
   height: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
   filter: blur($blur-3);
 
   .drop-zone-gradient {
