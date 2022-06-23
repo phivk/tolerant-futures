@@ -61,13 +61,19 @@ div {
   @media (max-width: $query-mobile) {
     height: $modal-player-feedback-height-mobile;
   } 
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+      font-size: $f-4;
+      height: $modal-player-feedback-height-mobile-landscape;
+  }
+
   form {
     position: relative;
     width: 100%;
     height: 100%;
     padding: 50px 70px 0 70px;
-    @media (max-width: $query-mobile) {
-      padding: 25px 35px 0 35px;
+    @media (max-width: $query-mobile-landscape) {
+      padding: 10px 20px 0 20px;
     } 
 
     &::before {
@@ -77,9 +83,12 @@ div {
       top: 0;
       content: '';
       width: 100%;
-      height: $modal-player-feedback-height;
+      height: 100%;
       background-color: rgba(255, 255, 255, 0.9);
       filter: blur($blur-3);
+       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        filter: blur($blur-2);
+      }       
     }
 
     textarea {
@@ -96,10 +105,16 @@ div {
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
+
       @media (max-width: $query-mobile) {
         font-size: $f-3;
         height: $modal-player-feedback-textarea-height-mobile;
       } 
+
+      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+          font-size: $f-4;
+          height: $modal-player-feedback-textarea-height-mobile;
+      }        
       &:focus {
         outline: none;
       }

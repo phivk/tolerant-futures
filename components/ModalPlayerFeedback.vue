@@ -67,10 +67,12 @@ div {
     height: $modal-player-feedback-height-mobile-landscape;
   }   
 
-
-
   &.modal-short {
     height: $modal-player-feedback-height-short;
+
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
+      height: $modal-player-feedback-height-short-mobile-landscape
+    }      
   }
 
   form {
@@ -79,7 +81,7 @@ div {
     height: 100%;
     padding: 50px 70px 0 70px;
     @media (max-width: $query-mobile-landscape) {
-      padding: 25px 35px 0 35px;
+      padding: 10px 20px 0 20px;
     } 
 
     &::before {
@@ -92,6 +94,9 @@ div {
       height: 100%;
       background-color: rgba(255, 255, 255, 0.95);
       filter: blur($blur-3);
+       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+        filter: blur($blur-2);
+      }       
     }
 
     textarea {
@@ -161,8 +166,7 @@ div {
     margin-top: $offset-6;
 
      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-       margin-top: calc($offset-5 + 10px);
-
+       margin-top: calc($offset-5 + 5px);
     }     
   }
 }

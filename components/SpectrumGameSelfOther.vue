@@ -389,9 +389,6 @@ header {
 
   .subtitle-player {
     margin-top: $offset-4;
-    @media (max-width: $query-mobile-landscape) {
-      margin-top: $offset-5;
-    }  
   }
 }
 
