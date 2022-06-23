@@ -33,7 +33,12 @@ div.modal-text {
 
   @media (max-width: $query-mobile) {
     width: 100%;
-  }      
+  }
+
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+      height: $modal-player-feedback-height-mobile-landscape;
+  }
+
   p {
     text-align: left;
     color: $black-color;
@@ -43,7 +48,11 @@ div.modal-text {
     @media (max-width: $query-mobile) {
       font-size: $f-3;
       line-height: $f-3;
-    }         
+    }
+
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
+          font-size: $f-4;
+    }             
   }
 }
 </style>

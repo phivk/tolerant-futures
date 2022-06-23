@@ -121,7 +121,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: $offset-4 $offset-3;
+  padding: $offset-4 $offset-3 0 $offset-3;
   width: 60%;
 
   @media (max-width: $query-mobile) {
@@ -134,11 +134,18 @@ export default {
 
   .button-secondary {
     margin-top: $offset-4;
+
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   margin-top: $offset-3;
+    }       
   }  
 }
 
 a {
   color: $white-color;
+}
+
+.link-inline {
+  padding-top: $offset-5; 
 }
 
 </style>
