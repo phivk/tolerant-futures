@@ -44,12 +44,12 @@ div.informed-consent-page {
     background-position: center;       
   }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation:landscape) {
     background-image: url('@/static/image/landing_page_background.jpg');
   }  
 
   .wrapper {
-    width: 35%;
+    width: 50%;
     min-width: 400px;
     display: flex;
     flex-direction: column;

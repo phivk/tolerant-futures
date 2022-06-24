@@ -301,7 +301,6 @@ export default {
 header {
   width: 100%;
   z-index: $z-4;
-
   .subtitle-player {
     margin-top: $offset-4;
     @media (max-width: $query-mobile-landscape) {
@@ -326,7 +325,7 @@ header {
   bottom: 10%;
   z-index: $z-5;
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {    
       bottom: 14%;
   }    
 }
@@ -337,20 +336,33 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: $offset-3;   
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){    
       margin-bottom: $offset-1;
   }   
 
   .button-primary {
     margin-bottom: $offset-5;
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {
         margin-bottom: $offset-3;
     }     
   }
-
   .subtitle-player.subtitle-player-concept-hint {
+    font-size: $f-4;
+    line-height: $f-4;
     z-index: $z-4;
+    margin-bottom: $offset-2;
+
+    @media (max-width:$query-mobile) {    
+      font-size: $f-5;
+      line-height: $f-5;    
+    }   
+
+    @media (max-width:$query-mobile-landscape) and (orientation: landscape){    
+      font-size: $f-5;
+      line-height: $f-5;    
+    }     
   }
 }
 </style>

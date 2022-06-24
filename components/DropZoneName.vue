@@ -13,9 +13,15 @@ export default {}
   z-index: $z-5;
   color: $background-color;
 
-  @media (max-width: $query-mobile-landscape) {
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
   	font-size: $f-3;
   }  
+
+  @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
+  	font-size: $f-1;
+  }  
+
+ 
 
 
 }

@@ -8,7 +8,7 @@ h1 {
     font-size: variables.$f-2;
    }  
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) {
+  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) and (orientation:landscape){
     font-size: variables.$f-3;
   }     
 }
@@ -21,7 +21,7 @@ h2 {
     font-size: variables.$f-3;
    }   
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) {
+  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) and (orientation:landscape){
     font-size: variables.$f-4;
   }     
 }
@@ -34,7 +34,7 @@ h3 {
     font-size: variables.$f-4;
    }    
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) {
+  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) and (orientation:landscape){
     font-size: variables.$f-4;
   }       
 }
@@ -45,7 +45,12 @@ ul {
   font-size: variables.$f-4;
   line-height: 1.5rem;
 
-  @media (max-width: variables.$query-mobile-landscape) {
+  @media (max-width: variables.$query-mobile) {
+    font-size: variables.$f-5;
+    line-height:variables.$f-5;
+  }
+
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation:landscape){
     font-size: variables.$f-5;
     line-height:variables.$f-5;
    }  
@@ -60,7 +65,7 @@ p.large-paragraph {
     line-height: variables.$f-4;
    }
 
-  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) {
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation:landscape){
     font-size: variables.$f-5;
     line-height:variables.$f-5;
   }    

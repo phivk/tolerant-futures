@@ -46,14 +46,14 @@ div.modal-text-revealer {
   &.modal-short {
     height: $modal-player-feedback-height-short;
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {   
       height: $modal-player-feedback-height-short-mobile-landscape;
     }   
 
     .text-hider {
       height: $modal-player-feedback-height-short;
 
-      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
+      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {   
         height: $modal-player-feedback-height-short-mobile-landscape;
       }      
     }
@@ -77,12 +77,13 @@ div.modal-text-revealer {
         color: $black-color;
         font-size: $f-2;
         line-height: $f-2;
+
         @media (max-width: $query-mobile) {
           font-size: $f-3;
           line-height: $f-3;
         }          
 
-        @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
+        @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {   
             font-size: $f-4;
             line-height: $f-4;      
         }           
@@ -113,12 +114,13 @@ div.modal-text-revealer {
       font-size: $f-2;
       margin-bottom: $offset-3;
       z-index: $z-6;
+
       @media (max-width: $query-mobile) {
         padding: $offset-3;
         font-size: $f-3;
         line-height: $f-3;
       }       
-      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
+      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {   
           font-size: $f-4;
           line-height: $f-4;      
       }   

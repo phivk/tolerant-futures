@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 div {
   z-index: $z-5;
   width: 100%;
@@ -62,17 +63,16 @@ div {
   @media (max-width: $query-mobile) {
     height: $modal-player-feedback-height-mobile;
   } 
-
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){    
     height: $modal-player-feedback-height-mobile-landscape;
-  }   
+  }
 
   &.modal-short {
     height: $modal-player-feedback-height-short;
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   
-      height: $modal-player-feedback-height-short-mobile-landscape
-    }      
+   @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){    
+      height: $modal-player-feedback-height-short-mobile-landscape;      
+      }         
   }
 
   form {
@@ -94,7 +94,7 @@ div {
       height: 100%;
       background-color: rgba(255, 255, 255, 0.95);
       filter: blur($blur-3);
-       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){
         filter: blur($blur-2);
       }       
     }
@@ -113,12 +113,13 @@ div {
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
+
       @media (max-width: $query-mobile) {
-        font-size: $f-3;
+        font-size: $f-4;
         height: $modal-player-feedback-textarea-height-mobile;
       }  
 
-      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
+      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {    
           font-size: $f-4;
           height: $modal-player-feedback-textarea-height-mobile;
       }      

@@ -112,7 +112,7 @@ div {
       } 
 
       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
-          font-size: $f-4;
+          font-size: $f-3;
           height: $modal-player-feedback-textarea-height-mobile;
       }        
       &:focus {

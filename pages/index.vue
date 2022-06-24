@@ -59,7 +59,7 @@ div.landing-page {
     background-position: center;   
   }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation:landscape){
     background-image: url('@/static/image/landing_page_background.jpg');
   }  
 

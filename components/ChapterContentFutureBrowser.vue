@@ -122,11 +122,11 @@ export default {
   align-items: center;
   justify-content: center;
   padding: $offset-4 $offset-3 0 $offset-3;
-  width: 60%;
+  width: 100%;
 
-  @media (max-width: $query-mobile) {
-    width: 100%;
-  }  
+  @media (orientation: landscape) {   
+    width: 60%;
+  }     
 
   .button-primary {
     margin-top: $offset-3;

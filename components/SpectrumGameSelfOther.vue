@@ -421,6 +421,7 @@ footer {
   flex-direction: column;
   align-items: center;
   z-index: $z-4;
+  margin-bottom: $offset-3;   
 
   @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) { 
       margin-bottom: $offset-1;
@@ -434,7 +435,19 @@ footer {
   }
  
   .subtitle-player.subtitle-player-concept-hint {
+    font-size: $f-4;
+    line-height: $f-4;
     z-index: $z-4;
+    margin-bottom: $offset-2;
+
+    @media (max-width:$query-mobile) {    
+      font-size: $f-5;
+      line-height: $f-5;    
+    }   
+    @media (max-width:$query-mobile-landscape) and (orientation: landscape){    
+      font-size: $f-5;
+      line-height: $f-5;    
+    }     
   }
 }
 

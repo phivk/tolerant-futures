@@ -87,7 +87,7 @@ export default {
     height: $card-item-height-mobile;
   }  
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){
     width: $card-item-width-mobile-landscape;
     height: $card-item-height-mobile-landscape;  
   }  
@@ -104,7 +104,7 @@ export default {
       line-height: $f-3;
     }      
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {
         font-size: $f-4;
         line-height: $f-4;      
     }      

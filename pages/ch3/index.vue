@@ -101,6 +101,14 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-left: $offset-7;
+  padding-right: $offset-7;
+
+  @media (max-width: $query-mobile-landscape) and (orientation:portrait) {
+      padding-left: $offset-3;
+      padding-right: $offset-3; 
+  }   
+
 
   .face-img {
     height: 370px;

@@ -23,7 +23,8 @@ export default {
 <style scoped lang="scss">
 div.modal-text {
   z-index: 10000;
-  width: 60%;
+  width: 85%; //$modal-player-feedback-width;
+
   height: $modal-player-feedback-height;
   border-radius: $border-radius-2;
   box-sizing: border-box;
