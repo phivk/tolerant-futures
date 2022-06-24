@@ -382,7 +382,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 header {
   width: 100%;
   z-index: $z-4;
@@ -392,7 +391,7 @@ header {
   }
   @media (max-width: $query-mobile-landscape) {
     margin-top: $offset-5;
-  }    
+  }
 }
 
 .spectrum-game-dropzone {
@@ -403,16 +402,16 @@ header {
 .spectrum-game-draggable {
   z-index: $z-5;
   bottom: 10%;
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) { 
-      bottom: 14%;
-  }     
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    bottom: 14%;
+  }
 }
 .spectrum-game-draggable-other {
   z-index: $z-5;
   bottom: 10%;
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
-      bottom: 14%;
-  }     
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    bottom: 14%;
+  }
 }
 
 footer {
@@ -421,33 +420,33 @@ footer {
   flex-direction: column;
   align-items: center;
   z-index: $z-4;
-  margin-bottom: $offset-3;   
+  margin-bottom: $offset-3;
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) { 
-      margin-bottom: $offset-1;
-  }  
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    margin-bottom: $offset-1;
+  }
 
   .button-primary {
     margin-bottom: $offset-5;
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-        margin-bottom: $offset-3;
-    }  
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      margin-bottom: $offset-3;
+    }
   }
- 
+
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
     line-height: $f-4;
     z-index: $z-4;
     margin-bottom: $offset-2;
 
-    @media (max-width:$query-mobile) {    
+    @media (max-width: $query-mobile) {
       font-size: $f-5;
-      line-height: $f-5;    
-    }   
-    @media (max-width:$query-mobile-landscape) and (orientation: landscape){    
+      line-height: $f-5;
+    }
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
       font-size: $f-5;
-      line-height: $f-5;    
-    }     
+      line-height: $f-5;
+    }
   }
 }
 

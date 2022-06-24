@@ -6,11 +6,11 @@ h1 {
 
   @media (max-width: variables.$query-mobile) {
     font-size: variables.$f-2;
-   }  
+  }
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) and (orientation:landscape){
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
     font-size: variables.$f-3;
-  }     
+  }
 }
 
 h2 {
@@ -19,24 +19,24 @@ h2 {
 
   @media (max-width: variables.$query-mobile) {
     font-size: variables.$f-3;
-   }   
+  }
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) and (orientation:landscape){
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
     font-size: variables.$f-4;
-  }     
+  }
 }
 
 h3 {
   font-family: variables.$headline-font;
   font-size: variables.$f-3;
-  
+
   @media (max-width: variables.$query-mobile) {
     font-size: variables.$f-4;
-   }    
+  }
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape) and (orientation:landscape){
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
     font-size: variables.$f-4;
-  }       
+  }
 }
 
 p,
@@ -47,13 +47,13 @@ ul {
 
   @media (max-width: variables.$query-mobile) {
     font-size: variables.$f-5;
-    line-height:variables.$f-5;
+    line-height: variables.$f-5;
   }
 
-  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation:landscape){
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
     font-size: variables.$f-5;
-    line-height:variables.$f-5;
-   }  
+    line-height: variables.$f-5;
+  }
 }
 
 p.large-paragraph {
@@ -63,10 +63,10 @@ p.large-paragraph {
   @media (max-width: variables.$query-mobile) {
     font-size: variables.$f-4;
     line-height: variables.$f-4;
-   }
+  }
 
-  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation:landscape){
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
     font-size: variables.$f-5;
-    line-height:variables.$f-5;
-  }    
+    line-height: variables.$f-5;
+  }
 }

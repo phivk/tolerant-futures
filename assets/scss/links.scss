@@ -23,11 +23,11 @@ a {
 
   @media (max-width: variables.$query-mobile) {
     font-size: variables.$f-3;
-  }  
+  }
 
-  @media (min-width: variables.$query-mobile) and (max-width:variables.$query-mobile-landscape)  and (orientation:landscape){
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
     font-size: variables.$f-4;
-  }     
+  }
 }
 
 .link-inline {
@@ -35,5 +35,5 @@ a {
   font-size: variables.$f-4;
   display: inline;
   color: variables.$black-color;
-  text-align: center; 
+  text-align: center;
 }

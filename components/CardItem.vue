@@ -85,12 +85,12 @@ export default {
   @media (max-width: $query-mobile) {
     width: $card-item-width-mobile;
     height: $card-item-height-mobile;
-  }  
+  }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
     width: $card-item-width-mobile-landscape;
-    height: $card-item-height-mobile-landscape;  
-  }  
+    height: $card-item-height-mobile-landscape;
+  }
 
   p {
     text-align: center;
@@ -102,12 +102,12 @@ export default {
     @media (max-width: $query-mobile) {
       font-size: $f-3;
       line-height: $f-3;
-    }      
+    }
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {
-        font-size: $f-4;
-        line-height: $f-4;      
-    }      
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      font-size: $f-4;
+      line-height: $f-4;
+    }
   }
 
   &.placing {

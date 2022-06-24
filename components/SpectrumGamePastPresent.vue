@@ -10,8 +10,12 @@
       </SubtitlePlayer>
     </header>
     <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
-      <DropZoneName class="dropzone-name-left">{{ currentTurn.spectrumLeft }}</DropZoneName>
-      <DropZoneName class="dropzone-name-right">{{ currentTurn.spectrumRight }}</DropZoneName>
+      <DropZoneName class="dropzone-name-left">{{
+        currentTurn.spectrumLeft
+      }}</DropZoneName>
+      <DropZoneName class="dropzone-name-right">{{
+        currentTurn.spectrumRight
+      }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
@@ -305,12 +309,12 @@ header {
     margin-top: $offset-4;
     @media (max-width: $query-mobile-landscape) {
       margin-top: $offset-5;
-    }     
+    }
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
       @media (max-width: $query-mobile) {
         margin-top: $offset-8;
-      }         
+      }
     }
   }
 }
@@ -325,9 +329,9 @@ header {
   bottom: 10%;
   z-index: $z-5;
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {    
-      bottom: 14%;
-  }    
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    bottom: 14%;
+  }
 }
 
 footer {
@@ -336,17 +340,17 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: $offset-3;   
+  margin-bottom: $offset-3;
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){    
-      margin-bottom: $offset-1;
-  }   
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    margin-bottom: $offset-1;
+  }
 
   .button-primary {
     margin-bottom: $offset-5;
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {
-        margin-bottom: $offset-3;
-    }     
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      margin-bottom: $offset-3;
+    }
   }
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
@@ -354,15 +358,15 @@ footer {
     z-index: $z-4;
     margin-bottom: $offset-2;
 
-    @media (max-width:$query-mobile) {    
+    @media (max-width: $query-mobile) {
       font-size: $f-5;
-      line-height: $f-5;    
-    }   
+      line-height: $f-5;
+    }
 
-    @media (max-width:$query-mobile-landscape) and (orientation: landscape){    
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
       font-size: $f-5;
-      line-height: $f-5;    
-    }     
+      line-height: $f-5;
+    }
   }
 }
 </style>

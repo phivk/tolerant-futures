@@ -68,9 +68,9 @@ export default {
 
   @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
     background-image: url('@/static/image/future_chapter_background_mobile.jpg');
-    background-position: center;       
+    background-position: center;
   }
-  
+
   .wrapper {
     display: flex;
     flex-direction: column;

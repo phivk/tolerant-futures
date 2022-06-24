@@ -54,7 +54,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 div {
   z-index: $z-5;
   width: 100%;
@@ -62,17 +61,17 @@ div {
 
   @media (max-width: $query-mobile) {
     height: $modal-player-feedback-height-mobile;
-  } 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){    
+  }
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
     height: $modal-player-feedback-height-mobile-landscape;
   }
 
   &.modal-short {
     height: $modal-player-feedback-height-short;
 
-   @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){    
-      height: $modal-player-feedback-height-short-mobile-landscape;      
-      }         
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      height: $modal-player-feedback-height-short-mobile-landscape;
+    }
   }
 
   form {
@@ -82,7 +81,7 @@ div {
     padding: 50px 70px 0 70px;
     @media (max-width: $query-mobile-landscape) {
       padding: 10px 20px 0 20px;
-    } 
+    }
 
     &::before {
       position: absolute;
@@ -94,9 +93,9 @@ div {
       height: 100%;
       background-color: rgba(255, 255, 255, 0.95);
       filter: blur($blur-3);
-       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape){
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
         filter: blur($blur-2);
-      }       
+      }
     }
 
     textarea {
@@ -117,12 +116,12 @@ div {
       @media (max-width: $query-mobile) {
         font-size: $f-4;
         height: $modal-player-feedback-textarea-height-mobile;
-      }  
+      }
 
-      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {    
-          font-size: $f-4;
-          height: $modal-player-feedback-textarea-height-mobile;
-      }      
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }
 
       &:focus {
         outline: none;
@@ -166,9 +165,9 @@ div {
   button.button-secondary {
     margin-top: $offset-6;
 
-     @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-       margin-top: calc($offset-5 + 5px);
-    }     
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      margin-top: calc($offset-5 + 5px);
+    }
   }
 }
 </style>

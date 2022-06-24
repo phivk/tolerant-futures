@@ -6,8 +6,12 @@
         :color-b="input.colorB"
         :spectrum-position="input.value"
       >
-        <SpectrumName class="spectrum-name-left">{{ input.spectrumLeft }}</SpectrumName>
-        <SpectrumName class="spectrum-name-right">{{ input.spectrumRight }}</SpectrumName>
+        <SpectrumName class="spectrum-name-left">{{
+          input.spectrumLeft
+        }}</SpectrumName>
+        <SpectrumName class="spectrum-name-right">{{
+          input.spectrumRight
+        }}</SpectrumName>
       </SpectrumItem>
     </li>
   </ul>

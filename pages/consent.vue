@@ -35,18 +35,18 @@ div.informed-consent-page {
   width: 100%;
   height: 100vh;
   background-size: cover;
-  background-position: left;     
+  background-position: left;
   background-image: url('@/static/image/landing_page_background.jpg');
 
   @media (max-width: $query-mobile-landscape) {
     padding: $offset-3;
     background-image: url('@/static/image/landing_page_background_mobile.jpg');
-    background-position: center;       
+    background-position: center;
   }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation:landscape) {
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
     background-image: url('@/static/image/landing_page_background.jpg');
-  }  
+  }
 
   .wrapper {
     width: 50%;
@@ -63,12 +63,12 @@ div.informed-consent-page {
     @media (max-width: $query-mobile) {
       width: 100%;
       min-width: auto;
-    }    
+    }
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-        width: 100%;
-        padding: $offset-3;
-    }    
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      width: 100%;
+      padding: $offset-3;
+    }
 
     h1,
     p {

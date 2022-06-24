@@ -48,7 +48,7 @@ div.landing-page {
   height: 100vh;
   background-size: cover;
   background-image: url('@/static/image/landing_page_background.jpg');
-  background-position: center;   
+  background-position: center;
 
   @media (max-width: $query-mobile-landscape) {
     display: flex;
@@ -56,16 +56,16 @@ div.landing-page {
     justify-content: center;
     padding: $offset-3;
     background-image: url('@/static/image/landing_page_background_mobile.jpg');
-    background-position: center;   
+    background-position: center;
   }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation:landscape){
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
     background-image: url('@/static/image/landing_page_background.jpg');
-  }  
+  }
 
   .wrapper {
     width: 35%;
-    min-width: 400px;    
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;

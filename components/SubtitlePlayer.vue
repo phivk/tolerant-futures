@@ -28,17 +28,16 @@ export default {}
     padding-right: $offset-3;
   }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
     padding-left: $offset-3;
     padding-right: $offset-3;
   }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {
-      font-size: $f-5;
-      line-height: $f-5;
-      padding-left: $offset-2;
-      padding-right: $offset-2;  
-    }  
-
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    font-size: $f-5;
+    line-height: $f-5;
+    padding-left: $offset-2;
+    padding-right: $offset-2;
+  }
 }
 </style>

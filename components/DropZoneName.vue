@@ -14,15 +14,11 @@ export default {}
   color: $background-color;
 
   @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
-  	font-size: $f-3;
-  }  
+    font-size: $f-3;
+  }
 
   @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
-  	font-size: $f-1;
-  }  
-
- 
-
-
+    font-size: $f-1;
+  }
 }
 </style>

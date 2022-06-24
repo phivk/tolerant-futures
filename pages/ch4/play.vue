@@ -1,10 +1,10 @@
 <template>
   <StandaloneConditionalDisplay>
     <template #standalone>
-      <ChapterContentFutureStandalone @submit-input="onSubmitInput"/>
+      <ChapterContentFutureStandalone @submit-input="onSubmitInput" />
     </template>
     <template #browser>
-      <ChapterContentFutureBrowser @submit-input="onSubmitInput"/>
+      <ChapterContentFutureBrowser @submit-input="onSubmitInput" />
     </template>
   </StandaloneConditionalDisplay>
 </template>

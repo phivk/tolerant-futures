@@ -60,11 +60,11 @@ div {
   height: $modal-player-feedback-height;
   @media (max-width: $query-mobile) {
     height: $modal-player-feedback-height-mobile;
-  } 
+  }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
-      font-size: $f-4;
-      height: $modal-player-feedback-height-mobile-landscape;
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    font-size: $f-4;
+    height: $modal-player-feedback-height-mobile-landscape;
   }
 
   form {
@@ -74,7 +74,7 @@ div {
     padding: 50px 70px 0 70px;
     @media (max-width: $query-mobile-landscape) {
       padding: 10px 20px 0 20px;
-    } 
+    }
 
     &::before {
       position: absolute;
@@ -86,9 +86,9 @@ div {
       height: 100%;
       background-color: rgba(255, 255, 255, 0.9);
       filter: blur($blur-3);
-       @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
         filter: blur($blur-2);
-      }       
+      }
     }
 
     textarea {
@@ -109,12 +109,12 @@ div {
       @media (max-width: $query-mobile) {
         font-size: $f-3;
         height: $modal-player-feedback-textarea-height-mobile;
-      } 
+      }
 
-      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {    
-          font-size: $f-3;
-          height: $modal-player-feedback-textarea-height-mobile;
-      }        
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+        font-size: $f-3;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }
       &:focus {
         outline: none;
       }
@@ -155,7 +155,7 @@ div {
     filter: $caption-shadow-effect;
   }
   button {
-    margin-top: $offset-5;    
+    margin-top: $offset-5;
   }
 }
 </style>

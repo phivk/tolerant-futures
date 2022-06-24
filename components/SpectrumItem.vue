@@ -41,13 +41,13 @@ export default {
       }
     },
     styleObjectCard() {
-      const mobileQuery = window.matchMedia("(max-width: 450px)")
-      let n;
-      if (mobileQuery.matches) { 
+      const mobileQuery = window.matchMedia('(max-width: 450px)')
+      let n
+      if (mobileQuery.matches) {
         n = remapRange(this.spectrumPosition, 0.0, 1.0, 0.0, 71.0)
       } else {
         n = remapRange(this.spectrumPosition, 0.0, 1.0, 0.0, 87.0)
-      }   
+      }
       n = Math.round(n)
       n = n + '%'
       return { left: n }
@@ -65,10 +65,9 @@ div {
   justify-content: space-between;
   align-items: center;
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
     height: $ch3-other-user-spectrum-height-mobile-landscape;
-  } 
-
+  }
 
   .spectrum-item {
     position: absolute;
@@ -92,10 +91,10 @@ div {
       top: -50%;
       transform: translateY(50%);
 
-      @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-      width: $ch3-other-user-mini-card-width-mobile-landscape;        
-      height: $ch3-other-user-mini-card-height-mobile-landscape;
-      }       
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+        width: $ch3-other-user-mini-card-width-mobile-landscape;
+        height: $ch3-other-user-mini-card-height-mobile-landscape;
+      }
     }
   }
 }

@@ -107,30 +107,29 @@ export default {
   padding: $offset-4 $offset-3;
   width: 100%;
 
-  @media (orientation: landscape) { 
+  @media (orientation: landscape) {
     width: 60%;
-  }    
+  }
 
   .button-primary {
-    margin-top: $offset-3;    
+    margin-top: $offset-3;
     margin-bottom: $offset-4;
   }
 
   .button-secondary {
     margin-top: $offset-4;
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {   margin-top: $offset-3;
-    }       
-  }  
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      margin-top: $offset-3;
+    }
+  }
 }
-
 
 a {
   color: $white-color;
 }
 
 .link-inline {
-  padding-top: $offset-5; 
+  padding-top: $offset-5;
 }
-
 </style>

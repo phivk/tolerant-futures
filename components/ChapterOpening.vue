@@ -67,9 +67,9 @@ export default {
 
   @media (max-width: $query-mobile) {
     padding: $offset-3;
-    background-image: url('@/static/image/chapter_intro_background_mobile.jpg'); 
-    background-position: center; 
-  }    
+    background-image: url('@/static/image/chapter_intro_background_mobile.jpg');
+    background-position: center;
+  }
 
   &:before {
     width: 100%;
@@ -92,24 +92,21 @@ export default {
       color: $white-color;
       text-align: center;
       filter: $caption-shadow-effect;
-
-
     }
 
     p {
-      padding-top: $offset-2;      
+      padding-top: $offset-2;
       padding-bottom: $offset-4;
       padding-left: $offset-7;
       padding-right: $offset-7;
 
-      @media (max-width: $query-mobile-landscape) and (orientation:portrait) {
-          padding-left: $offset-3;
-          padding-right: $offset-3; 
-      }            
-      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation:landscape) {
-          padding-bottom: $offset-2;
-      } 
-
+      @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
+        padding-left: $offset-3;
+        padding-right: $offset-3;
+      }
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        padding-bottom: $offset-2;
+      }
     }
   }
 }

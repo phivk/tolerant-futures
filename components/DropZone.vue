@@ -102,14 +102,13 @@ export default {
   width: 100%;
   z-index: $z-4;
 
-@media (max-width: $query-mobile) {
+  @media (max-width: $query-mobile) {
     height: $drop-zone-height-mobile;
-  }   
+  }
 
-  @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) and (orientation: landscape) {
-      height: $drop-zone-height-mobile-landscape;
-  }   
-
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    height: $drop-zone-height-mobile-landscape;
+  }
 }
 .drop-active {
   border-color: #aaa;

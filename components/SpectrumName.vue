@@ -12,7 +12,7 @@
   color: $background-color;
 
   @media (max-width: $query-mobile) {
-  	font-size: $f-3;
-  }  
+    font-size: $f-3;
+  }
 }
 </style>

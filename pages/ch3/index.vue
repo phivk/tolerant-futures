@@ -104,11 +104,10 @@ export default {
   padding-left: $offset-7;
   padding-right: $offset-7;
 
-  @media (max-width: $query-mobile-landscape) and (orientation:portrait) {
-      padding-left: $offset-3;
-      padding-right: $offset-3; 
-  }   
-
+  @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
+    padding-left: $offset-3;
+    padding-right: $offset-3;
+  }
 
   .face-img {
     height: 370px;
@@ -119,11 +118,10 @@ export default {
       padding-bottom: $offset-2;
     }
 
-    @media (min-width: $query-mobile) and (max-width:$query-mobile-landscape) {
-        height: 125px;
-        //margin-bottom: $offset-1;
-    }    
-
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      height: 125px;
+      //margin-bottom: $offset-1;
+    }
   }
 }
 </style>

@@ -30,7 +30,7 @@ export default {
 
   @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
     font-size: $f-5;
-  }     
+  }
 
   &.outlined {
     background: none;
