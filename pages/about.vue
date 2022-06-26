@@ -92,12 +92,15 @@ export default {
 
 <style scoped lang="scss">
 .about-wrapper {
-  background-image: url('@/static/image/chapter_intro_background.jpg');
   background-size: cover;
   color: $white-color;
   padding: $offset-3;
 
-  @media (max-width: $query-mobile) {
+  @media (orientation: landscape) {
+    background-image: url('@/static/image/chapter_intro_background.jpg');
+  }
+
+  @media (orientation: portrait) {
     background-image: url('@/static/image/about_page_background_mobile.jpg');
     background-position: center;
   }

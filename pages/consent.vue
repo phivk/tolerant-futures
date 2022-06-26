@@ -36,16 +36,15 @@ div.informed-consent-page {
   height: 100vh;
   background-size: cover;
   background-position: left;
-  background-image: url('@/static/image/landing_page_background.jpg');
 
-  @media (max-width: $query-mobile-landscape) {
-    padding: $offset-3;
-    background-image: url('@/static/image/landing_page_background_mobile.jpg');
-    background-position: center;
-  }
 
-  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+  @media (orientation: landscape) {
     background-image: url('@/static/image/landing_page_background.jpg');
+      background-position: center;
+      padding: $offset-3;
+  }
+  @media (orientation: portrait) {
+    background-image: url('@/static/image/landing_page_background_mobile.jpg');
   }
 
   .wrapper {

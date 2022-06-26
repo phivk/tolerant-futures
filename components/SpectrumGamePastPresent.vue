@@ -329,6 +329,10 @@ header {
   bottom: 10%;
   z-index: $z-5;
 
+  @media(orientation: portrait) {
+    bottom: 16%;
+  }
+
   @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
     bottom: 14%;
   }
@@ -348,10 +352,18 @@ footer {
 
   .button-primary {
     margin-bottom: $offset-5;
+    
     @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
       margin-bottom: $offset-3;
     }
   }
+
+  .button-secondary {
+    @media(orientation: portrait) {
+      margin-bottom: $offset-4;
+    }
+  }
+
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
     line-height: $f-4;

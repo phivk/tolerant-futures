@@ -62,8 +62,17 @@ export default {
   justify-content: center;
   align-items: center;
   background-size: cover;
-  background-image: url('@/static/image/chapter_intro_background.jpg');
   overflow-x: hidden;
+
+  @media (orientation: landscape) {
+      background-image: url('@/static/image/chapter_intro_background.jpg');
+      background-position: center;
+      padding: $offset-3;
+  }
+  @media (orientation: portrait) {
+    background-image: url('@/static/image/chapter_intro_background_mobile.jpg');
+  }
+
 
   @media (max-width: $query-mobile) {
     padding: $offset-3;

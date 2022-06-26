@@ -433,6 +433,12 @@ footer {
     }
   }
 
+  .button-secondary {
+    @media(orientation: portrait) {
+      margin-bottom: $offset-4;
+    }
+  }  
+
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
     line-height: $f-4;
