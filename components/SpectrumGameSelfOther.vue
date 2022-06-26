@@ -402,15 +402,17 @@ header {
 .spectrum-game-draggable {
   z-index: $z-5;
   bottom: 10%;
-  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
-    bottom: 14%;
+
+  @media(max-width: $query-mobile-landscape){
+    bottom: 15%;
   }
 }
 .spectrum-game-draggable-other {
   z-index: $z-5;
   bottom: 10%;
-  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
-    bottom: 14%;
+
+  @media(max-width: $query-mobile-landscape){
+    bottom: 15%;
   }
 }
 

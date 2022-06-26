@@ -92,7 +92,7 @@ div {
       transform: translateY(50%);
 
       @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
-        width: $ch3-other-user-mini-card-width-mobile-landscape;
+        width: $ch3-other-user-mini-card-width;
         height: $ch3-other-user-mini-card-height-mobile-landscape;
       }
     }

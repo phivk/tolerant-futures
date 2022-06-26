@@ -329,12 +329,8 @@ header {
   bottom: 10%;
   z-index: $z-5;
 
-  @media(orientation: portrait) {
-    bottom: 16%;
-  }
-
-  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
-    bottom: 14%;
+  @media(max-width: $query-mobile-landscape){
+    bottom: 15%;
   }
 }
 
