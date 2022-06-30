@@ -109,7 +109,7 @@
         <li>Castell Henllys Iron Age Village</li>
       </ul>
 
-      <h2>Advisory Panel</h2>
+      <h2>Advisory Group</h2>
       <ul class="lh-copy">
         <li>Dr Gary Husband (University of Stirling)</li>
         <li>Dr Gregory Mannion (University of Stirling)</li>
