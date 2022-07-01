@@ -141,6 +141,11 @@ div {
       filter: $main-button-shadow-effect;
       color: $black-color;
 
+      @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        padding: $offset-2;
+      }
+
       &:hover {
         cursor: pointer;
       }
@@ -166,7 +171,7 @@ div {
     margin-top: $offset-6;
 
     @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
-      margin-top: calc($offset-5 + 5px);
+      margin-top: calc($offset-4 + 5px);
     }
   }
 }

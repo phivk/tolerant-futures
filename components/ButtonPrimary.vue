@@ -28,7 +28,8 @@ export default {
   color: $black-color;
 
   @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
-    font-size: $f-3;
+    font-size: $f-4;
+    padding: $offset-2;
   }
 
   &.outlined {

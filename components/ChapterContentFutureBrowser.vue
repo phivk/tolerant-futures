@@ -123,7 +123,11 @@ export default {
   padding: $offset-4 $offset-3 0 $offset-3;
   width: 100%;
 
-  @media (orientation: landscape) {
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    padding: $offset-2 $offset-3 0 $offset-3;
+  }
+
+  @media (min-width: $query-mobile-landscape) and (orientation: landscape) {
     width: 60%;
   }
 
@@ -145,6 +149,6 @@ a {
 }
 
 .link-inline {
-  padding-top: $offset-5;
+  padding-top: $offset-4;
 }
 </style>

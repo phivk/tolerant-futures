@@ -329,8 +329,11 @@ header {
   bottom: 10%;
   z-index: $z-5;
 
-  @media(max-width: $query-mobile-landscape){
+  @media (max-width: $query-mobile-landscape) {
     bottom: 15%;
+  }
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    bottom: 22%;
   }
 }
 
@@ -342,21 +345,15 @@ footer {
   align-items: center;
   margin-bottom: $offset-3;
 
-  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
-    margin-bottom: $offset-1;
+  @media (max-width: $query-mobile-landscape) {
+    margin-bottom: calc($offset-4 + 10px);
   }
 
   .button-primary {
     margin-bottom: $offset-5;
-    
+
     @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
       margin-bottom: $offset-3;
-    }
-  }
-
-  .button-secondary {
-    @media(orientation: portrait) {
-      margin-bottom: $offset-4;
     }
   }
 

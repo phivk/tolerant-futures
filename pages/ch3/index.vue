@@ -104,7 +104,7 @@ export default {
   padding-left: $offset-7;
   padding-right: $offset-7;
 
-  @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
+  @media (max-width: $query-mobile-landscape) {
     padding-left: $offset-3;
     padding-right: $offset-3;
   }

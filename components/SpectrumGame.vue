@@ -292,8 +292,8 @@ footer {
   align-items: center;
   z-index: $z-4;
 
-  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
-    margin-bottom: $offset-1;
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    margin-bottom: $offset-4;
   }
 
   .button-primary {

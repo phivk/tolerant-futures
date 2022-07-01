@@ -26,6 +26,7 @@ a {
   }
 
   @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
+    padding: variables.$offset-2;
     font-size: variables.$f-4;
   }
 }

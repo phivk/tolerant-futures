@@ -37,11 +37,10 @@ div.informed-consent-page {
   background-size: cover;
   background-position: left;
 
-
   @media (orientation: landscape) {
     background-image: url('@/static/image/landing_page_background.jpg');
-      background-position: center;
-      padding: $offset-3;
+    background-position: center;
+    padding: $offset-3;
   }
   @media (orientation: portrait) {
     background-image: url('@/static/image/landing_page_background_mobile.jpg');

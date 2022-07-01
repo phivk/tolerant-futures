@@ -17,7 +17,7 @@ $modal-player-feedback-width: 70%;
 $modal-player-feedback-width-mobile: 95%;
 $modal-player-feedback-height: 420px;
 $modal-player-feedback-height-mobile: 350px;
-$modal-player-feedback-height-mobile-landscape: 180px;
+$modal-player-feedback-height-mobile-landscape: 125px;
 $modal-player-feedback-height-short: 215px;
 $modal-player-feedback-height-short-mobile-landscape: 90px;
 $modal-player-feedback-textarea-height: 70%;
@@ -111,6 +111,7 @@ $warn-overlay-color: rgba(5, 5, 36, 0.3);
 
 $query-mobile: 450px;
 $query-mobile-landscape: 960px;
+$query-tablet: 1080px;
 
 /* spectrum gradient colors
 	are hand picked color vars used in background gradients of the spectra	

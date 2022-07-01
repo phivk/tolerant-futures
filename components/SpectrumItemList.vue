@@ -35,6 +35,10 @@ export default {
   list-style: none;
   padding-bottom: $offset-4;
 
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    padding-bottom: $offset-1;
+  }
+
   .spectrum-name-left {
     text-align: left;
   }
@@ -45,6 +49,11 @@ export default {
 
   li {
     margin-bottom: $offset-4;
+
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      margin-bottom: $offset-2;
+    }
+
     &:last-of-type {
       margin-bottom: 0;
     }

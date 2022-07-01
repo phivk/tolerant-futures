@@ -58,6 +58,7 @@ div {
   z-index: $z-5;
   width: 100%;
   height: $modal-player-feedback-height;
+
   @media (max-width: $query-mobile) {
     height: $modal-player-feedback-height-mobile;
   }
@@ -65,6 +66,18 @@ div {
   @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
     font-size: $f-4;
     height: $modal-player-feedback-height-mobile-landscape;
+  }
+
+  .button-secondary {
+    margin-top: $offset-4;
+
+    @media (orientation: portrait) {
+      margin-top: $offset-6;
+    }
+
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      margin-top: calc($offset-4 + 10px);
+    }
   }
 
   form {
@@ -132,6 +145,11 @@ div {
       outline: none;
       filter: $main-button-shadow-effect;
       color: $black-color;
+
+      @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        padding: $offset-2;
+      }
 
       &:hover {
         cursor: pointer;

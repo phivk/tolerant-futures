@@ -107,7 +107,7 @@ export default {
   padding: $offset-4 $offset-3;
   width: 100%;
 
-  @media (orientation: landscape) {
+  @media (min-width: $query-mobile-landscape) and (orientation: landscape) {
     width: 60%;
   }
 

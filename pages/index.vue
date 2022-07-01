@@ -52,7 +52,6 @@ div.landing-page {
   @media (orientation: landscape) {
     background-image: url('@/static/image/landing_page_background.jpg');
     padding: $offset-3;
-    
   }
   @media (orientation: portrait) {
     background-image: url('@/static/image/landing_page_background_mobile.jpg');
