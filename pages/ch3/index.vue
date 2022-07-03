@@ -3,23 +3,23 @@
     <ChapterOpening :title="title" :paragraph="paragraph" :show-button="false">
       <div class="profile-container">
         <img
-          v-show="!revealOtherConfirmed"
+          v-if="!revealOtherConfirmed"
           class="face-img"
           src="~/static/image/the_other.png"
         />
         <SpectrumItemList
-          v-show="revealOtherConfirmed"
+          v-else="revealOtherConfirmed"
           :spectra="otherUserProfileWithColors"
         />
       </div>
       <ButtonPrimary
-        v-show="!revealOtherConfirmed"
+        v-if="!revealOtherConfirmed"
         @buttonClicked="onRevealOtherConfirm"
       >
         Reveal the Other
       </ButtonPrimary>
       <NuxtLink
-        v-show="revealOtherConfirmed"
+        v-else="revealOtherConfirmed"
         class="link-primary"
         :to="'play'"
         append

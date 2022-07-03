@@ -81,18 +81,10 @@ export default {
     // this.spectrumWidth = this.$refs.spectrumRef.clientWidth
 
     // I figured out how to do it on resize..
-    window.addEventListener('resize', this.handleResize)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    handleResize(event) {
-      if (this.$refs.spectrumRef && this.$refs.cardRef) {
-        this.cardWidth = this.$refs.cardRef.clientWidth
-        this.spectrumWidth = this.$refs.spectrumRef.clientWidth
-      }
-    },
+    // window.addEventListener('resize', this.handleResize)
+
+    this.cardWidth = this.$refs.cardRef.clientWidth
+    this.spectrumWidth = this.$refs.spectrumRef.clientWidth
   },
 }
 </script>
