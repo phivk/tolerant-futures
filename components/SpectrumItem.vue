@@ -60,7 +60,7 @@ export default {
         0,
         100
       )
-      // rerange player's turn value to the relative 0-positionLeftMax css positioning range
+      // rerange player's turn value to the 0-positionLeftMax css positioning range
       let positionLeft = remapRange(
         this.spectrumPosition,
         0.0,
@@ -74,15 +74,6 @@ export default {
     },
   },
   mounted() {
-    // We need the card's and the spectrum's widths when the SpectrumItem is rendered.
-    // How to do it?
-    // The assignment below doesn't work for some reason and returns 0
-    // this.cardWidth = this.$refs.cardRef.clientWidth
-    // this.spectrumWidth = this.$refs.spectrumRef.clientWidth
-
-    // I figured out how to do it on resize..
-    // window.addEventListener('resize', this.handleResize)
-
     this.cardWidth = this.$refs.cardRef.clientWidth
     this.spectrumWidth = this.$refs.spectrumRef.clientWidth
   },
