@@ -1,24 +1,34 @@
 /* widths & heights */
 $card-item-width: 330px;
+$card-item-width-mobile: calc($card-item-width * 0.7);
+$card-item-width-mobile-landscape: calc($card-item-width * 0.6);
 $card-item-height: 198px;
-$card-item-inner-width: calc($card-item-width * 0.9);
-$card-item-inner-height: calc(
-  ($card-item-inner-width * ($card-item-height / $card-item-width)) - 7px
-);
+$card-item-height-mobile: calc($card-item-height * 0.7);
+$card-item-height-mobile-landscape: calc($card-item-height * 0.6);
 
 $drop-zone-height: 250px;
+$drop-zone-height-mobile: calc($drop-zone-height * 0.65);
+$drop-zone-height-mobile-landscape: calc($drop-zone-height * 0.4);
+
 $exit-game-button-width: 40px;
 $chapter-progression-item-width: 20px;
 $main-button-max-width: 400px;
-$modal-player-feedback-width: 50%;
-$modal-player-feedback-height: 320px;
-$modal-player-feedback-height-short: 230px;
+$modal-player-feedback-width: 70%;
+$modal-player-feedback-width-mobile: 95%;
+$modal-player-feedback-height: 420px;
+$modal-player-feedback-height-mobile: 350px;
+$modal-player-feedback-height-mobile-landscape: 125px;
+$modal-player-feedback-height-short: 215px;
+$modal-player-feedback-height-short-mobile-landscape: 90px;
 $modal-player-feedback-textarea-height: 70%;
+$modal-player-feedback-textarea-height-mobile: 90%;
 $ch3-other-user-profile-container-height: 600px;
-$ch3-other-user-spectrum-height: 80px;
-$ch3-other-user-mini-card-height: 70px;
-
-$ch3-other-user-spectrum-width: 120px;
+$ch3-other-user-spectrum-height: 70px;
+$ch3-other-user-spectrum-height-mobile-landscape: 40px;
+$ch3-other-user-mini-card-height: 60px;
+$ch3-other-user-mini-card-height-mobile-landscape: 30px;
+$ch3-other-user-mini-card-width: 90px;
+$ch3-other-user-mini-card-width-mobile-landscape: 65px;
 
 /* font families */
 $headline-font: 'headline_font', sans_serif;
@@ -28,9 +38,9 @@ $text-font: 'text_font', serif;
 $f-0: 3.2rem;
 $f-1: 2.5rem;
 $f-2: 2rem;
-$f-3: 1.7rem;
+$f-3: 1.6rem;
 $f-4: 1.3rem;
-$f-5: 1rem;
+$f-5: 1.1rem;
 $f-6: 0.875rem;
 $f-7: 0.75rem;
 
@@ -98,6 +108,10 @@ $action-color: #3c1b9a;
 $button-outline-color: $white-color;
 $button-disabled-color: $gray;
 $warn-overlay-color: rgba(5, 5, 36, 0.3);
+
+$query-mobile: 450px;
+$query-mobile-landscape: 960px;
+$query-tablet: 1080px;
 
 /* spectrum gradient colors
 	are hand picked color vars used in background gradients of the spectra	

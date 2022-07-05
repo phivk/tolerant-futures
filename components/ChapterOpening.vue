@@ -2,7 +2,7 @@
   <section class="chapter-opening">
     <div class="wrapper">
       <h1>{{ title }}</h1>
-      <p class="pt2 pb4 measure-wide large-paragraph">{{ paragraph }}</p>
+      <p class="large-paragraph">{{ paragraph }}</p>
       <slot></slot>
       <NuxtLink
         v-if="showButton"
@@ -62,7 +62,22 @@ export default {
   justify-content: center;
   align-items: center;
   background-size: cover;
-  background-image: url('@/static/image/chapter_intro_background.jpg');
+  overflow-x: hidden;
+
+  @media (orientation: landscape) {
+    background-image: url('@/static/image/chapter_intro_background.jpg');
+    background-position: center;
+    padding: $offset-3;
+  }
+  @media (orientation: portrait) {
+    background-image: url('@/static/image/chapter_intro_background_mobile.jpg');
+  }
+
+  @media (max-width: $query-mobile) {
+    padding: $offset-3;
+    background-image: url('@/static/image/chapter_intro_background_mobile.jpg');
+    background-position: center;
+  }
 
   &:before {
     width: 100%;
@@ -85,6 +100,21 @@ export default {
       color: $white-color;
       text-align: center;
       filter: $caption-shadow-effect;
+    }
+
+    p {
+      padding-top: $offset-2;
+      padding-bottom: $offset-4;
+      padding-left: $offset-7;
+      padding-right: $offset-7;
+
+      @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
+        padding-left: $offset-3;
+        padding-right: $offset-3;
+      }
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        padding-bottom: $offset-2;
+      }
     }
   }
 }

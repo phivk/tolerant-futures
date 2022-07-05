@@ -2,8 +2,12 @@
   <div>
     <slot></slot>
     <span class="spectrum-item">
-      <span class="gradient" :style="styleObjectGradient"></span>
-      <span class="spectrum-card" :style="styleObjectCard"></span>
+      <span
+        ref="spectrumRef"
+        class="gradient"
+        :style="styleObjectGradient"
+      ></span>
+      <span ref="cardRef" class="spectrum-card" :style="styleObjectCard"></span>
     </span>
   </div>
 </template>
@@ -29,6 +33,12 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      spectrumWidth: 0,
+      cardWidth: 0,
+    }
+  },
   computed: {
     styleObjectGradient() {
       return {
@@ -41,11 +51,31 @@ export default {
       }
     },
     styleObjectCard() {
-      let n = remapRange(this.spectrumPosition, 0.0, 1.0, 10.0, 90.0)
-      n = Math.round(n)
-      n = n + '%'
-      return { left: n }
+      // What is the maximum position-left-css-value the card item on the spectrum can have assigned?
+      // rerange the absolute width of the spectrum to the relative 0-100
+      const positionLeftMax = remapRange(
+        this.spectrumWidth - this.cardWidth,
+        0,
+        this.spectrumWidth,
+        0,
+        100
+      )
+      // rerange player's turn value to the 0-positionLeftMax css positioning range
+      let positionLeft = remapRange(
+        this.spectrumPosition,
+        0.0,
+        1.0,
+        0.0,
+        positionLeftMax
+      )
+      positionLeft = Math.round(positionLeft)
+      positionLeft = positionLeft + '%'
+      return { left: positionLeft }
     },
+  },
+  mounted() {
+    this.cardWidth = this.$refs.cardRef.clientWidth
+    this.spectrumWidth = this.$refs.spectrumRef.clientWidth
   },
 }
 </script>
@@ -58,6 +88,10 @@ div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    height: $ch3-other-user-spectrum-height-mobile-landscape;
+  }
 
   .spectrum-item {
     position: absolute;
@@ -74,12 +108,17 @@ div {
     .spectrum-card {
       z-index: $z-3;
       position: absolute;
-      width: $ch3-other-user-spectrum-width;
+      width: $ch3-other-user-mini-card-width;
       height: $ch3-other-user-mini-card-height;
       border-radius: $border-radius-2;
       border: 5px solid $white-color;
       top: -50%;
       transform: translateY(50%);
+
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+        width: $ch3-other-user-mini-card-width;
+        height: $ch3-other-user-mini-card-height-mobile-landscape;
+      }
     }
   }
 }

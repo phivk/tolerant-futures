@@ -63,7 +63,13 @@ export default {
   justify-content: center;
   align-items: center;
   background-size: cover;
+  background-position: center;
   background-image: url('@/static/image/future_chapter_background.jpg');
+
+  @media (max-width: $query-mobile-landscape) and (orientation: portrait) {
+    background-image: url('@/static/image/future_chapter_background_mobile.jpg');
+    background-position: center;
+  }
 
   .wrapper {
     display: flex;

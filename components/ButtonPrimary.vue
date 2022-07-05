@@ -27,6 +27,11 @@ export default {
   filter: $main-button-shadow-effect;
   color: $black-color;
 
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    font-size: $f-4;
+    padding: $offset-2;
+  }
+
   &.outlined {
     background: none;
     border: 1px solid $white-color;

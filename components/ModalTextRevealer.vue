@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-text-revealer" :style="{ width: overrideWidth }">
+  <div class="modal-text-revealer">
     <div class="text">
       <div>
         <p>
@@ -32,15 +32,6 @@ export default {
       required: false,
       default: true,
     },
-    // overrideWith is a hack
-    // I needed to wrap this component in ModalContainer component...
-    // but in ch4 i couldn't because i don't understand the structure of dynamic components
-    // so i came up with this for now
-    // sorry !
-    overrideWidth: {
-      type: String,
-      default: '',
-    },
   },
 }
 </script>
@@ -55,8 +46,16 @@ div.modal-text-revealer {
   &.modal-short {
     height: $modal-player-feedback-height-short;
 
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      height: $modal-player-feedback-height-short-mobile-landscape;
+    }
+
     .text-hider {
       height: $modal-player-feedback-height-short;
+
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        height: $modal-player-feedback-height-short-mobile-landscape;
+      }
     }
   }
 
@@ -78,6 +77,16 @@ div.modal-text-revealer {
         color: $black-color;
         font-size: $f-2;
         line-height: $f-2;
+
+        @media (max-width: $query-mobile) {
+          font-size: $f-3;
+          line-height: $f-3;
+        }
+
+        @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+          font-size: $f-4;
+          line-height: $f-4;
+        }
       }
     }
   }
@@ -105,6 +114,16 @@ div.modal-text-revealer {
       font-size: $f-2;
       margin-bottom: $offset-3;
       z-index: $z-6;
+
+      @media (max-width: $query-mobile) {
+        padding: $offset-3;
+        font-size: $f-3;
+        line-height: $f-3;
+      }
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        line-height: $f-4;
+      }
     }
   }
 }

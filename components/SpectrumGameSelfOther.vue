@@ -389,6 +389,9 @@ header {
   .subtitle-player {
     margin-top: $offset-4;
   }
+  @media (max-width: $query-mobile-landscape) {
+    margin-top: $offset-5;
+  }
 }
 
 .spectrum-game-dropzone {
@@ -399,26 +402,59 @@ header {
 .spectrum-game-draggable {
   z-index: $z-5;
   bottom: 10%;
+
+  @media (max-width: $query-mobile-landscape) {
+    bottom: 15%;
+  }
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    bottom: 22%;
+  }
 }
 .spectrum-game-draggable-other {
   z-index: $z-5;
   bottom: 10%;
+
+  @media (max-width: $query-mobile-landscape) {
+    bottom: 15%;
+  }
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    bottom: 22%;
+  }
 }
 
 footer {
-  margin-bottom: $offset-3;
+  margin-bottom: $offset-2;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: $z-4;
+  margin-bottom: $offset-3;
+
+  @media (max-width: $query-mobile-landscape) {
+    margin-bottom: calc($offset-4 + 10px);
+  }
 
   .button-primary {
     margin-bottom: $offset-5;
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      margin-bottom: $offset-3;
+    }
   }
 
   .subtitle-player.subtitle-player-concept-hint {
     font-size: $f-4;
-    line-height: $f-3;
+    line-height: $f-4;
+    z-index: $z-4;
+    margin-bottom: $offset-2;
+
+    @media (max-width: $query-mobile) {
+      font-size: $f-5;
+      line-height: $f-5;
+    }
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      font-size: $f-5;
+      line-height: $f-5;
+    }
   }
 }
 

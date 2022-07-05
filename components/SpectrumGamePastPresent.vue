@@ -10,8 +10,12 @@
       </SubtitlePlayer>
     </header>
     <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
-      <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
-      <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
+      <DropZoneName class="dropzone-name-left">{{
+        currentTurn.spectrumLeft
+      }}</DropZoneName>
+      <DropZoneName class="dropzone-name-right">{{
+        currentTurn.spectrumRight
+      }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
@@ -301,12 +305,16 @@ export default {
 header {
   width: 100%;
   z-index: $z-4;
-
   .subtitle-player {
     margin-top: $offset-4;
-
+    @media (max-width: $query-mobile-landscape) {
+      margin-top: $offset-5;
+    }
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
+      @media (max-width: $query-mobile) {
+        margin-top: $offset-8;
+      }
     }
   }
 }
@@ -320,6 +328,13 @@ header {
 .spectrum-game-draggable {
   bottom: 10%;
   z-index: $z-5;
+
+  @media (max-width: $query-mobile-landscape) {
+    bottom: 15%;
+  }
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    bottom: 22%;
+  }
 }
 
 footer {
@@ -328,15 +343,35 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: $offset-3;
+
+  @media (max-width: $query-mobile-landscape) {
+    margin-bottom: calc($offset-4 + 10px);
+  }
 
   .button-primary {
     margin-bottom: $offset-5;
+
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      margin-bottom: $offset-3;
+    }
   }
 
   .subtitle-player.subtitle-player-concept-hint {
-    z-index: $z-4;
     font-size: $f-4;
-    line-height: $f-3;
+    line-height: $f-4;
+    z-index: $z-4;
+    margin-bottom: $offset-2;
+
+    @media (max-width: $query-mobile) {
+      font-size: $f-5;
+      line-height: $f-5;
+    }
+
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      font-size: $f-5;
+      line-height: $f-5;
+    }
   }
 }
 </style>

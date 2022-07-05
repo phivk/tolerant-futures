@@ -1,6 +1,6 @@
 <template>
   <div class="w-100 h-100 relative">
-    <div class="absolute top-0 w-100 flex justify-between ph3 pt3 z-999">
+    <div class="absolute top-0 w-100 flex justify-between ph3 pt4 z-999">
       <ChapterProgressionList :current-chapter-index="currentChapterIndex" />
       <div>
         <ButtonReloadGame @buttonClicked="onReloadClicked" />

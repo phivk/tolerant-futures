@@ -2,12 +2,12 @@
   <div
     class="relative flex flex-column justify-center items-center tc about-wrapper"
   >
-    <header class="w-100 flex justify-end ph3 pt3">
+    <header class="w-100 flex justify-end">
       <NuxtLink to="/">
         <ButtonExitGame />
       </NuxtLink>
     </header>
-    <section class="mw7 tl mv5">
+    <section class="mw7 tl">
       <h1>
         <NuxtLink class="underline" to="/">{{ title }}</NuxtLink>
       </h1>
@@ -202,9 +202,26 @@ export default {
 
 <style scoped lang="scss">
 .about-wrapper {
-  background-image: url('@/static/image/chapter_intro_background.jpg');
   background-size: cover;
   color: $white-color;
+  padding: $offset-3;
+
+  @media (orientation: landscape) {
+    background-image: url('@/static/image/chapter_intro_background.jpg');
+  }
+
+  @media (orientation: portrait) {
+    background-image: url('@/static/image/about_page_background_mobile.jpg');
+    background-position: center;
+  }
+
+  section {
+    padding: $offset-5 0;
+
+    @media (max-width: $query-mobile) {
+      padding: $offset-4 0;
+    }
+  }
 
   h1 {
     margin-top: $offset-4;
@@ -231,6 +248,12 @@ export default {
   p,
   li {
     filter: $caption-shadow-effect;
+  }
+
+  li {
+    @media (max-width: $query-mobile) {
+      padding: $offset-2 0;
+    }
   }
 }
 </style>

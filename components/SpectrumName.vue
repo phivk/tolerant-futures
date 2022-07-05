@@ -10,5 +10,13 @@
   font-size: $f-2;
   z-index: $z-2;
   color: $background-color;
+
+  @media (max-width: $query-mobile) {
+    font-size: $f-3;
+  }
+
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    font-size: $f-4;
+  }
 }
 </style>

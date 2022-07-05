@@ -18,8 +18,12 @@
       </SubtitlePlayer>
     </header>
     <DropZone class="spectrum-game-dropzone" @set-can-drop="onIsCardOnDropzone">
-      <DropZoneName>{{ currentTurn.spectrumLeft }}</DropZoneName>
-      <DropZoneName>{{ currentTurn.spectrumRight }}</DropZoneName>
+      <DropZoneName class="dropzone-name-left">{{
+        currentTurn.spectrumLeft
+      }}</DropZoneName>
+      <DropZoneName class="dropzone-name-right">{{
+        currentTurn.spectrumRight
+      }}</DropZoneName>
       <DropZoneBackground
         :color-a="currentTurn.colorA"
         :color-b="currentTurn.colorB"
@@ -242,6 +246,9 @@ header {
 
   .subtitle-player {
     margin-top: $offset-4;
+    @media (max-width: $query-mobile-landscape) {
+      margin-top: $offset-5;
+    }
 
     &.feedback-modal-subtitles {
       margin-top: $offset-6;
@@ -253,11 +260,23 @@ header {
   z-index: $z-4;
   top: 50%;
   transform: translateY(-60%);
+
+  .dropzone-name-left {
+    text-align: left;
+  }
+
+  .dropzone-name-right {
+    text-align: right;
+  }
 }
 
 .spectrum-game-draggable {
   bottom: 10%;
   z-index: $z-5;
+
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    bottom: 12.5%;
+  }
 }
 
 .spectrum-game-feedback-modal {
@@ -273,8 +292,16 @@ footer {
   align-items: center;
   z-index: $z-4;
 
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    margin-bottom: $offset-4;
+  }
+
   .button-primary {
     margin-bottom: $offset-5;
+
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      margin-bottom: $offset-3;
+    }
   }
 
   .subtitle-player.subtitle-player-concept-hint {

@@ -6,8 +6,12 @@
         :color-b="input.colorB"
         :spectrum-position="input.value"
       >
-        <SpectrumName>{{ input.spectrumLeft }}</SpectrumName>
-        <SpectrumName>{{ input.spectrumRight }}</SpectrumName>
+        <SpectrumName class="spectrum-name-left">{{
+          input.spectrumLeft
+        }}</SpectrumName>
+        <SpectrumName class="spectrum-name-right">{{
+          input.spectrumRight
+        }}</SpectrumName>
       </SpectrumItem>
     </li>
   </ul>
@@ -31,8 +35,25 @@ export default {
   list-style: none;
   padding-bottom: $offset-4;
 
+  @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    padding-bottom: $offset-1;
+  }
+
+  .spectrum-name-left {
+    text-align: left;
+  }
+
+  .spectrum-name-right {
+    text-align: right;
+  }
+
   li {
     margin-bottom: $offset-4;
+
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      margin-bottom: $offset-2;
+    }
+
     &:last-of-type {
       margin-bottom: 0;
     }

@@ -47,7 +47,25 @@ div.landing-page {
   width: 100%;
   height: 100vh;
   background-size: cover;
-  background-image: url('@/static/image/landing_page_background.jpg');
+  background-position: center;
+
+  @media (orientation: landscape) {
+    background-image: url('@/static/image/landing_page_background.jpg');
+    padding: $offset-3;
+  }
+  @media (orientation: portrait) {
+    background-image: url('@/static/image/landing_page_background_mobile.jpg');
+  }
+
+  @media (max-width: $query-mobile-landscape) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+  //   background-image: url('@/static/image/landing_page_background.jpg');
+  // }
 
   .wrapper {
     width: 35%;
@@ -60,6 +78,11 @@ div.landing-page {
     border-radius: $border-radius-2;
     padding: $offset-4;
     text-align: center;
+
+    @media (max-width: $query-mobile-landscape) {
+      width: 100%;
+      min-width: auto;
+    }
 
     h1,
     p {

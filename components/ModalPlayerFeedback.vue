@@ -59,8 +59,19 @@ div {
   width: 100%;
   height: $modal-player-feedback-height;
 
+  @media (max-width: $query-mobile) {
+    height: $modal-player-feedback-height-mobile;
+  }
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+    height: $modal-player-feedback-height-mobile-landscape;
+  }
+
   &.modal-short {
     height: $modal-player-feedback-height-short;
+
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      height: $modal-player-feedback-height-short-mobile-landscape;
+    }
   }
 
   form {
@@ -68,6 +79,9 @@ div {
     width: 100%;
     height: 100%;
     padding: 50px 70px 0 70px;
+    @media (max-width: $query-mobile-landscape) {
+      padding: 10px 20px 0 20px;
+    }
 
     &::before {
       position: absolute;
@@ -79,6 +93,9 @@ div {
       height: 100%;
       background-color: rgba(255, 255, 255, 0.95);
       filter: blur($blur-3);
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        filter: blur($blur-2);
+      }
     }
 
     textarea {
@@ -95,6 +112,16 @@ div {
       color: $black-color;
       font-family: $text-font;
       font-size: $f-2;
+
+      @media (max-width: $query-mobile) {
+        font-size: $f-4;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }
+
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }
 
       &:focus {
         outline: none;
@@ -113,6 +140,11 @@ div {
       outline: none;
       filter: $main-button-shadow-effect;
       color: $black-color;
+
+      @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        padding: $offset-2;
+      }
 
       &:hover {
         cursor: pointer;
@@ -135,8 +167,12 @@ div {
     color: $white-color;
     filter: $caption-shadow-effect;
   }
-  button {
-    margin-top: $offset-5;
+  button.button-secondary {
+    margin-top: $offset-6;
+
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      margin-top: calc($offset-4 + 5px);
+    }
   }
 }
 </style>

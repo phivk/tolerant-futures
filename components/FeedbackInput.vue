@@ -56,14 +56,38 @@ export default {
 <style scoped lang="scss">
 div {
   z-index: $z-5;
-  width: $modal-player-feedback-width;
+  width: 100%;
   height: $modal-player-feedback-height;
+
+  @media (max-width: $query-mobile) {
+    height: $modal-player-feedback-height-mobile;
+  }
+
+  @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+    font-size: $f-4;
+    height: $modal-player-feedback-height-mobile-landscape;
+  }
+
+  .button-secondary {
+    margin-top: $offset-4;
+
+    @media (orientation: portrait) {
+      margin-top: $offset-6;
+    }
+
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      margin-top: calc($offset-4 + 10px);
+    }
+  }
 
   form {
     position: relative;
     width: 100%;
     height: 100%;
     padding: 50px 70px 0 70px;
+    @media (max-width: $query-mobile-landscape) {
+      padding: 10px 20px 0 20px;
+    }
 
     &::before {
       position: absolute;
@@ -72,9 +96,12 @@ div {
       top: 0;
       content: '';
       width: 100%;
-      height: $modal-player-feedback-height;
+      height: 100%;
       background-color: rgba(255, 255, 255, 0.9);
       filter: blur($blur-3);
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+        filter: blur($blur-2);
+      }
     }
 
     textarea {
@@ -92,6 +119,15 @@ div {
       font-family: $text-font;
       font-size: $f-2;
 
+      @media (max-width: $query-mobile) {
+        font-size: $f-3;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }
+
+      @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+        font-size: $f-3;
+        height: $modal-player-feedback-textarea-height-mobile;
+      }
       &:focus {
         outline: none;
       }
@@ -109,6 +145,11 @@ div {
       outline: none;
       filter: $main-button-shadow-effect;
       color: $black-color;
+
+      @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+        font-size: $f-4;
+        padding: $offset-2;
+      }
 
       &:hover {
         cursor: pointer;

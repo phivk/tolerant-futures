@@ -3,23 +3,23 @@
     <ChapterOpening :title="title" :paragraph="paragraph" :show-button="false">
       <div class="profile-container">
         <img
-          v-show="!revealOtherConfirmed"
+          v-if="!revealOtherConfirmed"
           class="face-img"
           src="~/static/image/the_other.png"
         />
         <SpectrumItemList
-          v-show="revealOtherConfirmed"
+          v-else="revealOtherConfirmed"
           :spectra="otherUserProfileWithColors"
         />
       </div>
       <ButtonPrimary
-        v-show="!revealOtherConfirmed"
+        v-if="!revealOtherConfirmed"
         @buttonClicked="onRevealOtherConfirm"
       >
         Reveal the Other
       </ButtonPrimary>
       <NuxtLink
-        v-show="revealOtherConfirmed"
+        v-else="revealOtherConfirmed"
         class="link-primary"
         :to="'play'"
         append
@@ -101,10 +101,27 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-left: $offset-7;
+  padding-right: $offset-7;
+
+  @media (max-width: $query-mobile-landscape) {
+    padding-left: $offset-3;
+    padding-right: $offset-3;
+  }
 
   .face-img {
     height: 370px;
     padding-bottom: $offset-3;
+
+    @media (max-width: $query-mobile) {
+      height: 250px;
+      padding-bottom: $offset-2;
+    }
+
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      height: 125px;
+      //margin-bottom: $offset-1;
+    }
   }
 }
 </style>

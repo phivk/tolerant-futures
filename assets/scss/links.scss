@@ -20,6 +20,15 @@ a {
   filter: variables.$main-button-shadow-effect;
   text-decoration: none;
   color: variables.$black-color;
+
+  @media (max-width: variables.$query-mobile) {
+    font-size: variables.$f-3;
+  }
+
+  @media (min-width: variables.$query-mobile) and (max-width: variables.$query-mobile-landscape) and (orientation: landscape) {
+    padding: variables.$offset-2;
+    font-size: variables.$f-4;
+  }
 }
 
 .link-inline {
@@ -27,4 +36,5 @@ a {
   font-size: variables.$f-4;
   display: inline;
   color: variables.$black-color;
+  text-align: center;
 }

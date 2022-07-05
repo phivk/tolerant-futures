@@ -35,10 +35,19 @@ div.informed-consent-page {
   width: 100%;
   height: 100vh;
   background-size: cover;
-  background-image: url('@/static/image/landing_page_background.jpg');
+  background-position: left;
+
+  @media (orientation: landscape) {
+    background-image: url('@/static/image/landing_page_background.jpg');
+    background-position: center;
+    padding: $offset-3;
+  }
+  @media (orientation: portrait) {
+    background-image: url('@/static/image/landing_page_background_mobile.jpg');
+  }
 
   .wrapper {
-    width: 35%;
+    width: 50%;
     min-width: 400px;
     display: flex;
     flex-direction: column;
@@ -48,6 +57,16 @@ div.informed-consent-page {
     border-radius: $border-radius-1;
     padding: $offset-4;
     text-align: center;
+
+    @media (max-width: $query-mobile) {
+      width: 100%;
+      min-width: auto;
+    }
+
+    @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) {
+      width: 100%;
+      padding: $offset-3;
+    }
 
     h1,
     p {
