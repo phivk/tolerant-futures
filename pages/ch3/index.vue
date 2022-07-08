@@ -7,10 +7,7 @@
           class="face-img"
           src="~/static/image/the_other.png"
         />
-        <SpectrumItemList
-          v-else
-          :spectra="otherUserProfileWithColors"
-        />
+        <SpectrumItemList v-else :spectra="otherUserProfileWithColors" />
       </div>
       <ButtonPrimary
         v-if="!revealOtherConfirmed"
@@ -18,12 +15,7 @@
       >
         Reveal the Other
       </ButtonPrimary>
-      <NuxtLink
-        v-else
-        class="link-primary"
-        :to="'play'"
-        append
-      >
+      <NuxtLink v-else class="link-primary" :to="'play'" append>
         Continue
       </NuxtLink>
     </ChapterOpening>
@@ -119,7 +111,7 @@ export default {
     }
     @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
       height: 125px;
-    }     
+    }
   }
 }
 </style>

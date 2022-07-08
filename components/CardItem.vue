@@ -1,7 +1,6 @@
 <template>
   <div :style="styleObject" class="card-item" :class="classObject">
     <p class="lh-title"><slot></slot></p>
-
   </div>
 </template>
 
@@ -155,43 +154,43 @@ export default {
     font-family: $headline-font;
     color: $metallic-gray;
     font-size: $f-5;
-  
+
     @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
       font-size: $f-6;
-    }    
+    }
   }
 
   &.self-card::after {
-    content: "your choice";    
+    content: 'your choice';
     bottom: 32px;
     @media (max-width: $query-mobile) {
       bottom: 22px;
-    }    
+    }
     @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
       font-size: $f-6;
       bottom: 20px;
-    }   
+    }
   }
 
   &.other-card::after {
-    content: "the other's choice";    
+    content: "the other's choice";
     bottom: 14px;
     @media (max-width: $query-mobile) {
       bottom: 20px;
-    }    
+    }
     @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
       font-size: $f-6;
       bottom: 16px;
-    }   
+    }
   }
 
   // &.other-card::after {
-  //   content: "the other's choice";    
+  //   content: "the other's choice";
   //   position: absolute;
   //   font-family: $headline-font;
   //   color: $metallic-gray;
   //   font-size: $f-5;
   //   bottom: 12px;
-  // }  
+  // }
 }
 </style>
