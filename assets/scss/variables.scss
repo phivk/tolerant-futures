@@ -100,6 +100,7 @@ $dark-blue: #10103d;
 $very-dark-blue: #050524;
 $light-gray: #adadad;
 $gray: #878787;
+$metallic-gray: #7F788B;
 $card-item-background-color: #0e0b30;
 $card-item-outline-color: #909090;
 $background-color: #3c1b9a;
@@ -112,24 +113,3 @@ $warn-overlay-color: rgba(5, 5, 36, 0.3);
 $query-mobile: 450px;
 $query-mobile-landscape: 960px;
 $query-tablet: 1080px;
-
-/* spectrum gradient colors
-	are hand picked color vars used in background gradients of the spectra	
-	c-1-a is gradient 1 color of the left extreme of the gradient
-	c-1-b is gradient 1 color of the right extreme of the gradient
-	spectrum gradient css classes are generated in gradients.scss and exposed in global.scss
-*/
-// yellow blue
-$c-1-a: #ffed49;
-$c-1-b: #70a0fd;
-
-// green orange
-$c-2-a: #8aefb3;
-$c-2-b: #ff922e;
-
-// pink blue
-$c-3-a: #f37de7;
-$c-3-b: #76a0f3;
-
-// make a list
-$spectra-color-pairs: (($c-1-a, $c-1-b), ($c-2-a, $c-2-b), ($c-3-a, $c-3-b));
