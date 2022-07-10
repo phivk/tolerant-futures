@@ -100,13 +100,13 @@ export default {
     padding-bottom: $offset-1;
 
     @media (max-width: $query-mobile) {
-      font-size: $f-3;
-      line-height: $f-3;
+      font-size: $f-4;
+      line-height: $f-4;
     }
 
     @media (min-width: $query-mobile) and (max-width: $query-mobile-landscape) and (orientation: landscape) {
-      font-size: $f-4;
-      line-height: $f-4;
+      font-size: calc($f-5 + 0.1rem);
+      line-height: calc($f-5 + 0.1rem);
     }
   }
 
@@ -146,6 +146,48 @@ export default {
   }
   &.other-card::before {
     background-image: url('@/static/image/cards/other.png');
+  }
+
+  &.self-card::after,
+  &.other-card::after {
+    position: absolute;
+    font-family: $headline-font;
+    color: $metallic-gray;
+    font-size: $f-5;
+
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      font-size: $f-6;
+    }
+  }
+
+  &.self-card::after {
+    content: 'your choice';
+    bottom: 32px;
+    @media (max-width: $query-mobile) {
+      bottom: 22px;
+    }
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      font-size: $f-6;
+      bottom: 20px;
+    }
+  }
+
+  &.other-card::after {
+    bottom: 14px;
+    @media (max-width: $query-mobile) {
+      bottom: 20px;
+    }
+    @media (max-width: $query-mobile-landscape) and (orientation: landscape) {
+      font-size: $f-6;
+      bottom: 16px;
+    }
+  }
+
+  &.other-card.guess::after {
+    content: 'your guess';
+  }
+  &.other-card.true::after {
+    content: "the other's choice";
   }
 }
 </style>
