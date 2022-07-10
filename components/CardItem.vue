@@ -189,14 +189,5 @@ export default {
   &.other-card.true::after {
     content: "the other's choice";
   }
-
-  // &.other-card::after {
-  //   content: "the other's choice";
-  //   position: absolute;
-  //   font-family: $headline-font;
-  //   color: $metallic-gray;
-  //   font-size: $f-5;
-  //   bottom: 12px;
-  // }
 }
 </style>
