@@ -173,7 +173,6 @@ export default {
   }
 
   &.other-card::after {
-    content: "the other's choice";
     bottom: 14px;
     @media (max-width: $query-mobile) {
       bottom: 20px;
@@ -182,6 +181,13 @@ export default {
       font-size: $f-6;
       bottom: 16px;
     }
+  }
+
+  &.other-card.guess::after {
+    content: 'your guess';
+  }
+  &.other-card.true::after {
+    content: "the other's choice";
   }
 
   // &.other-card::after {

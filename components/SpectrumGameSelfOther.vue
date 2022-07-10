@@ -55,7 +55,7 @@
         :color-b="currentTurn.colorB"
         :draggable-state="draggableOtherState"
         :can-drop-on-drop-zone="isCardOnDropzone"
-        class="other-card"
+        class="other-card guess"
       >
         {{ currentTurn.concept }}
       </CardItem>
@@ -63,7 +63,7 @@
     <!-- otherTrue -->
     <CardItem
       v-show="currentState.elementsVisible.otherTrueCard"
-      class="o-70 z-5 other-card"
+      class="o-70 z-5 other-card true"
       :color-a="currentTurn.colorA"
       :color-b="currentTurn.colorB"
       :style="otherTrueTranslateStyle"
