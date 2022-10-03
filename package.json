@@ -18,7 +18,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "@supabase/supabase-js": "^1.35.4",
-    "core-js": "^3.23.5",
+    "core-js": "^3.25.4",
     "idle-vue": "^2.0.5",
     "interactjs": "^1.10.17",
     "nuxt": "^2.15.8",
